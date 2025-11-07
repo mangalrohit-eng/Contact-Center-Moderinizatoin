@@ -5,6 +5,13 @@ export default function ArchitecturePage() {
     <div className="min-h-screen bg-acc-black text-white">
       <div className="py-20">
         <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+          {/* Disclaimer */}
+          <div className="mb-8 bg-yellow-900/20 border border-yellow-600/50 rounded-lg p-4">
+            <p className="text-sm text-yellow-200 text-center">
+              <strong>Disclaimer:</strong> All content presented is indicative and subject to revision upon further discovery and detailed design phases.
+            </p>
+          </div>
+
           {/* Header */}
           <div className="text-center mb-16">
             <h1 className="text-4xl md:text-5xl font-bold mb-6">
