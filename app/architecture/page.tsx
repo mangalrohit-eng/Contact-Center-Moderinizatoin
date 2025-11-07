@@ -2,35 +2,68 @@ import MermaidDiagram from '@/components/MermaidDiagram';
 
 export default function ArchitecturePage() {
   return (
-    <div className="py-20 px-6 max-w-5xl mx-auto prose prose-invert prose-purple">
-      <h1 className="text-4xl font-bold mb-4 text-acc-purple">Contact Center — Agentic Architecture</h1>
-      
-      <p className="text-xl text-acc-gray-300 mb-8">
-        <strong>Channels → CES Next → Agentic Orchestrators → Domain Agents → Ops Tools</strong>
-      </p>
+    <div className="min-h-screen bg-acc-black text-white">
+      <div className="py-20">
+        <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+          {/* Header */}
+          <div className="text-center mb-16">
+            <h1 className="text-4xl md:text-5xl font-bold mb-6">
+              <span className="text-acc-purple">Solution Architecture</span>
+            </h1>
+            <p className="text-xl text-acc-gray-300 max-w-4xl mx-auto mb-4">
+              <strong>Channels → CES Next → Agentic Orchestrators → Domain Agents → Ops Tools</strong>
+            </p>
+            <p className="text-acc-gray-400 max-w-3xl mx-auto">
+              Voice (IVR) and chat share one policy & memory model. Human handoff returns full context to the contact center.
+            </p>
+          </div>
 
-      <p className="text-acc-gray-300">
-        Voice (IVR) and chat share one policy & memory model. Human handoff returns full context to the contact center.
-      </p>
+          {/* Channels & Entry */}
+          <section className="mb-16 bg-acc-gray-800 border border-acc-gray-700 rounded-lg p-8">
+            <h2 className="text-3xl font-bold mb-6 text-white">Channels & Entry</h2>
+            
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+              <div className="bg-acc-gray-900 border border-acc-gray-700 rounded-lg p-4">
+                <h3 className="font-bold text-blue-400 mb-2">Voice</h3>
+                <p className="text-sm text-acc-gray-300">PSTN/SIP → Genesys/NICE/Twilio → Google CCAI (STT/TTS)</p>
+              </div>
+              <div className="bg-acc-gray-900 border border-acc-gray-700 rounded-lg p-4">
+                <h3 className="font-bold text-green-400 mb-2">Chat</h3>
+                <p className="text-sm text-acc-gray-300">Web/App/SMS/WhatsApp → CES session (same policy)</p>
+              </div>
+              <div className="bg-acc-gray-900 border border-acc-gray-700 rounded-lg p-4">
+                <h3 className="font-bold text-purple-400 mb-2">Context</h3>
+                <p className="text-sm text-acc-gray-300">Session, auth token, device/app metadata, locale</p>
+              </div>
+            </div>
+          </section>
 
-      <h2 className="text-3xl font-bold mt-12 mb-4 text-white">Channels & Entry</h2>
-      
-      <ul className="text-acc-gray-300 space-y-2">
-        <li><strong>Voice:</strong> PSTN/SIP → Genesys/NICE/Twilio → Google CCAI (STT/TTS)</li>
-        <li><strong>Chat:</strong> Web/App/SMS/WhatsApp → CES session (same policy)</li>
-        <li><strong>Context:</strong> session, auth token, device/app metadata, locale</li>
-      </ul>
+          {/* CES Next & Agentic Layer */}
+          <section className="mb-16 bg-acc-gray-800 border border-acc-gray-700 rounded-lg p-8">
+            <h2 className="text-3xl font-bold mb-6 text-white">CES Next & Agentic Layer</h2>
+            
+            <div className="space-y-4">
+              <div className="bg-acc-gray-900 border border-acc-gray-700 rounded-lg p-4">
+                <p className="text-acc-gray-300">Goal Policies, Recovery, Safety/Compliance</p>
+              </div>
+              <div className="bg-acc-gray-900 border border-acc-gray-700 rounded-lg p-4">
+                <span className="font-bold text-acc-purple">Orchestrators:</span>
+                <span className="text-acc-gray-300"> Conversation / Goal / Safety</span>
+              </div>
+              <div className="bg-acc-gray-900 border border-acc-gray-700 rounded-lg p-4">
+                <span className="font-bold text-green-400">Domain Agents:</span>
+                <span className="text-acc-gray-300"> Billing, Plans, Devices, Activation, Network, Home, Security</span>
+              </div>
+              <div className="bg-acc-gray-900 border border-acc-gray-700 rounded-lg p-4">
+                <span className="font-bold text-blue-400">Utilities:</span>
+                <span className="text-acc-gray-300"> BSS Billing, Payments, OSS Outage, Device Catalog, Trade-in, Order API, Identity, Carrier Port, Appointments, Knowledge (RAG)</span>
+              </div>
+            </div>
+          </section>
 
-      <h2 className="text-3xl font-bold mt-12 mb-4 text-white">CES Next & Agentic Layer</h2>
-      
-      <ul className="text-acc-gray-300 space-y-2">
-        <li>Goal Policies, Recovery, Safety/Compliance</li>
-        <li><strong>Orchestrators:</strong> Conversation / Goal / Safety</li>
-        <li><strong>Domain Agents:</strong> Billing, Plans, Devices, Activation, Network, Home, Security</li>
-        <li><strong>Utilities:</strong> BSS Billing, Payments, OSS Outage, Device Catalog, Trade-in, Order API, Identity, Carrier Port, Appointments, Knowledge (RAG)</li>
-      </ul>
-
-      <h3 className="text-2xl font-bold mt-10 mb-4 text-acc-purple">Voice Flow</h3>
+          {/* Voice Flow */}
+          <section className="mb-16">
+            <h3 className="text-3xl font-bold mb-6 text-acc-purple">Voice Flow</h3>
       
       <MermaidDiagram diagram={`sequenceDiagram
   autonumber
@@ -57,9 +90,13 @@ export default function ArchitecturePage() {
   CC_Platform-->>Caller: Spoken response
   CES-->>CC_Platform: Handoff package (if needed)`} />
 
-      <h3 className="text-2xl font-bold mt-10 mb-4 text-acc-purple">Chat Flow</h3>
-      
-      <MermaidDiagram diagram={`sequenceDiagram
+          </section>
+
+          {/* Chat Flow */}
+          <section className="mb-16">
+            <h3 className="text-3xl font-bold mb-6 text-acc-purple">Chat Flow</h3>
+            
+            <MermaidDiagram diagram={`sequenceDiagram
   autonumber
   participant User
   participant Widget as Web/App Chat Widget
@@ -76,24 +113,70 @@ export default function ArchitecturePage() {
   Tool-->>Agent: Results
   Agent-->>CES: Steps + recommended action
   CES-->>Widget: Reply + next step or handoff`} />
+          </section>
 
-      <h2 className="text-3xl font-bold mt-12 mb-4 text-white">Handoff & Governance</h2>
-      
-      <ul className="text-acc-gray-300 space-y-2">
-        <li><strong>Human Handoff:</strong> conversation, goal state, tool results redacted & attached</li>
-        <li><strong>Guardrails:</strong> clarify on low-confidence; escalate on high risk</li>
-        <li><strong>Observability:</strong> per-turn trace, tool latency, policy triggers, audit trail</li>
-      </ul>
+          {/* Handoff & Governance */}
+          <section className="mb-16 bg-acc-gray-800 border border-acc-gray-700 rounded-lg p-8">
+            <h2 className="text-3xl font-bold mb-6 text-white">Handoff & Governance</h2>
+            
+            <div className="space-y-4">
+              <div className="bg-acc-gray-900 border border-acc-gray-700 rounded-lg p-4">
+                <span className="font-bold text-acc-purple">Human Handoff:</span>
+                <span className="text-acc-gray-300"> conversation, goal state, tool results redacted & attached</span>
+              </div>
+              <div className="bg-acc-gray-900 border border-acc-gray-700 rounded-lg p-4">
+                <span className="font-bold text-yellow-400">Guardrails:</span>
+                <span className="text-acc-gray-300"> clarify on low-confidence; escalate on high risk</span>
+              </div>
+              <div className="bg-acc-gray-900 border border-acc-gray-700 rounded-lg p-4">
+                <span className="font-bold text-green-400">Observability:</span>
+                <span className="text-acc-gray-300"> per-turn trace, tool latency, policy triggers, audit trail</span>
+              </div>
+            </div>
+          </section>
 
-      <div className="mt-12 p-6 bg-acc-purple/10 border border-acc-purple/30 rounded-lg">
-        <h3 className="text-xl font-bold mb-3 text-acc-purple">Key Architectural Highlights</h3>
-        <ul className="text-acc-gray-300 space-y-2 text-sm">
-          <li>✓ <strong>Unified Experience:</strong> Same policies across voice and digital channels</li>
-          <li>✓ <strong>Intelligent Routing:</strong> Orchestrators select optimal domain agents</li>
-          <li>✓ <strong>Seamless Handoff:</strong> Full context transfer to human agents when needed</li>
-          <li>✓ <strong>Enterprise Integration:</strong> Direct connection to BSS, OSS, CRM, and ITSM</li>
-          <li>✓ <strong>Real-time Guardrails:</strong> Safety, compliance, and policy enforcement</li>
-        </ul>
+          {/* Key Architectural Highlights */}
+          <section className="bg-gradient-to-br from-acc-purple/10 to-transparent border border-acc-purple/30 rounded-lg p-8">
+            <h2 className="text-2xl font-bold mb-6 text-acc-purple">Key Architectural Highlights</h2>
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+              <div className="flex items-start gap-3">
+                <div className="flex-shrink-0 w-6 h-6 rounded-full bg-acc-purple flex items-center justify-center text-white text-sm font-bold">✓</div>
+                <div>
+                  <h3 className="font-bold text-white mb-1">Unified Experience</h3>
+                  <p className="text-sm text-acc-gray-400">Same policies across voice and digital channels</p>
+                </div>
+              </div>
+              <div className="flex items-start gap-3">
+                <div className="flex-shrink-0 w-6 h-6 rounded-full bg-green-400 flex items-center justify-center text-white text-sm font-bold">✓</div>
+                <div>
+                  <h3 className="font-bold text-white mb-1">Intelligent Routing</h3>
+                  <p className="text-sm text-acc-gray-400">Orchestrators select optimal domain agents</p>
+                </div>
+              </div>
+              <div className="flex items-start gap-3">
+                <div className="flex-shrink-0 w-6 h-6 rounded-full bg-blue-400 flex items-center justify-center text-white text-sm font-bold">✓</div>
+                <div>
+                  <h3 className="font-bold text-white mb-1">Seamless Handoff</h3>
+                  <p className="text-sm text-acc-gray-400">Full context transfer to human agents when needed</p>
+                </div>
+              </div>
+              <div className="flex items-start gap-3">
+                <div className="flex-shrink-0 w-6 h-6 rounded-full bg-yellow-400 flex items-center justify-center text-white text-sm font-bold">✓</div>
+                <div>
+                  <h3 className="font-bold text-white mb-1">Enterprise Integration</h3>
+                  <p className="text-sm text-acc-gray-400">Direct connection to BSS, OSS, CRM, and ITSM</p>
+                </div>
+              </div>
+              <div className="flex items-start gap-3">
+                <div className="flex-shrink-0 w-6 h-6 rounded-full bg-pink-400 flex items-center justify-center text-white text-sm font-bold">✓</div>
+                <div>
+                  <h3 className="font-bold text-white mb-1">Real-time Guardrails</h3>
+                  <p className="text-sm text-acc-gray-400">Safety, compliance, and policy enforcement</p>
+                </div>
+              </div>
+            </div>
+          </section>
+        </div>
       </div>
     </div>
   );
