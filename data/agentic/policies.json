@@ -1,0 +1,32 @@
+{
+  "guardrails": [
+    {
+      "id": "pii_redaction",
+      "desc": "Mask PII in prompts/logs"
+    },
+    {
+      "id": "escalate_high_risk",
+      "desc": "Escalate if risk_score > 0.7"
+    },
+    {
+      "id": "tool_budget",
+      "desc": "Stop if cumulative tool latency > 3s without progress"
+    }
+  ],
+  "routing": [
+    {
+      "when": "intent_confidence < 0.55",
+      "action": "clarify"
+    },
+    {
+      "when": "risk_score > 0.7",
+      "action": "human_handoff"
+    },
+    {
+      "when": "requires_order",
+      "action": "assign upgrade_advisor"
+    }
+  ]
+}
+
+

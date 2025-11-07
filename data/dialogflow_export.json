@@ -1,0 +1,27 @@
+{
+  "intents": [
+    {
+      "name": "billing_increase",
+      "utterances": ["why is my bill higher", "bill went up", "charges explanation"]
+    },
+    {
+      "name": "network_outage",
+      "utterances": ["5g down", "no service", "outage near me"]
+    },
+    {
+      "name": "device_upgrade",
+      "utterances": ["upgrade iphone", "trade-in options", "new phone"]
+    },
+    {
+      "name": "activate_esim",
+      "utterances": ["activate esim", "port number", "transfer line"]
+    }
+  ],
+  "entities": [
+    { "name": "zipcode" },
+    { "name": "device_model" }
+  ],
+  "fallback_rate": 0.18
+}
+
+

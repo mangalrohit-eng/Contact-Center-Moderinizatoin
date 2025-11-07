@@ -1,0 +1,16 @@
+[
+  { "id": "bss_billing", "name": "BSS Billing", "type": "api", "sla_ms": 600 },
+  { "id": "oss_outage", "name": "OSS Outage", "type": "api", "sla_ms": 800 },
+  { "id": "location_service", "name": "Location Service", "type": "api", "sla_ms": 200 },
+  { "id": "knowledge_plans", "name": "Knowledge: Plans", "type": "rag", "sla_ms": 300 },
+  { "id": "knowledge_network", "name": "Knowledge: Network", "type": "rag", "sla_ms": 300 },
+  { "id": "device_catalog", "name": "Device Catalog", "type": "api", "sla_ms": 400 },
+  { "id": "promotions", "name": "Promotions", "type": "api", "sla_ms": 350 },
+  { "id": "order_api", "name": "Order API", "type": "api", "sla_ms": 700 },
+  { "id": "eligibility", "name": "Eligibility", "type": "api", "sla_ms": 300 },
+  { "id": "payments", "name": "Payments", "type": "api", "sla_ms": 650 },
+  { "id": "identity", "name": "Identity", "type": "api", "sla_ms": 250 },
+  { "id": "carrier_port", "name": "Carrier Port", "type": "api", "sla_ms": 900 }
+]
+
+

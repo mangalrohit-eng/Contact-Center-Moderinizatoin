@@ -1,0 +1,10 @@
+<svg width="120" height="24" viewBox="0 0 120 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <!-- Simplified Accenture logo representation -->
+  <path d="M8 4L12 20H10L9 16H5L4 20H2L6 4H8ZM7 8L5.5 14H8.5L7 8Z" fill="#A100FF"/>
+  <path d="M18 8C20.2091 8 22 9.79086 22 12C22 14.2091 20.2091 16 18 16C15.7909 16 14 14.2091 14 12C14 9.79086 15.7909 8 18 8ZM18 10C16.8954 10 16 10.8954 16 12C16 13.1046 16.8954 14 18 14C19.1046 14 20 13.1046 20 12C20 10.8954 19.1046 10 18 10Z" fill="#A100FF"/>
+  <path d="M28 8C30.2091 8 32 9.79086 32 12C32 14.2091 30.2091 16 28 16C25.7909 16 24 14.2091 24 12C24 9.79086 25.7909 8 28 8ZM28 10C26.8954 10 26 10.8954 26 12C26 13.1046 26.8954 14 28 14C29.1046 14 30 13.1046 30 12C30 10.8954 29.1046 10 28 10Z" fill="#A100FF"/>
+  <text x="34" y="14" font-family="Arial, sans-serif" font-size="10" font-weight="700" fill="#A100FF">Accenture</text>
+  <path d="M115 12L118 9V15L115 12Z" fill="#A100FF"/>
+</svg>
+
+

@@ -1,0 +1,16 @@
+{
+  "latency_ms": {
+    "bss_billing": [580, 620, 610],
+    "oss_outage": [820, 790, 810],
+    "order_api": [690, 720, 710],
+    "identity": [240, 260, 255]
+  },
+  "success_rate": {
+    "billing_explainer": 0.92,
+    "outage_resolver": 0.87,
+    "upgrade_advisor": 0.9,
+    "esim_activator": 0.88
+  }
+}
+
+

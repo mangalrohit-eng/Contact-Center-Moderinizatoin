@@ -1,0 +1,28 @@
+[
+  {
+    "id": "billing_explainer",
+    "name": "Billing Explainer",
+    "domain": "Billing & Payments",
+    "tools": ["bss_billing", "knowledge_plans", "payments"]
+  },
+  {
+    "id": "outage_resolver",
+    "name": "Outage Resolver",
+    "domain": "Network & Outage",
+    "tools": ["oss_outage", "location_service", "knowledge_network"]
+  },
+  {
+    "id": "upgrade_advisor",
+    "name": "Upgrade Advisor",
+    "domain": "Device & Plan",
+    "tools": ["eligibility", "device_catalog", "promotions", "order_api"]
+  },
+  {
+    "id": "esim_activator",
+    "name": "eSIM Activator",
+    "domain": "Activation & Port-in",
+    "tools": ["identity", "carrier_port", "order_api"]
+  }
+]
+
+

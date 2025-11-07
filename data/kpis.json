@@ -1,0 +1,14 @@
+{
+  "before": {
+    "containment": 0.62,
+    "aht": 540,
+    "csat": 3.9
+  },
+  "after": {
+    "containment": 0.76,
+    "aht": 460,
+    "csat": 4.3
+  }
+}
+
+

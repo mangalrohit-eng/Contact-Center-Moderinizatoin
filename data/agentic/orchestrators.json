@@ -1,0 +1,22 @@
+[
+  {
+    "id": "conv_orch",
+    "name": "Conversation Orchestrator",
+    "role": "Multi-turn strategy, memory, tool hints",
+    "signals": ["intent", "context", "risk", "goal_progress"]
+  },
+  {
+    "id": "goal_orch",
+    "name": "Goal Orchestrator",
+    "role": "Subgoals; assign domain agents",
+    "signals": ["goal_spec", "requirements", "slo"]
+  },
+  {
+    "id": "safety_orch",
+    "name": "Safety & Compliance Orchestrator",
+    "role": "PII redaction; escalation checks",
+    "signals": ["pii_detected", "policy_violation"]
+  }
+]
+
+

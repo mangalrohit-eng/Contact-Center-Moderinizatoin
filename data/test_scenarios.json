@@ -1,0 +1,24 @@
+[
+  {
+    "id": 1,
+    "prompt": "Why is my bill higher this month?",
+    "expected": "explain_bill_variance"
+  },
+  {
+    "id": 2,
+    "prompt": "5G seems down near 10001",
+    "expected": "resolve_outage"
+  },
+  {
+    "id": 3,
+    "prompt": "Upgrade to iPhone 16 with trade-in",
+    "expected": "upgrade_with_tradein"
+  },
+  {
+    "id": 4,
+    "prompt": "Activate eSIM and port my number",
+    "expected": "activate_esim_portin"
+  }
+]
+
+

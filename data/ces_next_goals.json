@@ -1,0 +1,22 @@
+{
+  "goals": [
+    {
+      "id": "explain_bill_variance",
+      "desc": "Diagnose bill increases; offer autopay/plan optimization"
+    },
+    {
+      "id": "resolve_outage",
+      "desc": "Outage/ticket status; ETA; credit policy guidance"
+    },
+    {
+      "id": "upgrade_with_tradein",
+      "desc": "Eligibility, promos, trade-in quote; place order"
+    },
+    {
+      "id": "activate_esim_portin",
+      "desc": "KYC, eSIM activation, port-in"
+    }
+  ]
+}
+
+
