@@ -14,7 +14,7 @@ export default function ArchitecturePage() {
               <strong>Channels → CES Next → Agentic Orchestrators → Domain Agents → Ops Tools</strong>
             </p>
             <p className="text-acc-gray-400 max-w-3xl mx-auto">
-              Voice (IVR) and chat share one policy & memory model. Human handoff returns full context to the contact center.
+              CES Next Gen provides native voice understanding and response capabilities. Voice (IVR) and chat share one unified policy & memory model. Human handoff returns full context to the contact center.
             </p>
           </div>
 
@@ -25,11 +25,11 @@ export default function ArchitecturePage() {
             <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
               <div className="bg-acc-gray-900 border border-acc-gray-700 rounded-lg p-4">
                 <h3 className="font-bold text-blue-400 mb-2">Voice</h3>
-                <p className="text-sm text-acc-gray-300">PSTN/SIP → Genesys/NICE/Twilio → Google CCAI (STT/TTS)</p>
+                <p className="text-sm text-acc-gray-300">PSTN/SIP → Contact Center Platform → CES Next (native voice understanding & response)</p>
               </div>
               <div className="bg-acc-gray-900 border border-acc-gray-700 rounded-lg p-4">
                 <h3 className="font-bold text-green-400 mb-2">Chat</h3>
-                <p className="text-sm text-acc-gray-300">Web/App/SMS/WhatsApp → CES session (same policy)</p>
+                <p className="text-sm text-acc-gray-300">Web/App/SMS/WhatsApp → CES Next (same policy & memory)</p>
               </div>
               <div className="bg-acc-gray-900 border border-acc-gray-700 rounded-lg p-4">
                 <h3 className="font-bold text-purple-400 mb-2">Context</h3>
@@ -70,23 +70,22 @@ export default function ArchitecturePage() {
   participant Caller
   participant Carrier/PBX
   participant CC_Platform as Contact Center (Genesys/NICE/Flex)
-  participant CCAI as Google CCAI (STT/TTS)
-  participant CES as CES Next (Conversational Agents)
+  participant CES as CES Next (Native Voice + Agentic AI)
   participant Orch as Agentic Orchestrators
   participant Agent as Domain Agent
   participant Tool as Ops Tools (BSS/OSS/CRM/ITSM)
 
   Caller->>Carrier/PBX: Dial support
   Carrier/PBX->>CC_Platform: SIP/PSTN call setup
-  CC_Platform->>CCAI: Media stream (STT/TTS)
-  CCAI->>CES: Turn text + session (channel=voice)
+  CC_Platform->>CES: Voice stream (native audio)
+  CES->>CES: Voice understanding (built-in)
   CES->>Orch: Policy + memory + risk checks
   Orch->>Agent: Assign (e.g., Billing Explainer)
   Agent->>Tool: BSS/Payments/Knowledge calls
   Tool-->>Agent: Result (charges/offers/ETA)
   Agent-->>CES: Goal progress + reply
-  CES-->>CCAI: Text → TTS
-  CCAI-->>CC_Platform: Audio
+  CES->>CES: Voice synthesis (built-in)
+  CES-->>CC_Platform: Voice response (native audio)
   CC_Platform-->>Caller: Spoken response
   CES-->>CC_Platform: Handoff package (if needed)`} />
 
