@@ -16,7 +16,6 @@ export default function NavBar() {
     { href: '/roadmap/', label: 'Roadmap' },
     { href: '/metrics/', label: 'Metrics' },
     { href: '/about/', label: 'About' },
-    { href: '/contact/', label: 'Contact' },
   ];
 
   return (
@@ -47,12 +46,6 @@ export default function NavBar() {
                 {link.label}
               </Link>
             ))}
-            <Link
-              href="/contact/"
-              className="btn-primary ring-acc focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-acc-purple"
-            >
-              Request Assessment
-            </Link>
           </div>
 
           {/* Mobile menu button */}
@@ -82,13 +75,6 @@ export default function NavBar() {
                 {link.label}
               </Link>
             ))}
-            <Link
-              href="/contact/"
-              className="block btn-primary mt-2 text-center"
-              onClick={() => setIsOpen(false)}
-            >
-              Request Assessment
-            </Link>
           </div>
         </div>
       )}

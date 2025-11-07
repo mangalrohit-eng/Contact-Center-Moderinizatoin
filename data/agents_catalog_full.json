@@ -1,0 +1,320 @@
+{
+  "orchestrators": [
+    {
+      "id": "conv_orch",
+      "name": "Conversation Orchestrator",
+      "type": "Orchestrator",
+      "description": "Manages multi-turn conversation strategy, context memory, and delegates to goal orchestrator. Tracks conversation state and user intent across turns.",
+      "topIntents": ["All conversational flows", "Context switching", "Multi-intent handling"]
+    },
+    {
+      "id": "goal_orch",
+      "name": "Goal Orchestrator",
+      "type": "Orchestrator",
+      "description": "Routes to specialized domain agents based on goal classification. Manages subgoal decomposition and agent selection with SLA tracking.",
+      "topIntents": ["Intent routing", "Agent selection", "Goal decomposition"]
+    },
+    {
+      "id": "safety_orch",
+      "name": "Safety & Compliance Orchestrator",
+      "type": "Orchestrator",
+      "description": "Enforces PII redaction, content filtering, and escalation policies. Monitors risk scores and ensures regulatory compliance.",
+      "topIntents": ["PII detection", "High-risk escalation", "Compliance checks"]
+    }
+  ],
+  "agents": [
+    {
+      "id": "billing_agent",
+      "name": "Billing & Payments Agent",
+      "type": "Domain Agent",
+      "description": "Comprehensive billing support including payment processing, bill explanation, disputes, and payment arrangements. Accesses BSS billing systems and payment gateways.",
+      "topIntents": ["Bill variance explanation", "One-time payment", "Payment arrangements"],
+      "intentCount": 20
+    },
+    {
+      "id": "plans_agent",
+      "name": "Plans & Features Agent",
+      "type": "Domain Agent",
+      "description": "Handles plan changes, line management, feature add-ons, and family plan configurations. Evaluates eligibility and presents personalized recommendations.",
+      "topIntents": ["Change plan", "Add/remove line", "Plan comparison"],
+      "intentCount": 20
+    },
+    {
+      "id": "device_agent",
+      "name": "Device Lifecycle Agent",
+      "type": "Domain Agent",
+      "description": "Complete device management including upgrades, trade-ins, orders, returns, and troubleshooting. Orchestrates eligibility checks and order placement.",
+      "topIntents": ["Upgrade eligibility", "Trade-in quote", "Order status"],
+      "intentCount": 20
+    },
+    {
+      "id": "activation_agent",
+      "name": "Activation & Provisioning Agent",
+      "type": "Domain Agent",
+      "description": "Device activation, eSIM provisioning, number porting, and SIM management. Performs identity verification and KYC checks.",
+      "topIntents": ["Activate device/SIM", "eSIM setup", "Port number"],
+      "intentCount": 10
+    },
+    {
+      "id": "network_agent",
+      "name": "Network & Coverage Agent",
+      "type": "Domain Agent",
+      "description": "Network troubleshooting, outage reporting, coverage inquiries, and connectivity issues. Queries OSS systems and creates service tickets.",
+      "topIntents": ["Report outage", "Check 5G coverage", "Slow data speed"],
+      "intentCount": 15
+    },
+    {
+      "id": "account_agent",
+      "name": "Account Management Agent",
+      "type": "Domain Agent",
+      "description": "Account settings, profile updates, password resets, authorized users, and account security. Manages account lifecycle and ownership changes.",
+      "topIntents": ["Reset password", "Update address", "Account verification"],
+      "intentCount": 15
+    },
+    {
+      "id": "features_agent",
+      "name": "Features & Services Agent",
+      "type": "Domain Agent",
+      "description": "Voicemail, call forwarding, call blocking, parental controls, and other value-added services. Configures calling features and content filtering.",
+      "topIntents": ["Voicemail setup", "Call forwarding", "Spam blocking"],
+      "intentCount": 15
+    },
+    {
+      "id": "home_internet_agent",
+      "name": "Home Internet Agent",
+      "type": "Domain Agent",
+      "description": "Fios and home internet support including gateway diagnostics, WiFi management, technician appointments, and self-install assistance.",
+      "topIntents": ["Fios outage", "WiFi password", "Gateway reboot"],
+      "intentCount": 20
+    },
+    {
+      "id": "security_agent",
+      "name": "Security & Fraud Agent",
+      "type": "Domain Agent",
+      "description": "Fraud detection, account takeover prevention, spam reporting, and security concerns. Integrates with fraud detection systems.",
+      "topIntents": ["Fraud alert", "Spam report", "Account security"],
+      "intentCount": 10
+    },
+    {
+      "id": "retail_agent",
+      "name": "Retail & Store Agent",
+      "type": "Domain Agent",
+      "description": "Store location, hours, appointments, curbside pickup, and product availability. Coordinates with physical retail locations.",
+      "topIntents": ["Store locator", "Store hours", "In-store appointment"],
+      "intentCount": 5
+    },
+    {
+      "id": "business_agent",
+      "name": "Business Services Agent",
+      "type": "Domain Agent",
+      "description": "Business account management, fleet services, enterprise solutions, and bulk ordering. Handles B2B-specific requirements.",
+      "topIntents": ["Business account", "Fleet management", "Enterprise solutions"],
+      "intentCount": 10
+    },
+    {
+      "id": "promotions_agent",
+      "name": "Promotions & Offers Agent",
+      "type": "Domain Agent",
+      "description": "Current promotions, loyalty rewards, referral programs, and personalized offers. Queries real-time promotional engine.",
+      "topIntents": ["Current deals", "Trade-in promotion", "Loyalty rewards"],
+      "intentCount": 10
+    },
+    {
+      "id": "support_agent",
+      "name": "General Support Agent",
+      "type": "Domain Agent",
+      "description": "General inquiries, complaint escalation, feedback, and routing to specialized support channels. Fallback for unclassified intents.",
+      "topIntents": ["General inquiry", "Complaint escalation", "Callback request"],
+      "intentCount": 10
+    },
+    {
+      "id": "accessibility_agent",
+      "name": "Accessibility Services Agent",
+      "type": "Domain Agent",
+      "description": "Accessibility features, TTY/TDD setup, hearing aid compatibility, and assistive technology support.",
+      "topIntents": ["TTY setup", "Hearing aid compatibility", "Voice commands"],
+      "intentCount": 5
+    },
+    {
+      "id": "international_agent",
+      "name": "International Services Agent",
+      "type": "Domain Agent",
+      "description": "Travel passes, international rates, cruise plans, and global connectivity options. Manages international add-ons.",
+      "topIntents": ["Travel pass", "International rates", "Global calling"],
+      "intentCount": 5
+    },
+    {
+      "id": "connected_devices_agent",
+      "name": "Connected Devices Agent",
+      "type": "Domain Agent",
+      "description": "Tablets, smartwatches, IoT devices, mobile hotspots, and vehicle connectivity. Handles multi-device ecosystems.",
+      "topIntents": ["Smartwatch activation", "Tablet plan", "IoT connectivity"],
+      "intentCount": 5
+    },
+    {
+      "id": "wireless_home_agent",
+      "name": "Wireless Home Internet Agent",
+      "type": "Domain Agent",
+      "description": "5G Home Internet, LTE Home Internet, fixed wireless, and backup internet solutions for residential customers.",
+      "topIntents": ["5G Home Internet", "Fixed wireless setup", "Rural internet"],
+      "intentCount": 5
+    }
+  ],
+  "tools": [
+    {
+      "id": "bss_billing",
+      "name": "BSS Billing API",
+      "type": "API Tool",
+      "description": "Core billing system API for account balances, invoice details, billing history, and itemized charges.",
+      "topIntents": ["Bill inquiry", "Payment history", "Charge details"]
+    },
+    {
+      "id": "payments",
+      "name": "Payment Gateway",
+      "type": "API Tool",
+      "description": "Payment processing for one-time and recurring payments. Handles payment methods, autopay, and refunds.",
+      "topIntents": ["Make payment", "Setup autopay", "Payment method"]
+    },
+    {
+      "id": "eligibility",
+      "name": "Eligibility Engine",
+      "type": "API Tool",
+      "description": "Checks upgrade eligibility, plan change eligibility, and promotional qualification.",
+      "topIntents": ["Upgrade check", "Plan eligibility", "Promo qualification"]
+    },
+    {
+      "id": "device_catalog",
+      "name": "Device Catalog API",
+      "type": "API Tool",
+      "description": "Product catalog with device specs, pricing, inventory, and compatibility information.",
+      "topIntents": ["Device search", "BYOD check", "Accessory lookup"]
+    },
+    {
+      "id": "trade_in",
+      "name": "Trade-in Valuation",
+      "type": "API Tool",
+      "description": "Instant trade-in valuations based on device condition, model, and market rates.",
+      "topIntents": ["Trade-in quote", "Device value", "Trade-in eligibility"]
+    },
+    {
+      "id": "order_api",
+      "name": "Order Management API",
+      "type": "API Tool",
+      "description": "Order creation, tracking, modification, returns, and exchanges.",
+      "topIntents": ["Order status", "Place order", "Return request"]
+    },
+    {
+      "id": "identity",
+      "name": "Identity & KYC",
+      "type": "API Tool",
+      "description": "Identity verification, 2FA, PIN/PUK management, and KYC validation.",
+      "topIntents": ["Verify identity", "Reset PIN", "2FA setup"]
+    },
+    {
+      "id": "carrier_port",
+      "name": "Number Porting",
+      "type": "API Tool",
+      "description": "Number porting from other carriers, validation, and port-in request management.",
+      "topIntents": ["Port number", "Port status", "Port validation"]
+    },
+    {
+      "id": "oss_outage",
+      "name": "OSS Outage System",
+      "type": "API Tool",
+      "description": "Network operations support for outage detection, ticket creation, and service restoration status.",
+      "topIntents": ["Report outage", "Ticket status", "Service ETA"]
+    },
+    {
+      "id": "location_service",
+      "name": "Location & Coverage",
+      "type": "API Tool",
+      "description": "Geocoding and coverage lookup by ZIP/address. Returns tower locations and signal predictions.",
+      "topIntents": ["Coverage check", "5G availability", "Tower location"]
+    },
+    {
+      "id": "fios_gateway",
+      "name": "Fios Gateway API",
+      "type": "API Tool",
+      "description": "Remote management of Fios gateway devices for diagnostics, reboots, and WiFi configuration.",
+      "topIntents": ["Gateway reboot", "WiFi settings", "ONT diagnostics"]
+    },
+    {
+      "id": "appointments",
+      "name": "Appointment Scheduling",
+      "type": "API Tool",
+      "description": "Technician scheduling with availability lookup, booking, and rescheduling.",
+      "topIntents": ["Schedule appointment", "Reschedule", "Appointment status"]
+    },
+    {
+      "id": "promotions",
+      "name": "Promotions Engine",
+      "type": "API Tool",
+      "description": "Real-time promotional engine returning personalized offers based on customer segment.",
+      "topIntents": ["Current offers", "Discount eligibility", "Promo codes"]
+    },
+    {
+      "id": "security_fraud",
+      "name": "Fraud Detection",
+      "type": "API Tool",
+      "description": "Fraud detection and prevention. Analyzes transactions for suspicious patterns.",
+      "topIntents": ["Fraud check", "Account lock", "Security alert"]
+    },
+    {
+      "id": "crm",
+      "name": "CRM System",
+      "type": "API Tool",
+      "description": "Customer relationship management for account profiles, preferences, and interaction history.",
+      "topIntents": ["Account lookup", "Customer history", "Profile update"]
+    },
+    {
+      "id": "inventory",
+      "name": "Inventory Management",
+      "type": "API Tool",
+      "description": "Real-time inventory for devices, accessories, and equipment across warehouses and stores.",
+      "topIntents": ["Stock check", "Availability", "Store inventory"]
+    },
+    {
+      "id": "sim_management",
+      "name": "SIM Provisioning",
+      "type": "API Tool",
+      "description": "SIM activation, eSIM provisioning, and SIM swap management.",
+      "topIntents": ["Activate SIM", "eSIM download", "SIM replacement"]
+    },
+    {
+      "id": "network_config",
+      "name": "Network Configuration",
+      "type": "API Tool",
+      "description": "Network settings, APN configuration, and device provisioning parameters.",
+      "topIntents": ["Network reset", "APN settings", "VoLTE config"]
+    },
+    {
+      "id": "knowledge_billing",
+      "name": "Knowledge Base: Billing",
+      "type": "RAG Tool",
+      "description": "Vector database of billing policies, fee explanations, and account management procedures.",
+      "topIntents": ["Fee explanation", "Billing policy", "Tax questions"]
+    },
+    {
+      "id": "knowledge_network",
+      "name": "Knowledge Base: Network",
+      "type": "RAG Tool",
+      "description": "Network troubleshooting guides, policy documents, and feature documentation.",
+      "topIntents": ["Network troubleshooting", "Policy lookup", "Feature guide"]
+    },
+    {
+      "id": "knowledge_devices",
+      "name": "Knowledge Base: Devices",
+      "type": "RAG Tool",
+      "description": "Device manuals, troubleshooting guides, and compatibility information.",
+      "topIntents": ["Device help", "User manual", "Troubleshooting"]
+    },
+    {
+      "id": "knowledge_plans",
+      "name": "Knowledge Base: Plans",
+      "type": "RAG Tool",
+      "description": "Plan details, feature comparisons, and pricing information.",
+      "topIntents": ["Plan details", "Feature comparison", "Pricing"]
+    }
+  ]
+}
+

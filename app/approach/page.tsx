@@ -1,4 +1,4 @@
-import { CheckCircle2, Download, Search, Wrench, Rocket } from 'lucide-react';
+import { CheckCircle2, Search, Wrench, Rocket } from 'lucide-react';
 import Link from 'next/link';
 
 const phases = [
@@ -71,21 +71,6 @@ export default function ApproachPage() {
           })}
         </div>
 
-        {/* Download CTA */}
-        <div className="bg-gradient-to-br from-acc-purple/10 to-transparent border border-acc-purple/30 rounded-lg p-8 text-center">
-          <h3 className="text-2xl font-bold mb-4">Download the Complete Methodology</h3>
-          <p className="text-acc-gray-400 mb-6 max-w-2xl mx-auto">
-            Get the full one-pager with architecture diagrams, migration timelines, and ROI projections.
-          </p>
-          <a
-            href="/downloads/Accenture_Agentic_Modernization_OnePager.pdf"
-            download
-            className="btn-primary inline-flex items-center gap-2"
-          >
-            <Download className="w-5 h-5" />
-            Download One-Pager (PDF)
-          </a>
-        </div>
       </div>
     </div>
   );

@@ -1,4 +1,4 @@
-import agentsCatalog from '@/data/agents_catalog.json';
+import agentsCatalog from '@/data/agents_catalog_full.json';
 import { Layers, Cpu, Wrench } from 'lucide-react';
 
 export default function AgentsPage() {
@@ -31,7 +31,7 @@ export default function AgentsPage() {
             <span className="text-acc-purple">Agents & Tools Catalog</span>
           </h1>
           <p className="text-xl text-acc-gray-400 max-w-3xl mx-auto">
-            Comprehensive directory of orchestrators, domain agents, and utility tools powering enterprise-scale contact center automation.
+            Comprehensive directory of {orchestrators.length} orchestrators, {agents.length} domain agents, and {tools.length} utility tools powering enterprise-scale contact center automation covering 200+ intents.
           </p>
         </div>
 

@@ -24,10 +24,10 @@ export default function Home() {
               Explore Architecture
             </a>
             <a
-              href="/contact/"
+              href="/roadmap/"
               className="px-6 py-3 bg-acc-gray-800 hover:bg-acc-gray-700 text-white rounded-lg font-semibold transition-colors border border-acc-gray-700 inline-flex items-center justify-center"
             >
-              Contact Us
+              View Roadmap
             </a>
           </div>
         </div>
