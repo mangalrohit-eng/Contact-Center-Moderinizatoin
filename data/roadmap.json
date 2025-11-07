@@ -2,7 +2,7 @@
   "phases": [
     {
       "id": "phase1",
-      "name": "Foundation & Core Agents",
+      "name": "Foundation & High-Volume Agents",
       "months": "Months 1-4",
       "quarter": "Q1",
       "description": "Establish orchestration framework and deploy high-volume billing and plan agents",
@@ -23,184 +23,265 @@
           "deployMonth": 2
         },
         {
-          "name": "Billing Explainer",
+          "name": "Billing & Payments Agent",
           "type": "agent",
           "deployMonth": 3
         },
         {
-          "name": "Plan & Lines Manager",
+          "name": "Plans & Features Agent",
           "type": "agent",
           "deployMonth": 4
         }
       ],
       "intents": [
-        "Explain bill variance",
-        "One-time payment",
-        "Autopay setup",
-        "Payment arrangement",
-        "Dispute charge",
-        "Billing cycle change",
-        "Update payment method",
-        "Download bill",
-        "Change plan",
-        "Add/remove line",
-        "International roaming",
-        "Manage add-ons",
-        "Spam block",
-        "Call forwarding"
+        "Bill variance explanation", "One-time payment", "Autopay setup", "Payment arrangement",
+        "Dispute charge", "Billing cycle change", "Update payment method", "Download bill",
+        "Paperless billing", "Tax/fee explanation", "Refund status", "Credit application",
+        "Change plan", "Add/remove line", "Plan comparison", "International roaming",
+        "Family plan setup", "Data usage inquiry", "Remove add-on", "Military discount",
+        "Corporate discount", "Suspend service", "Restore service", "Plan renewal"
       ],
-      "intentCount": 14,
+      "intentCount": 40,
       "coverage": "20%",
       "kpis": {
-        "containment": "55%",
-        "aht": "520s",
-        "csat": "3.7"
+        "containment": "58%",
+        "aht": "510s",
+        "csat": "3.8"
       }
     },
     {
       "id": "phase2",
       "name": "Device & Activation",
-      "months": "Months 5-9",
-      "quarter": "Q2-Q3",
+      "months": "Months 5-7",
+      "quarter": "Q2",
       "description": "Launch device lifecycle and activation agents for upgrade and onboarding flows",
       "agents": [
         {
-          "name": "Device Lifecycle",
+          "name": "Device Lifecycle Agent",
+          "type": "agent",
+          "deployMonth": 5
+        },
+        {
+          "name": "Activation & Provisioning Agent",
           "type": "agent",
           "deployMonth": 6
         },
         {
-          "name": "Activation & Identity",
+          "name": "Account Management Agent",
           "type": "agent",
-          "deployMonth": 8
+          "deployMonth": 7
         }
       ],
       "intents": [
-        "Upgrade eligibility",
-        "Start upgrade",
-        "Trade-in quote",
-        "Order status",
-        "Returns/exchanges",
-        "Device protection claim",
-        "Lost/stolen device",
-        "BYOD compatibility",
-        "Activate device/SIM",
-        "Activate eSIM",
-        "Port-in number",
-        "Transfer number",
-        "Identity verification",
-        "2FA/PIN reset",
-        "Number change",
-        "Suspend/restore line"
+        "Upgrade eligibility", "Start upgrade", "Trade-in quote", "Order status",
+        "Device return/exchange", "Device protection claim", "Lost/stolen device",
+        "Device unlock", "BYOD compatibility", "Device troubleshooting", "Warranty claim",
+        "Accessory order", "Device payment plan", "Early device payoff", "Device comparison",
+        "Activate device/SIM", "eSIM setup", "Port number", "Transfer number", "Replace SIM",
+        "SIM swap", "Multi-SIM activation", "Number port status",
+        "Change phone number", "Update email", "Update address", "Reset password",
+        "Add authorized user", "Remove authorized user", "Transfer ownership",
+        "Close account", "Account security review", "Two-factor auth", "Account verification"
       ],
-      "intentCount": 16,
-      "coverage": "43%",
+      "intentCount": 74,
+      "coverage": "37%",
       "kpis": {
-        "containment": "63%",
-        "aht": "495s",
+        "containment": "64%",
+        "aht": "490s",
         "csat": "4.0"
       }
     },
     {
       "id": "phase3",
-      "name": "Network & Home Services",
-      "months": "Months 10-14",
-      "quarter": "Q3-Q4",
-      "description": "Deploy network troubleshooting and home internet support agents",
+      "name": "Network & Connectivity",
+      "months": "Months 8-10",
+      "quarter": "Q3",
+      "description": "Deploy network troubleshooting and calling features agents",
       "agents": [
         {
-          "name": "Network & Outage",
+          "name": "Network & Coverage Agent",
           "type": "agent",
-          "deployMonth": 11
+          "deployMonth": 8
         },
         {
-          "name": "Home Internet (Fios)",
+          "name": "Features & Services Agent",
           "type": "agent",
-          "deployMonth": 13
+          "deployMonth": 9
+        },
+        {
+          "name": "Home Internet Agent",
+          "type": "agent",
+          "deployMonth": 10
         }
       ],
       "intents": [
-        "Report outage by ZIP",
-        "Check coverage/5G",
-        "Speed test help",
-        "WiFi calling setup",
-        "Network ticket status",
-        "Move service address",
-        "Fios gateway diagnostics",
-        "WiFi SSID/password",
-        "Schedule appointment",
-        "Self-install activation",
-        "Equipment return",
-        "Router troubleshooting",
-        "Signal strength",
-        "Data usage inquiry"
+        "Report outage", "Check 5G coverage", "Slow data speed", "No service/signal",
+        "WiFi calling setup", "VoLTE troubleshooting", "Network ticket status",
+        "Coverage map inquiry", "Roaming issues", "Network settings reset",
+        "Cell tower location", "Signal booster", "LTE vs 5G", "Network congestion",
+        "International roaming setup",
+        "Voicemail setup", "Visual voicemail", "Call forwarding", "Call blocking",
+        "Caller ID settings", "Do not disturb", "Parental controls", "Content filtering",
+        "Family locator", "Call waiting", "Three-way calling", "International calling setup",
+        "Call history", "Text message settings",
+        "Fios outage", "WiFi password reset", "Gateway reboot", "Slow internet",
+        "ONT troubleshooting", "Schedule appointment", "Reschedule appointment",
+        "WiFi extender setup", "Change WiFi name", "Self-install activation",
+        "Equipment return", "Upgrade internet speed", "Guest WiFi", "Port forwarding",
+        "Move service address", "Static IP request", "Modem compatibility",
+        "Ethernet issues", "WiFi mesh setup", "Fios TV inquiry"
       ],
-      "intentCount": 14,
-      "coverage": "63%",
+      "intentCount": 124,
+      "coverage": "62%",
       "kpis": {
-        "containment": "69%",
-        "aht": "475s",
+        "containment": "70%",
+        "aht": "470s",
         "csat": "4.2"
       }
     },
     {
       "id": "phase4",
-      "name": "Security & Advanced Features",
-      "months": "Months 15-18",
-      "quarter": "Q4+",
-      "description": "Complete agent suite with fraud detection and advanced policy features",
+      "name": "Security & Retail",
+      "months": "Months 11-13",
+      "quarter": "Q4",
+      "description": "Deploy security, fraud detection, and retail support agents",
       "agents": [
         {
-          "name": "Security & Fraud",
+          "name": "Security & Fraud Agent",
+          "type": "agent",
+          "deployMonth": 11
+        },
+        {
+          "name": "Retail & Store Agent",
+          "type": "agent",
+          "deployMonth": 12
+        },
+        {
+          "name": "Promotions & Offers Agent",
+          "type": "agent",
+          "deployMonth": 13
+        }
+      ],
+      "intents": [
+        "Fraud alert", "Account takeover", "Spam call report", "Spam text report",
+        "Phishing attempt", "Identity theft", "Unauthorized charges", "Account freeze",
+        "Security audit", "Change security questions",
+        "Store locator", "Store hours", "In-store appointment", "Curbside pickup",
+        "Product availability",
+        "Promotional offer", "Current deals", "Referral program", "Loyalty rewards",
+        "Bundle savings", "Trade-in promotion", "New customer offers",
+        "Switch carrier incentives", "Black Friday deals", "Seasonal promotions"
+      ],
+      "intentCount": 149,
+      "coverage": "75%",
+      "kpis": {
+        "containment": "74%",
+        "aht": "455s",
+        "csat": "4.3"
+      }
+    },
+    {
+      "id": "phase5",
+      "name": "Business & Specialized Services",
+      "months": "Months 14-16",
+      "quarter": "Q1 (Year 2)",
+      "description": "Add business services, accessibility, and international support agents",
+      "agents": [
+        {
+          "name": "Business Services Agent",
+          "type": "agent",
+          "deployMonth": 14
+        },
+        {
+          "name": "General Support Agent",
+          "type": "agent",
+          "deployMonth": 14
+        },
+        {
+          "name": "Accessibility Services Agent",
+          "type": "agent",
+          "deployMonth": 15
+        },
+        {
+          "name": "International Services Agent",
           "type": "agent",
           "deployMonth": 16
         }
       ],
       "intents": [
-        "Fraud alert",
-        "Account takeover",
-        "Spam call/text report",
-        "Security settings",
-        "Parental controls",
-        "Corporate discount",
-        "Tax/fee explanation",
-        "Refund status",
-        "Benefit eligibility (ACP/Lifeline)",
-        "Store locator",
-        "Paperless billing",
-        "Voice mail settings",
-        "International calling",
-        "Device unlock"
+        "Business account inquiry", "Fleet management", "Business internet",
+        "Enterprise solutions", "Bulk device order", "Business account manager",
+        "Volume pricing", "Business plan options", "Employee line management",
+        "Business mobile security",
+        "General inquiry", "Complaint escalation", "Follow-up request",
+        "Service feedback", "Technical documentation", "Video tutorial",
+        "Live chat support", "Callback request", "Email support", "Social media support",
+        "Accessibility features", "TTY/TDD setup", "Hearing aid compatibility",
+        "Large text display", "Voice command setup",
+        "Travel pass setup", "International rates", "Cruise ship plan",
+        "Global calling add-on", "International data usage"
       ],
-      "intentCount": 14,
-      "coverage": "83%",
+      "intentCount": 179,
+      "coverage": "90%",
       "kpis": {
-        "containment": "76%",
-        "aht": "460s",
-        "csat": "4.3"
+        "containment": "77%",
+        "aht": "445s",
+        "csat": "4.4"
+      }
+    },
+    {
+      "id": "phase6",
+      "name": "Connected Ecosystem & Optimization",
+      "months": "Months 17-18",
+      "quarter": "Q2 (Year 2)",
+      "description": "Complete agent suite with connected devices and wireless home internet",
+      "agents": [
+        {
+          "name": "Connected Devices Agent",
+          "type": "agent",
+          "deployMonth": 17
+        },
+        {
+          "name": "Wireless Home Internet Agent",
+          "type": "agent",
+          "deployMonth": 18
+        }
+      ],
+      "intents": [
+        "Tablet plan inquiry", "Smartwatch activation", "IoT device connectivity",
+        "Mobile hotspot device", "Vehicle connectivity",
+        "5G Home Internet", "LTE Home Internet", "Fixed wireless setup",
+        "Backup internet solution", "Rural internet options"
+      ],
+      "intentCount": 200,
+      "coverage": "100%",
+      "kpis": {
+        "containment": "80%+",
+        "aht": "435s",
+        "csat": "4.5+"
       }
     },
     {
       "id": "optimization",
-      "name": "Optimization & Scale",
+      "name": "Continuous Optimization",
       "months": "Month 18+",
       "quarter": "Ongoing",
-      "description": "Continuous improvement, A/B testing, and expansion to remaining long-tail intents",
+      "description": "Continuous improvement, A/B testing, and advanced AI features",
       "agents": [],
       "intents": [
-        "Long-tail intent coverage",
-        "Multi-language support",
+        "Multi-language expansion",
         "Advanced personalization",
         "Proactive notifications",
         "Sentiment-driven routing",
-        "Voice biometrics"
+        "Voice biometrics",
+        "Predictive issue resolution"
       ],
-      "intentCount": 8,
+      "intentCount": 200,
       "coverage": "100%",
       "kpis": {
-        "containment": "80%+",
-        "aht": "440s",
-        "csat": "4.5+"
+        "containment": "85%+",
+        "aht": "420s",
+        "csat": "4.6+"
       }
     }
   ],
@@ -213,33 +294,45 @@
     {
       "month": 3,
       "title": "First Agent Deployed",
-      "description": "Billing Explainer handling top 8 billing intents"
+      "description": "Billing & Payments Agent handling 20 intents"
     },
     {
-      "month": 6,
+      "month": 5,
       "title": "Device Agent Live",
       "description": "Upgrade and order management workflows active"
     },
     {
-      "month": 9,
-      "title": "50% Intent Coverage",
-      "description": "Halfway milestone - major use cases covered"
+      "month": 7,
+      "title": "40% Intent Coverage",
+      "description": "Account management and activation flows complete"
     },
     {
-      "month": 12,
-      "title": "Network Agent Deployed",
-      "description": "Outage and troubleshooting capabilities added"
+      "month": 10,
+      "title": "Network & Home Services",
+      "description": "60% coverage - connectivity and home internet support"
     },
     {
-      "month": 15,
-      "title": "Security Agent Live",
-      "description": "Fraud detection and account security features"
+      "month": 13,
+      "title": "Security & Retail Complete",
+      "description": "75% coverage with fraud detection and promotions"
+    },
+    {
+      "month": 16,
+      "title": "90% Intent Coverage",
+      "description": "Business and specialized services deployed"
     },
     {
       "month": 18,
       "title": "Full Production Rollout",
-      "description": "80%+ intent coverage, optimization phase begins"
+      "description": "All 17 agents live - 100% intent coverage, 200 intents"
     }
-  ]
+  ],
+  "summary": {
+    "totalAgents": 17,
+    "totalOrchestrators": 3,
+    "totalIntents": 200,
+    "timeline": "18 months",
+    "finalContainment": "80%+",
+    "finalCSAT": "4.5+"
+  }
 }
-
