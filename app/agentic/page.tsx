@@ -4,6 +4,7 @@ import { useEffect, useMemo, useState } from 'react';
 import scenarios from '@/data/agentic/scenarios.json';
 import UseCaseMatrix from '@/components/UseCaseMatrix';
 import ScenarioPath from '@/components/ScenarioPath';
+import NextPageButton from '@/components/NextPageButton';
 
 type Scenario = { id: string; title: string; path: string[] };
 
@@ -92,6 +93,8 @@ export default function AgenticPage() {
 
         {/* Use Case Coverage Matrix (keep) */}
         <UseCaseMatrix />
+
+        <NextPageButton href="/roadmap/" label="Roadmap" />
       </div>
     </div>
   );

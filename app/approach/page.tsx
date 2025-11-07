@@ -1,5 +1,6 @@
 import { CheckCircle2, Search, Wrench, Rocket } from 'lucide-react';
 import Link from 'next/link';
+import NextPageButton from '@/components/NextPageButton';
 
 const phases = [
   {
@@ -71,6 +72,7 @@ export default function ApproachPage() {
           })}
         </div>
 
+        <NextPageButton href="/architecture/" label="Architecture" />
       </div>
     </div>
   );

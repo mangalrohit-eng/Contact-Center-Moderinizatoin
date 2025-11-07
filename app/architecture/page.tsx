@@ -1,4 +1,5 @@
 import MermaidDiagram from '@/components/MermaidDiagram';
+import NextPageButton from '@/components/NextPageButton';
 
 export default function ArchitecturePage() {
   return (
@@ -182,6 +183,8 @@ export default function ArchitecturePage() {
               </div>
             </div>
           </section>
+
+          <NextPageButton href="/agents/" label="Agent Catalog" />
         </div>
       </div>
     </div>

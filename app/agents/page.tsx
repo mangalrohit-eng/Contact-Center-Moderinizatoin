@@ -1,5 +1,6 @@
 import agentsCatalog from '@/data/agents_catalog_full.json';
 import { Layers, Cpu, Wrench } from 'lucide-react';
+import NextPageButton from '@/components/NextPageButton';
 
 export default function AgentsPage() {
   const { orchestrators, agents, tools } = agentsCatalog;
@@ -141,12 +142,14 @@ export default function AgentsPage() {
                           <span className="text-green-400">•</span>
                           {intent}
                         </div>
-                      ))}
-                    </div>
-                  </div>
-                </div>
-              );
-            })}
+          ))}
+        </div>
+
+        <NextPageButton href="/agentic/" label="How it Will Work" />
+      </div>
+    </div>
+  );
+})}
           </div>
         </section>
 

@@ -3,6 +3,7 @@
 import { useState } from 'react';
 import roadmapData from '@/data/roadmap.json';
 import { Calendar, CheckCircle2, Zap } from 'lucide-react';
+import NextPageButton from '@/components/NextPageButton';
 
 export default function RoadmapPage() {
   const [selectedPhase, setSelectedPhase] = useState<string | null>(null);
@@ -252,6 +253,8 @@ export default function RoadmapPage() {
             </div>
           </div>
         </div>
+
+        <NextPageButton href="/about/" label="About" />
       </div>
     </div>
   );
