@@ -15,7 +15,6 @@ export default function NavBar() {
     { href: '/agents/', label: 'Agent Catalog' },
     { href: '/agentic/', label: 'How it Will Work' },
     { href: '/roadmap/', label: 'Roadmap' },
-    { href: '/metrics/', label: 'Metrics' },
     { href: '/about/', label: 'About' },
   ];
 
