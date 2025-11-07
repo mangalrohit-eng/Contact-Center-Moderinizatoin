@@ -2,7 +2,7 @@
 
 import { useState } from 'react';
 import roadmapData from '@/data/roadmap.json';
-import { Calendar, CheckCircle2, Clock, TrendingUp, Target, Zap } from 'lucide-react';
+import { Calendar, CheckCircle2, Zap } from 'lucide-react';
 
 export default function RoadmapPage() {
   const [selectedPhase, setSelectedPhase] = useState<string | null>(null);
@@ -30,35 +30,11 @@ export default function RoadmapPage() {
         {/* Header */}
         <div className="text-center mb-12">
           <h1 className="text-4xl md:text-5xl font-bold mb-6">
-            <span className="text-acc-purple">18-Month Roadmap</span>
+            <span className="text-acc-purple">12-Month Roadmap</span>
           </h1>
           <p className="text-xl text-acc-gray-400 max-w-3xl mx-auto">
-            Phased rollout strategy for deploying agents and achieving 100% intent coverage with measurable KPI improvements at each milestone.
+            Phased rollout strategy for deploying all 17 agents and achieving 100% intent coverage with measurable KPI improvements at each milestone.
           </p>
-        </div>
-
-        {/* Key Metrics Overview */}
-        <div className="grid grid-cols-1 md:grid-cols-4 gap-4 mb-12">
-          <div className="bg-acc-gray-800 border border-acc-gray-700 rounded-lg p-6 text-center">
-            <Target className="w-8 h-8 text-acc-purple mx-auto mb-2" />
-            <div className="text-2xl font-bold text-white mb-1">7</div>
-            <div className="text-sm text-acc-gray-400">Agents</div>
-          </div>
-          <div className="bg-acc-gray-800 border border-acc-gray-700 rounded-lg p-6 text-center">
-            <Zap className="w-8 h-8 text-green-400 mx-auto mb-2" />
-            <div className="text-2xl font-bold text-white mb-1">58+</div>
-            <div className="text-sm text-acc-gray-400">Intents Covered</div>
-          </div>
-          <div className="bg-acc-gray-800 border border-acc-gray-700 rounded-lg p-6 text-center">
-            <Clock className="w-8 h-8 text-blue-400 mx-auto mb-2" />
-            <div className="text-2xl font-bold text-white mb-1">18</div>
-            <div className="text-sm text-acc-gray-400">Months</div>
-          </div>
-          <div className="bg-acc-gray-800 border border-acc-gray-700 rounded-lg p-6 text-center">
-            <TrendingUp className="w-8 h-8 text-yellow-400 mx-auto mb-2" />
-            <div className="text-2xl font-bold text-white mb-1">80%+</div>
-            <div className="text-sm text-acc-gray-400">Final Containment</div>
-          </div>
         </div>
 
         {/* Timeline Visualization */}
@@ -77,7 +53,7 @@ export default function RoadmapPage() {
             {/* Milestone markers */}
             <div className="relative -mt-1">
               {milestones.map((milestone, idx) => {
-                const position = (milestone.month / 18) * 100;
+                const position = (milestone.month / 12) * 100;
                 return (
                   <div
                     key={idx}
@@ -85,7 +61,7 @@ export default function RoadmapPage() {
                     style={{ left: `${position}%`, transform: 'translateX(-50%)' }}
                   >
                     <div className="w-4 h-4 bg-acc-purple rounded-full border-4 border-acc-gray-800 cursor-pointer hover:scale-125 transition-transform" />
-                    <div className="absolute top-6 left-1/2 transform -translate-x-1/2 w-48 opacity-0 group-hover:opacity-100 transition-opacity pointer-events-none">
+                    <div className="absolute top-6 left-1/2 transform -translate-x-1/2 w-48 opacity-0 group-hover:opacity-100 transition-opacity pointer-events-none z-10">
                       <div className="bg-acc-gray-900 border border-acc-purple rounded-lg p-3 shadow-xl">
                         <div className="text-xs font-semibold text-acc-purple mb-1">Month {milestone.month}</div>
                         <div className="text-sm font-bold text-white mb-1">{milestone.title}</div>
@@ -100,9 +76,10 @@ export default function RoadmapPage() {
             {/* Month labels */}
             <div className="flex justify-between mt-8 text-xs text-acc-gray-400">
               <span>Month 0</span>
+              <span>Month 3</span>
               <span>Month 6</span>
+              <span>Month 9</span>
               <span>Month 12</span>
-              <span>Month 18</span>
             </div>
           </div>
         </div>

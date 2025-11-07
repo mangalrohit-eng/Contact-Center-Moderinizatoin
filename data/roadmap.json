@@ -3,7 +3,7 @@
     {
       "id": "phase1",
       "name": "Foundation & High-Volume Agents",
-      "months": "Months 1-4",
+      "months": "Months 1-3",
       "quarter": "Q1",
       "description": "Establish orchestration framework and deploy high-volume billing and plan agents",
       "agents": [
@@ -20,17 +20,17 @@
         {
           "name": "Safety & Compliance Orchestrator",
           "type": "orchestrator",
-          "deployMonth": 2
+          "deployMonth": 1
         },
         {
           "name": "Billing & Payments Agent",
           "type": "agent",
-          "deployMonth": 3
+          "deployMonth": 2
         },
         {
           "name": "Plans & Features Agent",
           "type": "agent",
-          "deployMonth": 4
+          "deployMonth": 3
         }
       ],
       "intents": [
@@ -52,24 +52,24 @@
     {
       "id": "phase2",
       "name": "Device & Activation",
-      "months": "Months 5-7",
+      "months": "Months 4-5",
       "quarter": "Q2",
       "description": "Launch device lifecycle and activation agents for upgrade and onboarding flows",
       "agents": [
         {
           "name": "Device Lifecycle Agent",
           "type": "agent",
-          "deployMonth": 5
+          "deployMonth": 4
         },
         {
           "name": "Activation & Provisioning Agent",
           "type": "agent",
-          "deployMonth": 6
+          "deployMonth": 4
         },
         {
           "name": "Account Management Agent",
           "type": "agent",
-          "deployMonth": 7
+          "deployMonth": 5
         }
       ],
       "intents": [
@@ -94,24 +94,24 @@
     {
       "id": "phase3",
       "name": "Network & Connectivity",
-      "months": "Months 8-10",
-      "quarter": "Q3",
+      "months": "Months 6-7",
+      "quarter": "Q2-Q3",
       "description": "Deploy network troubleshooting and calling features agents",
       "agents": [
         {
           "name": "Network & Coverage Agent",
           "type": "agent",
-          "deployMonth": 8
+          "deployMonth": 6
         },
         {
           "name": "Features & Services Agent",
           "type": "agent",
-          "deployMonth": 9
+          "deployMonth": 6
         },
         {
           "name": "Home Internet Agent",
           "type": "agent",
-          "deployMonth": 10
+          "deployMonth": 7
         }
       ],
       "intents": [
@@ -141,25 +141,35 @@
     },
     {
       "id": "phase4",
-      "name": "Security & Retail",
-      "months": "Months 11-13",
-      "quarter": "Q4",
-      "description": "Deploy security, fraud detection, and retail support agents",
+      "name": "Security, Retail & Business",
+      "months": "Months 8-9",
+      "quarter": "Q3",
+      "description": "Deploy security, retail, and business support agents",
       "agents": [
         {
           "name": "Security & Fraud Agent",
           "type": "agent",
-          "deployMonth": 11
+          "deployMonth": 8
         },
         {
           "name": "Retail & Store Agent",
           "type": "agent",
-          "deployMonth": 12
+          "deployMonth": 8
         },
         {
           "name": "Promotions & Offers Agent",
           "type": "agent",
-          "deployMonth": 13
+          "deployMonth": 9
+        },
+        {
+          "name": "Business Services Agent",
+          "type": "agent",
+          "deployMonth": 9
+        },
+        {
+          "name": "General Support Agent",
+          "type": "agent",
+          "deployMonth": 9
         }
       ],
       "intents": [
@@ -170,84 +180,56 @@
         "Product availability",
         "Promotional offer", "Current deals", "Referral program", "Loyalty rewards",
         "Bundle savings", "Trade-in promotion", "New customer offers",
-        "Switch carrier incentives", "Black Friday deals", "Seasonal promotions"
-      ],
-      "intentCount": 149,
-      "coverage": "75%",
-      "kpis": {
-        "containment": "74%",
-        "aht": "455s",
-        "csat": "4.3"
-      }
-    },
-    {
-      "id": "phase5",
-      "name": "Business & Specialized Services",
-      "months": "Months 14-16",
-      "quarter": "Q1 (Year 2)",
-      "description": "Add business services, accessibility, and international support agents",
-      "agents": [
-        {
-          "name": "Business Services Agent",
-          "type": "agent",
-          "deployMonth": 14
-        },
-        {
-          "name": "General Support Agent",
-          "type": "agent",
-          "deployMonth": 14
-        },
-        {
-          "name": "Accessibility Services Agent",
-          "type": "agent",
-          "deployMonth": 15
-        },
-        {
-          "name": "International Services Agent",
-          "type": "agent",
-          "deployMonth": 16
-        }
-      ],
-      "intents": [
+        "Switch carrier incentives", "Black Friday deals", "Seasonal promotions",
         "Business account inquiry", "Fleet management", "Business internet",
         "Enterprise solutions", "Bulk device order", "Business account manager",
         "Volume pricing", "Business plan options", "Employee line management",
         "Business mobile security",
         "General inquiry", "Complaint escalation", "Follow-up request",
         "Service feedback", "Technical documentation", "Video tutorial",
-        "Live chat support", "Callback request", "Email support", "Social media support",
-        "Accessibility features", "TTY/TDD setup", "Hearing aid compatibility",
-        "Large text display", "Voice command setup",
-        "Travel pass setup", "International rates", "Cruise ship plan",
-        "Global calling add-on", "International data usage"
+        "Live chat support", "Callback request", "Email support", "Social media support"
       ],
       "intentCount": 179,
       "coverage": "90%",
       "kpis": {
-        "containment": "77%",
-        "aht": "445s",
+        "containment": "75%",
+        "aht": "450s",
         "csat": "4.4"
       }
     },
     {
-      "id": "phase6",
-      "name": "Connected Ecosystem & Optimization",
-      "months": "Months 17-18",
-      "quarter": "Q2 (Year 2)",
-      "description": "Complete agent suite with connected devices and wireless home internet",
+      "id": "phase5",
+      "name": "Specialized Services & Optimization",
+      "months": "Months 10-12",
+      "quarter": "Q4",
+      "description": "Complete agent suite with specialized services and begin optimization",
       "agents": [
+        {
+          "name": "Accessibility Services Agent",
+          "type": "agent",
+          "deployMonth": 10
+        },
+        {
+          "name": "International Services Agent",
+          "type": "agent",
+          "deployMonth": 10
+        },
         {
           "name": "Connected Devices Agent",
           "type": "agent",
-          "deployMonth": 17
+          "deployMonth": 11
         },
         {
           "name": "Wireless Home Internet Agent",
           "type": "agent",
-          "deployMonth": 18
+          "deployMonth": 11
         }
       ],
       "intents": [
+        "Accessibility features", "TTY/TDD setup", "Hearing aid compatibility",
+        "Large text display", "Voice command setup",
+        "Travel pass setup", "International rates", "Cruise ship plan",
+        "Global calling add-on", "International data usage",
         "Tablet plan inquiry", "Smartwatch activation", "IoT device connectivity",
         "Mobile hotspot device", "Vehicle connectivity",
         "5G Home Internet", "LTE Home Internet", "Fixed wireless setup",
@@ -260,29 +242,6 @@
         "aht": "435s",
         "csat": "4.5+"
       }
-    },
-    {
-      "id": "optimization",
-      "name": "Continuous Optimization",
-      "months": "Month 18+",
-      "quarter": "Ongoing",
-      "description": "Continuous improvement, A/B testing, and advanced AI features",
-      "agents": [],
-      "intents": [
-        "Multi-language expansion",
-        "Advanced personalization",
-        "Proactive notifications",
-        "Sentiment-driven routing",
-        "Voice biometrics",
-        "Predictive issue resolution"
-      ],
-      "intentCount": 200,
-      "coverage": "100%",
-      "kpis": {
-        "containment": "85%+",
-        "aht": "420s",
-        "csat": "4.6+"
-      }
     }
   ],
   "milestones": [
@@ -292,46 +251,41 @@
       "description": "Core routing and safety orchestrators operational"
     },
     {
-      "month": 3,
+      "month": 2,
       "title": "First Agent Deployed",
       "description": "Billing & Payments Agent handling 20 intents"
     },
     {
-      "month": 5,
-      "title": "Device Agent Live",
-      "description": "Upgrade and order management workflows active"
+      "month": 4,
+      "title": "Device & Activation Live",
+      "description": "Device lifecycle and activation workflows active"
     },
     {
-      "month": 7,
-      "title": "40% Intent Coverage",
-      "description": "Account management and activation flows complete"
+      "month": 6,
+      "title": "60% Intent Coverage",
+      "description": "Network and connectivity agents deployed"
     },
     {
-      "month": 10,
-      "title": "Network & Home Services",
-      "description": "60% coverage - connectivity and home internet support"
+      "month": 8,
+      "title": "Security & Business Agents",
+      "description": "Fraud detection and business services online"
     },
     {
-      "month": 13,
-      "title": "Security & Retail Complete",
-      "description": "75% coverage with fraud detection and promotions"
+      "month": 11,
+      "title": "All 17 Agents Deployed",
+      "description": "Complete agent suite covering 200 intents"
     },
     {
-      "month": 16,
-      "title": "90% Intent Coverage",
-      "description": "Business and specialized services deployed"
-    },
-    {
-      "month": 18,
-      "title": "Full Production Rollout",
-      "description": "All 17 agents live - 100% intent coverage, 200 intents"
+      "month": 12,
+      "title": "Full Production & Optimization",
+      "description": "100% coverage - optimization phase begins"
     }
   ],
   "summary": {
     "totalAgents": 17,
     "totalOrchestrators": 3,
     "totalIntents": 200,
-    "timeline": "18 months",
+    "timeline": "12 months",
     "finalContainment": "80%+",
     "finalCSAT": "4.5+"
   }
