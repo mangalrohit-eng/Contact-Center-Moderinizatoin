@@ -11,8 +11,8 @@ export default function NavBar() {
   const navLinks = [
     { href: '/', label: 'Home' },
     { href: '/approach/', label: 'Approach' },
-    { href: '/agentic/', label: 'Agentic' },
-    { href: '/agents/', label: 'Agents' },
+    { href: '/agentic/', label: 'Intent/Agents Map' },
+    { href: '/agents/', label: 'Agent Catalog' },
     { href: '/roadmap/', label: 'Roadmap' },
     { href: '/metrics/', label: 'Metrics' },
     { href: '/about/', label: 'About' },
