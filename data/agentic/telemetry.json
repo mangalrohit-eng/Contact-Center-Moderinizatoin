@@ -1,16 +1,22 @@
 {
   "latency_ms": {
     "bss_billing": [580, 620, 610],
+    "payments": [640, 660, 655],
     "oss_outage": [820, 790, 810],
     "order_api": [690, 720, 710],
-    "identity": [240, 260, 255]
+    "identity": [240, 260, 255],
+    "eligibility": [290, 310, 305],
+    "device_catalog": [390, 410, 405],
+    "fios_gateway": [280, 320, 310],
+    "carrier_port": [880, 920, 905]
   },
   "success_rate": {
     "billing_explainer": 0.92,
-    "outage_resolver": 0.87,
-    "upgrade_advisor": 0.9,
-    "esim_activator": 0.88
+    "plan_lines_manager": 0.89,
+    "device_lifecycle": 0.90,
+    "activation_identity": 0.88,
+    "network_outage": 0.87,
+    "home_internet": 0.91,
+    "security_fraud": 0.94
   }
 }
-
-

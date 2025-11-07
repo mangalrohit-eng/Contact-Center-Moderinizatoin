@@ -1,16 +1,18 @@
 [
-  { "id": "bss_billing", "name": "BSS Billing", "type": "api", "sla_ms": 600 },
-  { "id": "oss_outage", "name": "OSS Outage", "type": "api", "sla_ms": 800 },
-  { "id": "location_service", "name": "Location Service", "type": "api", "sla_ms": 200 },
-  { "id": "knowledge_plans", "name": "Knowledge: Plans", "type": "rag", "sla_ms": 300 },
-  { "id": "knowledge_network", "name": "Knowledge: Network", "type": "rag", "sla_ms": 300 },
-  { "id": "device_catalog", "name": "Device Catalog", "type": "api", "sla_ms": 400 },
-  { "id": "promotions", "name": "Promotions", "type": "api", "sla_ms": 350 },
-  { "id": "order_api", "name": "Order API", "type": "api", "sla_ms": 700 },
-  { "id": "eligibility", "name": "Eligibility", "type": "api", "sla_ms": 300 },
-  { "id": "payments", "name": "Payments", "type": "api", "sla_ms": 650 },
-  { "id": "identity", "name": "Identity", "type": "api", "sla_ms": 250 },
-  { "id": "carrier_port", "name": "Carrier Port", "type": "api", "sla_ms": 900 }
+  {"id":"bss_billing","name":"BSS Billing","type":"api","sla_ms":600},
+  {"id":"payments","name":"Payments","type":"api","sla_ms":650},
+  {"id":"promotions","name":"Promotions","type":"api","sla_ms":350},
+  {"id":"eligibility","name":"Eligibility","type":"api","sla_ms":300},
+  {"id":"device_catalog","name":"Device Catalog","type":"api","sla_ms":400},
+  {"id":"trade_in","name":"Trade-in","type":"api","sla_ms":500},
+  {"id":"order_api","name":"Order API","type":"api","sla_ms":700},
+  {"id":"identity","name":"Identity/KYC","type":"api","sla_ms":250},
+  {"id":"carrier_port","name":"Carrier Port","type":"api","sla_ms":900},
+  {"id":"oss_outage","name":"OSS Outage","type":"api","sla_ms":800},
+  {"id":"location_service","name":"Location Service","type":"api","sla_ms":200},
+  {"id":"fios_gateway","name":"Fios Gateway/ONT","type":"api","sla_ms":300},
+  {"id":"appointments","name":"Appointments","type":"api","sla_ms":400},
+  {"id":"security_fraud","name":"Security/Fraud","type":"api","sla_ms":350},
+  {"id":"knowledge_billing","name":"Knowledge: Billing","type":"rag","sla_ms":300},
+  {"id":"knowledge_network","name":"Knowledge: Network/Policies","type":"rag","sla_ms":300}
 ]
-
-

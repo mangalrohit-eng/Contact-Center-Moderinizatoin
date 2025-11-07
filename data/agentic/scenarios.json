@@ -2,23 +2,21 @@
   {
     "id": "bill",
     "title": "Why is my bill higher this month?",
-    "path": ["conv_orch", "goal_orch", "billing_explainer", "bss_billing", "knowledge_plans", "payments"]
+    "path": ["conv_orch", "goal_orch", "billing_explainer", "bss_billing", "knowledge_billing", "payments"]
   },
   {
     "id": "outage",
     "title": "5G outage near 10001",
-    "path": ["conv_orch", "goal_orch", "outage_resolver", "location_service", "oss_outage", "knowledge_network"]
+    "path": ["conv_orch", "goal_orch", "network_outage", "location_service", "oss_outage", "knowledge_network"]
   },
   {
     "id": "upgrade",
     "title": "Upgrade iPhone 16 with trade-in",
-    "path": ["conv_orch", "goal_orch", "upgrade_advisor", "eligibility", "device_catalog", "promotions", "order_api"]
+    "path": ["conv_orch", "goal_orch", "device_lifecycle", "eligibility", "device_catalog", "trade_in", "promotions", "order_api"]
   },
   {
     "id": "esim",
     "title": "Activate eSIM and port my number",
-    "path": ["conv_orch", "goal_orch", "esim_activator", "identity", "carrier_port", "order_api"]
+    "path": ["conv_orch", "goal_orch", "activation_identity", "identity", "carrier_port", "order_api"]
   }
 ]
-
-

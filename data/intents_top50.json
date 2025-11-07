@@ -1,0 +1,61 @@
+{
+  "intents": [
+    {"id":"bill_variance","name":"Explain bill increase/variance","domain":"Billing"},
+    {"id":"one_time_payment","name":"One-time payment","domain":"Billing"},
+    {"id":"autopay","name":"Set up/modify Autopay","domain":"Billing"},
+    {"id":"paperless","name":"Paperless billing on/off","domain":"Billing"},
+    {"id":"payment_arrangement","name":"Payment arrangement/extension","domain":"Billing"},
+    {"id":"dispute_charge","name":"Charges dispute/adjustment","domain":"Billing"},
+    {"id":"refund_status","name":"Refund status","domain":"Billing"},
+    {"id":"billing_cycle","name":"Billing cycle/date change","domain":"Billing"},
+    {"id":"update_pay_method","name":"Add/update payment method","domain":"Billing"},
+    {"id":"tax_fee_explain","name":"Tax/fee explanation","domain":"Billing"},
+    {"id":"download_bill","name":"View/download bill PDF","domain":"Billing"},
+    {"id":"benefit_eligibility","name":"Credits/ACP/Lifeline eligibility","domain":"Billing"},
+
+    {"id":"change_plan","name":"Change plan (myPlan)","domain":"Plans"},
+    {"id":"add_line","name":"Add/remove line","domain":"Plans"},
+    {"id":"intl_roaming","name":"International add-on/roaming","domain":"Plans"},
+    {"id":"manage_addons","name":"Manage add-ons (hotspot, cloud)","domain":"Plans"},
+    {"id":"parental_controls","name":"Parental controls","domain":"Plans"},
+    {"id":"spam_block","name":"Spam block/Caller ID","domain":"Plans"},
+    {"id":"call_forwarding","name":"Call forwarding/voicemail settings","domain":"Plans"},
+    {"id":"number_change","name":"Number change","domain":"Plans"},
+    {"id":"suspend_restore","name":"Suspend/restore line","domain":"Plans"},
+    {"id":"corp_discount","name":"Corporate/employee discount","domain":"Plans"},
+
+    {"id":"upgrade_elig","name":"Upgrade eligibility","domain":"Devices"},
+    {"id":"start_upgrade","name":"Start a device upgrade","domain":"Devices"},
+    {"id":"trade_in","name":"Trade-in quote/eligibility","domain":"Devices"},
+    {"id":"order_status","name":"Order status/track shipment","domain":"Devices"},
+    {"id":"returns","name":"Returns/exchanges/warranty/repair","domain":"Devices"},
+    {"id":"protection_claim","name":"Device protection claim","domain":"Devices"},
+    {"id":"lost_stolen","name":"Lost/stolen device","domain":"Devices"},
+    {"id":"byod_check","name":"BYOD compatibility/eSIM","domain":"Devices"},
+    {"id":"accessories","name":"Accessory support","domain":"Devices"},
+
+    {"id":"activate_device","name":"Activate device/SIM","domain":"Activation"},
+    {"id":"activate_esim","name":"eSIM download/transfer","domain":"Activation"},
+    {"id":"port_in","name":"Port-in from other carrier","domain":"Activation"},
+    {"id":"xfer_number","name":"Transfer number within account","domain":"Activation"},
+    {"id":"identity_2fa","name":"Identity verify / 2FA / PIN/PUK","domain":"Activation"},
+
+    {"id":"report_outage","name":"Report outage by ZIP","domain":"Network"},
+    {"id":"check_coverage","name":"Check coverage/5G availability","domain":"Network"},
+    {"id":"speed_slow","name":"Speed test / slow data help","domain":"Network"},
+    {"id":"wifi_calling","name":"Wi-Fi calling setup","domain":"Network"},
+    {"id":"ticket_status","name":"Network ticket status/ETA/credit","domain":"Network"},
+    {"id":"move_service","name":"Move service (address change)","domain":"Network"},
+
+    {"id":"fios_diag","name":"Fios gateway/ONT diagnostics","domain":"Home"},
+    {"id":"wifi_ssid_pw","name":"Wi-Fi SSID/password change","domain":"Home"},
+    {"id":"appt_sched","name":"Appointment schedule/reschedule","domain":"Home"},
+    {"id":"self_install","name":"Self-install kit activation","domain":"Home"},
+    {"id":"equip_return","name":"Equipment return label","domain":"Home"},
+
+    {"id":"fraud_alert","name":"Fraud alert / account takeover","domain":"Security"},
+    {"id":"spam_report","name":"Spam call/text report","domain":"Security"},
+    {"id":"store_locator","name":"Store locator/appointment","domain":"Retail"}
+  ]
+}
+

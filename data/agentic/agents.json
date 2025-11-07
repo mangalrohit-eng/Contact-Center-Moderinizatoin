@@ -1,28 +1,9 @@
 [
-  {
-    "id": "billing_explainer",
-    "name": "Billing Explainer",
-    "domain": "Billing & Payments",
-    "tools": ["bss_billing", "knowledge_plans", "payments"]
-  },
-  {
-    "id": "outage_resolver",
-    "name": "Outage Resolver",
-    "domain": "Network & Outage",
-    "tools": ["oss_outage", "location_service", "knowledge_network"]
-  },
-  {
-    "id": "upgrade_advisor",
-    "name": "Upgrade Advisor",
-    "domain": "Device & Plan",
-    "tools": ["eligibility", "device_catalog", "promotions", "order_api"]
-  },
-  {
-    "id": "esim_activator",
-    "name": "eSIM Activator",
-    "domain": "Activation & Port-in",
-    "tools": ["identity", "carrier_port", "order_api"]
-  }
+  {"id":"billing_explainer","name":"Billing Explainer","domain":"Billing & Payments","tools":["bss_billing","payments","knowledge_billing"]},
+  {"id":"plan_lines_manager","name":"Plan & Lines Manager","domain":"Plans & Features","tools":["eligibility","promotions","knowledge_network","order_api"]},
+  {"id":"device_lifecycle","name":"Device Lifecycle","domain":"Devices & Orders","tools":["eligibility","device_catalog","trade_in","promotions","order_api","identity"]},
+  {"id":"activation_identity","name":"Activation & Identity","domain":"Activation & Number Mgmt","tools":["identity","carrier_port","order_api"]},
+  {"id":"network_outage","name":"Network & Outage","domain":"Network & Coverage","tools":["oss_outage","location_service","knowledge_network"]},
+  {"id":"home_internet","name":"Home Internet (Fios)","domain":"Home/Fios","tools":["fios_gateway","appointments","order_api","knowledge_network"]},
+  {"id":"security_fraud","name":"Security & Fraud","domain":"Security","tools":["security_fraud","identity","knowledge_network"]}
 ]
-
-

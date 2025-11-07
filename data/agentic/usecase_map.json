@@ -1,0 +1,50 @@
+{
+  "top40": [
+    {"intent":"bill_variance","agent":"billing_explainer","tools":["bss_billing","knowledge_billing","payments"]},
+    {"intent":"one_time_payment","agent":"billing_explainer","tools":["payments"]},
+    {"intent":"autopay","agent":"billing_explainer","tools":["payments"]},
+    {"intent":"payment_arrangement","agent":"billing_explainer","tools":["payments"]},
+    {"intent":"dispute_charge","agent":"billing_explainer","tools":["bss_billing","knowledge_billing"]},
+    {"intent":"billing_cycle","agent":"billing_explainer","tools":["bss_billing"]},
+    {"intent":"update_pay_method","agent":"billing_explainer","tools":["payments"]},
+    {"intent":"download_bill","agent":"billing_explainer","tools":["bss_billing"]},
+
+    {"intent":"change_plan","agent":"plan_lines_manager","tools":["promotions","eligibility"]},
+    {"intent":"add_line","agent":"plan_lines_manager","tools":["eligibility","order_api"]},
+    {"intent":"intl_roaming","agent":"plan_lines_manager","tools":["knowledge_network"]},
+    {"intent":"manage_addons","agent":"plan_lines_manager","tools":["promotions"]},
+    {"intent":"spam_block","agent":"plan_lines_manager","tools":["knowledge_network"]},
+    {"intent":"call_forwarding","agent":"plan_lines_manager","tools":["knowledge_network"]},
+
+    {"intent":"upgrade_elig","agent":"device_lifecycle","tools":["eligibility","device_catalog","promotions"]},
+    {"intent":"start_upgrade","agent":"device_lifecycle","tools":["device_catalog","order_api"]},
+    {"intent":"trade_in","agent":"device_lifecycle","tools":["trade_in","promotions","order_api"]},
+    {"intent":"order_status","agent":"device_lifecycle","tools":["order_api"]},
+    {"intent":"returns","agent":"device_lifecycle","tools":["order_api"]},
+    {"intent":"lost_stolen","agent":"device_lifecycle","tools":["identity"]},
+    {"intent":"byod_check","agent":"device_lifecycle","tools":["device_catalog"]},
+
+    {"intent":"activate_device","agent":"activation_identity","tools":["identity","order_api"]},
+    {"intent":"activate_esim","agent":"activation_identity","tools":["identity"]},
+    {"intent":"port_in","agent":"activation_identity","tools":["carrier_port","identity"]},
+    {"intent":"xfer_number","agent":"activation_identity","tools":["order_api","identity"]},
+    {"intent":"identity_2fa","agent":"activation_identity","tools":["identity"]},
+
+    {"intent":"report_outage","agent":"network_outage","tools":["location_service","oss_outage"]},
+    {"intent":"check_coverage","agent":"network_outage","tools":["location_service","knowledge_network"]},
+    {"intent":"speed_slow","agent":"network_outage","tools":["knowledge_network"]},
+    {"intent":"wifi_calling","agent":"network_outage","tools":["knowledge_network"]},
+    {"intent":"ticket_status","agent":"network_outage","tools":["oss_outage"]},
+    {"intent":"move_service","agent":"network_outage","tools":["appointments"]},
+
+    {"intent":"fios_diag","agent":"home_internet","tools":["fios_gateway","knowledge_network"]},
+    {"intent":"wifi_ssid_pw","agent":"home_internet","tools":["fios_gateway"]},
+    {"intent":"appt_sched","agent":"home_internet","tools":["appointments"]},
+    {"intent":"self_install","agent":"home_internet","tools":["fios_gateway"]},
+    {"intent":"equip_return","agent":"home_internet","tools":["order_api"]},
+
+    {"intent":"fraud_alert","agent":"security_fraud","tools":["security_fraud","identity"]},
+    {"intent":"spam_report","agent":"security_fraud","tools":["knowledge_network"]}
+  ]
+}
+
