@@ -314,6 +314,132 @@
       "type": "RAG Tool",
       "description": "Plan details, feature comparisons, and pricing information.",
       "topIntents": ["Plan details", "Feature comparison", "Pricing"]
+    },
+    {
+      "id": "notification_service",
+      "name": "Notification Service",
+      "type": "API Tool",
+      "description": "Multi-channel notification delivery via SMS, email, and push notifications for alerts and confirmations.",
+      "topIntents": ["Payment confirmation", "Order updates", "Service alerts"]
+    },
+    {
+      "id": "usage_analytics",
+      "name": "Usage Analytics API",
+      "type": "API Tool",
+      "description": "Real-time and historical usage data for voice, text, and data consumption with overage predictions.",
+      "topIntents": ["Data usage", "Call history", "Usage alerts"]
+    },
+    {
+      "id": "credit_check",
+      "name": "Credit Check API",
+      "type": "API Tool",
+      "description": "Credit bureau integration for credit checks, deposit calculations, and financing eligibility.",
+      "topIntents": ["Credit check", "Deposit requirement", "Financing approval"]
+    },
+    {
+      "id": "roaming_management",
+      "name": "Roaming Management",
+      "type": "API Tool",
+      "description": "International roaming activation, partner network lookup, and roaming charge calculation.",
+      "topIntents": ["Enable roaming", "Roaming rates", "Partner networks"]
+    },
+    {
+      "id": "document_management",
+      "name": "Document Management",
+      "type": "API Tool",
+      "description": "Contract storage, e-signature, terms and conditions, and legal document retrieval.",
+      "topIntents": ["View contract", "E-sign", "Terms access"]
+    },
+    {
+      "id": "loyalty_engine",
+      "name": "Loyalty & Rewards Engine",
+      "type": "API Tool",
+      "description": "Loyalty point tracking, reward redemption, tier management, and personalized reward offers.",
+      "topIntents": ["Check points", "Redeem rewards", "Loyalty status"]
+    },
+    {
+      "id": "workforce_management",
+      "name": "Workforce Management",
+      "type": "Integration Tool",
+      "description": "Agent availability, skill-based routing, escalation queues, and callback scheduling.",
+      "topIntents": ["Agent routing", "Callback scheduling", "Escalation"]
+    },
+    {
+      "id": "voice_biometrics",
+      "name": "Voice Biometrics",
+      "type": "Security Tool",
+      "description": "Voice print authentication for secure caller verification without passwords or PINs.",
+      "topIntents": ["Voice authentication", "Biometric enrollment", "Secure login"]
+    },
+    {
+      "id": "sentiment_analysis",
+      "name": "Sentiment Analysis",
+      "type": "AI Tool",
+      "description": "Real-time conversation sentiment tracking to detect frustration and trigger escalation.",
+      "topIntents": ["Emotion detection", "Escalation triggers", "CSAT prediction"]
+    },
+    {
+      "id": "chatbot_platform",
+      "name": "Chatbot Platform API",
+      "type": "Integration Tool",
+      "description": "Web chat, mobile app chat, and messaging platform integration for omnichannel support.",
+      "topIntents": ["Live chat", "Messaging support", "Chatbot handoff"]
+    },
+    {
+      "id": "social_listening",
+      "name": "Social Media Monitoring",
+      "type": "Integration Tool",
+      "description": "Social media monitoring, brand mention tracking, and social care case creation.",
+      "topIntents": ["Social complaints", "Brand mentions", "Social support"]
+    },
+    {
+      "id": "qa_monitoring",
+      "name": "Quality Assurance",
+      "type": "Analytics Tool",
+      "description": "Call recording, transcript analysis, compliance checking, and agent performance scoring.",
+      "topIntents": ["Call review", "Compliance audit", "Performance metrics"]
+    },
+    {
+      "id": "network_diagnostics",
+      "name": "Network Diagnostics Tool",
+      "type": "Diagnostic Tool",
+      "description": "Remote device diagnostics, signal testing, and network performance troubleshooting.",
+      "topIntents": ["Signal test", "Device diagnostics", "Speed test"]
+    },
+    {
+      "id": "campaign_manager",
+      "name": "Campaign Management",
+      "type": "Marketing Tool",
+      "description": "Marketing campaign tracking, targeted offer delivery, and A/B test personalization.",
+      "topIntents": ["Campaign tracking", "Targeted offers", "Personalization"]
+    },
+    {
+      "id": "compliance_engine",
+      "name": "Compliance & Regulatory",
+      "type": "Security Tool",
+      "description": "PII redaction, TCPA compliance, consent management, and regulatory policy enforcement.",
+      "topIntents": ["PII protection", "Consent tracking", "Regulatory compliance"]
+    },
+    {
+      "id": "predictive_analytics",
+      "name": "Predictive Analytics",
+      "type": "AI Tool",
+      "description": "Churn prediction, upsell recommendations, next-best-action, and lifetime value scoring.",
+      "topIntents": ["Churn risk", "Upsell opportunity", "Next best action"]
+    },
+    {
+      "id": "device_insurance",
+      "name": "Device Protection API",
+      "type": "API Tool",
+      "description": "Insurance enrollment, claim filing, coverage verification, and deductible calculation.",
+      "topIntents": ["Insurance claim", "Coverage check", "Enroll protection"]
+    },
+    {
+      "id": "survey_feedback",
+      "name": "Survey & Feedback",
+      "type": "Analytics Tool",
+      "description": "Post-interaction surveys, NPS tracking, CSAT collection, and feedback analysis.",
+      "topIntents": ["Send survey", "Collect feedback", "NPS tracking"]
     }
   ]
 }
