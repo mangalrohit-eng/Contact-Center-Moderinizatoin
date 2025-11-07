@@ -12,6 +12,8 @@ export default function NavBar() {
     { href: '/', label: 'Home' },
     { href: '/approach/', label: 'Approach' },
     { href: '/agentic/', label: 'Agentic' },
+    { href: '/agents/', label: 'Agents' },
+    { href: '/roadmap/', label: 'Roadmap' },
     { href: '/metrics/', label: 'Metrics' },
     { href: '/about/', label: 'About' },
     { href: '/contact/', label: 'Contact' },

@@ -1,0 +1,245 @@
+{
+  "phases": [
+    {
+      "id": "phase1",
+      "name": "Foundation & Core Agents",
+      "months": "Months 1-4",
+      "quarter": "Q1",
+      "description": "Establish orchestration framework and deploy high-volume billing and plan agents",
+      "agents": [
+        {
+          "name": "Conversation Orchestrator",
+          "type": "orchestrator",
+          "deployMonth": 1
+        },
+        {
+          "name": "Goal Orchestrator",
+          "type": "orchestrator",
+          "deployMonth": 1
+        },
+        {
+          "name": "Safety & Compliance Orchestrator",
+          "type": "orchestrator",
+          "deployMonth": 2
+        },
+        {
+          "name": "Billing Explainer",
+          "type": "agent",
+          "deployMonth": 3
+        },
+        {
+          "name": "Plan & Lines Manager",
+          "type": "agent",
+          "deployMonth": 4
+        }
+      ],
+      "intents": [
+        "Explain bill variance",
+        "One-time payment",
+        "Autopay setup",
+        "Payment arrangement",
+        "Dispute charge",
+        "Billing cycle change",
+        "Update payment method",
+        "Download bill",
+        "Change plan",
+        "Add/remove line",
+        "International roaming",
+        "Manage add-ons",
+        "Spam block",
+        "Call forwarding"
+      ],
+      "intentCount": 14,
+      "coverage": "20%",
+      "kpis": {
+        "containment": "55%",
+        "aht": "520s",
+        "csat": "3.7"
+      }
+    },
+    {
+      "id": "phase2",
+      "name": "Device & Activation",
+      "months": "Months 5-9",
+      "quarter": "Q2-Q3",
+      "description": "Launch device lifecycle and activation agents for upgrade and onboarding flows",
+      "agents": [
+        {
+          "name": "Device Lifecycle",
+          "type": "agent",
+          "deployMonth": 6
+        },
+        {
+          "name": "Activation & Identity",
+          "type": "agent",
+          "deployMonth": 8
+        }
+      ],
+      "intents": [
+        "Upgrade eligibility",
+        "Start upgrade",
+        "Trade-in quote",
+        "Order status",
+        "Returns/exchanges",
+        "Device protection claim",
+        "Lost/stolen device",
+        "BYOD compatibility",
+        "Activate device/SIM",
+        "Activate eSIM",
+        "Port-in number",
+        "Transfer number",
+        "Identity verification",
+        "2FA/PIN reset",
+        "Number change",
+        "Suspend/restore line"
+      ],
+      "intentCount": 16,
+      "coverage": "43%",
+      "kpis": {
+        "containment": "63%",
+        "aht": "495s",
+        "csat": "4.0"
+      }
+    },
+    {
+      "id": "phase3",
+      "name": "Network & Home Services",
+      "months": "Months 10-14",
+      "quarter": "Q3-Q4",
+      "description": "Deploy network troubleshooting and home internet support agents",
+      "agents": [
+        {
+          "name": "Network & Outage",
+          "type": "agent",
+          "deployMonth": 11
+        },
+        {
+          "name": "Home Internet (Fios)",
+          "type": "agent",
+          "deployMonth": 13
+        }
+      ],
+      "intents": [
+        "Report outage by ZIP",
+        "Check coverage/5G",
+        "Speed test help",
+        "WiFi calling setup",
+        "Network ticket status",
+        "Move service address",
+        "Fios gateway diagnostics",
+        "WiFi SSID/password",
+        "Schedule appointment",
+        "Self-install activation",
+        "Equipment return",
+        "Router troubleshooting",
+        "Signal strength",
+        "Data usage inquiry"
+      ],
+      "intentCount": 14,
+      "coverage": "63%",
+      "kpis": {
+        "containment": "69%",
+        "aht": "475s",
+        "csat": "4.2"
+      }
+    },
+    {
+      "id": "phase4",
+      "name": "Security & Advanced Features",
+      "months": "Months 15-18",
+      "quarter": "Q4+",
+      "description": "Complete agent suite with fraud detection and advanced policy features",
+      "agents": [
+        {
+          "name": "Security & Fraud",
+          "type": "agent",
+          "deployMonth": 16
+        }
+      ],
+      "intents": [
+        "Fraud alert",
+        "Account takeover",
+        "Spam call/text report",
+        "Security settings",
+        "Parental controls",
+        "Corporate discount",
+        "Tax/fee explanation",
+        "Refund status",
+        "Benefit eligibility (ACP/Lifeline)",
+        "Store locator",
+        "Paperless billing",
+        "Voice mail settings",
+        "International calling",
+        "Device unlock"
+      ],
+      "intentCount": 14,
+      "coverage": "83%",
+      "kpis": {
+        "containment": "76%",
+        "aht": "460s",
+        "csat": "4.3"
+      }
+    },
+    {
+      "id": "optimization",
+      "name": "Optimization & Scale",
+      "months": "Month 18+",
+      "quarter": "Ongoing",
+      "description": "Continuous improvement, A/B testing, and expansion to remaining long-tail intents",
+      "agents": [],
+      "intents": [
+        "Long-tail intent coverage",
+        "Multi-language support",
+        "Advanced personalization",
+        "Proactive notifications",
+        "Sentiment-driven routing",
+        "Voice biometrics"
+      ],
+      "intentCount": 8,
+      "coverage": "100%",
+      "kpis": {
+        "containment": "80%+",
+        "aht": "440s",
+        "csat": "4.5+"
+      }
+    }
+  ],
+  "milestones": [
+    {
+      "month": 1,
+      "title": "Orchestration Layer Live",
+      "description": "Core routing and safety orchestrators operational"
+    },
+    {
+      "month": 3,
+      "title": "First Agent Deployed",
+      "description": "Billing Explainer handling top 8 billing intents"
+    },
+    {
+      "month": 6,
+      "title": "Device Agent Live",
+      "description": "Upgrade and order management workflows active"
+    },
+    {
+      "month": 9,
+      "title": "50% Intent Coverage",
+      "description": "Halfway milestone - major use cases covered"
+    },
+    {
+      "month": 12,
+      "title": "Network Agent Deployed",
+      "description": "Outage and troubleshooting capabilities added"
+    },
+    {
+      "month": 15,
+      "title": "Security Agent Live",
+      "description": "Fraud detection and account security features"
+    },
+    {
+      "month": 18,
+      "title": "Full Production Rollout",
+      "description": "80%+ intent coverage, optimization phase begins"
+    }
+  ]
+}
+

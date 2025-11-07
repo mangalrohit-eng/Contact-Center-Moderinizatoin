@@ -1,0 +1,191 @@
+{
+  "orchestrators": [
+    {
+      "id": "conv_orch",
+      "name": "Conversation Orchestrator",
+      "type": "Orchestrator",
+      "description": "Manages multi-turn conversation strategy, context memory, and delegates to goal orchestrator. Tracks conversation state and user intent across turns.",
+      "topIntents": ["All conversational flows", "Context switching", "Multi-intent handling"]
+    },
+    {
+      "id": "goal_orch",
+      "name": "Goal Orchestrator",
+      "type": "Orchestrator",
+      "description": "Routes to specialized domain agents based on goal classification. Manages subgoal decomposition and agent selection with SLA tracking.",
+      "topIntents": ["Intent routing", "Agent selection", "Goal decomposition"]
+    },
+    {
+      "id": "safety_orch",
+      "name": "Safety & Compliance Orchestrator",
+      "type": "Orchestrator",
+      "description": "Enforces PII redaction, content filtering, and escalation policies. Monitors risk scores and ensures regulatory compliance.",
+      "topIntents": ["PII detection", "High-risk escalation", "Compliance checks"]
+    }
+  ],
+  "agents": [
+    {
+      "id": "billing_explainer",
+      "name": "Billing Explainer",
+      "type": "Domain Agent",
+      "description": "Specialized in billing inquiries, payment processing, and account balance explanations. Accesses BSS billing systems and payment gateways.",
+      "topIntents": ["Explain bill variance", "One-time payment", "Autopay setup"]
+    },
+    {
+      "id": "plan_lines_manager",
+      "name": "Plan & Lines Manager",
+      "type": "Domain Agent",
+      "description": "Handles plan changes, line management, and feature add-ons. Evaluates eligibility and presents personalized plan recommendations.",
+      "topIntents": ["Change plan", "Add/remove line", "International roaming"]
+    },
+    {
+      "id": "device_lifecycle",
+      "name": "Device Lifecycle",
+      "type": "Domain Agent",
+      "description": "Manages device upgrades, trade-ins, orders, and returns. Orchestrates eligibility checks, device catalog queries, and order placement.",
+      "topIntents": ["Upgrade eligibility", "Trade-in quote", "Order status"]
+    },
+    {
+      "id": "activation_identity",
+      "name": "Activation & Identity",
+      "type": "Domain Agent",
+      "description": "Handles device activation, eSIM provisioning, and number porting. Performs identity verification and KYC checks.",
+      "topIntents": ["Activate eSIM", "Port-in number", "Identity verification"]
+    },
+    {
+      "id": "network_outage",
+      "name": "Network & Outage",
+      "type": "Domain Agent",
+      "description": "Diagnoses network issues, reports outages, and provides coverage information. Queries OSS systems and creates service tickets.",
+      "topIntents": ["Report outage", "Check coverage", "Speed test help"]
+    },
+    {
+      "id": "home_internet",
+      "name": "Home Internet (Fios)",
+      "type": "Domain Agent",
+      "description": "Supports home internet services including gateway diagnostics, WiFi management, and technician appointments.",
+      "topIntents": ["Fios diagnostics", "WiFi password", "Schedule appointment"]
+    },
+    {
+      "id": "security_fraud",
+      "name": "Security & Fraud",
+      "type": "Domain Agent",
+      "description": "Handles fraud alerts, account takeover detection, and security concerns. Integrates with fraud detection systems.",
+      "topIntents": ["Fraud alert", "Spam report", "Account security"]
+    }
+  ],
+  "tools": [
+    {
+      "id": "bss_billing",
+      "name": "BSS Billing",
+      "type": "API Tool",
+      "description": "Core billing system API for account balances, invoice details, and billing history. Returns itemized charges and payment history.",
+      "topIntents": ["Bill inquiry", "Payment history", "Charge details"]
+    },
+    {
+      "id": "payments",
+      "name": "Payments",
+      "type": "API Tool",
+      "description": "Payment gateway for processing one-time and recurring payments. Handles payment methods, autopay enrollment, and refunds.",
+      "topIntents": ["Make payment", "Setup autopay", "Payment method"]
+    },
+    {
+      "id": "eligibility",
+      "name": "Eligibility",
+      "type": "API Tool",
+      "description": "Checks upgrade eligibility, plan change eligibility, and promotional qualification based on account status and tenure.",
+      "topIntents": ["Upgrade check", "Plan eligibility", "Promo qualification"]
+    },
+    {
+      "id": "device_catalog",
+      "name": "Device Catalog",
+      "type": "API Tool",
+      "description": "Product catalog with device specifications, pricing, inventory, and compatibility information.",
+      "topIntents": ["Device search", "BYOD check", "Accessory lookup"]
+    },
+    {
+      "id": "trade_in",
+      "name": "Trade-in",
+      "type": "API Tool",
+      "description": "Provides instant trade-in valuations based on device condition, model, and market rates.",
+      "topIntents": ["Trade-in quote", "Device value", "Trade-in eligibility"]
+    },
+    {
+      "id": "order_api",
+      "name": "Order API",
+      "type": "API Tool",
+      "description": "Order management system for creating, tracking, and modifying orders. Handles returns and exchanges.",
+      "topIntents": ["Order status", "Place order", "Return request"]
+    },
+    {
+      "id": "identity",
+      "name": "Identity/KYC",
+      "type": "API Tool",
+      "description": "Identity verification system supporting 2FA, PIN/PUK management, and KYC validation for high-risk transactions.",
+      "topIntents": ["Verify identity", "Reset PIN", "2FA setup"]
+    },
+    {
+      "id": "carrier_port",
+      "name": "Carrier Port",
+      "type": "API Tool",
+      "description": "Manages number porting from other carriers. Validates account numbers and initiates port-in requests.",
+      "topIntents": ["Port number", "Port status", "Port validation"]
+    },
+    {
+      "id": "oss_outage",
+      "name": "OSS Outage",
+      "type": "API Tool",
+      "description": "Network operations support system for outage detection, ticket creation, and service restoration status.",
+      "topIntents": ["Report outage", "Ticket status", "Service ETA"]
+    },
+    {
+      "id": "location_service",
+      "name": "Location Service",
+      "type": "API Tool",
+      "description": "Geocoding and coverage lookup by ZIP code or address. Returns tower locations and signal strength predictions.",
+      "topIntents": ["Coverage check", "5G availability", "Tower location"]
+    },
+    {
+      "id": "fios_gateway",
+      "name": "Fios Gateway/ONT",
+      "type": "API Tool",
+      "description": "Remote management of Fios gateway devices. Performs diagnostics, reboots, and WiFi configuration changes.",
+      "topIntents": ["Gateway reboot", "WiFi settings", "ONT diagnostics"]
+    },
+    {
+      "id": "appointments",
+      "name": "Appointments",
+      "type": "API Tool",
+      "description": "Technician scheduling system with availability lookup, booking, and rescheduling capabilities.",
+      "topIntents": ["Schedule appointment", "Reschedule", "Appointment status"]
+    },
+    {
+      "id": "promotions",
+      "name": "Promotions",
+      "type": "API Tool",
+      "description": "Real-time promotional engine returning personalized offers based on customer segment and eligibility.",
+      "topIntents": ["Current offers", "Discount eligibility", "Promo codes"]
+    },
+    {
+      "id": "security_fraud",
+      "name": "Security/Fraud",
+      "type": "API Tool",
+      "description": "Fraud detection and prevention system. Analyzes transactions for suspicious patterns and blocks unauthorized access.",
+      "topIntents": ["Fraud check", "Account lock", "Security alert"]
+    },
+    {
+      "id": "knowledge_billing",
+      "name": "Knowledge: Billing",
+      "type": "RAG Tool",
+      "description": "Vector database of billing policies, fee explanations, and account management procedures. Provides context-aware answers.",
+      "topIntents": ["Fee explanation", "Billing policy", "Tax questions"]
+    },
+    {
+      "id": "knowledge_network",
+      "name": "Knowledge: Network/Policies",
+      "type": "RAG Tool",
+      "description": "Network troubleshooting guides, policy documents, and feature documentation. Supports natural language queries.",
+      "topIntents": ["Network troubleshooting", "Policy lookup", "Feature guide"]
+    }
+  ]
+}
+
