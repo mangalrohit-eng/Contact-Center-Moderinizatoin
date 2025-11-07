@@ -31,7 +31,7 @@ export default function AgentsPage() {
             <span className="text-acc-purple">Agents & Tools Catalog</span>
           </h1>
           <p className="text-xl text-acc-gray-400 max-w-3xl mx-auto">
-            Comprehensive directory of {orchestrators.length} orchestrators, {agents.length} domain agents, and {tools.length} utility tools powering enterprise-scale contact center automation covering 200+ intents.
+            Comprehensive directory of {orchestrators.length} orchestrators, {agents.length} domain agents, and {tools.length} backend tools & integrations powering enterprise-scale contact center automation covering 200+ intents.
           </p>
         </div>
 
