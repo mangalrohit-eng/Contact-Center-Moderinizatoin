@@ -40,14 +40,14 @@ stream
 BT
 /F1 24 Tf
 50 750 Td
-(Accenture x Verizon) Tj
+(Accenture) Tj
 0 -30 Td
 (CES Next + Agentic AI Modernization) Tj
 /F1 12 Tf
 0 -40 Td
 (Executive Summary) Tj
 0 -20 Td
-(This modernization transforms Verizon's contact center operations) Tj
+(This modernization transforms enterprise contact center operations) Tj
 0 -15 Td
 (from intent-based Dialogflow to goal-driven CES Next with Agentic AI.) Tj
 0 -30 Td
@@ -79,5 +79,3 @@ trailer
 startxref
 905
 %%EOF
-
-

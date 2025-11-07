@@ -18,10 +18,10 @@ export default function Home() {
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <a
-              href="/demo/"
+              href="/agentic/"
               className="btn-primary inline-flex items-center justify-center"
             >
-              Try the Demo
+              Explore Architecture
             </a>
             <a
               href="/contact/"

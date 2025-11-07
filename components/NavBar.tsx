@@ -11,10 +11,8 @@ export default function NavBar() {
   const navLinks = [
     { href: '/', label: 'Home' },
     { href: '/approach/', label: 'Approach' },
-    { href: '/demo/', label: 'Demo' },
     { href: '/agentic/', label: 'Agentic' },
     { href: '/metrics/', label: 'Metrics' },
-    { href: '/responsible-ai/', label: 'Responsible AI' },
     { href: '/about/', label: 'About' },
     { href: '/contact/', label: 'Contact' },
   ];

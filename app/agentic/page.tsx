@@ -1,122 +1,97 @@
 'use client';
 
-import { useState } from 'react';
-import AgentMap from '@/components/AgentMap';
-import AgentTelemetry from '@/components/AgentTelemetry';
+import { useEffect, useMemo, useState } from 'react';
+import scenarios from '@/data/agentic/scenarios.json';
 import UseCaseMatrix from '@/components/UseCaseMatrix';
-import { Download, Play } from 'lucide-react';
+import ScenarioPath from '@/components/ScenarioPath';
 
-import orchestratorsData from '@/data/agentic/orchestrators.json';
-import agentsData from '@/data/agentic/agents.json';
-import toolsData from '@/data/agentic/tools.json';
-import scenariosData from '@/data/agentic/scenarios.json';
-import telemetryData from '@/data/agentic/telemetry.json';
+type Scenario = { id: string; title: string; path: string[] };
 
 export default function AgenticPage() {
-  const [highlightPath, setHighlightPath] = useState<string[] | undefined>();
-  const [selectedScenario, setSelectedScenario] = useState<string | null>(null);
+  const list = scenarios as unknown as Scenario[];
+  const [selected, setSelected] = useState<Scenario | null>(null);
+  const [activeIndex, setActiveIndex] = useState<number>(-1);
   const [trace, setTrace] = useState<string[]>([]);
 
-  const runScenario = (scenarioId: string) => {
-    const scenario = scenariosData.find((s) => s.id === scenarioId);
-    if (scenario) {
-      setSelectedScenario(scenarioId);
-      setHighlightPath(scenario.path);
-      
-      // Animate trace
-      setTrace([]);
-      let i = 0;
-      const interval = setInterval(() => {
-        setTrace(t => [...t, scenario.path[i]]);
-        i++;
-        if (i >= scenario.path.length) clearInterval(interval);
-      }, 500);
-    }
+  // Start/animate a scenario
+  const playScenario = (s: Scenario) => {
+    setSelected(s);
+    setTrace([]);
+    setActiveIndex(-1);
+    let i = 0;
+    const steps = s.path.length;
+    const timer = setInterval(() => {
+      setActiveIndex(i);
+      setTrace(t => [...t, s.path[i]]);
+      i += 1;
+      if (i >= steps) clearInterval(timer);
+    }, 550);
   };
+
+  // If user selects the same scenario again, replay
+  useEffect(() => {
+    if (selected && activeIndex === -1 && trace.length === 0) {
+      // no-op
+    }
+  }, [selected, activeIndex, trace.length]);
+
+  const topRow = useMemo(() => selected?.path ?? [], [selected]);
 
   return (
     <div className="py-20">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        {/* Header */}
-        <div className="text-center mb-12">
-          <h1 className="text-4xl md:text-5xl font-bold mb-6">
-            <span className="text-acc-purple">Agentic Architecture</span>
-          </h1>
-          <p className="text-xl text-acc-gray-400 max-w-3xl mx-auto">
-            Orchestrators route Verizon-scale intents to domain agents and safe tools with policy guardrails and observability.
-          </p>
-        </div>
+        <h1 className="text-4xl md:text-5xl font-bold mb-6">
+          <span className="text-acc-purple">Agentic Architecture</span>
+        </h1>
+        <p className="text-xl text-acc-gray-400 mb-8 max-w-3xl">
+          Orchestrators route enterprise-scale intents to domain agents and safe tools with policy guardrails and observability. Select a scenario to see the execution path.
+        </p>
 
         {/* Scenarios */}
-        <div className="mb-12">
-          <h2 className="text-2xl font-bold mb-4">Run Example Scenarios</h2>
-          <p className="text-acc-gray-400 mb-6">
-            Select a scenario to visualize the execution path through the agentic architecture.
-          </p>
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
-            {scenariosData.map((scenario) => (
+        <div className="mb-8">
+          <h2 className="text-2xl font-bold mb-4">Select a Scenario</h2>
+          <div className="flex flex-wrap gap-3">
+            {list.map(s => (
               <button
-                key={scenario.id}
-                onClick={() => runScenario(scenario.id)}
-                className={`p-4 rounded-lg border transition-all text-left ${
-                  selectedScenario === scenario.id
-                    ? 'bg-acc-purple border-acc-purple text-white'
-                    : 'bg-acc-gray-800 border-acc-gray-700 hover:border-acc-purple/50'
-                }`}
+                key={s.id}
+                onClick={() => playScenario(s)}
+                className={[
+                  'px-4 py-2 rounded-md border transition-all',
+                  selected?.id === s.id ? 'bg-acc-purple/30 border-acc-purple text-white' : 'bg-acc-gray-800 border-acc-gray-700 text-acc-gray-300',
+                  'hover:bg-acc-purple/20 hover:border-acc-purple/50'
+                ].join(' ')}
               >
-                <Play className="w-5 h-5 mb-2" />
-                <p className="text-sm font-semibold">{scenario.title}</p>
+                ▶ {s.title}
               </button>
             ))}
           </div>
         </div>
 
-        {/* Execution Trace */}
-        {trace.length > 0 && (
-          <div className="mb-12 bg-acc-gray-900 border border-acc-gray-700 rounded-lg p-4">
-            <h3 className="text-sm font-semibold text-acc-gray-400 mb-2">Execution Trace</h3>
-            <div className="font-mono text-xs text-green-400 space-y-1 max-h-32 overflow-y-auto">
-              {trace.map((t, i) => (
-                <div key={i}>{`[${i+1}] → ${t}`}</div>
-              ))}
+        {/* Scenario-only circles at the top */}
+        <div className="mb-8 bg-acc-gray-800 border border-acc-gray-700 rounded-lg p-6">
+          <h3 className="text-lg font-semibold mb-4">Execution Path</h3>
+          {selected ? (
+            <ScenarioPath pathIds={topRow} activeIndex={activeIndex} />
+          ) : (
+            <div className="text-center py-12 text-acc-gray-400">
+              Select a scenario above to visualize its execution path
             </div>
+          )}
+        </div>
+
+        {/* Execution trace */}
+        <div className="mb-12 bg-acc-gray-900 border border-acc-gray-700 rounded-lg p-4">
+          <h3 className="text-sm font-semibold text-acc-gray-400 mb-2">Execution Trace</h3>
+          <div className="font-mono text-xs text-green-400 space-y-1 h-40 overflow-y-auto">
+            {trace.length === 0 && <div className="text-acc-gray-600">Execution trace will appear here when you select a scenario.</div>}
+            {trace.map((t, i) => (
+              <div key={i}>{`[${i + 1}] → ${t}`}</div>
+            ))}
           </div>
-        )}
-
-        {/* Agent Map */}
-        <div className="mb-12">
-          <AgentMap
-            orchestrators={orchestratorsData}
-            agents={agentsData}
-            tools={toolsData}
-            highlightPath={highlightPath}
-          />
         </div>
 
-        {/* Telemetry */}
-        <div className="mb-12">
-          <h2 className="text-2xl font-bold mb-6">Telemetry & Performance</h2>
-          <AgentTelemetry data={telemetryData} />
-        </div>
-
-        {/* NEW: Top 40 Use Case Coverage Matrix */}
+        {/* Use Case Coverage Matrix (keep) */}
         <UseCaseMatrix />
-
-        {/* Download CTA */}
-        <div className="mt-12 bg-gradient-to-br from-acc-purple/10 to-transparent border border-acc-purple/30 rounded-lg p-8 text-center">
-          <h3 className="text-2xl font-bold mb-4">Deep Dive into Agentic Design</h3>
-          <p className="text-acc-gray-400 mb-6 max-w-2xl mx-auto">
-            Download the comprehensive one-pager with agent specifications, tool integrations, and guardrail policies.
-          </p>
-          <a
-            href="/downloads/Accenture_Verizon_Agentic_Modernization_OnePager.pdf"
-            download
-            className="btn-primary inline-flex items-center gap-2"
-          >
-            <Download className="w-5 h-5" />
-            Download One-Pager (PDF)
-          </a>
-        </div>
       </div>
     </div>
   );

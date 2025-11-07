@@ -10,7 +10,7 @@ export default function AboutPage() {
             About <span className="text-acc-purple">This Initiative</span>
           </h1>
           <p className="text-xl text-acc-gray-400 max-w-3xl mx-auto">
-            Accenture partners with Google Cloud to modernize contact centers at Verizon scale.
+            Accenture partners with Google Cloud to modernize enterprise contact centers at scale.
           </p>
         </div>
 

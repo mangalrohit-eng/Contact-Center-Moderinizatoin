@@ -37,15 +37,15 @@ export default function Hero() {
           </h1>
 
           <p className="text-xl text-acc-gray-400 mb-8 max-w-3xl mx-auto">
-            Handle <strong className="text-white">Verizon-scale</strong> volumes with goal-based agents that reason, route, and resolve.
+            Handle <strong className="text-white">enterprise-scale</strong> volumes with goal-based agents that reason, route, and resolve.
           </p>
 
           <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
             <Link
-              href="/demo/"
+              href="/agentic/"
               className="btn-primary inline-flex items-center gap-2 group"
             >
-              See the Demo
+              See Architecture
               <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
             </Link>
             <Link

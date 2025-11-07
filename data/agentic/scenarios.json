@@ -1,22 +1,42 @@
 [
   {
-    "id": "bill",
-    "title": "Why is my bill higher this month?",
-    "path": ["conv_orch", "goal_orch", "billing_explainer", "bss_billing", "knowledge_billing", "payments"]
+    "id": "bill_variance",
+    "title": "Explain why my bill is higher",
+    "path": ["conv_orch","goal_orch","billing_explainer","bss_billing","knowledge_billing","payments"]
   },
   {
-    "id": "outage",
-    "title": "5G outage near 10001",
-    "path": ["conv_orch", "goal_orch", "network_outage", "location_service", "oss_outage", "knowledge_network"]
+    "id": "one_time_payment",
+    "title": "Make a one-time payment",
+    "path": ["conv_orch","goal_orch","billing_explainer","payments"]
   },
   {
-    "id": "upgrade",
-    "title": "Upgrade iPhone 16 with trade-in",
-    "path": ["conv_orch", "goal_orch", "device_lifecycle", "eligibility", "device_catalog", "trade_in", "promotions", "order_api"]
+    "id": "change_plan",
+    "title": "Change my plan (myPlan options)",
+    "path": ["conv_orch","goal_orch","plan_lines_manager","eligibility","promotions","order_api"]
   },
   {
-    "id": "esim",
-    "title": "Activate eSIM and port my number",
-    "path": ["conv_orch", "goal_orch", "activation_identity", "identity", "carrier_port", "order_api"]
+    "id": "upgrade_tradein",
+    "title": "Upgrade with trade-in quote",
+    "path": ["conv_orch","goal_orch","device_lifecycle","eligibility","device_catalog","trade_in","promotions","order_api"]
+  },
+  {
+    "id": "order_status",
+    "title": "Check my order status",
+    "path": ["conv_orch","goal_orch","device_lifecycle","order_api"]
+  },
+  {
+    "id": "activate_esim_portin",
+    "title": "Activate eSIM & port my number",
+    "path": ["conv_orch","goal_orch","activation_identity","identity","carrier_port","order_api"]
+  },
+  {
+    "id": "report_outage_zip",
+    "title": "Report a 5G outage by ZIP",
+    "path": ["conv_orch","goal_orch","network_outage","location_service","oss_outage"]
+  },
+  {
+    "id": "fios_diag",
+    "title": "Fios gateway/ONT diagnostics",
+    "path": ["conv_orch","goal_orch","home_internet","fios_gateway","knowledge_network"]
   }
 ]

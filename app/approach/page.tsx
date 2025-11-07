@@ -1,30 +1,24 @@
-import { CheckCircle2, Download, Database, Lightbulb, Wrench, Rocket } from 'lucide-react';
+import { CheckCircle2, Download, Search, Wrench, Rocket } from 'lucide-react';
 import Link from 'next/link';
 
 const phases = [
   {
-    icon: Database,
-    title: 'Analyze',
-    description: 'Audit existing Dialogflow intents, entities, and fulfillment logic. Identify redundancies and coverage gaps.',
-    deliverables: ['Intent inventory', 'Conversation flow maps', 'Fallback analysis'],
-  },
-  {
-    icon: Lightbulb,
-    title: 'Rationalize',
-    description: 'Use LLM-powered semantic clustering to consolidate intents and map to goal-oriented structures.',
-    deliverables: ['Intent rationalization report', 'Goal taxonomy', 'Migration mappings'],
+    icon: Search,
+    title: 'Discovery',
+    description: 'Audit existing Dialogflow intents, entities, and fulfillment logic. Analyze conversation flows, identify redundancies and coverage gaps. Use LLM-powered semantic clustering to understand intent patterns.',
+    deliverables: ['Intent inventory & analysis', 'Conversation flow maps', 'Fallback analysis', 'Goal taxonomy', 'Migration strategy'],
   },
   {
     icon: Wrench,
-    title: 'Redesign',
-    description: 'Architect CES Next goal flows with agentic orchestration, tool integrations, and guardrails.',
-    deliverables: ['CES Next flows', 'Agent architecture', 'Policy configurations'],
+    title: 'Design',
+    description: 'Architect CES Next goal flows with agentic orchestration. Design specialized agents, tool integrations, routing policies, and guardrails. Create comprehensive agent-to-tool mappings.',
+    deliverables: ['CES Next goal flows', 'Agent architecture', 'Tool integration specs', 'Policy configurations', 'Security & compliance framework'],
   },
   {
     icon: Rocket,
-    title: 'Migrate & Validate',
-    description: 'Deploy to production with A/B testing, KPI monitoring, and continuous optimization.',
-    deliverables: ['Production deployment', 'KPI dashboards', 'Optimization playbook'],
+    title: 'Build',
+    description: 'Implement agents and orchestrators, integrate backend tools and APIs. Deploy to production with A/B testing, KPI monitoring, and continuous optimization.',
+    deliverables: ['Production deployment', 'Agent implementations', 'KPI dashboards', 'Testing framework', 'Optimization playbook'],
   },
 ];
 
@@ -38,12 +32,12 @@ export default function ApproachPage() {
             Our <span className="text-acc-purple">Modernization Approach</span>
           </h1>
           <p className="text-xl text-acc-gray-400 max-w-3xl mx-auto">
-            A proven four-phase methodology to transition from intent-based Dialogflow to goal-driven CES Next with Agentic AI.
+            A proven three-phase methodology to transition from intent-based Dialogflow to goal-driven CES Next with Agentic AI.
           </p>
         </div>
 
         {/* Phases */}
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-8 mb-16">
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mb-16">
           {phases.map((phase, idx) => {
             const Icon = phase.icon;
             return (
@@ -84,7 +78,7 @@ export default function ApproachPage() {
             Get the full one-pager with architecture diagrams, migration timelines, and ROI projections.
           </p>
           <a
-            href="/downloads/Accenture_Verizon_Agentic_Modernization_OnePager.pdf"
+            href="/downloads/Accenture_Agentic_Modernization_OnePager.pdf"
             download
             className="btn-primary inline-flex items-center gap-2"
           >

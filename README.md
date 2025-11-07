@@ -1,6 +1,6 @@
-# Accenture × Verizon CES Next + Agentic AI Modernization Portal
+# Accenture CES Next + Agentic AI Modernization Portal
 
-A fully static Next.js website showcasing the transformation from Dialogflow to Google CES Next with Agentic AI for Verizon's contact center operations.
+A fully static Next.js website showcasing the transformation from Dialogflow to Google CES Next with Agentic AI for enterprise contact center operations.
 
 ## 🚀 Features
 
@@ -142,7 +142,7 @@ All colors are defined in `tailwind.config.ts` and `app/globals.css`.
 
 ## 📄 License
 
-© Accenture. Accenture and the > device are trademarks of Accenture. Verizon is a trademark of Verizon. Used here for descriptive purposes only.
+© Accenture. Accenture and the > device are trademarks of Accenture.
 
 ## 📞 Contact
 

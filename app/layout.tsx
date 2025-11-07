@@ -4,7 +4,7 @@ import NavBar from '@/components/NavBar';
 import Footer from '@/components/Footer';
 
 export const metadata: Metadata = {
-  title: 'Accenture × Verizon CES Next Modernization',
+  title: 'Accenture CES Next Modernization',
   description: 'Reimagining Telecom CX with Google CES Next and Agentic AI',
 };
 
