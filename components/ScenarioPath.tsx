@@ -51,60 +51,66 @@ export default function ScenarioPath({ pathIds, activeIndex }: Props) {
   };
 
   return (
-    <div className="w-full overflow-x-auto pb-8">
+    <div className="w-full overflow-x-auto pb-8 pt-4">
       <div className="min-w-[720px]">
-        {/* Circles with proper alignment */}
-        <div className="flex items-start gap-0 relative">
+        {/* Circles with proper alignment and spacing */}
+        <div className="flex items-center relative" style={{ paddingTop: '12px' }}>
           {pathIds.map((id, idx) => {
             const info = meta[id] || { type: 'tool', name: id, description: '' };
             const isActive = idx === activeIndex;
             const isPast = idx < activeIndex;
             const isVisible = idx <= activeIndex;
+            const showArrow = idx < pathIds.length - 1 && isVisible;
             
             return (
-              <div key={`${id}-${idx}`} className={`flex flex-col items-center flex-1 transition-all duration-500 ${isVisible ? 'opacity-100' : 'opacity-0'}`}>
-                {/* Circle */}
-                <div
-                  className={[
-                    'w-16 h-16 rounded-full flex items-center justify-center relative z-10',
-                    'ring-2', ring(info.type), bg(info.type),
-                    isActive ? 'animate-pulse scale-110' : isPast ? 'opacity-70 scale-100' : 'opacity-30 scale-95',
-                    'transition-all duration-300'
-                  ].join(' ')}
-                  title={info.name}
-                >
-                  <span className="text-xs text-white/90 text-center px-1 leading-tight">
-                    {abbr(info.name)}
-                  </span>
+              <div key={`${id}-${idx}`} className="flex items-center flex-1">
+                {/* Circle Container */}
+                <div className={`flex flex-col items-center flex-shrink-0 transition-all duration-500 ${isVisible ? 'opacity-100' : 'opacity-0'}`}>
+                  {/* Circle */}
+                  <div
+                    className={[
+                      'w-16 h-16 rounded-full flex items-center justify-center relative z-10',
+                      'ring-2', ring(info.type), bg(info.type),
+                      isActive ? 'animate-pulse scale-110' : isPast ? 'opacity-70 scale-100' : 'opacity-30 scale-95',
+                      'transition-all duration-300'
+                    ].join(' ')}
+                    title={info.name}
+                  >
+                    <span className="text-xs text-white/90 text-center px-1 leading-tight">
+                      {abbr(info.name)}
+                    </span>
+                    
+                    {/* Active indicator */}
+                    {isActive && (
+                      <div className="absolute -top-1 -right-1 w-3 h-3 bg-acc-purple rounded-full animate-ping" />
+                    )}
+                  </div>
                   
-                  {/* Active indicator */}
-                  {isActive && (
-                    <div className="absolute -top-1 -right-1 w-3 h-3 bg-acc-purple rounded-full animate-ping" />
-                  )}
+                  {/* Label */}
+                  <div className="text-[11px] text-gray-400 text-center w-24 mt-2 leading-snug">{info.name}</div>
                 </div>
                 
-                {/* Label */}
-                <div className="text-[11px] text-gray-400 text-center w-24 mt-2 leading-snug">{info.name}</div>
+                {/* Arrow connector to next circle */}
+                {showArrow && (
+                  <div className={`flex-1 flex items-center px-2 transition-all duration-500 ${idx < activeIndex ? 'opacity-100' : 'opacity-30'}`}>
+                    <div className="flex-1 relative h-0.5">
+                      {/* Arrow line */}
+                      <div className={`absolute inset-0 ${isPast ? 'bg-acc-purple' : 'bg-gray-700'} transition-colors duration-300`} />
+                      {/* Arrow head */}
+                      <div 
+                        className={`absolute right-0 top-1/2 -translate-y-1/2 w-0 h-0 transition-colors duration-300`}
+                        style={{
+                          borderTop: '5px solid transparent',
+                          borderBottom: '5px solid transparent',
+                          borderLeft: `8px solid ${isPast ? 'var(--acc-purple)' : 'rgb(55, 65, 81)'}`
+                        }}
+                      />
+                    </div>
+                  </div>
+                )}
               </div>
             );
           })}
-          
-          {/* Connecting lines - positioned absolutely behind circles */}
-          <div className="absolute top-8 left-0 right-0 flex items-center" style={{ zIndex: 0 }}>
-            {pathIds.map((id, idx) => {
-              if (idx === pathIds.length - 1) return null;
-              const isPast = idx < activeIndex;
-              const flexBasis = `${100 / pathIds.length}%`;
-              
-              return (
-                <div key={`line-${idx}`} className="flex items-center" style={{ flex: `1 1 ${flexBasis}` }}>
-                  <div className="w-8" />
-                  <div className={`flex-1 h-[2px] ${isPast ? 'bg-acc-purple' : 'bg-gray-700'} transition-colors duration-300`} />
-                  <div className="w-8" />
-                </div>
-              );
-            })}
-          </div>
         </div>
         
         {/* Persistent descriptions below */}
