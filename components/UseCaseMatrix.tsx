@@ -84,7 +84,7 @@ export default function UseCaseMatrix(){
             {rows.map((r, i)=>(
               <tr key={i} className="border-t border-acc-gray-700 hover:bg-acc-gray-700/30 transition-colors">
                 <td className="p-3 text-white">{r.intentObj.name}</td>
-                <td className="p-3 text-acc-gray-400">{r.intentObj.domain}</td>
+                <td className="p-3 text-acc-gray-400">{r.intentObj.category}</td>
                 <td className="p-3">
                   <span className="px-2 py-1 rounded bg-acc-purple/20 text-acc-purple border border-acc-purple/40 text-xs font-semibold">
                     {agentById[r.agent]?.name || r.agent}
