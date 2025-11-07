@@ -2,7 +2,7 @@
 
 import { useState, useEffect, ReactNode } from 'react';
 
-const CORRECT_PASSWORD = 'ItsPyriteNotAstrum';
+const CORRECT_PASSWORD = 'Astrum';
 const AUTH_KEY = 'accenture_portal_auth';
 
 export default function PasswordProtection({ children }: { children: ReactNode }) {
