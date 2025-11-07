@@ -142,14 +142,12 @@ export default function AgentsPage() {
                           <span className="text-green-400">•</span>
                           {intent}
                         </div>
-          ))}
-        </div>
-
-        <NextPageButton href="/agentic/" label="How it Will Work" />
-      </div>
-    </div>
-  );
-})}
+                      ))}
+                    </div>
+                  </div>
+                </div>
+              );
+            })}
           </div>
         </section>
 
@@ -191,6 +189,8 @@ export default function AgentsPage() {
             })}
           </div>
         </section>
+
+        <NextPageButton href="/agentic/" label="How it Will Work" />
       </div>
     </div>
   );
