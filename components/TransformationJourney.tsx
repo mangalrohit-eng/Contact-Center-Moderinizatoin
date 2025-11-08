@@ -6,26 +6,32 @@ import { Database, Brain, Target, Network, TrendingUp } from 'lucide-react';
 
 const steps = [
   {
-    title: 'Dialogflow Intents',
-    description: 'Analyze existing intent library, entities, and fulfillment logic.',
+    title: 'Discover the Current Process',
+    description: 'Analyze existing Dialogflow intents, conversation flows, and operational metrics.',
     icon: Database,
     color: 'text-gray-400',
   },
   {
-    title: 'LLM Rationalization',
+    title: 'Rationalize Intents',
     description: 'Consolidate redundant intents using semantic clustering and LLM-powered analysis.',
     icon: Brain,
     color: 'text-acc-purple',
   },
   {
-    title: 'CES Goal Flows',
+    title: 'Design CES Flows',
     description: 'Map intents to goal-oriented conversation flows with clear success criteria.',
     icon: Target,
     color: 'text-acc-purple',
   },
   {
-    title: 'Agentic Orchestration',
-    description: 'Deploy specialized agents with tool access, routing logic, and guardrails.',
+    title: 'Design Agentic Architecture',
+    description: 'Define orchestrators, domain agents, tools, and routing policies with guardrails.',
+    icon: Network,
+    color: 'text-acc-purple',
+  },
+  {
+    title: 'Build the CES and Agents',
+    description: 'Develop and deploy agents iteratively with enterprise system integrations.',
     icon: Network,
     color: 'text-acc-purple',
   },

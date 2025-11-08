@@ -43,7 +43,7 @@ export default function Hero() {
           <div className="flex justify-center items-center">
             <Link
               href="/approach/"
-              className="btn-primary inline-flex items-center gap-2 group"
+              className="btn-primary inline-flex items-center gap-2 group px-8 py-4 text-lg"
             >
               See Approach
               <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
