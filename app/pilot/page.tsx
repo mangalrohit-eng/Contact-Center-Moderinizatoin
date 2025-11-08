@@ -326,141 +326,130 @@ export default function PilotPage() {
           </div>
         </div>
 
-        {/* Detailed 3-Month Project Plan */}
+        {/* Visual Project Plan */}
         <div className="mb-16">
-          <h2 className="text-3xl font-bold mb-4 text-center">Detailed 3-Month Project Plan</h2>
+          <h2 className="text-3xl font-bold mb-4 text-center">Visual 12-Week Project Plan</h2>
           <p className="text-center text-acc-gray-400 mb-8 max-w-3xl mx-auto">
-            Week-by-week breakdown showing how Discovery, Design, and Build pods collaborate to deliver 5 agents and 40 intents.
+            Three pods work in parallel, passing agents from Discovery → Design → Build to deliver real business value.
           </p>
 
-          <div className="bg-acc-gray-800 border border-acc-gray-700 rounded-lg overflow-hidden">
-            <div className="overflow-x-auto">
-              <table className="min-w-full">
-                <thead className="bg-acc-gray-900">
-                  <tr>
-                    <th className="text-left p-4 font-semibold text-acc-gray-300 border-b border-acc-gray-700">Week</th>
-                    <th className="text-left p-4 font-semibold text-acc-purple border-b border-acc-gray-700">Discovery Pod</th>
-                    <th className="text-left p-4 font-semibold text-green-400 border-b border-acc-gray-700">Design Pod</th>
-                    <th className="text-left p-4 font-semibold text-blue-400 border-b border-acc-gray-700">Build Pod</th>
-                    <th className="text-left p-4 font-semibold text-acc-gray-300 border-b border-acc-gray-700">Deliverable</th>
-                  </tr>
-                </thead>
-                <tbody className="text-sm">
-                  {/* Month 1 - Orchestrators */}
-                  <tr className="border-b border-acc-gray-700 hover:bg-acc-gray-700/30">
-                    <td className="p-4 font-semibold">W1</td>
-                    <td className="p-4 text-acc-gray-300">Analyze orchestrator requirements, CES Next setup</td>
-                    <td className="p-4 text-acc-gray-500">—</td>
-                    <td className="p-4 text-acc-gray-500">—</td>
-                    <td className="p-4 text-acc-gray-400">Requirements doc</td>
-                  </tr>
-                  <tr className="border-b border-acc-gray-700 hover:bg-acc-gray-700/30">
-                    <td className="p-4 font-semibold">W2</td>
-                    <td className="p-4 text-acc-gray-300">Define routing policies, safety rules</td>
-                    <td className="p-4 text-green-400">Design conversation flows</td>
-                    <td className="p-4 text-acc-gray-500">—</td>
-                    <td className="p-4 text-acc-gray-400">Flow designs</td>
-                  </tr>
-                  <tr className="border-b border-acc-gray-700 hover:bg-acc-gray-700/30">
-                    <td className="p-4 font-semibold">W3</td>
-                    <td className="p-4 text-acc-purple">Start Billing Agent discovery</td>
-                    <td className="p-4 text-green-400">Finalize orchestrator policies</td>
-                    <td className="p-4 text-blue-400">Build 3 orchestrators</td>
-                    <td className="p-4 text-acc-gray-400">—</td>
-                  </tr>
-                  <tr className="border-b border-acc-gray-700 bg-green-900/10">
-                    <td className="p-4 font-semibold">W4</td>
-                    <td className="p-4 text-acc-purple">Billing intents analysis (20)</td>
-                    <td className="p-4 text-acc-gray-500">—</td>
-                    <td className="p-4 text-blue-400">Test & deploy orchestrators</td>
-                    <td className="p-4 text-white font-semibold">✅ 3 Orchestrators Live</td>
-                  </tr>
-                  
-                  {/* Month 2 - Billing Agent */}
-                  <tr className="border-b border-acc-gray-700 hover:bg-acc-gray-700/30">
-                    <td className="p-4 font-semibold">W5</td>
-                    <td className="p-4 text-acc-purple">BSS/payment tool mapping</td>
-                    <td className="p-4 text-green-400">Design Billing Agent flows</td>
-                    <td className="p-4 text-acc-gray-500">—</td>
-                    <td className="p-4 text-acc-gray-400">Intent map</td>
-                  </tr>
-                  <tr className="border-b border-acc-gray-700 hover:bg-acc-gray-700/30">
-                    <td className="p-4 font-semibold">W6</td>
-                    <td className="p-4 text-acc-purple">Start Plans Agent discovery</td>
-                    <td className="p-4 text-green-400">Design tool integrations</td>
-                    <td className="p-4 text-blue-400">Build Billing Agent</td>
-                    <td className="p-4 text-acc-gray-400">Integration specs</td>
-                  </tr>
-                  <tr className="border-b border-acc-gray-700 hover:bg-acc-gray-700/30">
-                    <td className="p-4 font-semibold">W7</td>
-                    <td className="p-4 text-acc-purple">Plans intents analysis (20)</td>
-                    <td className="p-4 text-acc-gray-500">—</td>
-                    <td className="p-4 text-blue-400">BSS/payment tool integration</td>
-                    <td className="p-4 text-acc-gray-400">—</td>
-                  </tr>
-                  <tr className="border-b border-acc-gray-700 bg-green-900/10">
-                    <td className="p-4 font-semibold">W8</td>
-                    <td className="p-4 text-acc-purple">Plan catalog tool mapping</td>
-                    <td className="p-4 text-green-400">Design Plans Agent flows</td>
-                    <td className="p-4 text-blue-400">Test & deploy Billing Agent</td>
-                    <td className="p-4 text-white font-semibold">✅ Billing Agent + 20 Intents Live</td>
-                  </tr>
+          {/* Timeline Header */}
+          <div className="bg-acc-gray-800 border border-acc-gray-700 rounded-lg p-6 mb-4">
+            <div className="flex items-center justify-between mb-6">
+              <div className="flex items-center gap-6">
+                <div className="flex items-center gap-2">
+                  <div className="w-4 h-4 bg-acc-purple rounded"></div>
+                  <span className="text-sm text-acc-gray-300">Discovery Pod</span>
+                </div>
+                <div className="flex items-center gap-2">
+                  <div className="w-4 h-4 bg-green-400 rounded"></div>
+                  <span className="text-sm text-acc-gray-300">Design Pod</span>
+                </div>
+                <div className="flex items-center gap-2">
+                  <div className="w-4 h-4 bg-blue-400 rounded"></div>
+                  <span className="text-sm text-acc-gray-300">Build Pod</span>
+                </div>
+              </div>
+            </div>
 
-                  {/* Month 3 - Plans Agent */}
-                  <tr className="border-b border-acc-gray-700 hover:bg-acc-gray-700/30">
-                    <td className="p-4 font-semibold">W9</td>
-                    <td className="p-4 text-acc-gray-500">—</td>
-                    <td className="p-4 text-green-400">Design tool integrations</td>
-                    <td className="p-4 text-blue-400">Build Plans Agent</td>
-                    <td className="p-4 text-acc-gray-400">Agent skeleton</td>
-                  </tr>
-                  <tr className="border-b border-acc-gray-700 hover:bg-acc-gray-700/30">
-                    <td className="p-4 font-semibold">W10</td>
-                    <td className="p-4 text-acc-purple">Phase 2 planning begins</td>
-                    <td className="p-4 text-green-400">Finalize agent policies</td>
-                    <td className="p-4 text-blue-400">Plan catalog integration</td>
-                    <td className="p-4 text-acc-gray-400">Tools connected</td>
-                  </tr>
-                  <tr className="border-b border-acc-gray-700 hover:bg-acc-gray-700/30">
-                    <td className="p-4 font-semibold">W11</td>
-                    <td className="p-4 text-acc-purple">Device agent discovery</td>
-                    <td className="p-4 text-green-400">A/B test planning</td>
-                    <td className="p-4 text-blue-400">Test Plans Agent</td>
-                    <td className="p-4 text-acc-gray-400">Test results</td>
-                  </tr>
-                  <tr className="border-b border-acc-gray-700 bg-green-900/10">
-                    <td className="p-4 font-semibold">W12</td>
-                    <td className="p-4 text-acc-purple">Device intents analysis</td>
-                    <td className="p-4 text-green-400">KPI dashboard setup</td>
-                    <td className="p-4 text-blue-400">Deploy Plans Agent</td>
-                    <td className="p-4 text-white font-semibold">✅ Plans Agent + 40 Total Intents Live</td>
-                  </tr>
+            {/* Week markers */}
+            <div className="flex justify-between text-xs text-acc-gray-500 mb-2 px-2">
+              <span>Week 1</span>
+              <span>Week 3</span>
+              <span>Week 6</span>
+              <span>Week 9</span>
+              <span>Week 12</span>
+            </div>
+            <div className="h-1 bg-acc-gray-700 rounded mb-6"></div>
 
-                  {/* Hypercare Period */}
-                  <tr className="bg-blue-900/10 border-b border-acc-gray-700">
-                    <td className="p-4 font-semibold">W13-18</td>
-                    <td className="p-4 text-acc-purple" colSpan={3}>
-                      <span className="font-semibold">6-Week Hypercare:</span> 24/7 monitoring, optimization, KPI tracking, transition to BAU
-                    </td>
-                    <td className="p-4 text-white font-semibold">✅ Pilot Complete</td>
-                  </tr>
-                </tbody>
-              </table>
+            {/* Orchestrators */}
+            <div className="mb-8">
+              <div className="font-bold mb-3 flex items-center gap-2">
+                <span className="text-white">3 Orchestrators</span>
+                <span className="text-xs text-acc-gray-500">(Foundation)</span>
+              </div>
+              <div className="space-y-2">
+                <div className="flex gap-1">
+                  <div className="bg-acc-purple h-10 rounded flex items-center justify-center text-white text-xs font-semibold px-3" style={{width: '16.66%'}}>
+                    Discovery
+                  </div>
+                  <div className="bg-green-400 h-10 rounded flex items-center justify-center text-black text-xs font-semibold px-3" style={{width: '16.66%'}}>
+                    Design
+                  </div>
+                  <div className="bg-blue-400 h-10 rounded flex items-center justify-center text-black text-xs font-semibold px-3" style={{width: '16.66%'}}>
+                    Build & Deploy
+                  </div>
+                  <div className="bg-green-900/30 h-10 rounded flex items-center justify-center text-white text-xs font-semibold px-3" style={{width: '8.33%'}}>
+                    ✅ Live
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            {/* Billing Agent */}
+            <div className="mb-8">
+              <div className="font-bold mb-3 flex items-center gap-2">
+                <span className="text-white">Billing & Payments Agent</span>
+                <span className="text-xs text-acc-gray-500">(20 intents)</span>
+              </div>
+              <div className="space-y-2">
+                <div className="flex gap-1">
+                  <div style={{width: '25%'}}></div>
+                  <div className="bg-acc-purple h-10 rounded flex items-center justify-center text-white text-xs font-semibold px-3" style={{width: '16.66%'}}>
+                    Discovery
+                  </div>
+                  <div className="bg-green-400 h-10 rounded flex items-center justify-center text-black text-xs font-semibold px-3" style={{width: '16.66%'}}>
+                    Design
+                  </div>
+                  <div className="bg-blue-400 h-10 rounded flex items-center justify-center text-black text-xs font-semibold px-3" style={{width: '16.66%'}}>
+                    Build & Deploy
+                  </div>
+                  <div className="bg-green-900/30 h-10 rounded flex items-center justify-center text-white text-xs font-semibold px-3" style={{width: '8.33%'}}>
+                    ✅ Live
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            {/* Plans Agent */}
+            <div className="mb-4">
+              <div className="font-bold mb-3 flex items-center gap-2">
+                <span className="text-white">Plans & Features Agent</span>
+                <span className="text-xs text-acc-gray-500">(20 intents)</span>
+              </div>
+              <div className="space-y-2">
+                <div className="flex gap-1">
+                  <div style={{width: '50%'}}></div>
+                  <div className="bg-acc-purple h-10 rounded flex items-center justify-center text-white text-xs font-semibold px-3" style={{width: '8.33%'}}>
+                    Disc
+                  </div>
+                  <div className="bg-green-400 h-10 rounded flex items-center justify-center text-black text-xs font-semibold px-3" style={{width: '16.66%'}}>
+                    Design
+                  </div>
+                  <div className="bg-blue-400 h-10 rounded flex items-center justify-center text-black text-xs font-semibold px-3" style={{width: '16.66%'}}>
+                    Build & Deploy
+                  </div>
+                  <div className="bg-green-900/30 h-10 rounded flex items-center justify-center text-white text-xs font-semibold px-3" style={{width: '8.33%'}}>
+                    ✅ Live
+                  </div>
+                </div>
+              </div>
             </div>
           </div>
 
-          <div className="mt-6 grid grid-cols-1 md:grid-cols-3 gap-4">
-            <div className="bg-acc-purple/10 border border-acc-purple/30 rounded-lg p-4">
-              <div className="font-semibold text-acc-purple mb-2">Discovery Pod Focus</div>
-              <p className="text-xs text-acc-gray-400">Weeks 1-4: Orchestrators, Weeks 4-8: Billing Agent, Weeks 8-12: Plans Agent + Phase 2 prep</p>
+          {/* Key Milestones */}
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
+            <div className="bg-acc-gray-800 border-l-4 border-acc-purple rounded-lg p-4">
+              <div className="font-bold text-acc-purple mb-2">Week 4 Milestone</div>
+              <p className="text-sm text-acc-gray-300">3 Orchestrators deployed and operational</p>
             </div>
-            <div className="bg-green-400/10 border border-green-400/30 rounded-lg p-4">
-              <div className="font-semibold text-green-400 mb-2">Design Pod Focus</div>
-              <p className="text-xs text-acc-gray-400">Flows → Tools → Policies → Testing for each agent, with 1-2 week offset from Discovery</p>
+            <div className="bg-acc-gray-800 border-l-4 border-green-400 rounded-lg p-4">
+              <div className="font-bold text-green-400 mb-2">Week 8 Milestone</div>
+              <p className="text-sm text-acc-gray-300">Billing Agent live with 20 intents automated</p>
             </div>
-            <div className="bg-blue-400/10 border border-blue-400/30 rounded-lg p-4">
-              <div className="font-semibold text-blue-400 mb-2">Build Pod Focus</div>
-              <p className="text-xs text-acc-gray-400">Implementation → Integration → Testing → Deployment, with 2-3 week offset from Design</p>
+            <div className="bg-acc-gray-800 border-l-4 border-blue-400 rounded-lg p-4">
+              <div className="font-bold text-blue-400 mb-2">Week 12 Milestone</div>
+              <p className="text-sm text-acc-gray-300">Plans Agent live, 40 total intents, 20% coverage</p>
             </div>
           </div>
         </div>
@@ -534,52 +523,59 @@ export default function PilotPage() {
           </div>
         </div>
 
-        {/* Pilot Success Criteria */}
-        <div className="mb-16 bg-acc-gray-800 border border-acc-gray-700 rounded-lg p-8">
-          <h2 className="text-2xl font-bold mb-6 text-center">Pilot Success Criteria</h2>
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
-            <div className="text-center">
-              <div className="text-3xl font-bold text-acc-purple mb-2">10-15</div>
-              <div className="text-sm text-acc-gray-400">High-value intents deployed</div>
-            </div>
-            <div className="text-center">
-              <div className="text-3xl font-bold text-green-400 mb-2">+10%</div>
-              <div className="text-sm text-acc-gray-400">Containment improvement</div>
-            </div>
-            <div className="text-center">
-              <div className="text-3xl font-bold text-blue-400 mb-2">-45s</div>
-              <div className="text-sm text-acc-gray-400">AHT reduction</div>
-            </div>
-            <div className="text-center">
-              <div className="text-3xl font-bold text-yellow-400 mb-2">100%</div>
-              <div className="text-sm text-acc-gray-400">Foundation reusability</div>
+        {/* Pilot Success Criteria & Outputs */}
+        <div className="mb-16 grid grid-cols-1 md:grid-cols-2 gap-6">
+          {/* Success Criteria */}
+          <div className="bg-gradient-to-br from-acc-purple/10 to-transparent border border-acc-purple/30 rounded-lg p-6">
+            <h3 className="text-xl font-bold mb-4 text-acc-purple">Pilot Success Criteria</h3>
+            <div className="space-y-3">
+              <div className="flex items-center justify-between">
+                <span className="text-sm text-acc-gray-300">Intents Deployed</span>
+                <span className="text-xl font-bold text-white">40</span>
+              </div>
+              <div className="flex items-center justify-between">
+                <span className="text-sm text-acc-gray-300">Intent Coverage</span>
+                <span className="text-xl font-bold text-white">20%</span>
+              </div>
+              <div className="flex items-center justify-between">
+                <span className="text-sm text-acc-gray-300">Containment Lift</span>
+                <span className="text-xl font-bold text-green-400">+10%</span>
+              </div>
+              <div className="flex items-center justify-between">
+                <span className="text-sm text-acc-gray-300">AHT Reduction</span>
+                <span className="text-xl font-bold text-green-400">~45-60s</span>
+              </div>
             </div>
           </div>
-        </div>
 
-        {/* Foundation Outputs */}
-        <div className="mb-16">
-          <h2 className="text-2xl font-bold mb-6 text-center">Reusable Foundation Outputs</h2>
-          <p className="text-center text-acc-gray-400 mb-8 max-w-3xl mx-auto">
-            The pilot creates a robust foundation that accelerates all subsequent phases, reducing time-to-market for future intents by 40-50%.
-          </p>
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
-            {[
-              'CES Next architecture blueprint',
-              'Agent development templates',
-              'Tool integration framework',
-              'Policy and guardrail library',
-              'Testing and validation suite',
-              'Deployment automation pipelines',
-              'Monitoring and observability stack',
-              'Knowledge base and documentation',
-              'Training materials and best practices'
-            ].map((output, idx) => (
-              <div key={idx} className="flex items-center gap-3 bg-acc-gray-800 border border-acc-gray-700 rounded-lg p-4">
-                <CheckCircle2 className="w-5 h-5 text-acc-purple flex-shrink-0" />
-                <span className="text-sm text-acc-gray-300">{output}</span>
+          {/* Foundation Outputs */}
+          <div className="bg-gradient-to-br from-green-400/10 to-transparent border border-green-400/30 rounded-lg p-6">
+            <h3 className="text-xl font-bold mb-4 text-green-400">Reusable Foundation</h3>
+            <p className="text-sm text-acc-gray-300 mb-4">
+              Accelerates future phases by <strong className="text-white">40-50%</strong>
+            </p>
+            <div className="space-y-2">
+              <div className="flex items-center gap-2 text-sm text-acc-gray-300">
+                <CheckCircle2 className="w-4 h-4 text-green-400 flex-shrink-0" />
+                <span>CES Next architecture & templates</span>
               </div>
-            ))}
+              <div className="flex items-center gap-2 text-sm text-acc-gray-300">
+                <CheckCircle2 className="w-4 h-4 text-green-400 flex-shrink-0" />
+                <span>Tool integration framework</span>
+              </div>
+              <div className="flex items-center gap-2 text-sm text-acc-gray-300">
+                <CheckCircle2 className="w-4 h-4 text-green-400 flex-shrink-0" />
+                <span>Policy & guardrail library</span>
+              </div>
+              <div className="flex items-center gap-2 text-sm text-acc-gray-300">
+                <CheckCircle2 className="w-4 h-4 text-green-400 flex-shrink-0" />
+                <span>CI/CD & monitoring stack</span>
+              </div>
+              <div className="flex items-center gap-2 text-sm text-acc-gray-300">
+                <CheckCircle2 className="w-4 h-4 text-green-400 flex-shrink-0" />
+                <span>Training & documentation</span>
+              </div>
+            </div>
           </div>
         </div>
 

@@ -41,8 +41,8 @@ export default function NavBar() {
     {
       label: 'Implementation',
       items: [
-        { href: '/pilot/', label: 'Pilot' },
         { href: '/roadmap/', label: 'Roadmap' },
+        { href: '/pilot/', label: 'Pilot' },
       ]
     },
     { href: '/about/', label: 'About' },
@@ -88,9 +88,7 @@ export default function NavBar() {
                 return (
                   <div
                     key={idx}
-                    className="relative"
-                    onMouseEnter={() => setOpenDropdown(item.label)}
-                    onMouseLeave={() => setOpenDropdown(null)}
+                    className="relative group"
                   >
                     <button
                       className={`text-sm transition-colors ring-acc focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-acc-purple rounded px-2 py-1 flex items-center gap-1 ${
@@ -100,28 +98,26 @@ export default function NavBar() {
                       }`}
                     >
                       {item.label}
-                      <ChevronDown size={16} className={`transition-transform ${openDropdown === item.label ? 'rotate-180' : ''}`} />
+                      <ChevronDown size={16} className="transition-transform group-hover:rotate-180" />
                     </button>
-                    {openDropdown === item.label && (
-                      <div className="absolute top-full left-0 mt-1 w-48 bg-acc-gray-900 border border-acc-gray-700 rounded-lg shadow-xl py-2">
-                        {item.items.map((subItem) => {
-                          const active = isActive(subItem.href);
-                          return (
-                            <Link
-                              key={subItem.href}
-                              href={subItem.href}
-                              className={`block px-4 py-2 text-sm transition-colors ${
-                                active
-                                  ? 'text-acc-purple font-semibold bg-acc-purple/10'
-                                  : 'text-acc-gray-400 hover:text-white hover:bg-acc-gray-800'
-                              }`}
-                            >
-                              {subItem.label}
-                            </Link>
-                          );
-                        })}
-                      </div>
-                    )}
+                    <div className="invisible group-hover:visible opacity-0 group-hover:opacity-100 absolute top-full left-0 mt-1 w-48 bg-acc-gray-900 border border-acc-gray-700 rounded-lg shadow-xl py-2 transition-all duration-200">
+                      {item.items.map((subItem) => {
+                        const active = isActive(subItem.href);
+                        return (
+                          <Link
+                            key={subItem.href}
+                            href={subItem.href}
+                            className={`block px-4 py-2 text-sm transition-colors ${
+                              active
+                                ? 'text-acc-purple font-semibold bg-acc-purple/10'
+                                : 'text-acc-gray-400 hover:text-white hover:bg-acc-gray-800'
+                            }`}
+                          >
+                            {subItem.label}
+                          </Link>
+                        );
+                      })}
+                    </div>
                   </div>
                 );
               } else {
