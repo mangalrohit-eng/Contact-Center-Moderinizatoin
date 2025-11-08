@@ -40,41 +40,15 @@ export default function Hero() {
             Handle <strong className="text-white">enterprise-scale</strong> volumes with goal-based agents that reason, route, and resolve.
           </p>
 
-          <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
-            <Link
-              href="/agentic/"
-              className="btn-primary inline-flex items-center gap-2 group"
-            >
-              See Architecture
-              <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
-            </Link>
+          <div className="flex justify-center items-center">
             <Link
               href="/approach/"
-              className="px-6 py-3 bg-acc-gray-800 hover:bg-acc-gray-700 text-white rounded-lg font-semibold transition-colors border border-acc-gray-700"
+              className="btn-primary inline-flex items-center gap-2 group"
             >
-              Our Approach
+              See Approach
+              <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
             </Link>
           </div>
-        </motion.div>
-
-        {/* Stats */}
-        <motion.div
-          initial={{ opacity: 0, y: 30 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ delay: 0.4, duration: 0.6 }}
-          className="grid grid-cols-2 md:grid-cols-4 gap-8 mt-16 max-w-4xl mx-auto"
-        >
-          {[
-            { label: 'Containment Rate', value: '+14%', color: 'text-acc-purple' },
-            { label: 'AHT Reduction', value: '-80s', color: 'text-acc-purple' },
-            { label: 'CSAT Improvement', value: '+0.4', color: 'text-acc-purple' },
-            { label: 'Fallback Rate', value: '-8%', color: 'text-acc-purple' },
-          ].map((stat, idx) => (
-            <div key={idx} className="text-center">
-              <div className={`text-3xl font-bold ${stat.color} mb-1`}>{stat.value}</div>
-              <div className="text-sm text-acc-gray-400">{stat.label}</div>
-            </div>
-          ))}
         </motion.div>
       </div>
     </section>
