@@ -276,7 +276,7 @@ export default function PilotPage() {
         <div className="mb-16">
           <h2 className="text-3xl font-bold mb-4 text-center">Visual 12-Week Project Plan</h2>
           <p className="text-center text-acc-gray-400 mb-8 max-w-3xl mx-auto">
-            Three pods work in parallel, passing agents from Discovery → Design → Build to deliver real business value.
+            Intent-first approach: Discovery and Design work on all 40 intents, then Build converges into orchestrators and domain agents.
           </p>
 
           {/* Timeline Header */}
@@ -285,15 +285,15 @@ export default function PilotPage() {
               <div className="flex items-center gap-6">
                 <div className="flex items-center gap-2">
                   <div className="w-4 h-4 bg-acc-purple rounded"></div>
-                  <span className="text-sm text-acc-gray-300">Discovery Pod</span>
+                  <span className="text-sm text-acc-gray-300">Discovery Pod (Intent Analysis)</span>
                 </div>
                 <div className="flex items-center gap-2">
                   <div className="w-4 h-4 bg-green-400 rounded"></div>
-                  <span className="text-sm text-acc-gray-300">Design Pod</span>
+                  <span className="text-sm text-acc-gray-300">Design Pod (Flow Design)</span>
                 </div>
                 <div className="flex items-center gap-2">
                   <div className="w-4 h-4 bg-blue-400 rounded"></div>
-                  <span className="text-sm text-acc-gray-300">Build Pod</span>
+                  <span className="text-sm text-acc-gray-300">Build Pod (Agent Dev)</span>
                 </div>
               </div>
             </div>
@@ -308,77 +308,147 @@ export default function PilotPage() {
             </div>
             <div className="h-1 bg-acc-gray-700 rounded mb-6"></div>
 
-            {/* Orchestrators */}
+            {/* Phase 1: Discovery (All 40 Intents) */}
             <div className="mb-8">
               <div className="font-bold mb-3 flex items-center gap-2">
-                <span className="text-white">3 Orchestrators</span>
-                <span className="text-xs text-acc-gray-500">(Foundation)</span>
+                <span className="text-white">Phase 1: Intent Discovery</span>
+                <span className="text-xs text-acc-gray-500">(All 40 intents)</span>
               </div>
               <div className="space-y-2">
                 <div className="flex gap-1">
-                  <div className="bg-acc-purple h-10 rounded flex items-center justify-center text-white text-xs font-semibold px-3" style={{width: '16.66%'}}>
-                    Discovery
+                  <div className="bg-acc-purple h-12 rounded flex items-center justify-center text-white text-sm font-semibold px-3" style={{width: '25%'}}>
+                    Discover & Cluster 40 Intents
                   </div>
-                  <div className="bg-green-400 h-10 rounded flex items-center justify-center text-black text-xs font-semibold px-3" style={{width: '16.66%'}}>
-                    Design
-                  </div>
-                  <div className="bg-blue-400 h-10 rounded flex items-center justify-center text-black text-xs font-semibold px-3" style={{width: '16.66%'}}>
-                    Build & Deploy
-                  </div>
-                  <div className="bg-green-900/30 h-10 rounded flex items-center justify-center text-white text-xs font-semibold px-3" style={{width: '8.33%'}}>
-                    ✅ Live
+                  <div className="bg-acc-gray-700/50 h-12 rounded flex items-center justify-center text-acc-gray-500 text-xs px-3" style={{width: '75%'}}>
+                    <span className="opacity-50">→ Design Phase</span>
                   </div>
                 </div>
               </div>
+              <div className="mt-2 text-xs text-acc-gray-400">
+                <strong>Activities:</strong> Intent clustering, user journey mapping, tool/API discovery, success criteria definition
+              </div>
             </div>
 
-            {/* Billing Agent */}
+            {/* Phase 2: Design (All 40 Intents) */}
             <div className="mb-8">
               <div className="font-bold mb-3 flex items-center gap-2">
-                <span className="text-white">Billing & Payments Agent</span>
-                <span className="text-xs text-acc-gray-500">(20 intents)</span>
+                <span className="text-white">Phase 2: Flow Design</span>
+                <span className="text-xs text-acc-gray-500">(40 intent flows)</span>
               </div>
               <div className="space-y-2">
                 <div className="flex gap-1">
-                  <div style={{width: '25%'}}></div>
-                  <div className="bg-acc-purple h-10 rounded flex items-center justify-center text-white text-xs font-semibold px-3" style={{width: '16.66%'}}>
-                    Discovery
+                  <div className="bg-acc-gray-700/50 h-12 rounded flex items-center justify-center text-acc-gray-500 text-xs px-3" style={{width: '16.66%'}}>
+                    <span className="opacity-50">← Discovery</span>
                   </div>
-                  <div className="bg-green-400 h-10 rounded flex items-center justify-center text-black text-xs font-semibold px-3" style={{width: '16.66%'}}>
-                    Design
+                  <div className="bg-green-400 h-12 rounded flex items-center justify-center text-black text-sm font-semibold px-3" style={{width: '33.33%'}}>
+                    Design 40 Goal-Based Flows
                   </div>
-                  <div className="bg-blue-400 h-10 rounded flex items-center justify-center text-black text-xs font-semibold px-3" style={{width: '16.66%'}}>
-                    Build & Deploy
-                  </div>
-                  <div className="bg-green-900/30 h-10 rounded flex items-center justify-center text-white text-xs font-semibold px-3" style={{width: '8.33%'}}>
-                    ✅ Live
+                  <div className="bg-acc-gray-700/50 h-12 rounded flex items-center justify-center text-acc-gray-500 text-xs px-3" style={{width: '50%'}}>
+                    <span className="opacity-50">→ Build Phase</span>
                   </div>
                 </div>
               </div>
+              <div className="mt-2 text-xs text-acc-gray-400">
+                <strong>Activities:</strong> Conversation flow design, policy & guardrail definition, agent architecture planning, tool orchestration mapping
+              </div>
             </div>
 
-            {/* Plans Agent */}
+            {/* Phase 3: Build - Converging into Agents */}
             <div className="mb-4">
               <div className="font-bold mb-3 flex items-center gap-2">
-                <span className="text-white">Plans & Features Agent</span>
-                <span className="text-xs text-acc-gray-500">(20 intents)</span>
+                <span className="text-white">Phase 3: Agent Build & Deploy</span>
+                <span className="text-xs text-acc-gray-500">(5 agents: 3 orchestrators + 2 domain)</span>
               </div>
-              <div className="space-y-2">
-                <div className="flex gap-1">
-                  <div style={{width: '50%'}}></div>
-                  <div className="bg-acc-purple h-10 rounded flex items-center justify-center text-white text-xs font-semibold px-3" style={{width: '8.33%'}}>
-                    Disc
+              
+              {/* 3 Orchestrators */}
+              <div className="mb-3 pl-4 border-l-2 border-blue-400/30">
+                <div className="text-sm font-semibold text-blue-400 mb-2">3 Core Orchestrators</div>
+                <div className="flex gap-1 mb-2">
+                  <div className="bg-acc-gray-700/50 h-10 rounded flex items-center justify-center text-acc-gray-500 text-xs px-3" style={{width: '50%'}}>
+                    <span className="opacity-50">← Design complete</span>
                   </div>
-                  <div className="bg-green-400 h-10 rounded flex items-center justify-center text-black text-xs font-semibold px-3" style={{width: '16.66%'}}>
-                    Design
+                  <div className="bg-blue-400 h-10 rounded flex items-center justify-center text-black text-xs font-semibold px-3" style={{width: '25%'}}>
+                    Build CES Foundation
                   </div>
-                  <div className="bg-blue-400 h-10 rounded flex items-center justify-center text-black text-xs font-semibold px-3" style={{width: '16.66%'}}>
-                    Build & Deploy
-                  </div>
-                  <div className="bg-green-900/30 h-10 rounded flex items-center justify-center text-white text-xs font-semibold px-3" style={{width: '8.33%'}}>
-                    ✅ Live
+                  <div className="bg-green-900/30 h-10 rounded flex items-center justify-center text-white text-xs font-semibold px-3" style={{width: '25%'}}>
+                    ✅ Week 6: Orchestrators Live
                   </div>
                 </div>
+                <div className="text-xs text-acc-gray-500 mt-1">
+                  Conversation, Goal, and Safety & Compliance Orchestrators
+                </div>
+              </div>
+
+              {/* Billing Agent */}
+              <div className="mb-3 pl-4 border-l-2 border-blue-400/30">
+                <div className="text-sm font-semibold text-blue-400 mb-2">Billing & Payments Agent (20 intents)</div>
+                <div className="flex gap-1 mb-2">
+                  <div className="bg-acc-gray-700/50 h-10 rounded flex items-center justify-center text-acc-gray-500 text-xs px-3" style={{width: '50%'}}>
+                    <span className="opacity-50">← 20 flows designed</span>
+                  </div>
+                  <div className="bg-blue-400 h-10 rounded flex items-center justify-center text-black text-xs font-semibold px-3" style={{width: '25%'}}>
+                    Build Domain Agent
+                  </div>
+                  <div className="bg-green-900/30 h-10 rounded flex items-center justify-center text-white text-xs font-semibold px-3" style={{width: '25%'}}>
+                    ✅ Week 9: Agent Live
+                  </div>
+                </div>
+                <div className="text-xs text-acc-gray-500 mt-1">
+                  BSS integration, payment gateway tools
+                </div>
+              </div>
+
+              {/* Plans Agent */}
+              <div className="pl-4 border-l-2 border-blue-400/30">
+                <div className="text-sm font-semibold text-blue-400 mb-2">Plans & Features Agent (20 intents)</div>
+                <div className="flex gap-1 mb-2">
+                  <div className="bg-acc-gray-700/50 h-10 rounded flex items-center justify-center text-acc-gray-500 text-xs px-3" style={{width: '50%'}}>
+                    <span className="opacity-50">← 20 flows designed</span>
+                  </div>
+                  <div className="bg-blue-400 h-10 rounded flex items-center justify-center text-black text-xs font-semibold px-3" style={{width: '25%'}}>
+                    Build Domain Agent
+                  </div>
+                  <div className="bg-green-900/30 h-10 rounded flex items-center justify-center text-white text-xs font-semibold px-3" style={{width: '25%'}}>
+                    ✅ Week 12: Agent Live
+                  </div>
+                </div>
+                <div className="text-xs text-acc-gray-500 mt-1">
+                  Plan catalog integration, eligibility engine
+                </div>
+              </div>
+            </div>
+          </div>
+
+          {/* Intent-First Workflow Explanation */}
+          <div className="bg-acc-purple/10 border border-acc-purple/30 rounded-lg p-6 mb-6">
+            <h3 className="font-bold text-lg mb-3 text-acc-purple">Intent-First Workflow</h3>
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-4 text-sm">
+              <div>
+                <div className="font-semibold mb-2 flex items-center gap-2">
+                  <div className="w-8 h-8 bg-acc-purple rounded-full flex items-center justify-center text-white text-xs">1</div>
+                  <span>Discover All Intents</span>
+                </div>
+                <p className="text-acc-gray-400 text-xs">
+                  Discovery Pod analyzes all 40 intents upfront, understanding user needs, business context, and system dependencies before any design work begins.
+                </p>
+              </div>
+              <div>
+                <div className="font-semibold mb-2 flex items-center gap-2">
+                  <div className="w-8 h-8 bg-green-400 rounded-full flex items-center justify-center text-black text-xs">2</div>
+                  <span>Design All Flows</span>
+                </div>
+                <p className="text-acc-gray-400 text-xs">
+                  Design Pod creates goal-based conversation flows for all 40 intents, ensuring consistent patterns and reusable components across domains.
+                </p>
+              </div>
+              <div>
+                <div className="font-semibold mb-2 flex items-center gap-2">
+                  <div className="w-8 h-8 bg-blue-400 rounded-full flex items-center justify-center text-black text-xs">3</div>
+                  <span>Build Agents</span>
+                </div>
+                <p className="text-acc-gray-400 text-xs">
+                  Build Pod converges 40 intents into 5 agents (3 orchestrators + 2 domain agents), implementing flows with CES Next Gen and tool integrations.
+                </p>
               </div>
             </div>
           </div>
@@ -386,16 +456,16 @@ export default function PilotPage() {
           {/* Key Milestones */}
           <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
             <div className="bg-acc-gray-800 border-l-4 border-acc-purple rounded-lg p-4">
-              <div className="font-bold text-acc-purple mb-2">Week 4 Milestone</div>
-              <p className="text-sm text-acc-gray-300">3 Orchestrators deployed and operational</p>
+              <div className="font-bold text-acc-purple mb-2">Week 3 Milestone</div>
+              <p className="text-sm text-acc-gray-300">40 intents discovered, clustered, and documented</p>
             </div>
             <div className="bg-acc-gray-800 border-l-4 border-green-400 rounded-lg p-4">
-              <div className="font-bold text-green-400 mb-2">Week 8 Milestone</div>
-              <p className="text-sm text-acc-gray-300">Billing Agent live with 20 intents automated</p>
+              <div className="font-bold text-green-400 mb-2">Week 6 Milestone</div>
+              <p className="text-sm text-acc-gray-300">40 flows designed + 3 orchestrators deployed</p>
             </div>
             <div className="bg-acc-gray-800 border-l-4 border-blue-400 rounded-lg p-4">
               <div className="font-bold text-blue-400 mb-2">Week 12 Milestone</div>
-              <p className="text-sm text-acc-gray-300">Plans Agent live, 40 total intents, 20% coverage</p>
+              <p className="text-sm text-acc-gray-300">All 5 agents live, 40 intents automated, 20% coverage</p>
             </div>
           </div>
         </div>

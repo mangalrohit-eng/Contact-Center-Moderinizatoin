@@ -1,8 +1,7 @@
 'use client';
 
-import Link from 'next/link';
 import { motion } from 'framer-motion';
-import { ArrowRight, Sparkles } from 'lucide-react';
+import { Sparkles } from 'lucide-react';
 
 export default function Hero() {
   return (
@@ -36,19 +35,9 @@ export default function Hero() {
             with Agentic Intelligence
           </h1>
 
-          <p className="text-xl text-acc-gray-400 mb-8 max-w-3xl mx-auto">
+          <p className="text-xl text-acc-gray-400 max-w-3xl mx-auto">
             Handle <strong className="text-white">enterprise-scale</strong> volumes with goal-based agents that reason, route, and resolve.
           </p>
-
-          <div className="flex justify-center items-center">
-            <Link
-              href="/approach/"
-              className="btn-primary inline-flex items-center gap-2 group px-8 py-4 text-lg"
-            >
-              See Approach
-              <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
-            </Link>
-          </div>
         </motion.div>
       </div>
     </section>
