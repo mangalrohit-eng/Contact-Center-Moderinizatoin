@@ -4,29 +4,63 @@ import Link from 'next/link';
 import Image from 'next/image';
 import { useState } from 'react';
 import { usePathname } from 'next/navigation';
-import { Menu, X } from 'lucide-react';
+import { Menu, X, ChevronDown } from 'lucide-react';
+
+type NavLink = {
+  href: string;
+  label: string;
+};
+
+type NavGroup = {
+  label: string;
+  items: NavLink[];
+};
 
 export default function NavBar() {
   const [isOpen, setIsOpen] = useState(false);
+  const [openDropdown, setOpenDropdown] = useState<string | null>(null);
   const pathname = usePathname();
 
-      const navLinks = [
-        { href: '/', label: 'Home' },
+  const navStructure: (NavLink | NavGroup)[] = [
+    { href: '/', label: 'Home' },
+    {
+      label: 'Overview',
+      items: [
         { href: '/approach/', label: 'Approach' },
         { href: '/impact/', label: 'Business Impact' },
+      ]
+    },
+    {
+      label: 'Solution',
+      items: [
         { href: '/architecture/', label: 'Architecture' },
         { href: '/agents/', label: 'Agent Catalog' },
         { href: '/agentic/', label: 'How it Will Work' },
+      ]
+    },
+    {
+      label: 'Implementation',
+      items: [
         { href: '/pilot/', label: 'Pilot' },
         { href: '/roadmap/', label: 'Roadmap' },
-        { href: '/about/', label: 'About' },
-      ];
+      ]
+    },
+    { href: '/about/', label: 'About' },
+  ];
 
   const isActive = (href: string) => {
     if (href === '/') {
       return pathname === '/';
     }
     return pathname.startsWith(href);
+  };
+
+  const isGroupActive = (items: NavLink[]) => {
+    return items.some(item => isActive(item.href));
+  };
+
+  const isNavGroup = (item: NavLink | NavGroup): item is NavGroup => {
+    return 'items' in item;
   };
 
   return (
@@ -48,21 +82,64 @@ export default function NavBar() {
 
           {/* Desktop Navigation */}
           <div className="hidden lg:flex lg:items-center lg:space-x-6">
-            {navLinks.map((link) => {
-              const active = isActive(link.href);
-              return (
-                <Link
-                  key={link.href}
-                  href={link.href}
-                  className={`text-sm transition-colors ring-acc focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-acc-purple rounded px-2 py-1 ${
-                    active
-                      ? 'text-acc-purple font-semibold border-b-2 border-acc-purple'
-                      : 'text-acc-gray-400 hover:text-white'
-                  }`}
-                >
-                  {link.label}
-                </Link>
-              );
+            {navStructure.map((item, idx) => {
+              if (isNavGroup(item)) {
+                const groupActive = isGroupActive(item.items);
+                return (
+                  <div
+                    key={idx}
+                    className="relative"
+                    onMouseEnter={() => setOpenDropdown(item.label)}
+                    onMouseLeave={() => setOpenDropdown(null)}
+                  >
+                    <button
+                      className={`text-sm transition-colors ring-acc focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-acc-purple rounded px-2 py-1 flex items-center gap-1 ${
+                        groupActive
+                          ? 'text-acc-purple font-semibold'
+                          : 'text-acc-gray-400 hover:text-white'
+                      }`}
+                    >
+                      {item.label}
+                      <ChevronDown size={16} className={`transition-transform ${openDropdown === item.label ? 'rotate-180' : ''}`} />
+                    </button>
+                    {openDropdown === item.label && (
+                      <div className="absolute top-full left-0 mt-1 w-48 bg-acc-gray-900 border border-acc-gray-700 rounded-lg shadow-xl py-2">
+                        {item.items.map((subItem) => {
+                          const active = isActive(subItem.href);
+                          return (
+                            <Link
+                              key={subItem.href}
+                              href={subItem.href}
+                              className={`block px-4 py-2 text-sm transition-colors ${
+                                active
+                                  ? 'text-acc-purple font-semibold bg-acc-purple/10'
+                                  : 'text-acc-gray-400 hover:text-white hover:bg-acc-gray-800'
+                              }`}
+                            >
+                              {subItem.label}
+                            </Link>
+                          );
+                        })}
+                      </div>
+                    )}
+                  </div>
+                );
+              } else {
+                const active = isActive(item.href);
+                return (
+                  <Link
+                    key={item.href}
+                    href={item.href}
+                    className={`text-sm transition-colors ring-acc focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-acc-purple rounded px-2 py-1 ${
+                      active
+                        ? 'text-acc-purple font-semibold border-b-2 border-acc-purple'
+                        : 'text-acc-gray-400 hover:text-white'
+                    }`}
+                  >
+                    {item.label}
+                  </Link>
+                );
+              }
             })}
           </div>
 
@@ -83,22 +160,63 @@ export default function NavBar() {
       {isOpen && (
         <div className="lg:hidden border-t border-acc-gray-700">
           <div className="px-2 pt-2 pb-3 space-y-1">
-            {navLinks.map((link) => {
-              const active = isActive(link.href);
-              return (
-                <Link
-                  key={link.href}
-                  href={link.href}
-                  className={`block px-3 py-2 text-base rounded-md transition-colors ${
-                    active
-                      ? 'text-acc-purple font-semibold bg-acc-purple/10 border-l-4 border-acc-purple'
-                      : 'text-acc-gray-400 hover:text-white hover:bg-acc-gray-700'
-                  }`}
-                  onClick={() => setIsOpen(false)}
-                >
-                  {link.label}
-                </Link>
-              );
+            {navStructure.map((item, idx) => {
+              if (isNavGroup(item)) {
+                const groupActive = isGroupActive(item.items);
+                const isExpanded = openDropdown === item.label;
+                return (
+                  <div key={idx}>
+                    <button
+                      onClick={() => setOpenDropdown(isExpanded ? null : item.label)}
+                      className={`w-full flex items-center justify-between px-3 py-2 text-base rounded-md transition-colors ${
+                        groupActive
+                          ? 'text-acc-purple font-semibold bg-acc-purple/10'
+                          : 'text-acc-gray-400 hover:text-white hover:bg-acc-gray-700'
+                      }`}
+                    >
+                      <span>{item.label}</span>
+                      <ChevronDown size={20} className={`transition-transform ${isExpanded ? 'rotate-180' : ''}`} />
+                    </button>
+                    {isExpanded && (
+                      <div className="ml-4 mt-1 space-y-1">
+                        {item.items.map((subItem) => {
+                          const active = isActive(subItem.href);
+                          return (
+                            <Link
+                              key={subItem.href}
+                              href={subItem.href}
+                              className={`block px-3 py-2 text-sm rounded-md transition-colors ${
+                                active
+                                  ? 'text-acc-purple font-semibold bg-acc-purple/10 border-l-4 border-acc-purple'
+                                  : 'text-acc-gray-400 hover:text-white hover:bg-acc-gray-700'
+                              }`}
+                              onClick={() => setIsOpen(false)}
+                            >
+                              {subItem.label}
+                            </Link>
+                          );
+                        })}
+                      </div>
+                    )}
+                  </div>
+                );
+              } else {
+                const active = isActive(item.href);
+                return (
+                  <Link
+                    key={item.href}
+                    href={item.href}
+                    className={`block px-3 py-2 text-base rounded-md transition-colors ${
+                      active
+                        ? 'text-acc-purple font-semibold bg-acc-purple/10 border-l-4 border-acc-purple'
+                        : 'text-acc-gray-400 hover:text-white hover:bg-acc-gray-700'
+                    }`}
+                    onClick={() => setIsOpen(false)}
+                  >
+                    {item.label}
+                  </Link>
+                );
+              }
             })}
           </div>
         </div>

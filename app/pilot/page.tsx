@@ -8,53 +8,61 @@ const phases = [
   {
     month: 'Month 1',
     weeks: 'Weeks 1-4',
-    focus: 'Foundation & Discovery',
+    focus: 'Foundation Orchestrators',
     activities: [
-      'Intent inventory and prioritization',
-      'Current state analysis',
-      'Tool and API discovery',
-      'Architecture blueprint',
-      'Team onboarding'
+      'Deploy 3 core orchestrators',
+      'Conversation routing setup',
+      'Goal-based flow framework',
+      'Safety & compliance policies',
+      'Tool integration framework'
     ],
     deliverables: [
-      'Prioritized intent backlog',
-      'Technical architecture',
-      'Integration specifications'
-    ]
+      'Conversation Orchestrator (live)',
+      'Goal Orchestrator (live)',
+      'Safety & Compliance Orchestrator (live)',
+      'Reusable architecture foundation'
+    ],
+    agents: ['Conversation Orchestrator', 'Goal Orchestrator', 'Safety Orchestrator']
   },
   {
     month: 'Month 2',
     weeks: 'Weeks 5-8',
-    focus: 'Design & Development',
+    focus: 'Billing & Payments Agent',
     activities: [
-      'Goal flow design',
-      'Agent and orchestrator development',
-      'Tool integration build',
-      'Policy and guardrail setup',
-      'Testing framework creation'
+      'Deploy Billing & Payments agent',
+      'Integrate BSS billing systems',
+      'Build payment gateway tools',
+      'Implement ~20 billing intents',
+      'A/B testing with live traffic'
     ],
     deliverables: [
-      'CES Next flows',
-      'Agent implementations',
-      'Test environments'
-    ]
+      'Billing & Payments Agent (live)',
+      '20 billing intents automated',
+      'BSS integration complete',
+      'Payment processing flows'
+    ],
+    agents: ['Billing & Payments Agent'],
+    intentCount: 20
   },
   {
     month: 'Month 3',
     weeks: 'Weeks 9-12',
-    focus: 'Deploy & Validate',
+    focus: 'Plans & Features Agent',
     activities: [
-      'Production deployment',
-      'A/B testing setup',
-      'KPI monitoring dashboard',
-      'Agent optimization',
-      'Hypercare preparation'
+      'Deploy Plans & Features agent',
+      'Plan catalog integration',
+      'Eligibility and pricing tools',
+      'Implement ~20 plan intents',
+      'Full pilot validation'
     ],
     deliverables: [
-      'Live pilot agents',
-      'Performance baseline',
-      'Hypercare playbook'
-    ]
+      'Plans & Features Agent (live)',
+      '40 total intents automated',
+      '20% intent coverage achieved',
+      'Baseline KPIs established'
+    ],
+    agents: ['Plans & Features Agent'],
+    intentCount: 20
   }
 ];
 
@@ -130,11 +138,17 @@ export default function PilotPage() {
             <span className="text-acc-purple">Pilot-First Approach</span>
           </h1>
           <p className="text-xl text-acc-gray-400 max-w-3xl mx-auto mb-6">
-            De-risk the transformation with a focused 3-month pilot to validate the approach, build the foundation, and demonstrate measurable value before full-scale rollout.
+            De-risk the transformation with a focused 3-month pilot (Phase 1 of the roadmap) that delivers real business value by deploying high-volume billing and plan agents covering 40 intents and achieving 20% intent coverage.
           </p>
-          <div className="inline-flex items-center gap-2 bg-acc-purple/20 border border-acc-purple rounded-full px-6 py-3">
-            <Calendar className="w-5 h-5 text-acc-purple" />
-            <span className="text-acc-purple font-semibold">3-Month Foundation Build + 6-Week Hypercare</span>
+          <div className="flex flex-wrap justify-center gap-3">
+            <div className="inline-flex items-center gap-2 bg-acc-purple/20 border border-acc-purple rounded-full px-6 py-3">
+              <Calendar className="w-5 h-5 text-acc-purple" />
+              <span className="text-acc-purple font-semibold">3-Month Pilot = Phase 1 of Roadmap</span>
+            </div>
+            <div className="inline-flex items-center gap-2 bg-green-400/20 border border-green-400 rounded-full px-6 py-3">
+              <Target className="w-5 h-5 text-green-400" />
+              <span className="text-green-400 font-semibold">40 Intents | 20% Coverage</span>
+            </div>
           </div>
         </div>
 
@@ -277,14 +291,14 @@ export default function PilotPage() {
 
           {/* Workflow Visualization */}
           <div className="bg-acc-gray-800 border border-acc-gray-700 rounded-lg p-8">
-            <h3 className="text-xl font-bold mb-6 text-center">Intent Workflow: Discovery → Design → Build</h3>
+            <h3 className="text-xl font-bold mb-6 text-center">Agent Workflow: Discovery → Design → Build</h3>
             <div className="flex items-center justify-center gap-4 mb-6">
               <div className="flex-1 max-w-xs">
                 <div className="bg-acc-purple/20 border-2 border-acc-purple rounded-lg p-4 text-center">
                   <Target className="w-8 h-8 text-acc-purple mx-auto mb-2" />
                   <div className="font-bold text-acc-purple mb-1">Discovery</div>
-                  <div className="text-xs text-acc-gray-400">Analyze intent, define goals</div>
-                  <div className="text-xs text-acc-gray-500 mt-2">~3-5 days per intent</div>
+                  <div className="text-xs text-acc-gray-400">Analyze intents, define goals</div>
+                  <div className="text-xs text-acc-gray-500 mt-2">~1-2 weeks per agent</div>
                 </div>
               </div>
               <ArrowRight className="w-8 h-8 text-acc-purple flex-shrink-0" />
@@ -292,8 +306,8 @@ export default function PilotPage() {
                 <div className="bg-green-400/20 border-2 border-green-400 rounded-lg p-4 text-center">
                   <Brain className="w-8 h-8 text-green-400 mx-auto mb-2" />
                   <div className="font-bold text-green-400 mb-1">Design</div>
-                  <div className="text-xs text-acc-gray-400">Create flows, define policies</div>
-                  <div className="text-xs text-acc-gray-500 mt-2">~5-7 days per intent</div>
+                  <div className="text-xs text-acc-gray-400">Create flows, define tools</div>
+                  <div className="text-xs text-acc-gray-500 mt-2">~2 weeks per agent</div>
                 </div>
               </div>
               <ArrowRight className="w-8 h-8 text-acc-purple flex-shrink-0" />
@@ -302,13 +316,152 @@ export default function PilotPage() {
                   <Rocket className="w-8 h-8 text-blue-400 mx-auto mb-2" />
                   <div className="font-bold text-blue-400 mb-1">Build</div>
                   <div className="text-xs text-acc-gray-400">Implement, test, deploy</div>
-                  <div className="text-xs text-acc-gray-500 mt-2">~7-10 days per intent</div>
+                  <div className="text-xs text-acc-gray-500 mt-2">~1-2 weeks per agent</div>
                 </div>
               </div>
             </div>
             <p className="text-sm text-acc-gray-400 text-center">
-              Pods work in parallel on different intents, creating a continuous delivery pipeline. Each intent takes ~15-20 days from discovery to deployment.
+              Pods work sequentially on each agent, with some overlap. Each agent takes ~4-6 weeks from discovery to deployment with hypercare.
             </p>
+          </div>
+        </div>
+
+        {/* Detailed 3-Month Project Plan */}
+        <div className="mb-16">
+          <h2 className="text-3xl font-bold mb-4 text-center">Detailed 3-Month Project Plan</h2>
+          <p className="text-center text-acc-gray-400 mb-8 max-w-3xl mx-auto">
+            Week-by-week breakdown showing how Discovery, Design, and Build pods collaborate to deliver 5 agents and 40 intents.
+          </p>
+
+          <div className="bg-acc-gray-800 border border-acc-gray-700 rounded-lg overflow-hidden">
+            <div className="overflow-x-auto">
+              <table className="min-w-full">
+                <thead className="bg-acc-gray-900">
+                  <tr>
+                    <th className="text-left p-4 font-semibold text-acc-gray-300 border-b border-acc-gray-700">Week</th>
+                    <th className="text-left p-4 font-semibold text-acc-purple border-b border-acc-gray-700">Discovery Pod</th>
+                    <th className="text-left p-4 font-semibold text-green-400 border-b border-acc-gray-700">Design Pod</th>
+                    <th className="text-left p-4 font-semibold text-blue-400 border-b border-acc-gray-700">Build Pod</th>
+                    <th className="text-left p-4 font-semibold text-acc-gray-300 border-b border-acc-gray-700">Deliverable</th>
+                  </tr>
+                </thead>
+                <tbody className="text-sm">
+                  {/* Month 1 - Orchestrators */}
+                  <tr className="border-b border-acc-gray-700 hover:bg-acc-gray-700/30">
+                    <td className="p-4 font-semibold">W1</td>
+                    <td className="p-4 text-acc-gray-300">Analyze orchestrator requirements, CES Next setup</td>
+                    <td className="p-4 text-acc-gray-500">—</td>
+                    <td className="p-4 text-acc-gray-500">—</td>
+                    <td className="p-4 text-acc-gray-400">Requirements doc</td>
+                  </tr>
+                  <tr className="border-b border-acc-gray-700 hover:bg-acc-gray-700/30">
+                    <td className="p-4 font-semibold">W2</td>
+                    <td className="p-4 text-acc-gray-300">Define routing policies, safety rules</td>
+                    <td className="p-4 text-green-400">Design conversation flows</td>
+                    <td className="p-4 text-acc-gray-500">—</td>
+                    <td className="p-4 text-acc-gray-400">Flow designs</td>
+                  </tr>
+                  <tr className="border-b border-acc-gray-700 hover:bg-acc-gray-700/30">
+                    <td className="p-4 font-semibold">W3</td>
+                    <td className="p-4 text-acc-purple">Start Billing Agent discovery</td>
+                    <td className="p-4 text-green-400">Finalize orchestrator policies</td>
+                    <td className="p-4 text-blue-400">Build 3 orchestrators</td>
+                    <td className="p-4 text-acc-gray-400">—</td>
+                  </tr>
+                  <tr className="border-b border-acc-gray-700 bg-green-900/10">
+                    <td className="p-4 font-semibold">W4</td>
+                    <td className="p-4 text-acc-purple">Billing intents analysis (20)</td>
+                    <td className="p-4 text-acc-gray-500">—</td>
+                    <td className="p-4 text-blue-400">Test & deploy orchestrators</td>
+                    <td className="p-4 text-white font-semibold">✅ 3 Orchestrators Live</td>
+                  </tr>
+                  
+                  {/* Month 2 - Billing Agent */}
+                  <tr className="border-b border-acc-gray-700 hover:bg-acc-gray-700/30">
+                    <td className="p-4 font-semibold">W5</td>
+                    <td className="p-4 text-acc-purple">BSS/payment tool mapping</td>
+                    <td className="p-4 text-green-400">Design Billing Agent flows</td>
+                    <td className="p-4 text-acc-gray-500">—</td>
+                    <td className="p-4 text-acc-gray-400">Intent map</td>
+                  </tr>
+                  <tr className="border-b border-acc-gray-700 hover:bg-acc-gray-700/30">
+                    <td className="p-4 font-semibold">W6</td>
+                    <td className="p-4 text-acc-purple">Start Plans Agent discovery</td>
+                    <td className="p-4 text-green-400">Design tool integrations</td>
+                    <td className="p-4 text-blue-400">Build Billing Agent</td>
+                    <td className="p-4 text-acc-gray-400">Integration specs</td>
+                  </tr>
+                  <tr className="border-b border-acc-gray-700 hover:bg-acc-gray-700/30">
+                    <td className="p-4 font-semibold">W7</td>
+                    <td className="p-4 text-acc-purple">Plans intents analysis (20)</td>
+                    <td className="p-4 text-acc-gray-500">—</td>
+                    <td className="p-4 text-blue-400">BSS/payment tool integration</td>
+                    <td className="p-4 text-acc-gray-400">—</td>
+                  </tr>
+                  <tr className="border-b border-acc-gray-700 bg-green-900/10">
+                    <td className="p-4 font-semibold">W8</td>
+                    <td className="p-4 text-acc-purple">Plan catalog tool mapping</td>
+                    <td className="p-4 text-green-400">Design Plans Agent flows</td>
+                    <td className="p-4 text-blue-400">Test & deploy Billing Agent</td>
+                    <td className="p-4 text-white font-semibold">✅ Billing Agent + 20 Intents Live</td>
+                  </tr>
+
+                  {/* Month 3 - Plans Agent */}
+                  <tr className="border-b border-acc-gray-700 hover:bg-acc-gray-700/30">
+                    <td className="p-4 font-semibold">W9</td>
+                    <td className="p-4 text-acc-gray-500">—</td>
+                    <td className="p-4 text-green-400">Design tool integrations</td>
+                    <td className="p-4 text-blue-400">Build Plans Agent</td>
+                    <td className="p-4 text-acc-gray-400">Agent skeleton</td>
+                  </tr>
+                  <tr className="border-b border-acc-gray-700 hover:bg-acc-gray-700/30">
+                    <td className="p-4 font-semibold">W10</td>
+                    <td className="p-4 text-acc-purple">Phase 2 planning begins</td>
+                    <td className="p-4 text-green-400">Finalize agent policies</td>
+                    <td className="p-4 text-blue-400">Plan catalog integration</td>
+                    <td className="p-4 text-acc-gray-400">Tools connected</td>
+                  </tr>
+                  <tr className="border-b border-acc-gray-700 hover:bg-acc-gray-700/30">
+                    <td className="p-4 font-semibold">W11</td>
+                    <td className="p-4 text-acc-purple">Device agent discovery</td>
+                    <td className="p-4 text-green-400">A/B test planning</td>
+                    <td className="p-4 text-blue-400">Test Plans Agent</td>
+                    <td className="p-4 text-acc-gray-400">Test results</td>
+                  </tr>
+                  <tr className="border-b border-acc-gray-700 bg-green-900/10">
+                    <td className="p-4 font-semibold">W12</td>
+                    <td className="p-4 text-acc-purple">Device intents analysis</td>
+                    <td className="p-4 text-green-400">KPI dashboard setup</td>
+                    <td className="p-4 text-blue-400">Deploy Plans Agent</td>
+                    <td className="p-4 text-white font-semibold">✅ Plans Agent + 40 Total Intents Live</td>
+                  </tr>
+
+                  {/* Hypercare Period */}
+                  <tr className="bg-blue-900/10 border-b border-acc-gray-700">
+                    <td className="p-4 font-semibold">W13-18</td>
+                    <td className="p-4 text-acc-purple" colSpan={3}>
+                      <span className="font-semibold">6-Week Hypercare:</span> 24/7 monitoring, optimization, KPI tracking, transition to BAU
+                    </td>
+                    <td className="p-4 text-white font-semibold">✅ Pilot Complete</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+
+          <div className="mt-6 grid grid-cols-1 md:grid-cols-3 gap-4">
+            <div className="bg-acc-purple/10 border border-acc-purple/30 rounded-lg p-4">
+              <div className="font-semibold text-acc-purple mb-2">Discovery Pod Focus</div>
+              <p className="text-xs text-acc-gray-400">Weeks 1-4: Orchestrators, Weeks 4-8: Billing Agent, Weeks 8-12: Plans Agent + Phase 2 prep</p>
+            </div>
+            <div className="bg-green-400/10 border border-green-400/30 rounded-lg p-4">
+              <div className="font-semibold text-green-400 mb-2">Design Pod Focus</div>
+              <p className="text-xs text-acc-gray-400">Flows → Tools → Policies → Testing for each agent, with 1-2 week offset from Discovery</p>
+            </div>
+            <div className="bg-blue-400/10 border border-blue-400/30 rounded-lg p-4">
+              <div className="font-semibold text-blue-400 mb-2">Build Pod Focus</div>
+              <p className="text-xs text-acc-gray-400">Implementation → Integration → Testing → Deployment, with 2-3 week offset from Design</p>
+            </div>
           </div>
         </div>
 
