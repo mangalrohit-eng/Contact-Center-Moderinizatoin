@@ -98,8 +98,8 @@ export default function AboutPage() {
 
             <div className="bg-acc-gray-800 border border-acc-gray-700 rounded-lg p-6 text-center hover:border-acc-purple/50 transition-colors">
               <Building2 className="w-12 h-12 text-blue-400 mx-auto mb-3" />
-              <div className="text-3xl font-bold text-blue-400 mb-2">+0.3-0.5</div>
-              <h3 className="font-semibold mb-2">CSAT Improvement</h3>
+              <div className="text-3xl font-bold text-blue-400 mb-2">Improved</div>
+              <h3 className="font-semibold mb-2">Customer Satisfaction</h3>
               <p className="text-sm text-acc-gray-400">Better customer experience through contextual conversations</p>
             </div>
 

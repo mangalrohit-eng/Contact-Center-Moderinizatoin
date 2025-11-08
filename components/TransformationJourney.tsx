@@ -47,9 +47,9 @@ const steps = [
   },
   {
     title: 'KPI Uplift',
-    description: 'Measure containment, AHT, CSAT improvements with continuous optimization.',
+    description: 'Measure containment, AHT, and customer satisfaction improvements with continuous optimization.',
     pain: 'Limited visibility into performance and improvement opportunities',
-    benefit: '+15-20% containment, -60-90s AHT, +0.3-0.5 CSAT gains',
+    benefit: '+15-20% containment, -60-90s AHT, improved customer satisfaction',
     icon: TrendingUp,
     color: 'text-green-400',
   },

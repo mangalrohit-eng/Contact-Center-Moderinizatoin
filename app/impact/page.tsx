@@ -109,7 +109,7 @@ export default function ImpactPage() {
         {/* Additional Benefits Note */}
         <div className="mb-16 bg-blue-400/10 border border-blue-400/30 rounded-lg p-6 text-center max-w-3xl mx-auto">
           <p className="text-acc-gray-300">
-            <span className="font-semibold text-blue-400">Additional Benefit:</span> Customer satisfaction scores are expected to improve by <span className="font-semibold text-white">~0.3-0.5 points</span> due to faster resolutions, better context retention, and more accurate first-time answers.
+            <span className="font-semibold text-blue-400">Additional Benefit:</span> Customer satisfaction scores are expected to <span className="font-semibold text-white">improve meaningfully</span> due to faster resolutions, better context retention, and more accurate first-time answers.
           </p>
         </div>
 
