@@ -69,6 +69,26 @@ export default function Hero() {
           </button>
         </motion.div>
       </div>
+
+      {/* Prominent Triangle Indicator */}
+      <div className="absolute bottom-0 left-0 right-0 flex justify-center">
+        <motion.button
+          onClick={scrollToContent}
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          transition={{ delay: 1.2, duration: 0.5 }}
+          className="relative group cursor-pointer"
+          aria-label="Scroll down for more content"
+        >
+          <motion.div
+            animate={{ y: [0, 10, 0] }}
+            transition={{ duration: 2, repeat: Infinity, ease: "easeInOut" }}
+            className="w-0 h-0 border-l-[40px] border-l-transparent border-r-[40px] border-r-transparent border-t-[30px] border-t-acc-purple/60 group-hover:border-t-acc-purple transition-colors"
+          />
+          {/* Glow effect */}
+          <div className="absolute inset-0 blur-xl bg-acc-purple/30 group-hover:bg-acc-purple/50 transition-colors" />
+        </motion.button>
+      </div>
     </section>
   );
 }
