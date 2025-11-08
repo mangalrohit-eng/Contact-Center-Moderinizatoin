@@ -31,9 +31,70 @@ export default function AgentsPage() {
           <h1 className="text-4xl md:text-5xl font-bold mb-6">
             <span className="text-acc-purple">Agents & Tools Catalog</span>
           </h1>
-          <p className="text-xl text-acc-gray-400 max-w-3xl mx-auto">
+          <p className="text-xl text-acc-gray-400 max-w-3xl mx-auto mb-8">
             Comprehensive directory of {orchestrators.length} orchestrators, {agents.length} domain agents, and {tools.length} backend tools & integrations powering enterprise-scale contact center automation covering 200+ intents.
           </p>
+        </div>
+
+        {/* Introduction - How They Work Together */}
+        <div className="mb-16 bg-gradient-to-br from-acc-purple/10 to-transparent border border-acc-purple/30 rounded-lg p-8">
+          <h2 className="text-2xl font-bold mb-4">How the System Works</h2>
+          <p className="text-acc-gray-300 mb-6">
+            The agentic architecture is organized in three tiers, each with specific responsibilities:
+          </p>
+          
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+            <div className="bg-acc-gray-800/50 border border-acc-gray-700 rounded-lg p-6">
+              <div className="flex items-center gap-3 mb-3">
+                <div className="w-10 h-10 rounded-lg bg-acc-purple/20 flex items-center justify-center">
+                  <Layers className="w-6 h-6 text-acc-purple" />
+                </div>
+                <h3 className="font-bold text-acc-purple">Orchestrators</h3>
+              </div>
+              <p className="text-sm text-acc-gray-300 mb-3">
+                High-level coordinators that manage conversation flow, enforce policies, and route requests to the right domain agents.
+              </p>
+              <p className="text-xs text-acc-gray-400 italic">
+                Example: Goal Orchestrator determines which agent can best fulfill a customer's objective.
+              </p>
+            </div>
+
+            <div className="bg-acc-gray-800/50 border border-acc-gray-700 rounded-lg p-6">
+              <div className="flex items-center gap-3 mb-3">
+                <div className="w-10 h-10 rounded-lg bg-green-400/20 flex items-center justify-center">
+                  <Cpu className="w-6 h-6 text-green-400" />
+                </div>
+                <h3 className="font-bold text-green-400">Domain Agents</h3>
+              </div>
+              <p className="text-sm text-acc-gray-300 mb-3">
+                Specialized agents with deep knowledge of specific telecom domains (billing, plans, devices). Each agent has access to relevant tools and can handle complex multi-turn scenarios.
+              </p>
+              <p className="text-xs text-acc-gray-400 italic">
+                Example: Billing Explainer agent uses BSS Billing and Payment tools to resolve charge disputes.
+              </p>
+            </div>
+
+            <div className="bg-acc-gray-800/50 border border-acc-gray-700 rounded-lg p-6">
+              <div className="flex items-center gap-3 mb-3">
+                <div className="w-10 h-10 rounded-lg bg-sky-400/20 flex items-center justify-center">
+                  <Wrench className="w-6 h-6 text-sky-400" />
+                </div>
+                <h3 className="font-bold text-sky-400">Tools & APIs</h3>
+              </div>
+              <p className="text-sm text-acc-gray-300 mb-3">
+                Backend integrations providing data access, business logic execution, and knowledge retrieval. Tools are called by agents to perform specific operations.
+              </p>
+              <p className="text-xs text-acc-gray-400 italic">
+                Example: BSS Billing tool retrieves account charges; Payment Gateway processes transactions.
+              </p>
+            </div>
+          </div>
+
+          <div className="mt-6 bg-acc-gray-900/50 border border-acc-gray-700 rounded-lg p-4">
+            <p className="text-sm text-acc-gray-300">
+              <strong className="text-white">Execution Flow:</strong> Customer request → Conversation Orchestrator → Goal Orchestrator → Domain Agent → Tools → Response → Safety Orchestrator → Customer
+            </p>
+          </div>
         </div>
 
         {/* Stats */}

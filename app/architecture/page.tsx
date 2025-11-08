@@ -19,6 +19,75 @@ export default function ArchitecturePage() {
             </p>
           </div>
 
+          {/* At a Glance - Simple Visual Summary */}
+          <section className="mb-16 bg-gradient-to-br from-acc-purple/10 to-transparent border border-acc-purple/30 rounded-lg p-8">
+            <h2 className="text-2xl font-bold mb-6 text-center">Architecture at a Glance</h2>
+            <div className="flex flex-col md:flex-row items-center justify-center gap-4 mb-6">
+              <div className="flex flex-col items-center">
+                <div className="w-24 h-24 bg-blue-400/20 border-2 border-blue-400 rounded-lg flex items-center justify-center mb-2">
+                  <span className="text-2xl font-bold text-blue-400">📞💬</span>
+                </div>
+                <span className="text-sm font-semibold">Voice & Chat</span>
+                <span className="text-xs text-acc-gray-400">Customer Channels</span>
+              </div>
+              
+              <div className="text-acc-purple text-2xl">→</div>
+              
+              <div className="flex flex-col items-center">
+                <div className="w-24 h-24 bg-acc-purple/20 border-2 border-acc-purple rounded-lg flex items-center justify-center mb-2">
+                  <span className="text-2xl font-bold text-acc-purple">🧠</span>
+                </div>
+                <span className="text-sm font-semibold">CES Next</span>
+                <span className="text-xs text-acc-gray-400">Conversation Platform</span>
+              </div>
+              
+              <div className="text-acc-purple text-2xl">→</div>
+              
+              <div className="flex flex-col items-center">
+                <div className="w-24 h-24 bg-green-400/20 border-2 border-green-400 rounded-lg flex items-center justify-center mb-2">
+                  <span className="text-2xl font-bold text-green-400">🎯</span>
+                </div>
+                <span className="text-sm font-semibold">Orchestrators</span>
+                <span className="text-xs text-acc-gray-400">3 Coordinators</span>
+              </div>
+              
+              <div className="text-acc-purple text-2xl">→</div>
+              
+              <div className="flex flex-col items-center">
+                <div className="w-24 h-24 bg-yellow-400/20 border-2 border-yellow-400 rounded-lg flex items-center justify-center mb-2">
+                  <span className="text-2xl font-bold text-yellow-400">🤖</span>
+                </div>
+                <span className="text-sm font-semibold">Domain Agents</span>
+                <span className="text-xs text-acc-gray-400">17 Specialists</span>
+              </div>
+              
+              <div className="text-acc-purple text-2xl">→</div>
+              
+              <div className="flex flex-col items-center">
+                <div className="w-24 h-24 bg-sky-400/20 border-2 border-sky-400 rounded-lg flex items-center justify-center mb-2">
+                  <span className="text-2xl font-bold text-sky-400">🔧</span>
+                </div>
+                <span className="text-sm font-semibold">Enterprise Tools</span>
+                <span className="text-xs text-acc-gray-400">40 APIs & Systems</span>
+              </div>
+            </div>
+            
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-4 mt-8">
+              <div className="text-center">
+                <div className="text-2xl font-bold text-acc-purple mb-1">200+</div>
+                <div className="text-xs text-acc-gray-400">Intents Covered</div>
+              </div>
+              <div className="text-center">
+                <div className="text-2xl font-bold text-green-400 mb-1">Unified</div>
+                <div className="text-xs text-acc-gray-400">Policy & Memory Model</div>
+              </div>
+              <div className="text-center">
+                <div className="text-2xl font-bold text-blue-400 mb-1">Real-time</div>
+                <div className="text-xs text-acc-gray-400">Guardrails & Observability</div>
+              </div>
+            </div>
+          </section>
+
           {/* Channels & Entry */}
           <section className="mb-16 bg-acc-gray-800 border border-acc-gray-700 rounded-lg p-8">
             <h2 className="text-3xl font-bold mb-6 text-white">Channels & Entry</h2>

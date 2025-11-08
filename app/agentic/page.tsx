@@ -41,16 +41,38 @@ export default function AgenticPage() {
   return (
     <div className="py-20">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <h1 className="text-4xl md:text-5xl font-bold mb-6">
-          <span className="text-acc-purple">Agentic Architecture</span>
-        </h1>
-        <p className="text-xl text-acc-gray-400 mb-8 max-w-3xl">
-          Orchestrators route enterprise-scale intents to domain agents and safe tools with policy guardrails and observability. Select a scenario to see the execution path.
+        {/* Executive Summary */}
+        <div className="mb-12 bg-gradient-to-br from-acc-purple/10 to-transparent border border-acc-purple/30 rounded-lg p-8">
+          <h1 className="text-4xl md:text-5xl font-bold mb-6">
+            <span className="text-acc-purple">How it Will Work</span>
+          </h1>
+          <p className="text-xl text-acc-gray-300 mb-6">
+            The new system uses <strong className="text-white">agentic AI architecture</strong> where intelligent orchestrators route customer requests to specialized domain agents, each with access to enterprise tools and governed by safety policies.
+          </p>
+          
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mt-8">
+            <div className="bg-acc-gray-800/50 border border-acc-gray-700 rounded-lg p-6">
+              <h3 className="font-bold text-acc-purple mb-2">Why Agentic?</h3>
+              <p className="text-sm text-acc-gray-300">Unlike rigid intent matching, agents reason about goals, adapt to context, and use tools dynamically to solve complex problems.</p>
+            </div>
+            <div className="bg-acc-gray-800/50 border border-acc-gray-700 rounded-lg p-6">
+              <h3 className="font-bold text-green-400 mb-2">How It's Different</h3>
+              <p className="text-sm text-acc-gray-300">Orchestrators coordinate multiple agents, each with specialized knowledge and tool access, ensuring secure, policy-compliant interactions.</p>
+            </div>
+            <div className="bg-acc-gray-800/50 border border-acc-gray-700 rounded-lg p-6">
+              <h3 className="font-bold text-blue-400 mb-2">Business Impact</h3>
+              <p className="text-sm text-acc-gray-300">Higher containment rates, faster resolution times, and better customer satisfaction through intelligent, contextual conversations.</p>
+            </div>
+          </div>
+        </div>
+
+        <h2 className="text-2xl font-bold mb-4">Execution Scenarios</h2>
+        <p className="text-acc-gray-400 mb-8 max-w-3xl">
+          Select a scenario below to see how orchestrators, agents, and tools work together to handle real customer requests.
         </p>
 
         {/* Scenarios */}
         <div className="mb-8">
-          <h2 className="text-2xl font-bold mb-4">Select a Scenario</h2>
           <div className="flex flex-wrap gap-3">
             {list.map(s => (
               <button

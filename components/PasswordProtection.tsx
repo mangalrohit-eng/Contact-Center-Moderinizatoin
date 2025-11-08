@@ -53,10 +53,13 @@ export default function PasswordProtection({ children }: { children: ReactNode }
               </svg>
             </div>
             <h1 className="text-2xl font-bold text-white mb-2">
-              Contact Center Modernization Portal
+              Telecom Contact Center Modernization
             </h1>
+            <p className="text-lg text-acc-purple mb-1">
+              Google CES Next Gen + Agentic AI
+            </p>
             <p className="text-acc-gray-400 text-sm">
-              This portal is password protected
+              Confidential • Password Protected
             </p>
           </div>
 

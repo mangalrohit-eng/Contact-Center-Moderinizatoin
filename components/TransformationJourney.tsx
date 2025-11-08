@@ -8,36 +8,48 @@ const steps = [
   {
     title: 'Discover the Current Process',
     description: 'Analyze existing Dialogflow intents, conversation flows, and operational metrics.',
+    pain: 'Rigid intent matching, high fallback rates, manual maintenance overhead',
+    benefit: 'Comprehensive baseline understanding for targeted improvements',
     icon: Database,
     color: 'text-gray-400',
   },
   {
     title: 'Rationalize Intents',
     description: 'Consolidate redundant intents using semantic clustering and LLM-powered analysis.',
+    pain: '200+ intents with overlaps causing confusion and maintenance burden',
+    benefit: 'Streamlined intent taxonomy, reducing complexity by 40-50%',
     icon: Brain,
     color: 'text-acc-purple',
   },
   {
     title: 'Design CES Flows',
     description: 'Map intents to goal-oriented conversation flows with clear success criteria.',
+    pain: 'Linear conversation paths that fail when customers deviate',
+    benefit: 'Flexible goal-driven flows that adapt to customer behavior',
     icon: Target,
     color: 'text-acc-purple',
   },
   {
     title: 'Design Agentic Architecture',
     description: 'Define orchestrators, domain agents, tools, and routing policies with guardrails.',
+    pain: 'Monolithic fulfillment logic, difficult to scale or maintain',
+    benefit: 'Modular agent architecture with clear separation of concerns',
     icon: Network,
     color: 'text-acc-purple',
   },
   {
     title: 'Build the CES and Agents',
     description: 'Develop and deploy agents iteratively with enterprise system integrations.',
+    pain: 'Long deployment cycles, limited ability to test new capabilities',
+    benefit: 'Rapid iteration with phased rollouts and A/B testing',
     icon: Network,
     color: 'text-acc-purple',
   },
   {
     title: 'KPI Uplift',
     description: 'Measure containment, AHT, CSAT improvements with continuous optimization.',
+    pain: 'Limited visibility into performance and improvement opportunities',
+    benefit: '+15-20% containment, -60-90s AHT, +0.3-0.5 CSAT gains',
     icon: TrendingUp,
     color: 'text-green-400',
   },
@@ -91,7 +103,18 @@ export default function TransformationJourney() {
                         <Icon className={`w-6 h-6 ${step.color}`} />
                         {step.title}
                       </h3>
-                      <p className="text-acc-gray-400">{step.description}</p>
+                      <p className="text-acc-gray-400 mb-4">{step.description}</p>
+                      
+                      <div className="grid grid-cols-1 md:grid-cols-2 gap-3 mt-4 text-left">
+                        <div className="bg-red-900/10 border border-red-500/30 rounded p-3">
+                          <p className="text-xs font-semibold text-red-400 mb-1">Current Pain</p>
+                          <p className="text-xs text-acc-gray-300">{step.pain}</p>
+                        </div>
+                        <div className="bg-green-900/10 border border-green-500/30 rounded p-3">
+                          <p className="text-xs font-semibold text-green-400 mb-1">Future Benefit</p>
+                          <p className="text-xs text-acc-gray-300">{step.benefit}</p>
+                        </div>
+                      </div>
                     </div>
                   </div>
 

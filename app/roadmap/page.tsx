@@ -38,6 +38,30 @@ export default function RoadmapPage() {
           </p>
         </div>
 
+        {/* Quick Summary View */}
+        <div className="mb-12 bg-gradient-to-br from-acc-purple/10 to-transparent border border-acc-purple/30 rounded-lg p-8">
+          <h2 className="text-2xl font-bold mb-6 text-center">Roadmap at a Glance</h2>
+          <div className="grid grid-cols-1 md:grid-cols-5 gap-4">
+            {phases.map((phase, idx) => {
+              const accentColor = getPhaseAccent(idx);
+              return (
+                <div key={phase.id} className="text-center bg-acc-gray-800/50 border border-acc-gray-700 rounded-lg p-4">
+                  <div className={`text-sm font-semibold ${accentColor} mb-2`}>{phase.name}</div>
+                  <div className="text-xs text-acc-gray-400 mb-3">{phase.months}</div>
+                  <div className="space-y-1">
+                    <div className="text-xl font-bold text-white">{phase.agents.length}</div>
+                    <div className="text-xs text-acc-gray-400">Agents</div>
+                  </div>
+                  <div className="mt-2 pt-2 border-t border-acc-gray-700 space-y-1">
+                    <div className={`text-lg font-bold ${accentColor}`}>{phase.coverage}</div>
+                    <div className="text-xs text-acc-gray-400">Coverage</div>
+                  </div>
+                </div>
+              );
+            })}
+          </div>
+        </div>
+
         {/* Timeline Visualization */}
         <div className="mb-16 bg-acc-gray-800 border border-acc-gray-700 rounded-lg p-8">
           <h2 className="text-2xl font-bold mb-6 flex items-center gap-2">
