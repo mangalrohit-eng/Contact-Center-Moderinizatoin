@@ -28,6 +28,39 @@ export default function AgentsPage() {
     return 'bg-sky-400/10 border-sky-400/30';
   };
 
+  // Filter and search logic
+  const filteredOrchestrators = useMemo(() => {
+    if (filterType !== 'all' && filterType !== 'orchestrator') return [];
+    if (!searchTerm) return orchestrators;
+    const term = searchTerm.toLowerCase();
+    return orchestrators.filter(item => 
+      item.name.toLowerCase().includes(term) || 
+      item.description.toLowerCase().includes(term)
+    );
+  }, [orchestrators, searchTerm, filterType]);
+
+  const filteredAgents = useMemo(() => {
+    if (filterType !== 'all' && filterType !== 'agent') return [];
+    if (!searchTerm) return agents;
+    const term = searchTerm.toLowerCase();
+    return agents.filter(item => 
+      item.name.toLowerCase().includes(term) || 
+      item.description.toLowerCase().includes(term)
+    );
+  }, [agents, searchTerm, filterType]);
+
+  const filteredTools = useMemo(() => {
+    if (filterType !== 'all' && filterType !== 'tool') return [];
+    if (!searchTerm) return tools;
+    const term = searchTerm.toLowerCase();
+    return tools.filter(item => 
+      item.name.toLowerCase().includes(term) || 
+      item.description.toLowerCase().includes(term)
+    );
+  }, [tools, searchTerm, filterType]);
+
+  const totalResults = filteredOrchestrators.length + filteredAgents.length + filteredTools.length;
+
   return (
     <div className="py-20">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -102,6 +135,75 @@ export default function AgentsPage() {
           </div>
         </div>
 
+        {/* Search and Filter */}
+        <div className="mb-12 bg-acc-gray-800 border border-acc-gray-700 rounded-lg p-6">
+          <div className="flex flex-col md:flex-row gap-4">
+            {/* Search */}
+            <div className="flex-1 relative">
+              <Search className="absolute left-3 top-1/2 transform -translate-y-1/2 w-5 h-5 text-acc-gray-400" />
+              <input
+                type="text"
+                placeholder="Search by name or description..."
+                value={searchTerm}
+                onChange={(e) => setSearchTerm(e.target.value)}
+                className="w-full pl-10 pr-4 py-3 bg-acc-gray-900 border border-acc-gray-700 rounded-lg text-white placeholder-acc-gray-400 focus:outline-none focus:ring-2 focus:ring-acc-purple focus:border-transparent"
+              />
+            </div>
+
+            {/* Filter Buttons */}
+            <div className="flex gap-2">
+              <button
+                onClick={() => setFilterType('all')}
+                className={`px-4 py-2 rounded-lg font-semibold text-sm transition-colors ${
+                  filterType === 'all'
+                    ? 'bg-acc-purple text-white'
+                    : 'bg-acc-gray-900 text-acc-gray-400 hover:text-white'
+                }`}
+              >
+                All ({orchestrators.length + agents.length + tools.length})
+              </button>
+              <button
+                onClick={() => setFilterType('orchestrator')}
+                className={`px-4 py-2 rounded-lg font-semibold text-sm transition-colors ${
+                  filterType === 'orchestrator'
+                    ? 'bg-acc-purple text-white'
+                    : 'bg-acc-gray-900 text-acc-gray-400 hover:text-white'
+                }`}
+              >
+                Orchestrators ({orchestrators.length})
+              </button>
+              <button
+                onClick={() => setFilterType('agent')}
+                className={`px-4 py-2 rounded-lg font-semibold text-sm transition-colors ${
+                  filterType === 'agent'
+                    ? 'bg-green-400 text-black'
+                    : 'bg-acc-gray-900 text-acc-gray-400 hover:text-white'
+                }`}
+              >
+                Agents ({agents.length})
+              </button>
+              <button
+                onClick={() => setFilterType('tool')}
+                className={`px-4 py-2 rounded-lg font-semibold text-sm transition-colors ${
+                  filterType === 'tool'
+                    ? 'bg-sky-400 text-black'
+                    : 'bg-acc-gray-900 text-acc-gray-400 hover:text-white'
+                }`}
+              >
+                Tools ({tools.length})
+              </button>
+            </div>
+          </div>
+
+          {/* Results count */}
+          {(searchTerm || filterType !== 'all') && (
+            <div className="mt-4 text-sm text-acc-gray-400">
+              Showing <span className="text-white font-semibold">{totalResults}</span> result{totalResults !== 1 ? 's' : ''}
+              {searchTerm && <span> for "<span className="text-acc-purple">{searchTerm}</span>"</span>}
+            </div>
+          )}
+        </div>
+
         {/* Stats */}
         <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-16">
           <div className="bg-acc-purple/10 border border-acc-purple/30 rounded-lg p-6 text-center">
@@ -122,16 +224,18 @@ export default function AgentsPage() {
         </div>
 
         {/* Orchestrators */}
-        <section className="mb-16">
-          <h2 className="text-3xl font-bold mb-6 flex items-center gap-3">
-            <Layers className="w-8 h-8 text-acc-purple" />
-            Orchestrators
-          </h2>
-          <p className="text-acc-gray-400 mb-6">
-            High-level coordinators that manage conversation flow, route to agents, and enforce policies.
-          </p>
-          <div className="grid grid-cols-1 gap-6">
-            {orchestrators.map((item) => {
+        {filteredOrchestrators.length > 0 && (
+          <section className="mb-16">
+            <h2 className="text-3xl font-bold mb-6 flex items-center gap-3">
+              <Layers className="w-8 h-8 text-acc-purple" />
+              Orchestrators
+              <span className="text-lg text-acc-gray-400">({filteredOrchestrators.length})</span>
+            </h2>
+            <p className="text-acc-gray-400 mb-6">
+              High-level coordinators that manage conversation flow, route to domain agents, and enforce policies.
+            </p>
+            <div className="grid grid-cols-1 gap-6">
+              {filteredOrchestrators.map((item) => {
               const Icon = getIcon(item.type);
               return (
                 <div
@@ -167,21 +271,24 @@ export default function AgentsPage() {
                   </div>
                 </div>
               );
-            })}
-          </div>
-        </section>
+              })}
+            </div>
+          </section>
+        )}
 
         {/* Domain Agents */}
-        <section className="mb-16">
-          <h2 className="text-3xl font-bold mb-6 flex items-center gap-3">
-            <Cpu className="w-8 h-8 text-green-400" />
-            Domain Agents
-          </h2>
-          <p className="text-acc-gray-400 mb-6">
-            Specialized agents with deep domain expertise and direct access to backend tools and APIs.
-          </p>
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-            {agents.map((item) => {
+        {filteredAgents.length > 0 && (
+          <section className="mb-16">
+            <h2 className="text-3xl font-bold mb-6 flex items-center gap-3">
+              <Cpu className="w-8 h-8 text-green-400" />
+              Domain Agents
+              <span className="text-lg text-acc-gray-400">({filteredAgents.length})</span>
+            </h2>
+            <p className="text-acc-gray-400 mb-6">
+              Specialized agents with deep domain expertise and direct access to backend tools and APIs.
+            </p>
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+              {filteredAgents.map((item) => {
               const Icon = getIcon(item.type);
               return (
                 <div
@@ -218,16 +325,18 @@ export default function AgentsPage() {
         </section>
 
         {/* Tools */}
-        <section>
-          <h2 className="text-3xl font-bold mb-6 flex items-center gap-3">
-            <Wrench className="w-8 h-8 text-sky-400" />
-            Tools & APIs
-          </h2>
-          <p className="text-acc-gray-400 mb-6">
-            Backend integrations providing data access, business logic, and knowledge retrieval capabilities.
-          </p>
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
-            {tools.map((item) => {
+        {filteredTools.length > 0 && (
+          <section>
+            <h2 className="text-3xl font-bold mb-6 flex items-center gap-3">
+              <Wrench className="w-8 h-8 text-sky-400" />
+              Tools & APIs
+              <span className="text-lg text-acc-gray-400">({filteredTools.length})</span>
+            </h2>
+            <p className="text-acc-gray-400 mb-6">
+              Backend integrations providing data access, business logic, and knowledge retrieval capabilities.
+            </p>
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
+              {filteredTools.map((item) => {
               const Icon = getIcon(item.type);
               return (
                 <div
@@ -252,9 +361,29 @@ export default function AgentsPage() {
                   </div>
                 </div>
               );
-            })}
+              })}
+            </div>
+          </section>
+        )}
+
+        {/* No results message */}
+        {totalResults === 0 && (searchTerm || filterType !== 'all') && (
+          <div className="text-center py-12 bg-acc-gray-800 border border-acc-gray-700 rounded-lg">
+            <p className="text-xl text-acc-gray-400 mb-2">No results found</p>
+            <p className="text-sm text-acc-gray-500">
+              Try adjusting your search term or filter selection
+            </p>
+            <button
+              onClick={() => {
+                setSearchTerm('');
+                setFilterType('all');
+              }}
+              className="mt-4 px-4 py-2 bg-acc-purple hover:bg-acc-purple/80 text-white rounded-lg text-sm font-semibold transition-colors"
+            >
+              Clear Filters
+            </button>
           </div>
-        </section>
+        )}
 
         <NextPageButton href="/agentic/" label="How it Will Work" />
       </div>
