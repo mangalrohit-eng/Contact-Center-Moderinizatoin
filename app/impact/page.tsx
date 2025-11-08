@@ -61,6 +61,8 @@ export default function ImpactPage() {
             </label>
             <p className="text-xs text-acc-gray-500 mb-3">
               <strong>Context:</strong> Enterprise telecoms typically handle 50-150M calls annually. Default shown: 60M calls (mid-size carrier).
+              <br />
+              <span className="text-acc-gray-600">Reference: Small (20-50M) | Mid-size (50-100M) | Large (100-200M+)</span>
             </p>
             <div className="flex items-center gap-4">
               <input

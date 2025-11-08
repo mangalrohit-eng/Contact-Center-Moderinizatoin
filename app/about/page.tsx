@@ -216,7 +216,7 @@ export default function AboutPage() {
                     <span className="text-acc-purple text-2xl group-open:rotate-45 transition-transform">+</span>
                   </summary>
                   <p className="mt-4 text-acc-gray-400 text-sm">
-                    Success criteria for the 3-month pilot include: <strong>40 intents deployed, 20% coverage, +10% containment improvement, ~45-60s AHT reduction</strong>. We establish KPI dashboards from week 1 with daily monitoring during hypercare and weekly business reviews.
+                    Success criteria for the 4-month pilot include: <strong>20 billing intents deployed, 10% coverage, +5-7% containment improvement, ~30-45s AHT reduction</strong>. We establish KPI dashboards from week 1 with daily monitoring during hypercare and weekly business reviews.
                   </p>
                 </details>
 
@@ -226,7 +226,7 @@ export default function AboutPage() {
                     <span className="text-acc-purple text-2xl group-open:rotate-45 transition-transform">+</span>
                   </summary>
                   <p className="mt-4 text-acc-gray-400 text-sm">
-                    Three cross-functional pods work in parallel: <strong>Discovery Pod</strong> (4-6 people: BAs, conversation designers, domain experts), <strong>Design Pod</strong> (4-6 people: architects, UX, policy experts), and <strong>Build Pod</strong> (6-8 people: AI/ML engineers, developers, DevOps, QA). Total: ~15-20 FTEs during pilot, scaling to 25-30 for full deployment.
+                    Three types of cross-functional pods work in parallel, with <strong>8 pods of each type</strong> (24 total): <strong>Discovery Pods</strong> (BAs, conversation designers, domain experts), <strong>Design Pods</strong> (architects, UX, policy experts), and <strong>Build Pods</strong> (AI/ML engineers, developers, DevOps, QA). Each pod is 3-4 people, totaling ~75-95 FTEs during the 4-month pilot for maximum velocity.
                   </p>
                 </details>
 

@@ -134,8 +134,8 @@ export default function RoadmapPage() {
                     <h3 className="text-2xl font-bold mb-2">{phase.name}</h3>
                     <p className="text-acc-gray-300">{phase.description}</p>
                     {idx === 0 && (
-                      <Link href="/pilot/" className="text-sm text-acc-purple hover:text-acc-purple/80 transition-colors inline-flex items-center gap-1 mt-2">
-                        <span>View detailed 3-month pilot plan</span>
+                      <Link href="/pilot/" className="inline-flex items-center gap-2 mt-3 px-4 py-2 bg-acc-purple/20 border border-acc-purple rounded-lg text-sm font-semibold text-acc-purple hover:bg-acc-purple/30 transition-colors">
+                        <span>📋 View Detailed 4-Month Pilot Plan</span>
                         <ArrowRight className="w-4 h-4" />
                       </Link>
                     )}

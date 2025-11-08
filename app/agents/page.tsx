@@ -1,9 +1,14 @@
+'use client';
+
 import agentsCatalog from '@/data/agents_catalog_full.json';
-import { Layers, Cpu, Wrench } from 'lucide-react';
+import { Layers, Cpu, Wrench, Search } from 'lucide-react';
 import NextPageButton from '@/components/NextPageButton';
+import { useState, useMemo } from 'react';
 
 export default function AgentsPage() {
   const { orchestrators, agents, tools } = agentsCatalog;
+  const [searchTerm, setSearchTerm] = useState('');
+  const [filterType, setFilterType] = useState<'all' | 'orchestrator' | 'agent' | 'tool'>('all');
 
   const getIcon = (type: string) => {
     if (type.includes('Orchestrator')) return Layers;
