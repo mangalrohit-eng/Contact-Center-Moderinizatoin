@@ -387,226 +387,281 @@ export default function PilotPage() {
             <div className="mb-4">
               <h3 className="font-bold text-xl mb-4 text-green-400">20 Billing & Payments Intents</h3>
               <p className="text-xs text-acc-gray-400 mb-4">
-                All 20 billing intents shown. Each intent flows through the pipeline: Discovery (2w) → Design (2w) → Build (2-4w) → Live. 
-                Build phase includes CES flow creation and Billing agent development (common across all intents).
+                All 20 billing intents shown. Each intent flows through the pipeline: Discovery (2w) → Design (2w) → Build (2-8w depending on complexity) → Live. 
+                Hover over any bar to see specific activities, tools, and API integrations for that phase.
               </p>
               
-              <div className="space-y-1 max-h-96 overflow-y-auto">
-                <div className="flex items-center gap-2">
-                  <div className="w-48 text-xs text-acc-gray-300">1. Bill balance inquiry</div>
-                  <div className="flex-1 flex gap-1">
-                    <div className="bg-acc-purple h-6 rounded text-xs flex items-center justify-center text-white" style={{width: '16.66%'}}>Disc</div>
-                    <div className="bg-green-400 h-6 rounded text-xs flex items-center justify-center text-black" style={{width: '16.66%'}}>Des</div>
-                    <div className="bg-blue-400 h-6 rounded text-xs flex items-center justify-center text-black" style={{width: '16.66%'}}>Build</div>
-                    <div className="bg-green-900/50 h-6 rounded text-xs flex items-center justify-center text-white" style={{width: '50%'}}>✅ Wk 12</div>
-                  </div>
-                </div>
+              <div className="space-y-1 max-h-96 overflow-y-auto">{/* Intent data with activities */}
+                {[
+                  // Block 1: Intents 1-5 (start together)
+                  {
+                    name: 'Bill balance inquiry',
+                    complexity: 'low',
+                    buildWeeks: 2,
+                    discovery: ['Customer journey analysis', 'BSS data mapping', 'Authentication flow review'],
+                    design: ['Balance display flow', 'Error handling patterns', 'Multi-account support'],
+                    tools: ['BSS Billing API', 'Authentication Service', 'Balance Cache'],
+                    startOffset: 0
+                  },
+                  {
+                    name: 'Payment due date',
+                    complexity: 'low',
+                    buildWeeks: 2,
+                    discovery: ['Billing cycle analysis', 'Reminder preferences research', 'User utterance patterns'],
+                    design: ['Due date lookup flow', 'Reminder setup design', 'Timezone handling'],
+                    tools: ['BSS Billing API', 'Reminder Service', 'Calendar Integration'],
+                    startOffset: 0
+                  },
+                  {
+                    name: 'Make a payment',
+                    complexity: 'high',
+                    buildWeeks: 6,
+                    discovery: ['Payment methods analysis', 'Security requirements', 'Fraud detection needs', 'PCI compliance review'],
+                    design: ['Payment flow design', 'Multi-step confirmation', 'Error recovery', 'Receipt generation'],
+                    tools: ['Payment Gateway API', 'PCI Tokenization', 'Fraud Detection Service', 'Receipt Service', 'Email Notification'],
+                    startOffset: 0
+                  },
+                  {
+                    name: 'Payment history',
+                    complexity: 'medium',
+                    buildWeeks: 3,
+                    discovery: ['Historical data requirements', 'Date range patterns', 'Export preferences'],
+                    design: ['History display flow', 'Filtering & search', 'Download options'],
+                    tools: ['BSS Billing API', 'Report Generation', 'PDF Export Service'],
+                    startOffset: 0
+                  },
+                  {
+                    name: 'Billing cycle date',
+                    complexity: 'low',
+                    buildWeeks: 2,
+                    discovery: ['Cycle calculation logic', 'Plan type variations', 'Customer preferences'],
+                    design: ['Cycle info flow', 'Next bill estimation', 'Prorated scenarios'],
+                    tools: ['BSS Billing API', 'Plan Catalog Service'],
+                    startOffset: 0
+                  },
+                  // Block 2: Intents 6-10 (start together after block 1 completes discovery+design)
+                  {
+                    name: 'Dispute charge',
+                    complexity: 'high',
+                    buildWeeks: 7,
+                    discovery: ['Dispute types taxonomy', 'Resolution workflows', 'Evidence requirements', 'SLA tracking'],
+                    design: ['Multi-step dispute flow', 'Evidence upload', 'Status tracking', 'Escalation paths'],
+                    tools: ['Dispute Management API', 'Document Upload Service', 'Case Management System', 'Email/SMS Notification', 'Escalation Engine'],
+                    startOffset: 15
+                  },
+                  {
+                    name: 'Autopay setup',
+                    complexity: 'high',
+                    buildWeeks: 6,
+                    discovery: ['Payment method options', 'Scheduling preferences', 'Failure handling', 'Security protocols'],
+                    design: ['Autopay enrollment flow', 'Schedule configuration', 'Confirmation & receipts', 'Failure notifications'],
+                    tools: ['Payment Gateway API', 'Autopay Scheduler', 'PCI Tokenization', 'Notification Service', 'BSS Billing API'],
+                    startOffset: 15
+                  },
+                  {
+                    name: 'Paperless billing',
+                    complexity: 'medium',
+                    buildWeeks: 3,
+                    discovery: ['Email delivery preferences', 'Document format options', 'Opt-in/out flows'],
+                    design: ['Enrollment flow', 'Email setup & verification', 'Rollback options'],
+                    tools: ['BSS Billing API', 'Email Service', 'Document Generation', 'Preference Management'],
+                    startOffset: 15
+                  },
+                  {
+                    name: 'Late payment fee',
+                    complexity: 'medium',
+                    buildWeeks: 4,
+                    discovery: ['Fee structure analysis', 'Waiver policy review', 'Grace period rules'],
+                    design: ['Fee explanation flow', 'Waiver request handling', 'Payment plan integration'],
+                    tools: ['BSS Billing API', 'Fee Calculation Engine', 'Waiver Approval Service', 'Case Management'],
+                    startOffset: 15
+                  },
+                  {
+                    name: 'Bill explanation',
+                    complexity: 'medium',
+                    buildWeeks: 4,
+                    discovery: ['Bill component breakdown', 'Customer confusion patterns', 'Charge types taxonomy'],
+                    design: ['Line-item explanation flow', 'Drill-down navigation', 'Visual breakdown'],
+                    tools: ['BSS Billing API', 'Charge Dictionary Service', 'Usage Data API', 'Visualization Service'],
+                    startOffset: 15
+                  },
+                  // Block 3: Intents 11-15 (start together)
+                  {
+                    name: 'Bill variance explanation',
+                    complexity: 'high',
+                    buildWeeks: 5,
+                    discovery: ['Variance triggers analysis', 'Historical comparison needs', 'Proactive alert scenarios'],
+                    design: ['Comparison flow', 'Variance breakdown', 'Root cause explanation', 'Historical trends'],
+                    tools: ['BSS Billing API', 'Historical Data Service', 'Variance Analysis Engine', 'Trend Visualization'],
+                    startOffset: 30
+                  },
+                  {
+                    name: 'Payment arrangement',
+                    complexity: 'high',
+                    buildWeeks: 8,
+                    discovery: ['Eligibility criteria', 'Plan options research', 'Credit check requirements', 'Legal compliance'],
+                    design: ['Multi-step arrangement flow', 'Eligibility verification', 'Plan selection', 'Agreement & e-signature'],
+                    tools: ['Payment Arrangement API', 'Credit Check Service', 'E-Signature Service', 'Agreement Generation', 'BSS Billing API', 'Notification Service'],
+                    startOffset: 30
+                  },
+                  {
+                    name: 'Update payment method',
+                    complexity: 'high',
+                    buildWeeks: 6,
+                    discovery: ['Payment method types', 'Verification requirements', 'Security protocols', 'Autopay impact'],
+                    design: ['Method update flow', 'Verification steps', 'Security confirmation', 'Autopay migration'],
+                    tools: ['Payment Gateway API', 'PCI Tokenization', 'Verification Service', 'Autopay Update Service', 'Audit Log'],
+                    startOffset: 30
+                  },
+                  {
+                    name: 'Download bill',
+                    complexity: 'low',
+                    buildWeeks: 2,
+                    discovery: ['Document format preferences', 'Historical bill access', 'Delivery methods'],
+                    design: ['Bill selection flow', 'Format options', 'Download/email delivery'],
+                    tools: ['BSS Billing API', 'PDF Generation', 'Email Service', 'Document Storage'],
+                    startOffset: 30
+                  },
+                  {
+                    name: 'Tax/fee explanation',
+                    complexity: 'medium',
+                    buildWeeks: 4,
+                    discovery: ['Tax types by jurisdiction', 'Regulatory fee structures', 'Customer confusion patterns'],
+                    design: ['Tax breakdown flow', 'Jurisdiction-specific explanations', 'Regulatory links'],
+                    tools: ['BSS Billing API', 'Tax Reference Service', 'Regulatory Database', 'Location Service'],
+                    startOffset: 30
+                  },
+                  // Block 4: Intents 16-20 (start together)
+                  {
+                    name: 'Refund status',
+                    complexity: 'medium',
+                    buildWeeks: 3,
+                    discovery: ['Refund process workflows', 'Timeline expectations', 'Status tracking requirements'],
+                    design: ['Status inquiry flow', 'Timeline display', 'Issue escalation'],
+                    tools: ['Refund Management API', 'Payment Gateway', 'Case Management', 'Notification Service'],
+                    startOffset: 45
+                  },
+                  {
+                    name: 'Credit application',
+                    complexity: 'high',
+                    buildWeeks: 7,
+                    discovery: ['Credit types & eligibility', 'Application workflows', 'Document requirements', 'Approval processes'],
+                    design: ['Multi-step application flow', 'Document upload', 'Credit check integration', 'Approval tracking'],
+                    tools: ['Credit Management API', 'Document Upload Service', 'Credit Bureau Integration', 'Approval Workflow Engine', 'Notification Service'],
+                    startOffset: 45
+                  },
+                  {
+                    name: 'Payment confirmation',
+                    complexity: 'low',
+                    buildWeeks: 2,
+                    discovery: ['Confirmation data requirements', 'Receipt preferences', 'Delivery channels'],
+                    design: ['Confirmation display flow', 'Receipt generation', 'Multi-channel delivery'],
+                    tools: ['Payment Gateway API', 'Receipt Service', 'Email/SMS Service', 'Transaction Log'],
+                    startOffset: 45
+                  },
+                  {
+                    name: 'Overage charges',
+                    complexity: 'medium',
+                    buildWeeks: 4,
+                    discovery: ['Overage types analysis', 'Usage threshold rules', 'Alert preferences'],
+                    design: ['Overage explanation flow', 'Usage details', 'Plan upgrade suggestions'],
+                    tools: ['BSS Billing API', 'Usage Data Service', 'Plan Recommendation Engine', 'Alert Service'],
+                    startOffset: 45
+                  },
+                  {
+                    name: 'Payment extension',
+                    complexity: 'high',
+                    buildWeeks: 6,
+                    discovery: ['Extension eligibility rules', 'Policy variations', 'Approval workflows', 'Impact on services'],
+                    design: ['Extension request flow', 'Eligibility check', 'Terms presentation', 'Confirmation'],
+                    tools: ['Payment Extension API', 'Eligibility Service', 'BSS Billing API', 'Notification Service', 'Service Impact Calculator'],
+                    startOffset: 45
+                  }
+                ].map((intent, idx) => {
+                  const discWidth = 16.66;
+                  const desWidth = 16.66;
+                  const buildWidth = (intent.buildWeeks / 12) * 100; // Scale to 12-week timeline
+                  const liveWidth = Math.max(100 - intent.startOffset - discWidth - desWidth - buildWidth, 2);
+                  const isComplete = intent.startOffset + discWidth + desWidth + buildWidth < 100;
 
-                <div className="flex items-center gap-2">
-                  <div className="w-48 text-xs text-acc-gray-300">2. Payment due date</div>
-                  <div className="flex-1 flex gap-1">
-                    <div style={{width: '3%'}}></div>
-                    <div className="bg-acc-purple h-6 rounded text-xs flex items-center justify-center text-white" style={{width: '16.66%'}}>Disc</div>
-                    <div className="bg-green-400 h-6 rounded text-xs flex items-center justify-center text-black" style={{width: '16.66%'}}>Des</div>
-                    <div className="bg-blue-400 h-6 rounded text-xs flex items-center justify-center text-black" style={{width: '16.66%'}}>Build</div>
-                    <div className="bg-green-900/50 h-6 rounded text-xs flex items-center justify-center text-white" style={{width: '47%'}}>✅ Wk 12</div>
-                  </div>
-                </div>
+                  return (
+                    <div key={idx} className="flex items-center gap-2">
+                      <div className="w-48 text-xs text-acc-gray-300">{idx + 1}. {intent.name}</div>
+                      <div className="flex-1 flex gap-1">
+                        {intent.startOffset > 0 && <div style={{width: `${intent.startOffset}%`}}></div>}
+                        
+                        {/* Discovery */}
+                        <div 
+                          className="bg-acc-purple h-6 rounded cursor-help group relative" 
+                          style={{width: `${discWidth}%`}}
+                          title="Discovery Phase"
+                        >
+                          <div className="invisible group-hover:visible absolute bottom-full left-0 mb-2 w-64 bg-acc-gray-900 border border-acc-purple rounded-lg p-3 shadow-xl z-10 text-xs">
+                            <div className="font-bold text-acc-purple mb-2">Discovery (2 weeks)</div>
+                            <ul className="space-y-1 text-acc-gray-300">
+                              {intent.discovery.map((item, i) => (
+                                <li key={i} className="flex items-start gap-1">
+                                  <span className="text-acc-purple mt-0.5">•</span>
+                                  <span>{item}</span>
+                                </li>
+                              ))}
+                            </ul>
+                          </div>
+                        </div>
 
-                <div className="flex items-center gap-2">
-                  <div className="w-48 text-xs text-acc-gray-300">3. Make a payment</div>
-                  <div className="flex-1 flex gap-1">
-                    <div style={{width: '6%'}}></div>
-                    <div className="bg-acc-purple h-6 rounded text-xs flex items-center justify-center text-white" style={{width: '16.66%'}}>Disc</div>
-                    <div className="bg-green-400 h-6 rounded text-xs flex items-center justify-center text-black" style={{width: '16.66%'}}>Des</div>
-                    <div className="bg-blue-400 h-6 rounded text-xs flex items-center justify-center text-black" style={{width: '16.66%'}}>Build</div>
-                    <div className="bg-green-900/50 h-6 rounded text-xs flex items-center justify-center text-white" style={{width: '44%'}}>✅ Wk 12</div>
-                  </div>
-                </div>
+                        {/* Design */}
+                        <div 
+                          className="bg-green-400 h-6 rounded cursor-help group relative" 
+                          style={{width: `${desWidth}%`}}
+                          title="Design Phase"
+                        >
+                          <div className="invisible group-hover:visible absolute bottom-full left-0 mb-2 w-64 bg-acc-gray-900 border border-green-400 rounded-lg p-3 shadow-xl z-10 text-xs">
+                            <div className="font-bold text-green-400 mb-2">Design (2 weeks)</div>
+                            <ul className="space-y-1 text-acc-gray-300">
+                              {intent.design.map((item, i) => (
+                                <li key={i} className="flex items-start gap-1">
+                                  <span className="text-green-400 mt-0.5">•</span>
+                                  <span>{item}</span>
+                                </li>
+                              ))}
+                            </ul>
+                          </div>
+                        </div>
 
-                <div className="flex items-center gap-2">
-                  <div className="w-48 text-xs text-acc-gray-300">4. Payment history</div>
-                  <div className="flex-1 flex gap-1">
-                    <div style={{width: '9%'}}></div>
-                    <div className="bg-acc-purple h-6 rounded text-xs flex items-center justify-center text-white" style={{width: '16.66%'}}>Disc</div>
-                    <div className="bg-green-400 h-6 rounded text-xs flex items-center justify-center text-black" style={{width: '16.66%'}}>Des</div>
-                    <div className="bg-blue-400 h-6 rounded text-xs flex items-center justify-center text-black" style={{width: '16.66%'}}>Build</div>
-                    <div className="bg-green-900/50 h-6 rounded text-xs flex items-center justify-center text-white" style={{width: '41%'}}>✅ Wk 12</div>
-                  </div>
-                </div>
+                        {/* Build */}
+                        <div 
+                          className={`${isComplete ? 'bg-blue-400' : 'bg-blue-400/50'} h-6 rounded cursor-help group relative`}
+                          style={{width: `${buildWidth}%`}}
+                          title="Build Phase"
+                        >
+                          <div className="invisible group-hover:visible absolute bottom-full left-0 mb-2 w-72 bg-acc-gray-900 border border-blue-400 rounded-lg p-3 shadow-xl z-10 text-xs">
+                            <div className="font-bold text-blue-400 mb-2">Build ({intent.buildWeeks} weeks) - {intent.complexity} complexity</div>
+                            <div className="mb-2 text-acc-gray-400 text-xs">CES flow creation + Agent development</div>
+                            <div className="font-semibold text-white mb-1">Tools & API Integrations:</div>
+                            <ul className="space-y-1 text-acc-gray-300">
+                              {intent.tools.map((tool, i) => (
+                                <li key={i} className="flex items-start gap-1">
+                                  <span className="text-blue-400 mt-0.5">•</span>
+                                  <span>{tool}</span>
+                                </li>
+                              ))}
+                            </ul>
+                          </div>
+                        </div>
 
-                <div className="flex items-center gap-2">
-                  <div className="w-48 text-xs text-acc-gray-300">5. Billing cycle date</div>
-                  <div className="flex-1 flex gap-1">
-                    <div style={{width: '12%'}}></div>
-                    <div className="bg-acc-purple h-6 rounded text-xs flex items-center justify-center text-white" style={{width: '16.66%'}}>Disc</div>
-                    <div className="bg-green-400 h-6 rounded text-xs flex items-center justify-center text-black" style={{width: '16.66%'}}>Des</div>
-                    <div className="bg-blue-400 h-6 rounded text-xs flex items-center justify-center text-black" style={{width: '16.66%'}}>Build</div>
-                    <div className="bg-green-900/50 h-6 rounded text-xs flex items-center justify-center text-white" style={{width: '38%'}}>✅ Wk 12</div>
-                  </div>
-                </div>
-
-                <div className="flex items-center gap-2">
-                  <div className="w-48 text-xs text-acc-gray-300">6. Dispute charge</div>
-                  <div className="flex-1 flex gap-1">
-                    <div style={{width: '15%'}}></div>
-                    <div className="bg-acc-purple h-6 rounded text-xs flex items-center justify-center text-white" style={{width: '16.66%'}}>Disc</div>
-                    <div className="bg-green-400 h-6 rounded text-xs flex items-center justify-center text-black" style={{width: '16.66%'}}>Des</div>
-                    <div className="bg-blue-400 h-6 rounded text-xs flex items-center justify-center text-black" style={{width: '16.66%'}}>Build</div>
-                    <div className="bg-green-900/50 h-6 rounded text-xs flex items-center justify-center text-white" style={{width: '35%'}}>✅ Wk 12</div>
-                  </div>
-                </div>
-
-                <div className="flex items-center gap-2">
-                  <div className="w-48 text-xs text-acc-gray-300">7. Autopay setup</div>
-                  <div className="flex-1 flex gap-1">
-                    <div style={{width: '18%'}}></div>
-                    <div className="bg-acc-purple h-6 rounded text-xs flex items-center justify-center text-white" style={{width: '16.66%'}}>Disc</div>
-                    <div className="bg-green-400 h-6 rounded text-xs flex items-center justify-center text-black" style={{width: '16.66%'}}>Des</div>
-                    <div className="bg-blue-400 h-6 rounded text-xs flex items-center justify-center text-black" style={{width: '16.66%'}}>Build</div>
-                    <div className="bg-green-900/50 h-6 rounded text-xs flex items-center justify-center text-white" style={{width: '32%'}}>✅ Wk 12</div>
-                  </div>
-                </div>
-
-                <div className="flex items-center gap-2">
-                  <div className="w-48 text-xs text-acc-gray-300">8. Paperless billing</div>
-                  <div className="flex-1 flex gap-1">
-                    <div style={{width: '21%'}}></div>
-                    <div className="bg-acc-purple h-6 rounded text-xs flex items-center justify-center text-white" style={{width: '16.66%'}}>Disc</div>
-                    <div className="bg-green-400 h-6 rounded text-xs flex items-center justify-center text-black" style={{width: '16.66%'}}>Des</div>
-                    <div className="bg-blue-400 h-6 rounded text-xs flex items-center justify-center text-black" style={{width: '16.66%'}}>Build</div>
-                    <div className="bg-green-900/50 h-6 rounded text-xs flex items-center justify-center text-white" style={{width: '29%'}}>✅ Wk 12</div>
-                  </div>
-                </div>
-
-                <div className="flex items-center gap-2">
-                  <div className="w-48 text-xs text-acc-gray-300">9. Late payment fee</div>
-                  <div className="flex-1 flex gap-1">
-                    <div style={{width: '24%'}}></div>
-                    <div className="bg-acc-purple h-6 rounded text-xs flex items-center justify-center text-white" style={{width: '16.66%'}}>Disc</div>
-                    <div className="bg-green-400 h-6 rounded text-xs flex items-center justify-center text-black" style={{width: '16.66%'}}>Des</div>
-                    <div className="bg-blue-400 h-6 rounded text-xs flex items-center justify-center text-black" style={{width: '16.66%'}}>Build</div>
-                    <div className="bg-green-900/50 h-6 rounded text-xs flex items-center justify-center text-white" style={{width: '26%'}}>✅ Wk 12</div>
-                  </div>
-                </div>
-
-                <div className="flex items-center gap-2">
-                  <div className="w-48 text-xs text-acc-gray-300">10. Bill explanation</div>
-                  <div className="flex-1 flex gap-1">
-                    <div style={{width: '27%'}}></div>
-                    <div className="bg-acc-purple h-6 rounded text-xs flex items-center justify-center text-white" style={{width: '16.66%'}}>Disc</div>
-                    <div className="bg-green-400 h-6 rounded text-xs flex items-center justify-center text-black" style={{width: '16.66%'}}>Des</div>
-                    <div className="bg-blue-400 h-6 rounded text-xs flex items-center justify-center text-black" style={{width: '16.66%'}}>Build</div>
-                    <div className="bg-green-900/50 h-6 rounded text-xs flex items-center justify-center text-white" style={{width: '23%'}}>✅ Wk 12</div>
-                  </div>
-                </div>
-
-                <div className="flex items-center gap-2">
-                  <div className="w-48 text-xs text-acc-gray-300">11. Bill variance explanation</div>
-                  <div className="flex-1 flex gap-1">
-                    <div style={{width: '30%'}}></div>
-                    <div className="bg-acc-purple h-6 rounded text-xs flex items-center justify-center text-white" style={{width: '16.66%'}}>Disc</div>
-                    <div className="bg-green-400 h-6 rounded text-xs flex items-center justify-center text-black" style={{width: '16.66%'}}>Des</div>
-                    <div className="bg-blue-400 h-6 rounded text-xs flex items-center justify-center text-black" style={{width: '16.66%'}}>Build</div>
-                    <div className="bg-green-900/50 h-6 rounded text-xs flex items-center justify-center text-white" style={{width: '20%'}}>✅ Wk 12</div>
-                  </div>
-                </div>
-
-                <div className="flex items-center gap-2">
-                  <div className="w-48 text-xs text-acc-gray-300">12. Payment arrangement</div>
-                  <div className="flex-1 flex gap-1">
-                    <div style={{width: '33%'}}></div>
-                    <div className="bg-acc-purple h-6 rounded text-xs flex items-center justify-center text-white" style={{width: '16.66%'}}>Disc</div>
-                    <div className="bg-green-400 h-6 rounded text-xs flex items-center justify-center text-black" style={{width: '16.66%'}}>Des</div>
-                    <div className="bg-blue-400 h-6 rounded text-xs flex items-center justify-center text-black" style={{width: '16.66%'}}>Build</div>
-                    <div className="bg-green-900/50 h-6 rounded text-xs flex items-center justify-center text-white" style={{width: '17%'}}>✅ Wk 12</div>
-                  </div>
-                </div>
-
-                <div className="flex items-center gap-2">
-                  <div className="w-48 text-xs text-acc-gray-300">13. Update payment method</div>
-                  <div className="flex-1 flex gap-1">
-                    <div style={{width: '36%'}}></div>
-                    <div className="bg-acc-purple h-6 rounded text-xs flex items-center justify-center text-white" style={{width: '16.66%'}}>Disc</div>
-                    <div className="bg-green-400 h-6 rounded text-xs flex items-center justify-center text-black" style={{width: '16.66%'}}>Des</div>
-                    <div className="bg-blue-400 h-6 rounded text-xs flex items-center justify-center text-black" style={{width: '16.66%'}}>Build</div>
-                    <div className="bg-green-900/50 h-6 rounded text-xs flex items-center justify-center text-white" style={{width: '14%'}}>✅ Wk 12</div>
-                  </div>
-                </div>
-
-                <div className="flex items-center gap-2">
-                  <div className="w-48 text-xs text-acc-gray-300">14. Download bill</div>
-                  <div className="flex-1 flex gap-1">
-                    <div style={{width: '39%'}}></div>
-                    <div className="bg-acc-purple h-6 rounded text-xs flex items-center justify-center text-white" style={{width: '16.66%'}}>Disc</div>
-                    <div className="bg-green-400 h-6 rounded text-xs flex items-center justify-center text-black" style={{width: '16.66%'}}>Des</div>
-                    <div className="bg-blue-400 h-6 rounded text-xs flex items-center justify-center text-black" style={{width: '16.66%'}}>Build</div>
-                    <div className="bg-green-900/50 h-6 rounded text-xs flex items-center justify-center text-white" style={{width: '11%'}}>✅ Wk 12</div>
-                  </div>
-                </div>
-
-                <div className="flex items-center gap-2">
-                  <div className="w-48 text-xs text-acc-gray-300">15. Tax/fee explanation</div>
-                  <div className="flex-1 flex gap-1">
-                    <div style={{width: '42%'}}></div>
-                    <div className="bg-acc-purple h-6 rounded text-xs flex items-center justify-center text-white" style={{width: '16.66%'}}>Disc</div>
-                    <div className="bg-green-400 h-6 rounded text-xs flex items-center justify-center text-black" style={{width: '16.66%'}}>Des</div>
-                    <div className="bg-blue-400 h-6 rounded text-xs flex items-center justify-center text-black" style={{width: '16.66%'}}>Build</div>
-                    <div className="bg-green-900/50 h-6 rounded text-xs flex items-center justify-center text-white" style={{width: '8%'}}>✅ Wk 12</div>
-                  </div>
-                </div>
-
-                <div className="flex items-center gap-2">
-                  <div className="w-48 text-xs text-acc-gray-300">16. Refund status</div>
-                  <div className="flex-1 flex gap-1">
-                    <div style={{width: '45%'}}></div>
-                    <div className="bg-acc-purple h-6 rounded text-xs flex items-center justify-center text-white" style={{width: '16.66%'}}>Disc</div>
-                    <div className="bg-green-400 h-6 rounded text-xs flex items-center justify-center text-black" style={{width: '16.66%'}}>Des</div>
-                    <div className="bg-blue-400 h-6 rounded text-xs flex items-center justify-center text-black" style={{width: '16.66%'}}>Build</div>
-                    <div className="bg-green-900/50 h-6 rounded text-xs flex items-center justify-center text-white" style={{width: '5%'}}>✅ Wk 12</div>
-                  </div>
-                </div>
-
-                <div className="flex items-center gap-2">
-                  <div className="w-48 text-xs text-acc-gray-300">17. Credit application</div>
-                  <div className="flex-1 flex gap-1">
-                    <div style={{width: '48%'}}></div>
-                    <div className="bg-acc-purple h-6 rounded text-xs flex items-center justify-center text-white" style={{width: '16.66%'}}>Disc</div>
-                    <div className="bg-green-400 h-6 rounded text-xs flex items-center justify-center text-black" style={{width: '16.66%'}}>Des</div>
-                    <div className="bg-blue-400 h-6 rounded text-xs flex items-center justify-center text-black" style={{width: '16.66%'}}>Build</div>
-                    <div className="bg-green-900/50 h-6 rounded text-xs flex items-center justify-center text-white" style={{width: '2%'}}>✅</div>
-                  </div>
-                </div>
-
-                <div className="flex items-center gap-2">
-                  <div className="w-48 text-xs text-acc-gray-300">18. Payment confirmation</div>
-                  <div className="flex-1 flex gap-1">
-                    <div style={{width: '51%'}}></div>
-                    <div className="bg-acc-purple h-6 rounded text-xs flex items-center justify-center text-white" style={{width: '16.66%'}}>Disc</div>
-                    <div className="bg-green-400 h-6 rounded text-xs flex items-center justify-center text-black" style={{width: '16.66%'}}>Des</div>
-                    <div className="bg-blue-400 h-6 rounded text-xs flex items-center justify-center text-black" style={{width: '15.66%'}}>Build</div>
-                  </div>
-                </div>
-
-                <div className="flex items-center gap-2">
-                  <div className="w-48 text-xs text-acc-gray-300">19. Overage charges</div>
-                  <div className="flex-1 flex gap-1">
-                    <div style={{width: '54%'}}></div>
-                    <div className="bg-acc-purple h-6 rounded text-xs flex items-center justify-center text-white" style={{width: '16.66%'}}>Disc</div>
-                    <div className="bg-green-400 h-6 rounded text-xs flex items-center justify-center text-black" style={{width: '16.66%'}}>Des</div>
-                    <div className="bg-blue-400/50 h-6 rounded text-xs flex items-center justify-center text-black" style={{width: '12.66%'}}>Build →</div>
-                  </div>
-                </div>
-
-                <div className="flex items-center gap-2">
-                  <div className="w-48 text-xs text-acc-gray-300">20. Payment extension</div>
-                  <div className="flex-1 flex gap-1">
-                    <div style={{width: '57%'}}></div>
-                    <div className="bg-acc-purple h-6 rounded text-xs flex items-center justify-center text-white" style={{width: '16.66%'}}>Disc</div>
-                    <div className="bg-green-400 h-6 rounded text-xs flex items-center justify-center text-black" style={{width: '16.66%'}}>Des</div>
-                    <div className="bg-blue-400/30 h-6 rounded text-xs flex items-center justify-center text-gray-400" style={{width: '9.66%'}}>Build</div>
-                  </div>
-                </div>
+                        {/* Live */}
+                        {isComplete && (
+                          <div 
+                            className="bg-green-900/50 h-6 rounded text-xs flex items-center justify-center text-white"
+                            style={{width: `${liveWidth}%`}}
+                          >
+                            ✅ Wk 12
+                          </div>
+                        )}
+                      </div>
+                    </div>
+                  );
+                })}
               </div>
             </div>
           </div>
