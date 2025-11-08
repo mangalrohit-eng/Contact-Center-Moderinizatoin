@@ -1,5 +1,6 @@
 import Hero from '@/components/Hero';
 import TransformationJourney from '@/components/TransformationJourney';
+import NextPageButton from '@/components/NextPageButton';
 
 export default function Home() {
   return (
@@ -21,7 +22,7 @@ export default function Home() {
               href="/agentic/"
               className="btn-primary inline-flex items-center justify-center"
             >
-              Explore Architecture
+              Explore How it Works
             </a>
             <a
               href="/roadmap/"
@@ -30,6 +31,8 @@ export default function Home() {
               View Roadmap
             </a>
           </div>
+          
+          <NextPageButton href="/approach/" label="Approach" />
         </div>
       </section>
     </>

@@ -5,8 +5,11 @@ import Footer from '@/components/Footer';
 import PasswordProtection from '@/components/PasswordProtection';
 
 export const metadata: Metadata = {
-  title: 'Accenture CES Next Modernization',
+  title: 'Telecom Contact Center Modernization With CES Next Gen',
   description: 'Reimagining Telecom CX with Google CES Next and Agentic AI',
+  icons: {
+    icon: '/favicon.png',
+  },
 };
 
 export default function RootLayout({
