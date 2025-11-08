@@ -2,10 +2,10 @@
   "phases": [
     {
       "id": "phase1",
-      "name": "Foundation & High-Volume Agents",
+      "name": "Foundation & Billing Agent",
       "months": "Months 1-3",
       "quarter": "Q1",
-      "description": "Establish orchestration framework and deploy high-volume billing and plan agents",
+      "description": "Establish orchestration framework and deploy high-volume billing agent (Pilot Phase)",
       "agents": [
         {
           "name": "Conversation Orchestrator",
@@ -25,11 +25,6 @@
         {
           "name": "Billing & Payments Agent",
           "type": "agent",
-          "deployMonth": 2
-        },
-        {
-          "name": "Plans & Features Agent",
-          "type": "agent",
           "deployMonth": 3
         }
       ],
@@ -37,42 +32,51 @@
         "Bill variance explanation", "One-time payment", "Autopay setup", "Payment arrangement",
         "Dispute charge", "Billing cycle change", "Update payment method", "Download bill",
         "Paperless billing", "Tax/fee explanation", "Refund status", "Credit application",
-        "Change plan", "Add/remove line", "Plan comparison", "International roaming",
-        "Family plan setup", "Data usage inquiry", "Remove add-on", "Military discount",
-        "Corporate discount", "Suspend service", "Restore service", "Plan renewal"
+        "Payment due date", "Payment history", "Late payment fee", "Payment confirmation",
+        "Bill breakdown", "Overage charges", "Credit balance inquiry", "Payment extension"
       ],
-      "intentCount": 40,
-      "coverage": "20%",
+      "intentCount": 20,
+      "coverage": "10%",
       "kpis": {
-        "containment": "58%",
-        "aht": "510s",
+        "containment": "55%",
+        "aht": "520s",
         "csat": "3.8"
       }
     },
     {
       "id": "phase2",
-      "name": "Device & Activation",
-      "months": "Months 4-5",
+      "name": "Plans, Device & Activation",
+      "months": "Months 4-6",
       "quarter": "Q2",
-      "description": "Launch device lifecycle and activation agents for upgrade and onboarding flows",
+      "description": "Deploy plan management, device lifecycle, and activation agents",
       "agents": [
+        {
+          "name": "Plans & Features Agent",
+          "type": "agent",
+          "deployMonth": 4
+        },
         {
           "name": "Device Lifecycle Agent",
           "type": "agent",
-          "deployMonth": 4
+          "deployMonth": 5
         },
         {
           "name": "Activation & Provisioning Agent",
           "type": "agent",
-          "deployMonth": 4
+          "deployMonth": 5
         },
         {
           "name": "Account Management Agent",
           "type": "agent",
-          "deployMonth": 5
+          "deployMonth": 6
         }
       ],
       "intents": [
+        "Change plan", "Add/remove line", "Plan comparison", "International roaming",
+        "Family plan setup", "Data usage inquiry", "Remove add-on", "Military discount",
+        "Corporate discount", "Suspend service", "Restore service", "Plan renewal",
+        "Plan eligibility", "Unlimited plan inquiry", "Shared data plan", "Prepaid plan",
+        "Plan recommendation", "Usage alerts", "Data rollover", "Plan upgrade",
         "Upgrade eligibility", "Start upgrade", "Trade-in quote", "Order status",
         "Device return/exchange", "Device protection claim", "Lost/stolen device",
         "Device unlock", "BYOD compatibility", "Device troubleshooting", "Warranty claim",
@@ -94,24 +98,24 @@
     {
       "id": "phase3",
       "name": "Network & Connectivity",
-      "months": "Months 6-7",
-      "quarter": "Q2-Q3",
+      "months": "Months 7-8",
+      "quarter": "Q3",
       "description": "Deploy network troubleshooting and calling features agents",
       "agents": [
         {
           "name": "Network & Coverage Agent",
           "type": "agent",
-          "deployMonth": 6
+          "deployMonth": 7
         },
         {
           "name": "Features & Services Agent",
           "type": "agent",
-          "deployMonth": 6
+          "deployMonth": 7
         },
         {
           "name": "Home Internet Agent",
           "type": "agent",
-          "deployMonth": 7
+          "deployMonth": 8
         }
       ],
       "intents": [
@@ -142,34 +146,34 @@
     {
       "id": "phase4",
       "name": "Security, Retail & Business",
-      "months": "Months 8-9",
-      "quarter": "Q3",
+      "months": "Months 9-10",
+      "quarter": "Q3-Q4",
       "description": "Deploy security, retail, and business support agents",
       "agents": [
         {
           "name": "Security & Fraud Agent",
           "type": "agent",
-          "deployMonth": 8
+          "deployMonth": 9
         },
         {
           "name": "Retail & Store Agent",
           "type": "agent",
-          "deployMonth": 8
+          "deployMonth": 9
         },
         {
           "name": "Promotions & Offers Agent",
           "type": "agent",
-          "deployMonth": 9
+          "deployMonth": 10
         },
         {
           "name": "Business Services Agent",
           "type": "agent",
-          "deployMonth": 9
+          "deployMonth": 10
         },
         {
           "name": "General Support Agent",
           "type": "agent",
-          "deployMonth": 9
+          "deployMonth": 10
         }
       ],
       "intents": [
@@ -200,29 +204,29 @@
     {
       "id": "phase5",
       "name": "Specialized Services & Optimization",
-      "months": "Months 10-12",
+      "months": "Months 11-12",
       "quarter": "Q4",
       "description": "Complete agent suite with specialized services and begin optimization",
       "agents": [
         {
           "name": "Accessibility Services Agent",
           "type": "agent",
-          "deployMonth": 10
+          "deployMonth": 11
         },
         {
           "name": "International Services Agent",
           "type": "agent",
-          "deployMonth": 10
+          "deployMonth": 11
         },
         {
           "name": "Connected Devices Agent",
           "type": "agent",
-          "deployMonth": 11
+          "deployMonth": 12
         },
         {
           "name": "Wireless Home Internet Agent",
           "type": "agent",
-          "deployMonth": 11
+          "deployMonth": 12
         }
       ],
       "intents": [
@@ -251,34 +255,34 @@
       "description": "Core routing and safety orchestrators operational"
     },
     {
-      "month": 2,
-      "title": "First Agent Deployed",
-      "description": "Billing & Payments Agent handling 20 intents"
+      "month": 3,
+      "title": "Pilot Complete",
+      "description": "Billing & Payments Agent handling 20 intents (10% coverage)"
     },
     {
       "month": 4,
-      "title": "Device & Activation Live",
-      "description": "Device lifecycle and activation workflows active"
+      "title": "Plans Agent Deployed",
+      "description": "Plan management and features agent live"
     },
     {
       "month": 6,
-      "title": "60% Intent Coverage",
-      "description": "Network and connectivity agents deployed"
+      "title": "Device & Account Agents",
+      "description": "Device lifecycle, activation, and account management active"
     },
     {
       "month": 8,
-      "title": "Security & Business Agents",
-      "description": "Fraud detection and business services online"
+      "title": "Network & Connectivity Live",
+      "description": "Network troubleshooting and home internet agents deployed"
     },
     {
-      "month": 11,
-      "title": "All 17 Agents Deployed",
-      "description": "Complete agent suite covering 200 intents"
+      "month": 10,
+      "title": "Security & Business Agents",
+      "description": "Fraud detection, retail, and business services online"
     },
     {
       "month": 12,
       "title": "Full Production & Optimization",
-      "description": "100% coverage - optimization phase begins"
+      "description": "All 17 agents deployed, 100% coverage, optimization begins"
     }
   ],
   "summary": {

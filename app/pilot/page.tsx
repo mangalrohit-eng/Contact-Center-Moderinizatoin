@@ -28,41 +28,41 @@ const phases = [
   {
     month: 'Month 2',
     weeks: 'Weeks 5-8',
-    focus: 'Billing & Payments Agent',
+    focus: 'Billing Intent Pipeline',
     activities: [
-      'Deploy Billing & Payments agent',
-      'Integrate BSS billing systems',
-      'Build payment gateway tools',
-      'Implement ~20 billing intents',
-      'A/B testing with live traffic'
+      'Discover 20 billing intents',
+      'Design goal-based flows',
+      'Define BSS integrations',
+      'Map payment gateway tools',
+      'Begin agent development'
     ],
     deliverables: [
-      'Billing & Payments Agent (live)',
-      '20 billing intents automated',
-      'BSS integration complete',
-      'Payment processing flows'
+      '20 intents discovered & clustered',
+      '20 flow designs completed',
+      'BSS integration requirements',
+      'Tool specifications documented'
     ],
-    agents: ['Billing & Payments Agent'],
+    agents: ['Discovery & Design Phase'],
     intentCount: 20
   },
   {
     month: 'Month 3',
     weeks: 'Weeks 9-12',
-    focus: 'Plans & Features Agent',
+    focus: 'Billing Agent Build & Deploy',
     activities: [
-      'Deploy Plans & Features agent',
-      'Plan catalog integration',
-      'Eligibility and pricing tools',
-      'Implement ~20 plan intents',
-      'Full pilot validation'
+      'Build Billing & Payments agent',
+      'Integrate BSS billing systems',
+      'Deploy payment gateway tools',
+      'Implement 20 CES flows',
+      'A/B testing & pilot validation'
     ],
     deliverables: [
-      'Plans & Features Agent (live)',
-      '40 total intents automated',
-      '20% intent coverage achieved',
-      'Baseline KPIs established'
+      'Billing & Payments Agent (live)',
+      '20 billing intents automated',
+      'BSS integration complete',
+      '10% intent coverage achieved'
     ],
-    agents: ['Plans & Features Agent'],
+    agents: ['Billing & Payments Agent'],
     intentCount: 20
   }
 ];
@@ -140,19 +140,19 @@ export default function PilotPage() {
           </div>
           <h1 className="text-4xl md:text-5xl font-bold mb-6">
             <span className="text-acc-purple">3-Month Pilot</span>
-            <span className="text-acc-gray-400 text-3xl block mt-2">Foundation & High-Volume Agents</span>
+            <span className="text-acc-gray-400 text-3xl block mt-2">Foundation & Billing Agent</span>
           </h1>
           <p className="text-xl text-acc-gray-400 max-w-3xl mx-auto mb-6">
-            This detailed view of Roadmap Phase 1 shows how we'll deploy 3 orchestrators and 2 high-volume domain agents, achieving 20% intent coverage and demonstrating real business value in just 3 months.
+            This detailed view of Roadmap Phase 1 shows how we'll deploy 3 orchestrators and the Billing & Payments agent, achieving 10% intent coverage and demonstrating real business value in just 3 months.
           </p>
           <div className="flex flex-wrap justify-center gap-3 mb-4">
             <div className="inline-flex items-center gap-2 bg-acc-purple/20 border border-acc-purple rounded-full px-6 py-3">
               <Users className="w-5 h-5 text-acc-purple" />
-              <span className="text-acc-purple font-semibold">5 Agents: 3 Orchestrators + 2 Domain</span>
+              <span className="text-acc-purple font-semibold">4 Agents: 3 Orchestrators + 1 Domain</span>
             </div>
             <div className="inline-flex items-center gap-2 bg-green-400/20 border border-green-400 rounded-full px-6 py-3">
               <Target className="w-5 h-5 text-green-400" />
-              <span className="text-green-400 font-semibold">40 Intents | 20% Coverage</span>
+              <span className="text-green-400 font-semibold">20 Intents | 10% Coverage</span>
             </div>
           </div>
           <Link href="/roadmap/" className="text-sm text-acc-purple hover:text-acc-purple/80 transition-colors inline-flex items-center gap-1">
@@ -383,129 +383,229 @@ export default function PilotPage() {
               </div>
             </div>
 
-            {/* Sample Intents - First 10 shown, rest in scrollable view */}
+            {/* 20 Billing Intents */}
             <div className="mb-4">
-              <h3 className="font-bold text-xl mb-4 text-green-400">40 Pilot Intents (Sample View)</h3>
+              <h3 className="font-bold text-xl mb-4 text-green-400">20 Billing & Payments Intents</h3>
               <p className="text-xs text-acc-gray-400 mb-4">
-                Showing first 10 intents. Each intent flows through the pipeline: Discovery → Design → Build → Live. 
-                Build phase includes CES flow creation and domain agent development (common across intents).
+                All 20 billing intents shown. Each intent flows through the pipeline: Discovery (2w) → Design (2w) → Build (2-4w) → Live. 
+                Build phase includes CES flow creation and Billing agent development (common across all intents).
               </p>
               
               <div className="space-y-1 max-h-96 overflow-y-auto">
-                {/* Billing Domain - 10 intents */}
                 <div className="flex items-center gap-2">
-                  <div className="w-40 text-xs text-acc-gray-300">1. Check bill balance</div>
+                  <div className="w-48 text-xs text-acc-gray-300">1. Bill balance inquiry</div>
                   <div className="flex-1 flex gap-1">
-                    <div style={{width: '0%'}}></div>
                     <div className="bg-acc-purple h-6 rounded text-xs flex items-center justify-center text-white" style={{width: '16.66%'}}>Disc</div>
                     <div className="bg-green-400 h-6 rounded text-xs flex items-center justify-center text-black" style={{width: '16.66%'}}>Des</div>
                     <div className="bg-blue-400 h-6 rounded text-xs flex items-center justify-center text-black" style={{width: '16.66%'}}>Build</div>
-                    <div className="bg-green-900/50 h-6 rounded text-xs flex items-center justify-center text-white" style={{width: '50%'}}>✅ Wk 9</div>
+                    <div className="bg-green-900/50 h-6 rounded text-xs flex items-center justify-center text-white" style={{width: '50%'}}>✅ Wk 12</div>
                   </div>
                 </div>
 
                 <div className="flex items-center gap-2">
-                  <div className="w-40 text-xs text-acc-gray-300">2. Payment due date</div>
+                  <div className="w-48 text-xs text-acc-gray-300">2. Payment due date</div>
                   <div className="flex-1 flex gap-1">
-                    <div style={{width: '4%'}}></div>
+                    <div style={{width: '3%'}}></div>
                     <div className="bg-acc-purple h-6 rounded text-xs flex items-center justify-center text-white" style={{width: '16.66%'}}>Disc</div>
                     <div className="bg-green-400 h-6 rounded text-xs flex items-center justify-center text-black" style={{width: '16.66%'}}>Des</div>
                     <div className="bg-blue-400 h-6 rounded text-xs flex items-center justify-center text-black" style={{width: '16.66%'}}>Build</div>
-                    <div className="bg-green-900/50 h-6 rounded text-xs flex items-center justify-center text-white" style={{width: '46%'}}>✅ Wk 9</div>
+                    <div className="bg-green-900/50 h-6 rounded text-xs flex items-center justify-center text-white" style={{width: '47%'}}>✅ Wk 12</div>
                   </div>
                 </div>
 
                 <div className="flex items-center gap-2">
-                  <div className="w-40 text-xs text-acc-gray-300">3. Make a payment</div>
+                  <div className="w-48 text-xs text-acc-gray-300">3. Make a payment</div>
                   <div className="flex-1 flex gap-1">
-                    <div style={{width: '8%'}}></div>
+                    <div style={{width: '6%'}}></div>
                     <div className="bg-acc-purple h-6 rounded text-xs flex items-center justify-center text-white" style={{width: '16.66%'}}>Disc</div>
                     <div className="bg-green-400 h-6 rounded text-xs flex items-center justify-center text-black" style={{width: '16.66%'}}>Des</div>
                     <div className="bg-blue-400 h-6 rounded text-xs flex items-center justify-center text-black" style={{width: '16.66%'}}>Build</div>
-                    <div className="bg-green-900/50 h-6 rounded text-xs flex items-center justify-center text-white" style={{width: '42%'}}>✅ Wk 9</div>
+                    <div className="bg-green-900/50 h-6 rounded text-xs flex items-center justify-center text-white" style={{width: '44%'}}>✅ Wk 12</div>
                   </div>
                 </div>
 
                 <div className="flex items-center gap-2">
-                  <div className="w-40 text-xs text-acc-gray-300">4. Payment history</div>
+                  <div className="w-48 text-xs text-acc-gray-300">4. Payment history</div>
+                  <div className="flex-1 flex gap-1">
+                    <div style={{width: '9%'}}></div>
+                    <div className="bg-acc-purple h-6 rounded text-xs flex items-center justify-center text-white" style={{width: '16.66%'}}>Disc</div>
+                    <div className="bg-green-400 h-6 rounded text-xs flex items-center justify-center text-black" style={{width: '16.66%'}}>Des</div>
+                    <div className="bg-blue-400 h-6 rounded text-xs flex items-center justify-center text-black" style={{width: '16.66%'}}>Build</div>
+                    <div className="bg-green-900/50 h-6 rounded text-xs flex items-center justify-center text-white" style={{width: '41%'}}>✅ Wk 12</div>
+                  </div>
+                </div>
+
+                <div className="flex items-center gap-2">
+                  <div className="w-48 text-xs text-acc-gray-300">5. Billing cycle date</div>
                   <div className="flex-1 flex gap-1">
                     <div style={{width: '12%'}}></div>
                     <div className="bg-acc-purple h-6 rounded text-xs flex items-center justify-center text-white" style={{width: '16.66%'}}>Disc</div>
                     <div className="bg-green-400 h-6 rounded text-xs flex items-center justify-center text-black" style={{width: '16.66%'}}>Des</div>
                     <div className="bg-blue-400 h-6 rounded text-xs flex items-center justify-center text-black" style={{width: '16.66%'}}>Build</div>
-                    <div className="bg-green-900/50 h-6 rounded text-xs flex items-center justify-center text-white" style={{width: '38%'}}>✅ Wk 9</div>
+                    <div className="bg-green-900/50 h-6 rounded text-xs flex items-center justify-center text-white" style={{width: '38%'}}>✅ Wk 12</div>
                   </div>
                 </div>
 
                 <div className="flex items-center gap-2">
-                  <div className="w-40 text-xs text-acc-gray-300">5. Billing cycle date</div>
+                  <div className="w-48 text-xs text-acc-gray-300">6. Dispute charge</div>
                   <div className="flex-1 flex gap-1">
-                    <div style={{width: '16%'}}></div>
+                    <div style={{width: '15%'}}></div>
                     <div className="bg-acc-purple h-6 rounded text-xs flex items-center justify-center text-white" style={{width: '16.66%'}}>Disc</div>
                     <div className="bg-green-400 h-6 rounded text-xs flex items-center justify-center text-black" style={{width: '16.66%'}}>Des</div>
                     <div className="bg-blue-400 h-6 rounded text-xs flex items-center justify-center text-black" style={{width: '16.66%'}}>Build</div>
-                    <div className="bg-green-900/50 h-6 rounded text-xs flex items-center justify-center text-white" style={{width: '34%'}}>✅ Wk 9</div>
+                    <div className="bg-green-900/50 h-6 rounded text-xs flex items-center justify-center text-white" style={{width: '35%'}}>✅ Wk 12</div>
                   </div>
                 </div>
 
                 <div className="flex items-center gap-2">
-                  <div className="w-40 text-xs text-acc-gray-300">6. Dispute a charge</div>
+                  <div className="w-48 text-xs text-acc-gray-300">7. Autopay setup</div>
                   <div className="flex-1 flex gap-1">
-                    <div style={{width: '20%'}}></div>
+                    <div style={{width: '18%'}}></div>
                     <div className="bg-acc-purple h-6 rounded text-xs flex items-center justify-center text-white" style={{width: '16.66%'}}>Disc</div>
                     <div className="bg-green-400 h-6 rounded text-xs flex items-center justify-center text-black" style={{width: '16.66%'}}>Des</div>
                     <div className="bg-blue-400 h-6 rounded text-xs flex items-center justify-center text-black" style={{width: '16.66%'}}>Build</div>
-                    <div className="bg-green-900/50 h-6 rounded text-xs flex items-center justify-center text-white" style={{width: '30%'}}>✅ Wk 9</div>
+                    <div className="bg-green-900/50 h-6 rounded text-xs flex items-center justify-center text-white" style={{width: '32%'}}>✅ Wk 12</div>
                   </div>
                 </div>
 
                 <div className="flex items-center gap-2">
-                  <div className="w-40 text-xs text-acc-gray-300">7. Autopay setup</div>
+                  <div className="w-48 text-xs text-acc-gray-300">8. Paperless billing</div>
+                  <div className="flex-1 flex gap-1">
+                    <div style={{width: '21%'}}></div>
+                    <div className="bg-acc-purple h-6 rounded text-xs flex items-center justify-center text-white" style={{width: '16.66%'}}>Disc</div>
+                    <div className="bg-green-400 h-6 rounded text-xs flex items-center justify-center text-black" style={{width: '16.66%'}}>Des</div>
+                    <div className="bg-blue-400 h-6 rounded text-xs flex items-center justify-center text-black" style={{width: '16.66%'}}>Build</div>
+                    <div className="bg-green-900/50 h-6 rounded text-xs flex items-center justify-center text-white" style={{width: '29%'}}>✅ Wk 12</div>
+                  </div>
+                </div>
+
+                <div className="flex items-center gap-2">
+                  <div className="w-48 text-xs text-acc-gray-300">9. Late payment fee</div>
                   <div className="flex-1 flex gap-1">
                     <div style={{width: '24%'}}></div>
                     <div className="bg-acc-purple h-6 rounded text-xs flex items-center justify-center text-white" style={{width: '16.66%'}}>Disc</div>
                     <div className="bg-green-400 h-6 rounded text-xs flex items-center justify-center text-black" style={{width: '16.66%'}}>Des</div>
                     <div className="bg-blue-400 h-6 rounded text-xs flex items-center justify-center text-black" style={{width: '16.66%'}}>Build</div>
-                    <div className="bg-green-900/50 h-6 rounded text-xs flex items-center justify-center text-white" style={{width: '26%'}}>✅ Wk 9</div>
+                    <div className="bg-green-900/50 h-6 rounded text-xs flex items-center justify-center text-white" style={{width: '26%'}}>✅ Wk 12</div>
                   </div>
                 </div>
 
                 <div className="flex items-center gap-2">
-                  <div className="w-40 text-xs text-acc-gray-300">8. Paperless billing</div>
+                  <div className="w-48 text-xs text-acc-gray-300">10. Bill explanation</div>
                   <div className="flex-1 flex gap-1">
-                    <div style={{width: '28%'}}></div>
+                    <div style={{width: '27%'}}></div>
                     <div className="bg-acc-purple h-6 rounded text-xs flex items-center justify-center text-white" style={{width: '16.66%'}}>Disc</div>
                     <div className="bg-green-400 h-6 rounded text-xs flex items-center justify-center text-black" style={{width: '16.66%'}}>Des</div>
                     <div className="bg-blue-400 h-6 rounded text-xs flex items-center justify-center text-black" style={{width: '16.66%'}}>Build</div>
-                    <div className="bg-green-900/50 h-6 rounded text-xs flex items-center justify-center text-white" style={{width: '22%'}}>✅ Wk 9</div>
+                    <div className="bg-green-900/50 h-6 rounded text-xs flex items-center justify-center text-white" style={{width: '23%'}}>✅ Wk 12</div>
                   </div>
                 </div>
 
                 <div className="flex items-center gap-2">
-                  <div className="w-40 text-xs text-acc-gray-300">9. Late payment fee</div>
+                  <div className="w-48 text-xs text-acc-gray-300">11. Bill variance explanation</div>
                   <div className="flex-1 flex gap-1">
-                    <div style={{width: '32%'}}></div>
+                    <div style={{width: '30%'}}></div>
                     <div className="bg-acc-purple h-6 rounded text-xs flex items-center justify-center text-white" style={{width: '16.66%'}}>Disc</div>
                     <div className="bg-green-400 h-6 rounded text-xs flex items-center justify-center text-black" style={{width: '16.66%'}}>Des</div>
                     <div className="bg-blue-400 h-6 rounded text-xs flex items-center justify-center text-black" style={{width: '16.66%'}}>Build</div>
-                    <div className="bg-green-900/50 h-6 rounded text-xs flex items-center justify-center text-white" style={{width: '18%'}}>✅ Wk 9</div>
+                    <div className="bg-green-900/50 h-6 rounded text-xs flex items-center justify-center text-white" style={{width: '20%'}}>✅ Wk 12</div>
                   </div>
                 </div>
 
                 <div className="flex items-center gap-2">
-                  <div className="w-40 text-xs text-acc-gray-300">10. Bill explanation</div>
+                  <div className="w-48 text-xs text-acc-gray-300">12. Payment arrangement</div>
+                  <div className="flex-1 flex gap-1">
+                    <div style={{width: '33%'}}></div>
+                    <div className="bg-acc-purple h-6 rounded text-xs flex items-center justify-center text-white" style={{width: '16.66%'}}>Disc</div>
+                    <div className="bg-green-400 h-6 rounded text-xs flex items-center justify-center text-black" style={{width: '16.66%'}}>Des</div>
+                    <div className="bg-blue-400 h-6 rounded text-xs flex items-center justify-center text-black" style={{width: '16.66%'}}>Build</div>
+                    <div className="bg-green-900/50 h-6 rounded text-xs flex items-center justify-center text-white" style={{width: '17%'}}>✅ Wk 12</div>
+                  </div>
+                </div>
+
+                <div className="flex items-center gap-2">
+                  <div className="w-48 text-xs text-acc-gray-300">13. Update payment method</div>
                   <div className="flex-1 flex gap-1">
                     <div style={{width: '36%'}}></div>
                     <div className="bg-acc-purple h-6 rounded text-xs flex items-center justify-center text-white" style={{width: '16.66%'}}>Disc</div>
                     <div className="bg-green-400 h-6 rounded text-xs flex items-center justify-center text-black" style={{width: '16.66%'}}>Des</div>
                     <div className="bg-blue-400 h-6 rounded text-xs flex items-center justify-center text-black" style={{width: '16.66%'}}>Build</div>
-                    <div className="bg-green-900/50 h-6 rounded text-xs flex items-center justify-center text-white" style={{width: '14%'}}>✅ Wk 9</div>
+                    <div className="bg-green-900/50 h-6 rounded text-xs flex items-center justify-center text-white" style={{width: '14%'}}>✅ Wk 12</div>
                   </div>
                 </div>
 
-                {/* ... 30 more intents continue the pattern */}
-                <div className="pt-4 text-center text-xs text-acc-gray-500 italic">
-                  + 30 more intents following same pipeline pattern (11-40)...
+                <div className="flex items-center gap-2">
+                  <div className="w-48 text-xs text-acc-gray-300">14. Download bill</div>
+                  <div className="flex-1 flex gap-1">
+                    <div style={{width: '39%'}}></div>
+                    <div className="bg-acc-purple h-6 rounded text-xs flex items-center justify-center text-white" style={{width: '16.66%'}}>Disc</div>
+                    <div className="bg-green-400 h-6 rounded text-xs flex items-center justify-center text-black" style={{width: '16.66%'}}>Des</div>
+                    <div className="bg-blue-400 h-6 rounded text-xs flex items-center justify-center text-black" style={{width: '16.66%'}}>Build</div>
+                    <div className="bg-green-900/50 h-6 rounded text-xs flex items-center justify-center text-white" style={{width: '11%'}}>✅ Wk 12</div>
+                  </div>
+                </div>
+
+                <div className="flex items-center gap-2">
+                  <div className="w-48 text-xs text-acc-gray-300">15. Tax/fee explanation</div>
+                  <div className="flex-1 flex gap-1">
+                    <div style={{width: '42%'}}></div>
+                    <div className="bg-acc-purple h-6 rounded text-xs flex items-center justify-center text-white" style={{width: '16.66%'}}>Disc</div>
+                    <div className="bg-green-400 h-6 rounded text-xs flex items-center justify-center text-black" style={{width: '16.66%'}}>Des</div>
+                    <div className="bg-blue-400 h-6 rounded text-xs flex items-center justify-center text-black" style={{width: '16.66%'}}>Build</div>
+                    <div className="bg-green-900/50 h-6 rounded text-xs flex items-center justify-center text-white" style={{width: '8%'}}>✅ Wk 12</div>
+                  </div>
+                </div>
+
+                <div className="flex items-center gap-2">
+                  <div className="w-48 text-xs text-acc-gray-300">16. Refund status</div>
+                  <div className="flex-1 flex gap-1">
+                    <div style={{width: '45%'}}></div>
+                    <div className="bg-acc-purple h-6 rounded text-xs flex items-center justify-center text-white" style={{width: '16.66%'}}>Disc</div>
+                    <div className="bg-green-400 h-6 rounded text-xs flex items-center justify-center text-black" style={{width: '16.66%'}}>Des</div>
+                    <div className="bg-blue-400 h-6 rounded text-xs flex items-center justify-center text-black" style={{width: '16.66%'}}>Build</div>
+                    <div className="bg-green-900/50 h-6 rounded text-xs flex items-center justify-center text-white" style={{width: '5%'}}>✅ Wk 12</div>
+                  </div>
+                </div>
+
+                <div className="flex items-center gap-2">
+                  <div className="w-48 text-xs text-acc-gray-300">17. Credit application</div>
+                  <div className="flex-1 flex gap-1">
+                    <div style={{width: '48%'}}></div>
+                    <div className="bg-acc-purple h-6 rounded text-xs flex items-center justify-center text-white" style={{width: '16.66%'}}>Disc</div>
+                    <div className="bg-green-400 h-6 rounded text-xs flex items-center justify-center text-black" style={{width: '16.66%'}}>Des</div>
+                    <div className="bg-blue-400 h-6 rounded text-xs flex items-center justify-center text-black" style={{width: '16.66%'}}>Build</div>
+                    <div className="bg-green-900/50 h-6 rounded text-xs flex items-center justify-center text-white" style={{width: '2%'}}>✅</div>
+                  </div>
+                </div>
+
+                <div className="flex items-center gap-2">
+                  <div className="w-48 text-xs text-acc-gray-300">18. Payment confirmation</div>
+                  <div className="flex-1 flex gap-1">
+                    <div style={{width: '51%'}}></div>
+                    <div className="bg-acc-purple h-6 rounded text-xs flex items-center justify-center text-white" style={{width: '16.66%'}}>Disc</div>
+                    <div className="bg-green-400 h-6 rounded text-xs flex items-center justify-center text-black" style={{width: '16.66%'}}>Des</div>
+                    <div className="bg-blue-400 h-6 rounded text-xs flex items-center justify-center text-black" style={{width: '15.66%'}}>Build</div>
+                  </div>
+                </div>
+
+                <div className="flex items-center gap-2">
+                  <div className="w-48 text-xs text-acc-gray-300">19. Overage charges</div>
+                  <div className="flex-1 flex gap-1">
+                    <div style={{width: '54%'}}></div>
+                    <div className="bg-acc-purple h-6 rounded text-xs flex items-center justify-center text-white" style={{width: '16.66%'}}>Disc</div>
+                    <div className="bg-green-400 h-6 rounded text-xs flex items-center justify-center text-black" style={{width: '16.66%'}}>Des</div>
+                    <div className="bg-blue-400/50 h-6 rounded text-xs flex items-center justify-center text-black" style={{width: '12.66%'}}>Build →</div>
+                  </div>
+                </div>
+
+                <div className="flex items-center gap-2">
+                  <div className="w-48 text-xs text-acc-gray-300">20. Payment extension</div>
+                  <div className="flex-1 flex gap-1">
+                    <div style={{width: '57%'}}></div>
+                    <div className="bg-acc-purple h-6 rounded text-xs flex items-center justify-center text-white" style={{width: '16.66%'}}>Disc</div>
+                    <div className="bg-green-400 h-6 rounded text-xs flex items-center justify-center text-black" style={{width: '16.66%'}}>Des</div>
+                    <div className="bg-blue-400/30 h-6 rounded text-xs flex items-center justify-center text-gray-400" style={{width: '9.66%'}}>Build</div>
+                  </div>
                 </div>
               </div>
             </div>
@@ -514,16 +614,16 @@ export default function PilotPage() {
           {/* Key Milestones */}
           <div className="grid grid-cols-1 md:grid-cols-3 gap-4 mt-6">
             <div className="bg-acc-gray-800 border-l-4 border-acc-purple rounded-lg p-4">
-              <div className="font-bold text-acc-purple mb-2">Week 6 Milestone</div>
+              <div className="font-bold text-acc-purple mb-2">Week 4 Milestone</div>
               <p className="text-sm text-acc-gray-300">Foundation live: 3 orchestrators operational</p>
             </div>
             <div className="bg-acc-gray-800 border-l-4 border-green-400 rounded-lg p-4">
-              <div className="font-bold text-green-400 mb-2">Week 9 Milestone</div>
-              <p className="text-sm text-acc-gray-300">Billing agent live with 20 billing intents</p>
+              <div className="font-bold text-green-400 mb-2">Week 8 Milestone</div>
+              <p className="text-sm text-acc-gray-300">20 intents discovered, 20 flows designed</p>
             </div>
             <div className="bg-acc-gray-800 border-l-4 border-blue-400 rounded-lg p-4">
               <div className="font-bold text-blue-400 mb-2">Week 12 Milestone</div>
-              <p className="text-sm text-acc-gray-300">Plans agent live, 40 intents total, 20% coverage</p>
+              <p className="text-sm text-acc-gray-300">Billing agent live, 20 intents automated, 10% coverage</p>
             </div>
           </div>
         </div>
@@ -537,19 +637,19 @@ export default function PilotPage() {
             <div className="space-y-3">
               <div className="flex items-center justify-between">
                 <span className="text-sm text-acc-gray-300">Intents Deployed</span>
-                <span className="text-xl font-bold text-white">40</span>
+                <span className="text-xl font-bold text-white">20</span>
               </div>
               <div className="flex items-center justify-between">
                 <span className="text-sm text-acc-gray-300">Intent Coverage</span>
-                <span className="text-xl font-bold text-white">20%</span>
+                <span className="text-xl font-bold text-white">10%</span>
               </div>
               <div className="flex items-center justify-between">
                 <span className="text-sm text-acc-gray-300">Containment Lift</span>
-                <span className="text-xl font-bold text-green-400">+10%</span>
+                <span className="text-xl font-bold text-green-400">+5-7%</span>
               </div>
               <div className="flex items-center justify-between">
                 <span className="text-sm text-acc-gray-300">AHT Reduction</span>
-                <span className="text-xl font-bold text-green-400">~45-60s</span>
+                <span className="text-xl font-bold text-green-400">~30-45s</span>
               </div>
             </div>
           </div>
