@@ -1,15 +1,22 @@
 'use client';
 
 import { motion } from 'framer-motion';
-import { Sparkles } from 'lucide-react';
+import { Sparkles, ChevronDown } from 'lucide-react';
 
 export default function Hero() {
+  const scrollToContent = () => {
+    window.scrollTo({
+      top: window.innerHeight - 80, // Scroll to just below the hero, accounting for navbar
+      behavior: 'smooth'
+    });
+  };
+
   return (
-    <section className="relative overflow-hidden py-20 lg:py-28">
+    <section className="relative overflow-hidden py-20 lg:py-28 min-h-[calc(100vh-4rem)]">
       {/* Background gradient effect */}
       <div className="absolute inset-0 bg-gradient-to-br from-acc-purple/10 via-transparent to-transparent pointer-events-none" />
       
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative h-full flex flex-col justify-center">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
@@ -38,6 +45,28 @@ export default function Hero() {
           <p className="text-xl text-acc-gray-400 max-w-3xl mx-auto">
             Handle <strong className="text-white">enterprise-scale</strong> volumes with goal-based agents that reason, route, and resolve.
           </p>
+        </motion.div>
+
+        {/* Scroll Indicator */}
+        <motion.div
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          transition={{ delay: 1, duration: 0.5 }}
+          className="absolute bottom-8 left-1/2 transform -translate-x-1/2"
+        >
+          <button
+            onClick={scrollToContent}
+            className="flex flex-col items-center gap-2 text-acc-gray-400 hover:text-acc-purple transition-colors group"
+            aria-label="Scroll to content"
+          >
+            <span className="text-sm font-medium">Explore the Journey</span>
+            <motion.div
+              animate={{ y: [0, 8, 0] }}
+              transition={{ duration: 1.5, repeat: Infinity, ease: "easeInOut" }}
+            >
+              <ChevronDown className="w-6 h-6 group-hover:text-acc-purple" />
+            </motion.div>
+          </button>
         </motion.div>
       </div>
     </section>
