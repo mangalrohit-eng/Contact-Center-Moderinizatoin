@@ -152,33 +152,6 @@ export default function PilotPage() {
           </div>
         </div>
 
-        {/* Why Pilot First */}
-        <div className="mb-16 bg-gradient-to-br from-acc-purple/10 to-transparent border border-acc-purple/30 rounded-lg p-8">
-          <h2 className="text-2xl font-bold mb-6 text-center">Why Start with a Pilot?</h2>
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-            <div className="text-center">
-              <div className="w-16 h-16 bg-acc-purple/20 rounded-full flex items-center justify-center mx-auto mb-4">
-                <Shield className="w-8 h-8 text-acc-purple" />
-              </div>
-              <h3 className="font-bold mb-2">De-Risk Transformation</h3>
-              <p className="text-sm text-acc-gray-400">Validate technical approach and business value with limited scope before enterprise-wide commitment</p>
-            </div>
-            <div className="text-center">
-              <div className="w-16 h-16 bg-green-400/20 rounded-full flex items-center justify-center mx-auto mb-4">
-                <Wrench className="w-8 h-8 text-green-400" />
-              </div>
-              <h3 className="font-bold mb-2">Build Foundation</h3>
-              <p className="text-sm text-acc-gray-400">Establish reusable architecture, tooling, and best practices that accelerate all future phases</p>
-            </div>
-            <div className="text-center">
-              <div className="w-16 h-16 bg-blue-400/20 rounded-full flex items-center justify-center mx-auto mb-4">
-                <Zap className="w-8 h-8 text-blue-400" />
-              </div>
-              <h3 className="font-bold mb-2">Demonstrate Value</h3>
-              <p className="text-sm text-acc-gray-400">Show measurable KPI improvements to secure stakeholder buy-in for full-scale deployment</p>
-            </div>
-          </div>
-        </div>
 
         {/* 3-Month Timeline */}
         <div className="mb-16">
@@ -289,42 +262,6 @@ export default function PilotPage() {
             })}
           </div>
 
-          {/* Workflow Visualization */}
-          <div className="bg-acc-gray-800 border border-acc-gray-700 rounded-lg p-8">
-            <h3 className="text-xl font-bold mb-6 text-center">Agent Workflow: Discovery → Design → Build</h3>
-            <div className="flex items-center justify-center gap-4 mb-6">
-              <div className="flex-1 max-w-xs">
-                <div className="bg-acc-purple/20 border-2 border-acc-purple rounded-lg p-4 text-center">
-                  <Target className="w-8 h-8 text-acc-purple mx-auto mb-2" />
-                  <div className="font-bold text-acc-purple mb-1">Discovery</div>
-                  <div className="text-xs text-acc-gray-400">Analyze intents, define goals</div>
-                  <div className="text-xs text-acc-gray-500 mt-2">~1-2 weeks per agent</div>
-                </div>
-              </div>
-              <ArrowRight className="w-8 h-8 text-acc-purple flex-shrink-0" />
-              <div className="flex-1 max-w-xs">
-                <div className="bg-green-400/20 border-2 border-green-400 rounded-lg p-4 text-center">
-                  <Brain className="w-8 h-8 text-green-400 mx-auto mb-2" />
-                  <div className="font-bold text-green-400 mb-1">Design</div>
-                  <div className="text-xs text-acc-gray-400">Create flows, define tools</div>
-                  <div className="text-xs text-acc-gray-500 mt-2">~2 weeks per agent</div>
-                </div>
-              </div>
-              <ArrowRight className="w-8 h-8 text-acc-purple flex-shrink-0" />
-              <div className="flex-1 max-w-xs">
-                <div className="bg-blue-400/20 border-2 border-blue-400 rounded-lg p-4 text-center">
-                  <Rocket className="w-8 h-8 text-blue-400 mx-auto mb-2" />
-                  <div className="font-bold text-blue-400 mb-1">Build</div>
-                  <div className="text-xs text-acc-gray-400">Implement, test, deploy</div>
-                  <div className="text-xs text-acc-gray-500 mt-2">~1-2 weeks per agent</div>
-                </div>
-              </div>
-            </div>
-            <p className="text-sm text-acc-gray-400 text-center">
-              Pods work sequentially on each agent, with some overlap. Each agent takes ~4-6 weeks from discovery to deployment with hypercare.
-            </p>
-          </div>
-        </div>
 
         {/* Visual Project Plan */}
         <div className="mb-16">
@@ -454,74 +391,6 @@ export default function PilotPage() {
           </div>
         </div>
 
-        {/* Hypercare */}
-        <div className="mb-16 bg-gradient-to-br from-green-400/10 to-transparent border border-green-400/30 rounded-lg p-8">
-          <div className="flex items-start gap-4 mb-6">
-            <div className="w-16 h-16 bg-green-400/20 rounded-full flex items-center justify-center flex-shrink-0">
-              <Shield className="w-8 h-8 text-green-400" />
-            </div>
-            <div className="flex-1">
-              <h2 className="text-2xl font-bold mb-2">6-Week Hypercare Period</h2>
-              <p className="text-acc-gray-400">
-                After each intent is released to production, dedicated support ensures stability and rapid issue resolution.
-              </p>
-            </div>
-          </div>
-
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-            <div className="bg-acc-gray-900/50 rounded-lg p-6">
-              <h3 className="font-bold text-green-400 mb-3">Hypercare Activities</h3>
-              <ul className="space-y-2">
-                <li className="flex items-start gap-2 text-sm">
-                  <CheckCircle2 className="w-4 h-4 text-green-400 flex-shrink-0 mt-0.5" />
-                  <span className="text-acc-gray-300">24/7 monitoring and alerting</span>
-                </li>
-                <li className="flex items-start gap-2 text-sm">
-                  <CheckCircle2 className="w-4 h-4 text-green-400 flex-shrink-0 mt-0.5" />
-                  <span className="text-acc-gray-300">Rapid issue triage and resolution</span>
-                </li>
-                <li className="flex items-start gap-2 text-sm">
-                  <CheckCircle2 className="w-4 h-4 text-green-400 flex-shrink-0 mt-0.5" />
-                  <span className="text-acc-gray-300">Daily KPI review and optimization</span>
-                </li>
-                <li className="flex items-start gap-2 text-sm">
-                  <CheckCircle2 className="w-4 h-4 text-green-400 flex-shrink-0 mt-0.5" />
-                  <span className="text-acc-gray-300">User feedback analysis and iteration</span>
-                </li>
-                <li className="flex items-start gap-2 text-sm">
-                  <CheckCircle2 className="w-4 h-4 text-green-400 flex-shrink-0 mt-0.5" />
-                  <span className="text-acc-gray-300">Agent tuning and policy refinement</span>
-                </li>
-              </ul>
-            </div>
-
-            <div className="bg-acc-gray-900/50 rounded-lg p-6">
-              <h3 className="font-bold text-blue-400 mb-3">Transition to BAU</h3>
-              <ul className="space-y-2">
-                <li className="flex items-start gap-2 text-sm">
-                  <CheckCircle2 className="w-4 h-4 text-blue-400 flex-shrink-0 mt-0.5" />
-                  <span className="text-acc-gray-300">Knowledge transfer to operations team</span>
-                </li>
-                <li className="flex items-start gap-2 text-sm">
-                  <CheckCircle2 className="w-4 h-4 text-blue-400 flex-shrink-0 mt-0.5" />
-                  <span className="text-acc-gray-300">Runbook and playbook handoff</span>
-                </li>
-                <li className="flex items-start gap-2 text-sm">
-                  <CheckCircle2 className="w-4 h-4 text-blue-400 flex-shrink-0 mt-0.5" />
-                  <span className="text-acc-gray-300">Ongoing support model definition</span>
-                </li>
-                <li className="flex items-start gap-2 text-sm">
-                  <CheckCircle2 className="w-4 h-4 text-blue-400 flex-shrink-0 mt-0.5" />
-                  <span className="text-acc-gray-300">Performance baseline documentation</span>
-                </li>
-                <li className="flex items-start gap-2 text-sm">
-                  <CheckCircle2 className="w-4 h-4 text-blue-400 flex-shrink-0 mt-0.5" />
-                  <span className="text-acc-gray-300">Continuous improvement framework</span>
-                </li>
-              </ul>
-            </div>
-          </div>
-        </div>
 
         {/* Pilot Success Criteria & Outputs */}
         <div className="mb-16 grid grid-cols-1 md:grid-cols-2 gap-6">
