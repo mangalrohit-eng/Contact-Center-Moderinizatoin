@@ -276,7 +276,7 @@ export default function PilotPage() {
         <div className="mb-16">
           <h2 className="text-3xl font-bold mb-4 text-center">Visual 12-Week Project Plan</h2>
           <p className="text-center text-acc-gray-400 mb-8 max-w-3xl mx-auto">
-            Pipeline approach: Each intent flows through Discovery (2 weeks) → Design (2 weeks) → Build (2-6 weeks). Multiple intents in different stages simultaneously.
+            Pipeline approach: Each intent flows through Discovery (2-4 weeks) → Design (2-4 weeks) → Build (2-8 weeks), with durations varying by complexity. Multiple intents in different stages simultaneously.
           </p>
 
           {/* Pipeline Workflow Explanation */}
@@ -286,28 +286,28 @@ export default function PilotPage() {
               <div>
                 <div className="font-semibold mb-2 flex items-center gap-2">
                   <div className="w-8 h-8 bg-acc-purple rounded-full flex items-center justify-center text-white text-xs">1</div>
-                  <span>Discovery (2 weeks)</span>
+                  <span>Discovery (2-4 weeks)</span>
                 </div>
                 <p className="text-acc-gray-400 text-xs">
-                  Intent analysis, user journey mapping, tool/API discovery, success criteria definition
+                  Intent analysis, user journey mapping, tool/API discovery, success criteria definition — duration varies by complexity
                 </p>
               </div>
               <div>
                 <div className="font-semibold mb-2 flex items-center gap-2">
                   <div className="w-8 h-8 bg-green-400 rounded-full flex items-center justify-center text-black text-xs">2</div>
-                  <span>Design (2 weeks)</span>
+                  <span>Design (2-4 weeks)</span>
                 </div>
                 <p className="text-acc-gray-400 text-xs">
-                  Goal-based flow design, policy definition, agent architecture planning, tool orchestration
+                  Goal-based flow design, policy definition, agent architecture planning, tool orchestration — duration varies by complexity
                 </p>
               </div>
               <div>
                 <div className="font-semibold mb-2 flex items-center gap-2">
                   <div className="w-8 h-8 bg-blue-400 rounded-full flex items-center justify-center text-black text-xs">3</div>
-                  <span>Build (2-6 weeks)</span>
+                  <span>Build (2-8 weeks)</span>
                 </div>
                 <p className="text-acc-gray-400 text-xs">
-                  CES flow creation, agent development (common across domain), tool integration, testing
+                  CES flow creation, agent development (common across domain), tool integration, testing — duration varies by complexity
                 </p>
               </div>
             </div>
@@ -319,15 +319,15 @@ export default function PilotPage() {
               <div className="flex items-center gap-6">
                 <div className="flex items-center gap-2">
                   <div className="w-4 h-4 bg-acc-purple rounded"></div>
-                  <span className="text-sm text-acc-gray-300">Discovery (2w)</span>
+                  <span className="text-sm text-acc-gray-300">Discovery (2-4w)</span>
                 </div>
                 <div className="flex items-center gap-2">
                   <div className="w-4 h-4 bg-green-400 rounded"></div>
-                  <span className="text-sm text-acc-gray-300">Design (2w)</span>
+                  <span className="text-sm text-acc-gray-300">Design (2-4w)</span>
                 </div>
                 <div className="flex items-center gap-2">
                   <div className="w-4 h-4 bg-blue-400 rounded"></div>
-                  <span className="text-sm text-acc-gray-300">Build (2-6w)</span>
+                  <span className="text-sm text-acc-gray-300">Build (2-8w)</span>
                 </div>
                 <div className="flex items-center gap-2">
                   <div className="w-4 h-4 bg-green-900/50 rounded"></div>
@@ -387,275 +387,172 @@ export default function PilotPage() {
             <div className="mb-4">
               <h3 className="font-bold text-xl mb-4 text-green-400">20 Billing & Payments Intents</h3>
               <p className="text-xs text-acc-gray-400 mb-4">
-                All 20 billing intents shown. Each intent flows through the pipeline: Discovery (2w) → Design (2w) → Build (2-8w depending on complexity) → Live. 
-                Hover over any bar to see specific activities, tools, and API integrations for that phase.
+                All 20 billing intents shown flowing through the pipeline based on <strong>5 pods of each type</strong> (Discovery, Design, Build) working continuously. 
+                Each intent: Discovery (2-4w) → Design (2-4w) → Build (2-8w) — all varying by complexity → Live. 
+                As soon as a pod becomes available, it starts on the next intent in queue.
+                <br />
+                <span className="text-acc-purple">Hover over any bar</span> to see specific activities, tools, and API integrations for that phase.
               </p>
               
-              <div className="space-y-1 max-h-96 overflow-y-auto">{/* Intent data with activities */}
-                {[
-                  // Block 1: Intents 1-5 (start together)
-                  {
-                    name: 'Bill balance inquiry',
-                    complexity: 'low',
-                    buildWeeks: 2,
-                    discovery: ['Customer journey analysis', 'BSS data mapping', 'Authentication flow review'],
-                    design: ['Balance display flow', 'Error handling patterns', 'Multi-account support'],
-                    tools: ['BSS Billing API', 'Authentication Service', 'Balance Cache'],
-                    startOffset: 0
-                  },
-                  {
-                    name: 'Payment due date',
-                    complexity: 'low',
-                    buildWeeks: 2,
-                    discovery: ['Billing cycle analysis', 'Reminder preferences research', 'User utterance patterns'],
-                    design: ['Due date lookup flow', 'Reminder setup design', 'Timezone handling'],
-                    tools: ['BSS Billing API', 'Reminder Service', 'Calendar Integration'],
-                    startOffset: 0
-                  },
-                  {
-                    name: 'Make a payment',
-                    complexity: 'high',
-                    buildWeeks: 6,
-                    discovery: ['Payment methods analysis', 'Security requirements', 'Fraud detection needs', 'PCI compliance review'],
-                    design: ['Payment flow design', 'Multi-step confirmation', 'Error recovery', 'Receipt generation'],
-                    tools: ['Payment Gateway API', 'PCI Tokenization', 'Fraud Detection Service', 'Receipt Service', 'Email Notification'],
-                    startOffset: 0
-                  },
-                  {
-                    name: 'Payment history',
-                    complexity: 'medium',
-                    buildWeeks: 3,
-                    discovery: ['Historical data requirements', 'Date range patterns', 'Export preferences'],
-                    design: ['History display flow', 'Filtering & search', 'Download options'],
-                    tools: ['BSS Billing API', 'Report Generation', 'PDF Export Service'],
-                    startOffset: 0
-                  },
-                  {
-                    name: 'Billing cycle date',
-                    complexity: 'low',
-                    buildWeeks: 2,
-                    discovery: ['Cycle calculation logic', 'Plan type variations', 'Customer preferences'],
-                    design: ['Cycle info flow', 'Next bill estimation', 'Prorated scenarios'],
-                    tools: ['BSS Billing API', 'Plan Catalog Service'],
-                    startOffset: 0
-                  },
-                  // Block 2: Intents 6-10 (start together after block 1 completes discovery+design)
-                  {
-                    name: 'Dispute charge',
-                    complexity: 'high',
-                    buildWeeks: 7,
-                    discovery: ['Dispute types taxonomy', 'Resolution workflows', 'Evidence requirements', 'SLA tracking'],
-                    design: ['Multi-step dispute flow', 'Evidence upload', 'Status tracking', 'Escalation paths'],
-                    tools: ['Dispute Management API', 'Document Upload Service', 'Case Management System', 'Email/SMS Notification', 'Escalation Engine'],
-                    startOffset: 15
-                  },
-                  {
-                    name: 'Autopay setup',
-                    complexity: 'high',
-                    buildWeeks: 6,
-                    discovery: ['Payment method options', 'Scheduling preferences', 'Failure handling', 'Security protocols'],
-                    design: ['Autopay enrollment flow', 'Schedule configuration', 'Confirmation & receipts', 'Failure notifications'],
-                    tools: ['Payment Gateway API', 'Autopay Scheduler', 'PCI Tokenization', 'Notification Service', 'BSS Billing API'],
-                    startOffset: 15
-                  },
-                  {
-                    name: 'Paperless billing',
-                    complexity: 'medium',
-                    buildWeeks: 3,
-                    discovery: ['Email delivery preferences', 'Document format options', 'Opt-in/out flows'],
-                    design: ['Enrollment flow', 'Email setup & verification', 'Rollback options'],
-                    tools: ['BSS Billing API', 'Email Service', 'Document Generation', 'Preference Management'],
-                    startOffset: 15
-                  },
-                  {
-                    name: 'Late payment fee',
-                    complexity: 'medium',
-                    buildWeeks: 4,
-                    discovery: ['Fee structure analysis', 'Waiver policy review', 'Grace period rules'],
-                    design: ['Fee explanation flow', 'Waiver request handling', 'Payment plan integration'],
-                    tools: ['BSS Billing API', 'Fee Calculation Engine', 'Waiver Approval Service', 'Case Management'],
-                    startOffset: 15
-                  },
-                  {
-                    name: 'Bill explanation',
-                    complexity: 'medium',
-                    buildWeeks: 4,
-                    discovery: ['Bill component breakdown', 'Customer confusion patterns', 'Charge types taxonomy'],
-                    design: ['Line-item explanation flow', 'Drill-down navigation', 'Visual breakdown'],
-                    tools: ['BSS Billing API', 'Charge Dictionary Service', 'Usage Data API', 'Visualization Service'],
-                    startOffset: 15
-                  },
-                  // Block 3: Intents 11-15 (start together)
-                  {
-                    name: 'Bill variance explanation',
-                    complexity: 'high',
-                    buildWeeks: 5,
-                    discovery: ['Variance triggers analysis', 'Historical comparison needs', 'Proactive alert scenarios'],
-                    design: ['Comparison flow', 'Variance breakdown', 'Root cause explanation', 'Historical trends'],
-                    tools: ['BSS Billing API', 'Historical Data Service', 'Variance Analysis Engine', 'Trend Visualization'],
-                    startOffset: 30
-                  },
-                  {
-                    name: 'Payment arrangement',
-                    complexity: 'high',
-                    buildWeeks: 8,
-                    discovery: ['Eligibility criteria', 'Plan options research', 'Credit check requirements', 'Legal compliance'],
-                    design: ['Multi-step arrangement flow', 'Eligibility verification', 'Plan selection', 'Agreement & e-signature'],
-                    tools: ['Payment Arrangement API', 'Credit Check Service', 'E-Signature Service', 'Agreement Generation', 'BSS Billing API', 'Notification Service'],
-                    startOffset: 30
-                  },
-                  {
-                    name: 'Update payment method',
-                    complexity: 'high',
-                    buildWeeks: 6,
-                    discovery: ['Payment method types', 'Verification requirements', 'Security protocols', 'Autopay impact'],
-                    design: ['Method update flow', 'Verification steps', 'Security confirmation', 'Autopay migration'],
-                    tools: ['Payment Gateway API', 'PCI Tokenization', 'Verification Service', 'Autopay Update Service', 'Audit Log'],
-                    startOffset: 30
-                  },
-                  {
-                    name: 'Download bill',
-                    complexity: 'low',
-                    buildWeeks: 2,
-                    discovery: ['Document format preferences', 'Historical bill access', 'Delivery methods'],
-                    design: ['Bill selection flow', 'Format options', 'Download/email delivery'],
-                    tools: ['BSS Billing API', 'PDF Generation', 'Email Service', 'Document Storage'],
-                    startOffset: 30
-                  },
-                  {
-                    name: 'Tax/fee explanation',
-                    complexity: 'medium',
-                    buildWeeks: 4,
-                    discovery: ['Tax types by jurisdiction', 'Regulatory fee structures', 'Customer confusion patterns'],
-                    design: ['Tax breakdown flow', 'Jurisdiction-specific explanations', 'Regulatory links'],
-                    tools: ['BSS Billing API', 'Tax Reference Service', 'Regulatory Database', 'Location Service'],
-                    startOffset: 30
-                  },
-                  // Block 4: Intents 16-20 (start together)
-                  {
-                    name: 'Refund status',
-                    complexity: 'medium',
-                    buildWeeks: 3,
-                    discovery: ['Refund process workflows', 'Timeline expectations', 'Status tracking requirements'],
-                    design: ['Status inquiry flow', 'Timeline display', 'Issue escalation'],
-                    tools: ['Refund Management API', 'Payment Gateway', 'Case Management', 'Notification Service'],
-                    startOffset: 45
-                  },
-                  {
-                    name: 'Credit application',
-                    complexity: 'high',
-                    buildWeeks: 7,
-                    discovery: ['Credit types & eligibility', 'Application workflows', 'Document requirements', 'Approval processes'],
-                    design: ['Multi-step application flow', 'Document upload', 'Credit check integration', 'Approval tracking'],
-                    tools: ['Credit Management API', 'Document Upload Service', 'Credit Bureau Integration', 'Approval Workflow Engine', 'Notification Service'],
-                    startOffset: 45
-                  },
-                  {
-                    name: 'Payment confirmation',
-                    complexity: 'low',
-                    buildWeeks: 2,
-                    discovery: ['Confirmation data requirements', 'Receipt preferences', 'Delivery channels'],
-                    design: ['Confirmation display flow', 'Receipt generation', 'Multi-channel delivery'],
-                    tools: ['Payment Gateway API', 'Receipt Service', 'Email/SMS Service', 'Transaction Log'],
-                    startOffset: 45
-                  },
-                  {
-                    name: 'Overage charges',
-                    complexity: 'medium',
-                    buildWeeks: 4,
-                    discovery: ['Overage types analysis', 'Usage threshold rules', 'Alert preferences'],
-                    design: ['Overage explanation flow', 'Usage details', 'Plan upgrade suggestions'],
-                    tools: ['BSS Billing API', 'Usage Data Service', 'Plan Recommendation Engine', 'Alert Service'],
-                    startOffset: 45
-                  },
-                  {
-                    name: 'Payment extension',
-                    complexity: 'high',
-                    buildWeeks: 6,
-                    discovery: ['Extension eligibility rules', 'Policy variations', 'Approval workflows', 'Impact on services'],
-                    design: ['Extension request flow', 'Eligibility check', 'Terms presentation', 'Confirmation'],
-                    tools: ['Payment Extension API', 'Eligibility Service', 'BSS Billing API', 'Notification Service', 'Service Impact Calculator'],
-                    startOffset: 45
-                  }
-                ].map((intent, idx) => {
-                  const discWidth = 16.66;
-                  const desWidth = 16.66;
-                  const buildWidth = (intent.buildWeeks / 12) * 100; // Scale to 12-week timeline
-                  const liveWidth = Math.max(100 - intent.startOffset - discWidth - desWidth - buildWidth, 2);
-                  const isComplete = intent.startOffset + discWidth + desWidth + buildWidth < 100;
+              <div className="space-y-1 max-h-96 overflow-y-auto">{/* Intent data with activities - calculated based on 5 pods of each type */}
+                {(() => {
+                  const intents = [
+                    { name: 'Bill balance inquiry', complexity: 'low', discoveryWeeks: 2, designWeeks: 2, buildWeeks: 2, discovery: ['Customer journey analysis', 'BSS data mapping', 'Authentication flow review'], design: ['Balance display flow', 'Error handling patterns', 'Multi-account support'], tools: ['BSS Billing API', 'Authentication Service', 'Balance Cache'] },
+                    { name: 'Payment due date', complexity: 'low', discoveryWeeks: 2, designWeeks: 2, buildWeeks: 2, discovery: ['Billing cycle analysis', 'Reminder preferences research', 'User utterance patterns'], design: ['Due date lookup flow', 'Reminder setup design', 'Timezone handling'], tools: ['BSS Billing API', 'Reminder Service', 'Calendar Integration'] },
+                    { name: 'Make a payment', complexity: 'high', discoveryWeeks: 4, designWeeks: 4, buildWeeks: 6, discovery: ['Payment methods analysis', 'Security requirements', 'Fraud detection needs', 'PCI compliance review'], design: ['Payment flow design', 'Multi-step confirmation', 'Error recovery', 'Receipt generation'], tools: ['Payment Gateway API', 'PCI Tokenization', 'Fraud Detection Service', 'Receipt Service', 'Email Notification'] },
+                    { name: 'Payment history', complexity: 'medium', discoveryWeeks: 3, designWeeks: 3, buildWeeks: 3, discovery: ['Historical data requirements', 'Date range patterns', 'Export preferences'], design: ['History display flow', 'Filtering & search', 'Download options'], tools: ['BSS Billing API', 'Report Generation', 'PDF Export Service'] },
+                    { name: 'Billing cycle date', complexity: 'low', discoveryWeeks: 2, designWeeks: 2, buildWeeks: 2, discovery: ['Cycle calculation logic', 'Plan type variations', 'Customer preferences'], design: ['Cycle info flow', 'Next bill estimation', 'Prorated scenarios'], tools: ['BSS Billing API', 'Plan Catalog Service'] },
+                    { name: 'Dispute charge', complexity: 'high', discoveryWeeks: 4, designWeeks: 4, buildWeeks: 7, discovery: ['Dispute types taxonomy', 'Resolution workflows', 'Evidence requirements', 'SLA tracking'], design: ['Multi-step dispute flow', 'Evidence upload', 'Status tracking', 'Escalation paths'], tools: ['Dispute Management API', 'Document Upload Service', 'Case Management System', 'Email/SMS Notification', 'Escalation Engine'] },
+                    { name: 'Autopay setup', complexity: 'high', discoveryWeeks: 4, designWeeks: 4, buildWeeks: 6, discovery: ['Payment method options', 'Scheduling preferences', 'Failure handling', 'Security protocols'], design: ['Autopay enrollment flow', 'Schedule configuration', 'Confirmation & receipts', 'Failure notifications'], tools: ['Payment Gateway API', 'Autopay Scheduler', 'PCI Tokenization', 'Notification Service', 'BSS Billing API'] },
+                    { name: 'Paperless billing', complexity: 'medium', discoveryWeeks: 3, designWeeks: 3, buildWeeks: 3, discovery: ['Email delivery preferences', 'Document format options', 'Opt-in/out flows'], design: ['Enrollment flow', 'Email setup & verification', 'Rollback options'], tools: ['BSS Billing API', 'Email Service', 'Document Generation', 'Preference Management'] },
+                    { name: 'Late payment fee', complexity: 'medium', discoveryWeeks: 3, designWeeks: 3, buildWeeks: 4, discovery: ['Fee structure analysis', 'Waiver policy review', 'Grace period rules'], design: ['Fee explanation flow', 'Waiver request handling', 'Payment plan integration'], tools: ['BSS Billing API', 'Fee Calculation Engine', 'Waiver Approval Service', 'Case Management'] },
+                    { name: 'Bill explanation', complexity: 'medium', discoveryWeeks: 3, designWeeks: 3, buildWeeks: 4, discovery: ['Bill component breakdown', 'Customer confusion patterns', 'Charge types taxonomy'], design: ['Line-item explanation flow', 'Drill-down navigation', 'Visual breakdown'], tools: ['BSS Billing API', 'Charge Dictionary Service', 'Usage Data API', 'Visualization Service'] },
+                    { name: 'Bill variance explanation', complexity: 'high', discoveryWeeks: 4, designWeeks: 4, buildWeeks: 5, discovery: ['Variance triggers analysis', 'Historical comparison needs', 'Proactive alert scenarios'], design: ['Comparison flow', 'Variance breakdown', 'Root cause explanation', 'Historical trends'], tools: ['BSS Billing API', 'Historical Data Service', 'Variance Analysis Engine', 'Trend Visualization'] },
+                    { name: 'Payment arrangement', complexity: 'high', discoveryWeeks: 4, designWeeks: 4, buildWeeks: 8, discovery: ['Eligibility criteria', 'Plan options research', 'Credit check requirements', 'Legal compliance'], design: ['Multi-step arrangement flow', 'Eligibility verification', 'Plan selection', 'Agreement & e-signature'], tools: ['Payment Arrangement API', 'Credit Check Service', 'E-Signature Service', 'Agreement Generation', 'BSS Billing API', 'Notification Service'] },
+                    { name: 'Update payment method', complexity: 'high', discoveryWeeks: 4, designWeeks: 4, buildWeeks: 6, discovery: ['Payment method types', 'Verification requirements', 'Security protocols', 'Autopay impact'], design: ['Method update flow', 'Verification steps', 'Security confirmation', 'Autopay migration'], tools: ['Payment Gateway API', 'PCI Tokenization', 'Verification Service', 'Autopay Update Service', 'Audit Log'] },
+                    { name: 'Download bill', complexity: 'low', discoveryWeeks: 2, designWeeks: 2, buildWeeks: 2, discovery: ['Document format preferences', 'Historical bill access', 'Delivery methods'], design: ['Bill selection flow', 'Format options', 'Download/email delivery'], tools: ['BSS Billing API', 'PDF Generation', 'Email Service', 'Document Storage'] },
+                    { name: 'Tax/fee explanation', complexity: 'medium', discoveryWeeks: 3, designWeeks: 3, buildWeeks: 4, discovery: ['Tax types by jurisdiction', 'Regulatory fee structures', 'Customer confusion patterns'], design: ['Tax breakdown flow', 'Jurisdiction-specific explanations', 'Regulatory links'], tools: ['BSS Billing API', 'Tax Reference Service', 'Regulatory Database', 'Location Service'] },
+                    { name: 'Refund status', complexity: 'medium', discoveryWeeks: 3, designWeeks: 3, buildWeeks: 3, discovery: ['Refund process workflows', 'Timeline expectations', 'Status tracking requirements'], design: ['Status inquiry flow', 'Timeline display', 'Issue escalation'], tools: ['Refund Management API', 'Payment Gateway', 'Case Management', 'Notification Service'] },
+                    { name: 'Credit application', complexity: 'high', discoveryWeeks: 4, designWeeks: 4, buildWeeks: 7, discovery: ['Credit types & eligibility', 'Application workflows', 'Document requirements', 'Approval processes'], design: ['Multi-step application flow', 'Document upload', 'Credit check integration', 'Approval tracking'], tools: ['Credit Management API', 'Document Upload Service', 'Credit Bureau Integration', 'Approval Workflow Engine', 'Notification Service'] },
+                    { name: 'Payment confirmation', complexity: 'low', discoveryWeeks: 2, designWeeks: 2, buildWeeks: 2, discovery: ['Confirmation data requirements', 'Receipt preferences', 'Delivery channels'], design: ['Confirmation display flow', 'Receipt generation', 'Multi-channel delivery'], tools: ['Payment Gateway API', 'Receipt Service', 'Email/SMS Service', 'Transaction Log'] },
+                    { name: 'Overage charges', complexity: 'medium', discoveryWeeks: 3, designWeeks: 3, buildWeeks: 4, discovery: ['Overage types analysis', 'Usage threshold rules', 'Alert preferences'], design: ['Overage explanation flow', 'Usage details', 'Plan upgrade suggestions'], tools: ['BSS Billing API', 'Usage Data Service', 'Plan Recommendation Engine', 'Alert Service'] },
+                    { name: 'Payment extension', complexity: 'high', discoveryWeeks: 4, designWeeks: 4, buildWeeks: 6, discovery: ['Extension eligibility rules', 'Policy variations', 'Approval workflows', 'Impact on services'], design: ['Extension request flow', 'Eligibility check', 'Terms presentation', 'Confirmation'], tools: ['Payment Extension API', 'Eligibility Service', 'BSS Billing API', 'Notification Service', 'Service Impact Calculator'] }
+                  ];
+                  
+                  // Calculate start times based on 5 pods of each type working continuously
+                  const discoveryPods = [0, 0, 0, 0, 0]; // When each discovery pod becomes available
+                  const designPods = [0, 0, 0, 0, 0]; // When each design pod becomes available
+                  const buildPods = [0, 0, 0, 0, 0]; // When each build pod becomes available
+                  
+                  const intentsWithTimeline = intents.map((intent, idx) => {
+                    // Find earliest available discovery pod
+                    const earliestDiscoveryPod = discoveryPods.indexOf(Math.min(...discoveryPods));
+                    const discoveryStart = discoveryPods[earliestDiscoveryPod];
+                    const discoveryEnd = discoveryStart + intent.discoveryWeeks;
+                    discoveryPods[earliestDiscoveryPod] = discoveryEnd;
+                    
+                    // Find earliest available design pod (but can't start before discovery ends)
+                    const earliestDesignPod = designPods.indexOf(Math.min(...designPods));
+                    const designStart = Math.max(designPods[earliestDesignPod], discoveryEnd);
+                    const designEnd = designStart + intent.designWeeks;
+                    designPods[earliestDesignPod] = designEnd;
+                    
+                    // Find earliest available build pod (but can't start before design ends)
+                    const earliestBuildPod = buildPods.indexOf(Math.min(...buildPods));
+                    const buildStart = Math.max(buildPods[earliestBuildPod], designEnd);
+                    const buildEnd = buildStart + intent.buildWeeks;
+                    buildPods[earliestBuildPod] = buildEnd;
+                    
+                    return {
+                      ...intent,
+                      discoveryStart,
+                      discoveryEnd,
+                      designStart,
+                      designEnd,
+                      buildStart,
+                      buildEnd
+                    };
+                  });
+                  
+                  return intentsWithTimeline;
+                })().map((intent, idx) => {
+                  const totalWeeks = 12;
+                  const weekToPercent = 100 / totalWeeks;
+                  
+                  const discoveryStartPercent = intent.discoveryStart * weekToPercent;
+                  const discoveryWidth = intent.discoveryWeeks * weekToPercent;
+                  const designStartPercent = intent.designStart * weekToPercent;
+                  const designWidth = intent.designWeeks * weekToPercent;
+                  const buildStartPercent = intent.buildStart * weekToPercent;
+                  const buildWidth = intent.buildWeeks * weekToPercent;
+                  const buildEndPercent = intent.buildEnd * weekToPercent;
+                  
+                  const isComplete = intent.buildEnd <= totalWeeks;
+                  const liveWidth = isComplete ? Math.max(100 - buildEndPercent, 1) : 0;
 
                   return (
                     <div key={idx} className="flex items-center gap-2">
                       <div className="w-48 text-xs text-acc-gray-300">{idx + 1}. {intent.name}</div>
                       <div className="flex-1 flex gap-1">
-                        {intent.startOffset > 0 && <div style={{width: `${intent.startOffset}%`}}></div>}
+                        {/* Gap before discovery starts */}
+                        {discoveryStartPercent > 0 && <div style={{width: `${discoveryStartPercent}%`}}></div>}
                         
-                        {/* Discovery */}
-                        <div 
-                          className="bg-acc-purple h-6 rounded cursor-help group relative" 
-                          style={{width: `${discWidth}%`}}
-                          title="Discovery Phase"
-                        >
-                          <div className="invisible group-hover:visible absolute bottom-full left-0 mb-2 w-64 bg-acc-gray-900 border border-acc-purple rounded-lg p-3 shadow-xl z-10 text-xs">
-                            <div className="font-bold text-acc-purple mb-2">Discovery (2 weeks)</div>
-                            <ul className="space-y-1 text-acc-gray-300">
-                              {intent.discovery.map((item, i) => (
-                                <li key={i} className="flex items-start gap-1">
-                                  <span className="text-acc-purple mt-0.5">•</span>
-                                  <span>{item}</span>
-                                </li>
-                              ))}
-                            </ul>
-                          </div>
-                        </div>
+                            {/* Discovery */}
+                            <div 
+                              className="bg-acc-purple h-6 rounded cursor-help group relative" 
+                              style={{width: `${discoveryWidth}%`}}
+                              title="Discovery Phase"
+                            >
+                              <div className="invisible group-hover:visible absolute top-full left-0 mt-2 w-64 bg-acc-gray-900 border border-acc-purple rounded-lg p-3 shadow-xl z-10 text-xs">
+                                <div className="font-bold text-acc-purple mb-2">Discovery ({intent.discoveryWeeks} weeks) - Wk {intent.discoveryStart + 1}-{Math.ceil(intent.discoveryEnd)} - {intent.complexity} complexity</div>
+                                <ul className="space-y-1 text-acc-gray-300">
+                                  {intent.discovery.map((item, i) => (
+                                    <li key={i} className="flex items-start gap-1">
+                                      <span className="text-acc-purple mt-0.5">•</span>
+                                      <span>{item}</span>
+                                    </li>
+                                  ))}
+                                </ul>
+                              </div>
+                            </div>
 
-                        {/* Design */}
-                        <div 
-                          className="bg-green-400 h-6 rounded cursor-help group relative" 
-                          style={{width: `${desWidth}%`}}
-                          title="Design Phase"
-                        >
-                          <div className="invisible group-hover:visible absolute bottom-full left-0 mb-2 w-64 bg-acc-gray-900 border border-green-400 rounded-lg p-3 shadow-xl z-10 text-xs">
-                            <div className="font-bold text-green-400 mb-2">Design (2 weeks)</div>
-                            <ul className="space-y-1 text-acc-gray-300">
-                              {intent.design.map((item, i) => (
-                                <li key={i} className="flex items-start gap-1">
-                                  <span className="text-green-400 mt-0.5">•</span>
-                                  <span>{item}</span>
-                                </li>
-                              ))}
-                            </ul>
-                          </div>
-                        </div>
+                            {/* Gap between discovery and design (if design is delayed) */}
+                            {designStartPercent - (discoveryStartPercent + discoveryWidth) > 0.5 && (
+                              <div style={{width: `${designStartPercent - (discoveryStartPercent + discoveryWidth)}%`}}></div>
+                            )}
 
-                        {/* Build */}
-                        <div 
-                          className={`${isComplete ? 'bg-blue-400' : 'bg-blue-400/50'} h-6 rounded cursor-help group relative`}
-                          style={{width: `${buildWidth}%`}}
-                          title="Build Phase"
-                        >
-                          <div className="invisible group-hover:visible absolute bottom-full left-0 mb-2 w-72 bg-acc-gray-900 border border-blue-400 rounded-lg p-3 shadow-xl z-10 text-xs">
-                            <div className="font-bold text-blue-400 mb-2">Build ({intent.buildWeeks} weeks) - {intent.complexity} complexity</div>
-                            <div className="mb-2 text-acc-gray-400 text-xs">CES flow creation + Agent development</div>
-                            <div className="font-semibold text-white mb-1">Tools & API Integrations:</div>
-                            <ul className="space-y-1 text-acc-gray-300">
-                              {intent.tools.map((tool, i) => (
-                                <li key={i} className="flex items-start gap-1">
-                                  <span className="text-blue-400 mt-0.5">•</span>
-                                  <span>{tool}</span>
-                                </li>
-                              ))}
-                            </ul>
-                          </div>
-                        </div>
+                            {/* Design */}
+                            <div 
+                              className="bg-green-400 h-6 rounded cursor-help group relative" 
+                              style={{width: `${designWidth}%`}}
+                              title="Design Phase"
+                            >
+                              <div className="invisible group-hover:visible absolute top-full left-0 mt-2 w-64 bg-acc-gray-900 border border-green-400 rounded-lg p-3 shadow-xl z-10 text-xs">
+                                <div className="font-bold text-green-400 mb-2">Design ({intent.designWeeks} weeks) - Wk {intent.designStart + 1}-{Math.ceil(intent.designEnd)} - {intent.complexity} complexity</div>
+                                <ul className="space-y-1 text-acc-gray-300">
+                                  {intent.design.map((item, i) => (
+                                    <li key={i} className="flex items-start gap-1">
+                                      <span className="text-green-400 mt-0.5">•</span>
+                                      <span>{item}</span>
+                                    </li>
+                                  ))}
+                                </ul>
+                              </div>
+                            </div>
+
+                            {/* Gap between design and build (if build is delayed) */}
+                            {buildStartPercent - (designStartPercent + designWidth) > 0.5 && (
+                              <div style={{width: `${buildStartPercent - (designStartPercent + designWidth)}%`}}></div>
+                            )}
+
+                            {/* Build */}
+                            <div 
+                              className={`${isComplete ? 'bg-blue-400' : 'bg-blue-400/50'} h-6 rounded cursor-help group relative`}
+                              style={{width: `${buildWidth}%`}}
+                              title="Build Phase"
+                            >
+                              <div className="invisible group-hover:visible absolute top-full left-0 mt-2 w-72 bg-acc-gray-900 border border-blue-400 rounded-lg p-3 shadow-xl z-10 text-xs">
+                                <div className="font-bold text-blue-400 mb-2">Build ({intent.buildWeeks} weeks) - Wk {intent.buildStart + 1}-{Math.ceil(intent.buildEnd)} - {intent.complexity} complexity</div>
+                                <div className="mb-2 text-acc-gray-400 text-xs">CES flow creation + Agent development</div>
+                                <div className="font-semibold text-white mb-1">Tools & API Integrations:</div>
+                                <ul className="space-y-1 text-acc-gray-300">
+                                  {intent.tools.map((tool, i) => (
+                                    <li key={i} className="flex items-start gap-1">
+                                      <span className="text-blue-400 mt-0.5">•</span>
+                                      <span>{tool}</span>
+                                    </li>
+                                  ))}
+                                </ul>
+                              </div>
+                            </div>
 
                         {/* Live */}
-                        {isComplete && (
+                        {isComplete && liveWidth > 0 && (
                           <div 
                             className="bg-green-900/50 h-6 rounded text-xs flex items-center justify-center text-white"
                             style={{width: `${liveWidth}%`}}
                           >
-                            ✅ Wk 12
+                            ✅ Wk {Math.ceil(intent.buildEnd)}
                           </div>
                         )}
                       </div>
