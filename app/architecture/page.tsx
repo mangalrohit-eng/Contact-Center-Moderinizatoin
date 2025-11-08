@@ -247,7 +247,7 @@ export default function ArchitecturePage() {
             </div>
           </section>
 
-          <NextPageButton href="/agents/" label="Agent Catalog" />
+          <NextPageButton href="/intents/" label="Telecom Intents" />
         </div>
       </div>
     </div>

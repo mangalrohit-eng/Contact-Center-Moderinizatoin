@@ -34,6 +34,7 @@ export default function NavBar() {
       label: 'Solution',
       items: [
         { href: '/architecture/', label: 'Architecture' },
+        { href: '/intents/', label: 'Telecom Intents' },
         { href: '/agents/', label: 'Agent Catalog' },
         { href: '/agentic/', label: 'How it Will Work' },
       ]
