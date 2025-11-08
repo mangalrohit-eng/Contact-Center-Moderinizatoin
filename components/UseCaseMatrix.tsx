@@ -3,6 +3,7 @@
 import intents from '@/data/intents_top200.json';
 import map from '@/data/agentic/usecase_map_full.json';
 import agentsCatalog from '@/data/agents_catalog_full.json';
+import utterances from '@/data/intent_utterances.json';
 import { useMemo, useState } from 'react';
 
 type Intent = { id:number; name:string; category:string; volume:string; complexity:string };
@@ -47,6 +48,9 @@ export default function UseCaseMatrix(){
         <p className="text-sm text-acc-gray-400">
           Coverage: <b className="text-acc-purple">{coveragePct}%</b> of {intents.intents.length} telecom intents mapped to agents & tools.
         </p>
+        <p className="text-xs text-acc-gray-500 mt-2 italic">
+          💡 Hover over any intent to see an example customer utterance
+        </p>
       </div>
       
       <div className="flex flex-col md:flex-row gap-4 mb-6">
@@ -81,9 +85,21 @@ export default function UseCaseMatrix(){
             </tr>
           </thead>
           <tbody>
-            {rows.map((r, i)=>(
+            {rows.map((r, i)=>{
+              const utterance = (utterances.utterances as Record<string, string>)[String(r.intentId)];
+              return (
               <tr key={i} className="border-t border-acc-gray-700 hover:bg-acc-gray-700/30 transition-colors">
-                <td className="p-3 text-white">{r.intentObj.name}</td>
+                <td className="p-3 text-white group relative">
+                  <span className="cursor-help">
+                    {r.intentObj.name}
+                  </span>
+                  {utterance && (
+                    <div className="invisible group-hover:visible absolute z-10 left-0 top-full mt-1 w-64 bg-acc-gray-900 border-2 border-acc-purple rounded-lg p-3 shadow-xl">
+                      <div className="text-xs font-semibold text-acc-purple mb-1">Example:</div>
+                      <div className="text-sm text-white italic">"{utterance}"</div>
+                    </div>
+                  )}
+                </td>
                 <td className="p-3 text-acc-gray-400">{r.intentObj.category}</td>
                 <td className="p-3">
                   <span className="px-2 py-1 rounded bg-acc-purple/20 text-acc-purple border border-acc-purple/40 text-xs font-semibold">
@@ -100,7 +116,8 @@ export default function UseCaseMatrix(){
                   </div>
                 </td>
               </tr>
-            ))}
+              );
+            })}
           </tbody>
         </table>
       </div>
