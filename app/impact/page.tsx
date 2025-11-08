@@ -1,18 +1,76 @@
-import { TrendingUp, DollarSign, Users, Clock, Target, Shield, Zap, Award } from 'lucide-react';
+'use client';
+
+import { TrendingUp, DollarSign, Users, Clock, Target, Shield, Zap, Award, Calculator } from 'lucide-react';
 import NextPageButton from '@/components/NextPageButton';
+import { useState } from 'react';
 
 export default function ImpactPage() {
+  const [callVolume, setCallVolume] = useState(60); // Default to 60 million calls
+  
+  // Cost per million calls
+  const COST_PER_MILLION = 3.0; // $3M per 1M calls
+  
+  // Calculate total savings
+  const totalSavings = callVolume * COST_PER_MILLION;
+  
+  // Breakdown percentages (totaling to $3M per 1M calls)
+  const agentEscalationSavings = callVolume * 1.6; // 53%
+  const ahtReductionSavings = callVolume * 0.8; // 27%
+  const reworkReductionSavings = callVolume * 0.3; // 10%
+  const maintenanceSavings = callVolume * 0.3; // 10%
+  
+  const formatMoney = (amount: number) => {
+    if (amount >= 1) {
+      return `$${amount.toFixed(0)}M`;
+    }
+    return `$${(amount * 1000).toFixed(0)}K`;
+  };
+
   return (
     <div className="py-20">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Header */}
-        <div className="text-center mb-16">
+        <div className="text-center mb-12">
           <h1 className="text-4xl md:text-5xl font-bold mb-6">
             <span className="text-acc-purple">Business Impact</span>
           </h1>
           <p className="text-xl text-acc-gray-400 max-w-3xl mx-auto">
-            Enterprise-scale cost savings of $175M annually from modernizing contact center operations through CES Next Gen and Agentic AI, delivering measurable improvements across efficiency, customer experience, and operational excellence.
+            Enterprise-scale cost savings from modernizing contact center operations through CES Next Gen and Agentic AI, delivering measurable improvements across efficiency, customer experience, and operational excellence.
           </p>
+        </div>
+
+        {/* Interactive Calculator */}
+        <div className="mb-12 bg-gradient-to-br from-acc-purple/20 to-transparent border-2 border-acc-purple rounded-lg p-8 max-w-3xl mx-auto">
+          <div className="flex items-center justify-center gap-3 mb-6">
+            <Calculator className="w-8 h-8 text-acc-purple" />
+            <h2 className="text-2xl font-bold">Savings Calculator</h2>
+          </div>
+          
+          <div className="bg-acc-gray-900 rounded-lg p-6">
+            <label htmlFor="callVolume" className="block text-sm font-semibold text-acc-gray-300 mb-3">
+              Enter your annual call volume (in millions):
+            </label>
+            <div className="flex items-center gap-4">
+              <input
+                type="number"
+                id="callVolume"
+                value={callVolume}
+                onChange={(e) => setCallVolume(Math.max(1, Number(e.target.value)))}
+                className="flex-1 bg-acc-gray-800 border-2 border-acc-purple rounded-lg px-6 py-4 text-white text-2xl font-bold focus:outline-none focus:ring-2 focus:ring-acc-purple"
+                min="1"
+                step="1"
+              />
+              <span className="text-2xl font-bold text-acc-gray-400">Million calls/year</span>
+            </div>
+            
+            <div className="mt-6 pt-6 border-t border-acc-gray-700 text-center">
+              <div className="text-sm text-acc-gray-400 mb-2">Projected Annual Savings</div>
+              <div className="text-5xl font-bold text-acc-purple">{formatMoney(totalSavings)}</div>
+              <div className="text-sm text-acc-gray-500 mt-2">
+                Based on ${COST_PER_MILLION}M savings per 1M calls
+              </div>
+            </div>
+          </div>
         </div>
 
         {/* Key Metrics */}
@@ -40,9 +98,9 @@ export default function ImpactPage() {
 
           <div className="bg-gradient-to-br from-yellow-400/20 to-transparent border-2 border-yellow-400 rounded-lg p-6 text-center hover:scale-105 transition-transform">
             <DollarSign className="w-12 h-12 text-yellow-400 mx-auto mb-3" />
-            <div className="text-4xl font-bold text-yellow-400 mb-2">$175M</div>
+            <div className="text-4xl font-bold text-yellow-400 mb-2">{formatMoney(totalSavings)}</div>
             <h3 className="font-semibold mb-2">Annual Cost Savings</h3>
-            <p className="text-sm text-acc-gray-400">From $1.5B contact center operations</p>
+            <p className="text-sm text-acc-gray-400">At {callVolume}M calls per year</p>
           </div>
         </div>
 
@@ -52,67 +110,67 @@ export default function ImpactPage() {
           
           <div className="mb-8 text-center">
             <p className="text-lg text-acc-gray-300 mb-2">
-              Based on current annual contact center operations spend of <span className="font-bold text-white">$1.5 Billion</span>
+              Based on <span className="font-bold text-white">{callVolume} million</span> annual calls
             </p>
             <p className="text-sm text-acc-gray-400">
-              Achieving <span className="text-acc-purple font-semibold">11.7% operational efficiency improvement</span> through automation and AI-powered agents
+              <span className="text-acc-purple font-semibold">${COST_PER_MILLION}M savings per 1M calls</span> through automation and AI-powered agents
             </p>
           </div>
           
           <div className="max-w-4xl mx-auto space-y-4">
             <div className="flex justify-between items-center bg-acc-gray-800 border border-acc-gray-700 rounded-lg p-6 hover:border-green-400/50 transition-colors">
-              <div>
+              <div className="flex-1">
                 <div className="font-semibold text-lg mb-1">Reduced Agent Escalations</div>
                 <div className="text-sm text-acc-gray-400">15-20% higher containment rate reduces live agent volume</div>
-                <div className="text-xs text-acc-gray-500 mt-1">Savings from avoided agent FTEs and infrastructure</div>
+                <div className="text-xs text-acc-gray-500 mt-1">Savings from avoided agent FTEs and infrastructure (~53%)</div>
               </div>
-              <div className="text-3xl font-bold text-green-400">$95M</div>
+              <div className="text-3xl font-bold text-green-400 ml-4">{formatMoney(agentEscalationSavings)}</div>
             </div>
             
             <div className="flex justify-between items-center bg-acc-gray-800 border border-acc-gray-700 rounded-lg p-6 hover:border-green-400/50 transition-colors">
-              <div>
+              <div className="flex-1">
                 <div className="font-semibold text-lg mb-1">Faster Resolution Times</div>
-                <div className="text-sm text-acc-gray-400">60-90s AHT reduction across 100M+ annual interactions</div>
-                <div className="text-xs text-acc-gray-500 mt-1">Reduced handle time increases agent productivity</div>
+                <div className="text-sm text-acc-gray-400">60-90s AHT reduction across all interactions</div>
+                <div className="text-xs text-acc-gray-500 mt-1">Reduced handle time increases agent productivity (~27%)</div>
               </div>
-              <div className="text-3xl font-bold text-green-400">$48M</div>
+              <div className="text-3xl font-bold text-green-400 ml-4">{formatMoney(ahtReductionSavings)}</div>
             </div>
             
             <div className="flex justify-between items-center bg-acc-gray-800 border border-acc-gray-700 rounded-lg p-6 hover:border-green-400/50 transition-colors">
-              <div>
+              <div className="flex-1">
                 <div className="font-semibold text-lg mb-1">Reduced Call Abandonment & Rework</div>
                 <div className="text-sm text-acc-gray-400">Better first-contact resolution reduces repeat calls</div>
-                <div className="text-xs text-acc-gray-500 mt-1">Fewer callbacks and escalations save operational costs</div>
+                <div className="text-xs text-acc-gray-500 mt-1">Fewer callbacks and escalations save operational costs (~10%)</div>
               </div>
-              <div className="text-3xl font-bold text-green-400">$18M</div>
+              <div className="text-3xl font-bold text-green-400 ml-4">{formatMoney(reworkReductionSavings)}</div>
             </div>
             
             <div className="flex justify-between items-center bg-acc-gray-800 border border-acc-gray-700 rounded-lg p-6 hover:border-green-400/50 transition-colors">
-              <div>
+              <div className="flex-1">
                 <div className="font-semibold text-lg mb-1">Maintenance & Operations Efficiency</div>
                 <div className="text-sm text-acc-gray-400">50% reduction in manual intent tuning and system maintenance</div>
-                <div className="text-xs text-acc-gray-500 mt-1">LLM-powered agents reduce ongoing operational overhead</div>
+                <div className="text-xs text-acc-gray-500 mt-1">LLM-powered agents reduce ongoing operational overhead (~10%)</div>
               </div>
-              <div className="text-3xl font-bold text-green-400">$14M</div>
+              <div className="text-3xl font-bold text-green-400 ml-4">{formatMoney(maintenanceSavings)}</div>
             </div>
             
             <div className="border-t-2 border-acc-purple pt-6 flex justify-between items-center bg-acc-gray-900 rounded-lg p-6">
               <div>
                 <div className="font-bold text-2xl mb-2">Total Annual Savings</div>
-                <div className="text-sm text-acc-gray-400">11.7% reduction in contact center operations cost</div>
+                <div className="text-sm text-acc-gray-400">${COST_PER_MILLION}M per 1M calls × {callVolume}M calls</div>
               </div>
-              <div className="text-5xl font-bold text-acc-purple">$175M</div>
+              <div className="text-5xl font-bold text-acc-purple">{formatMoney(totalSavings)}</div>
             </div>
           </div>
           
           <div className="mt-8 grid grid-cols-1 md:grid-cols-3 gap-6">
             <div className="bg-acc-gray-900/50 border border-acc-gray-700 rounded-lg p-6 text-center">
-              <div className="text-3xl font-bold text-acc-purple mb-2">100M+</div>
+              <div className="text-3xl font-bold text-acc-purple mb-2">{callVolume}M</div>
               <div className="text-sm text-acc-gray-400">Annual customer interactions automated or enhanced</div>
             </div>
             <div className="bg-acc-gray-900/50 border border-acc-gray-700 rounded-lg p-6 text-center">
               <div className="text-3xl font-bold text-green-400 mb-2">3-Year</div>
-              <div className="text-sm text-acc-gray-400">Cumulative savings exceed <strong>$525M</strong></div>
+              <div className="text-sm text-acc-gray-400">Cumulative savings: <strong>{formatMoney(totalSavings * 3)}</strong></div>
             </div>
             <div className="bg-acc-gray-900/50 border border-acc-gray-700 rounded-lg p-6 text-center">
               <div className="text-3xl font-bold text-blue-400 mb-2">15-20%</div>
