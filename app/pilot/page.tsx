@@ -28,13 +28,13 @@ const phases = [
   {
     month: 'Month 2',
     weeks: 'Weeks 5-8',
-    focus: 'Billing Intent Pipeline',
+    focus: 'Intent Discovery & Design',
     activities: [
       'Discover 20 billing intents',
       'Design goal-based flows',
       'Define BSS integrations',
       'Map payment gateway tools',
-      'Begin agent development'
+      'Document tool specifications'
     ],
     deliverables: [
       '20 intents discovered & clustered',
@@ -48,19 +48,39 @@ const phases = [
   {
     month: 'Month 3',
     weeks: 'Weeks 9-12',
-    focus: 'Billing Agent Build & Deploy',
+    focus: 'Agent & Flow Development',
     activities: [
       'Build Billing & Payments agent',
       'Integrate BSS billing systems',
       'Deploy payment gateway tools',
-      'Implement 20 CES flows',
-      'A/B testing & pilot validation'
+      'Implement CES flows',
+      'Unit & integration testing'
+    ],
+    deliverables: [
+      'Billing & Payments Agent (development)',
+      'BSS integration complete',
+      'Payment gateway tools deployed',
+      'Initial CES flows implemented'
+    ],
+    agents: ['Build Phase'],
+    intentCount: 20
+  },
+  {
+    month: 'Month 4',
+    weeks: 'Weeks 13-16',
+    focus: 'Testing, Validation & Launch',
+    activities: [
+      'Complete all 20 CES flows',
+      'End-to-end testing',
+      'A/B testing & validation',
+      'Production deployment',
+      'Hypercare & monitoring'
     ],
     deliverables: [
       'Billing & Payments Agent (live)',
       '20 billing intents automated',
-      'BSS integration complete',
-      '10% intent coverage achieved'
+      '10% intent coverage achieved',
+      'Production monitoring active'
     ],
     agents: ['Billing & Payments Agent'],
     intentCount: 20
@@ -135,16 +155,16 @@ export default function PilotPage() {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Header */}
         <div className="text-center mb-12">
-          <div className="inline-flex items-center gap-2 bg-acc-purple/10 border border-acc-purple/30 rounded-full px-4 py-2 mb-4">
-            <span className="text-sm text-acc-purple font-semibold">Phase 1: Months 1-3</span>
-          </div>
-          <h1 className="text-4xl md:text-5xl font-bold mb-6">
-            <span className="text-acc-purple">3-Month Pilot</span>
-            <span className="text-acc-gray-400 text-3xl block mt-2">Foundation & Billing Agent</span>
-          </h1>
-          <p className="text-xl text-acc-gray-400 max-w-3xl mx-auto mb-6">
-            This detailed view of Roadmap Phase 1 shows how we'll deploy 3 orchestrators and the Billing & Payments agent, achieving 10% intent coverage and demonstrating real business value in just 3 months.
-          </p>
+              <div className="inline-flex items-center gap-2 bg-acc-purple/10 border border-acc-purple/30 rounded-full px-4 py-2 mb-4">
+                <span className="text-sm text-acc-purple font-semibold">Phase 1: Months 1-4</span>
+              </div>
+              <h1 className="text-4xl md:text-5xl font-bold mb-6">
+                <span className="text-acc-purple">4-Month Pilot</span>
+                <span className="text-acc-gray-400 text-3xl block mt-2">Foundation & Billing Agent</span>
+              </h1>
+              <p className="text-xl text-acc-gray-400 max-w-3xl mx-auto mb-6">
+                This detailed view of Roadmap Phase 1 shows how we'll deploy 3 orchestrators and the Billing & Payments agent, achieving 10% intent coverage and demonstrating real business value in 4 months.
+              </p>
           <div className="flex flex-wrap justify-center gap-3 mb-4">
             <div className="inline-flex items-center gap-2 bg-acc-purple/20 border border-acc-purple rounded-full px-6 py-3">
               <Users className="w-5 h-5 text-acc-purple" />
@@ -157,15 +177,15 @@ export default function PilotPage() {
           </div>
           <Link href="/roadmap/" className="text-sm text-acc-purple hover:text-acc-purple/80 transition-colors inline-flex items-center gap-1">
             <ArrowRight className="w-4 h-4 rotate-180" />
-            <span>Back to Full 12-Month Roadmap</span>
+            <span>Back to Full Roadmap</span>
           </Link>
         </div>
 
 
-        {/* 3-Month Timeline */}
+        {/* 4-Month Timeline */}
         <div className="mb-16">
-          <h2 className="text-3xl font-bold mb-8 text-center">3-Month Pilot Roadmap</h2>
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+          <h2 className="text-3xl font-bold mb-8 text-center">4-Month Pilot Roadmap</h2>
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
             {phases.map((phase, idx) => (
               <div
                 key={idx}
@@ -274,9 +294,9 @@ export default function PilotPage() {
 
         {/* Visual Project Plan */}
         <div className="mb-16">
-          <h2 className="text-3xl font-bold mb-4 text-center">Visual 12-Week Project Plan</h2>
+          <h2 className="text-3xl font-bold mb-4 text-center">Visual 16-Week Project Plan</h2>
           <p className="text-center text-acc-gray-400 mb-8 max-w-3xl mx-auto">
-            Pipeline approach: Each intent flows through Discovery (2-4 weeks) → Design (2-4 weeks) → Build (2-8 weeks), with durations varying by complexity. Multiple intents in different stages simultaneously.
+            Pipeline approach: Each intent flows through Discovery (2-4 weeks) → Design (2-4 weeks) → Build (2-8 weeks), with durations varying by complexity. Multiple intents in different stages simultaneously with 8 pods of each type working in parallel.
           </p>
 
           {/* Pipeline Workflow Explanation */}
@@ -339,10 +359,10 @@ export default function PilotPage() {
             {/* Week markers */}
             <div className="flex justify-between text-xs text-acc-gray-500 mb-2 px-2">
               <span>Week 1</span>
-              <span>Week 3</span>
-              <span>Week 6</span>
-              <span>Week 9</span>
+              <span>Week 4</span>
+              <span>Week 8</span>
               <span>Week 12</span>
+              <span>Week 16</span>
             </div>
             <div className="h-1 bg-acc-gray-700 rounded mb-6"></div>
 
@@ -387,14 +407,14 @@ export default function PilotPage() {
             <div className="mb-4">
               <h3 className="font-bold text-xl mb-4 text-green-400">20 Billing & Payments Intents</h3>
               <p className="text-xs text-acc-gray-400 mb-4">
-                All 20 billing intents shown flowing through the pipeline based on <strong>6 pods of each type</strong> (Discovery, Design, Build) working continuously. 
+                All 20 billing intents shown flowing through the pipeline based on <strong>8 pods of each type</strong> (Discovery, Design, Build) working continuously. 
                 Each intent: Discovery (2-4w) → Design (2-4w) → Build (2-8w) — all varying by complexity → Live. 
                 As soon as a pod becomes available, it starts on the next intent in queue.
                 <br />
                 <span className="text-acc-purple">Hover over any bar</span> to see specific activities, tools, and API integrations for that phase.
               </p>
               
-              <div className="space-y-1 max-h-96 overflow-y-auto">{/* Intent data with activities - calculated based on 6 pods of each type */}
+              <div className="space-y-1 max-h-96 overflow-y-auto">{/* Intent data with activities - calculated based on 8 pods of each type */}
                 {(() => {
                   const intents = [
                     { name: 'Bill balance inquiry', complexity: 'low', discoveryWeeks: 2, designWeeks: 2, buildWeeks: 2, discovery: ['Customer journey analysis', 'BSS data mapping', 'Authentication flow review'], design: ['Balance display flow', 'Error handling patterns', 'Multi-account support'], tools: ['BSS Billing API', 'Authentication Service', 'Balance Cache'] },
@@ -419,10 +439,10 @@ export default function PilotPage() {
                     { name: 'Payment extension', complexity: 'high', discoveryWeeks: 4, designWeeks: 4, buildWeeks: 6, discovery: ['Extension eligibility rules', 'Policy variations', 'Approval workflows', 'Impact on services'], design: ['Extension request flow', 'Eligibility check', 'Terms presentation', 'Confirmation'], tools: ['Payment Extension API', 'Eligibility Service', 'BSS Billing API', 'Notification Service', 'Service Impact Calculator'] }
                   ];
                   
-                  // Calculate start times based on 6 pods of each type working continuously
-                  const discoveryPods = [0, 0, 0, 0, 0, 0]; // When each discovery pod becomes available
-                  const designPods = [0, 0, 0, 0, 0, 0]; // When each design pod becomes available
-                  const buildPods = [0, 0, 0, 0, 0, 0]; // When each build pod becomes available
+                  // Calculate start times based on 8 pods of each type working continuously
+                  const discoveryPods = [0, 0, 0, 0, 0, 0, 0, 0]; // When each discovery pod becomes available
+                  const designPods = [0, 0, 0, 0, 0, 0, 0, 0]; // When each design pod becomes available
+                  const buildPods = [0, 0, 0, 0, 0, 0, 0, 0]; // When each build pod becomes available
                   
                   const intentsWithTimeline = intents.map((intent, idx) => {
                     // Find earliest available discovery pod
@@ -456,7 +476,7 @@ export default function PilotPage() {
                   
                   return intentsWithTimeline;
                 })().map((intent, idx) => {
-                  const totalWeeks = 12;
+                  const totalWeeks = 16;
                   const weekToPercent = 100 / totalWeeks;
                   
                   const discoveryStartPercent = intent.discoveryStart * weekToPercent;
@@ -564,17 +584,21 @@ export default function PilotPage() {
           </div>
 
           {/* Key Milestones */}
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-4 mt-6">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4 mt-6">
             <div className="bg-acc-gray-800 border-l-4 border-acc-purple rounded-lg p-4">
               <div className="font-bold text-acc-purple mb-2">Week 4 Milestone</div>
               <p className="text-sm text-acc-gray-300">Foundation live: 3 orchestrators operational</p>
             </div>
             <div className="bg-acc-gray-800 border-l-4 border-green-400 rounded-lg p-4">
               <div className="font-bold text-green-400 mb-2">Week 8 Milestone</div>
-              <p className="text-sm text-acc-gray-300">20 intents discovered, 20 flows designed</p>
+              <p className="text-sm text-acc-gray-300">All 20 intents discovered & designed</p>
             </div>
             <div className="bg-acc-gray-800 border-l-4 border-blue-400 rounded-lg p-4">
               <div className="font-bold text-blue-400 mb-2">Week 12 Milestone</div>
+              <p className="text-sm text-acc-gray-300">Agent development & flow implementation complete</p>
+            </div>
+            <div className="bg-acc-gray-800 border-l-4 border-yellow-400 rounded-lg p-4">
+              <div className="font-bold text-yellow-400 mb-2">Week 16 Milestone</div>
               <p className="text-sm text-acc-gray-300">Billing agent live, 20 intents automated, 10% coverage</p>
             </div>
           </div>
