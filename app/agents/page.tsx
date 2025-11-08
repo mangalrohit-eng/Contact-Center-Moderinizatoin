@@ -236,8 +236,8 @@ export default function AgentsPage() {
             </p>
             <div className="grid grid-cols-1 gap-6">
               {filteredOrchestrators.map((item) => {
-              const Icon = getIcon(item.type);
-              return (
+                const Icon = getIcon(item.type);
+                return (
                 <div
                   key={item.id}
                   className={`${getBgColor(item.type)} border rounded-lg p-6 hover:scale-[1.01] transition-transform`}
@@ -270,7 +270,7 @@ export default function AgentsPage() {
                     </div>
                   </div>
                 </div>
-              );
+                );
               })}
             </div>
           </section>
@@ -289,8 +289,8 @@ export default function AgentsPage() {
             </p>
             <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
               {filteredAgents.map((item) => {
-              const Icon = getIcon(item.type);
-              return (
+                const Icon = getIcon(item.type);
+                return (
                 <div
                   key={item.id}
                   className={`${getBgColor(item.type)} border rounded-lg p-6 hover:scale-[1.01] transition-transform`}
@@ -319,10 +319,11 @@ export default function AgentsPage() {
                     </div>
                   </div>
                 </div>
-              );
-            })}
-          </div>
-        </section>
+                );
+              })}
+            </div>
+          </section>
+        )}
 
         {/* Tools */}
         {filteredTools.length > 0 && (
@@ -337,8 +338,8 @@ export default function AgentsPage() {
             </p>
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
               {filteredTools.map((item) => {
-              const Icon = getIcon(item.type);
-              return (
+                const Icon = getIcon(item.type);
+                return (
                 <div
                   key={item.id}
                   className={`${getBgColor(item.type)} border rounded-lg p-4 hover:scale-[1.02] transition-transform`}
@@ -360,7 +361,7 @@ export default function AgentsPage() {
                     ))}
                   </div>
                 </div>
-              );
+                );
               })}
             </div>
           </section>
