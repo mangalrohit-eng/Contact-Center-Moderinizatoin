@@ -11,7 +11,7 @@ export default function ImpactPage() {
             <span className="text-acc-purple">Business Impact</span>
           </h1>
           <p className="text-xl text-acc-gray-400 max-w-3xl mx-auto">
-            Quantified value delivered through CES Next Gen and Agentic AI modernization, with measurable improvements across operations, cost, and customer experience.
+            Enterprise-scale cost savings of $175M annually from modernizing contact center operations through CES Next Gen and Agentic AI, delivering measurable improvements across efficiency, customer experience, and operational excellence.
           </p>
         </div>
 
@@ -40,90 +40,83 @@ export default function ImpactPage() {
 
           <div className="bg-gradient-to-br from-yellow-400/20 to-transparent border-2 border-yellow-400 rounded-lg p-6 text-center hover:scale-105 transition-transform">
             <DollarSign className="w-12 h-12 text-yellow-400 mx-auto mb-3" />
-            <div className="text-4xl font-bold text-yellow-400 mb-2">$2-3M</div>
+            <div className="text-4xl font-bold text-yellow-400 mb-2">$175M</div>
             <h3 className="font-semibold mb-2">Annual Cost Savings</h3>
-            <p className="text-sm text-acc-gray-400">Reduced operational expenses</p>
+            <p className="text-sm text-acc-gray-400">From $1.5B contact center operations</p>
           </div>
         </div>
 
-        {/* ROI Breakdown */}
+        {/* Cost Savings Breakdown */}
         <div className="mb-16 bg-gradient-to-br from-acc-purple/10 to-transparent border border-acc-purple/30 rounded-lg p-8">
-          <h2 className="text-3xl font-bold mb-8 text-center">Return on Investment</h2>
+          <h2 className="text-3xl font-bold mb-8 text-center">Annual Cost Savings Breakdown</h2>
           
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 mb-8">
-            <div>
-              <h3 className="text-xl font-bold mb-4 text-acc-purple">Cost Savings</h3>
-              <div className="space-y-4">
-                <div className="flex justify-between items-center bg-acc-gray-800 border border-acc-gray-700 rounded-lg p-4">
-                  <div>
-                    <div className="font-semibold">Reduced Agent Escalations</div>
-                    <div className="text-sm text-acc-gray-400">15-20% higher containment rate</div>
-                  </div>
-                  <div className="text-xl font-bold text-green-400">$1.5M/yr</div>
-                </div>
-                <div className="flex justify-between items-center bg-acc-gray-800 border border-acc-gray-700 rounded-lg p-4">
-                  <div>
-                    <div className="font-semibold">Faster Resolution Times</div>
-                    <div className="text-sm text-acc-gray-400">60-90s reduction in AHT</div>
-                  </div>
-                  <div className="text-xl font-bold text-green-400">$800K/yr</div>
-                </div>
-                <div className="flex justify-between items-center bg-acc-gray-800 border border-acc-gray-700 rounded-lg p-4">
-                  <div>
-                    <div className="font-semibold">Maintenance Efficiency</div>
-                    <div className="text-sm text-acc-gray-400">50% less manual intent tuning</div>
-                  </div>
-                  <div className="text-xl font-bold text-green-400">$400K/yr</div>
-                </div>
-                <div className="flex justify-between items-center bg-acc-gray-800 border border-acc-gray-700 rounded-lg p-4">
-                  <div>
-                    <div className="font-semibold">Reduced Call Abandonment</div>
-                    <div className="text-sm text-acc-gray-400">Better self-service experience</div>
-                  </div>
-                  <div className="text-xl font-bold text-green-400">$300K/yr</div>
-                </div>
-                <div className="border-t-2 border-acc-purple pt-4 flex justify-between items-center">
-                  <div className="font-bold text-lg">Total Annual Savings</div>
-                  <div className="text-2xl font-bold text-acc-purple">$3.0M</div>
-                </div>
+          <div className="mb-8 text-center">
+            <p className="text-lg text-acc-gray-300 mb-2">
+              Based on current annual contact center operations spend of <span className="font-bold text-white">$1.5 Billion</span>
+            </p>
+            <p className="text-sm text-acc-gray-400">
+              Achieving <span className="text-acc-purple font-semibold">11.7% operational efficiency improvement</span> through automation and AI-powered agents
+            </p>
+          </div>
+          
+          <div className="max-w-4xl mx-auto space-y-4">
+            <div className="flex justify-between items-center bg-acc-gray-800 border border-acc-gray-700 rounded-lg p-6 hover:border-green-400/50 transition-colors">
+              <div>
+                <div className="font-semibold text-lg mb-1">Reduced Agent Escalations</div>
+                <div className="text-sm text-acc-gray-400">15-20% higher containment rate reduces live agent volume</div>
+                <div className="text-xs text-acc-gray-500 mt-1">Savings from avoided agent FTEs and infrastructure</div>
               </div>
+              <div className="text-3xl font-bold text-green-400">$95M</div>
             </div>
-
-            <div>
-              <h3 className="text-xl font-bold mb-4 text-red-400">Investment</h3>
-              <div className="space-y-4">
-                <div className="flex justify-between items-center bg-acc-gray-800 border border-acc-gray-700 rounded-lg p-4">
-                  <div>
-                    <div className="font-semibold">CES Next Platform & Licensing</div>
-                    <div className="text-sm text-acc-gray-400">Google Cloud annual fees</div>
-                  </div>
-                  <div className="text-xl font-bold">$600K/yr</div>
-                </div>
-                <div className="flex justify-between items-center bg-acc-gray-800 border border-acc-gray-700 rounded-lg p-4">
-                  <div>
-                    <div className="font-semibold">Implementation & Integration</div>
-                    <div className="text-sm text-acc-gray-400">One-time setup (amortized)</div>
-                  </div>
-                  <div className="text-xl font-bold">$400K</div>
-                </div>
-                <div className="flex justify-between items-center bg-acc-gray-800 border border-acc-gray-700 rounded-lg p-4">
-                  <div>
-                    <div className="font-semibold">Training & Change Management</div>
-                    <div className="text-sm text-acc-gray-400">Staff enablement</div>
-                  </div>
-                  <div className="text-xl font-bold">$200K</div>
-                </div>
-                <div className="border-t-2 border-red-400 pt-4 flex justify-between items-center">
-                  <div className="font-bold text-lg">Total Investment (Year 1)</div>
-                  <div className="text-2xl font-bold text-red-400">$1.2M</div>
-                </div>
+            
+            <div className="flex justify-between items-center bg-acc-gray-800 border border-acc-gray-700 rounded-lg p-6 hover:border-green-400/50 transition-colors">
+              <div>
+                <div className="font-semibold text-lg mb-1">Faster Resolution Times</div>
+                <div className="text-sm text-acc-gray-400">60-90s AHT reduction across 100M+ annual interactions</div>
+                <div className="text-xs text-acc-gray-500 mt-1">Reduced handle time increases agent productivity</div>
               </div>
-
-              <div className="mt-6 bg-acc-purple/20 border-2 border-acc-purple rounded-lg p-6 text-center">
-                <div className="text-sm text-acc-gray-300 mb-2">ROI Payback Period</div>
-                <div className="text-4xl font-bold text-acc-purple mb-2">5-6 Months</div>
-                <div className="text-sm text-acc-gray-400">Net positive by Q3 Year 1</div>
+              <div className="text-3xl font-bold text-green-400">$48M</div>
+            </div>
+            
+            <div className="flex justify-between items-center bg-acc-gray-800 border border-acc-gray-700 rounded-lg p-6 hover:border-green-400/50 transition-colors">
+              <div>
+                <div className="font-semibold text-lg mb-1">Reduced Call Abandonment & Rework</div>
+                <div className="text-sm text-acc-gray-400">Better first-contact resolution reduces repeat calls</div>
+                <div className="text-xs text-acc-gray-500 mt-1">Fewer callbacks and escalations save operational costs</div>
               </div>
+              <div className="text-3xl font-bold text-green-400">$18M</div>
+            </div>
+            
+            <div className="flex justify-between items-center bg-acc-gray-800 border border-acc-gray-700 rounded-lg p-6 hover:border-green-400/50 transition-colors">
+              <div>
+                <div className="font-semibold text-lg mb-1">Maintenance & Operations Efficiency</div>
+                <div className="text-sm text-acc-gray-400">50% reduction in manual intent tuning and system maintenance</div>
+                <div className="text-xs text-acc-gray-500 mt-1">LLM-powered agents reduce ongoing operational overhead</div>
+              </div>
+              <div className="text-3xl font-bold text-green-400">$14M</div>
+            </div>
+            
+            <div className="border-t-2 border-acc-purple pt-6 flex justify-between items-center bg-acc-gray-900 rounded-lg p-6">
+              <div>
+                <div className="font-bold text-2xl mb-2">Total Annual Savings</div>
+                <div className="text-sm text-acc-gray-400">11.7% reduction in contact center operations cost</div>
+              </div>
+              <div className="text-5xl font-bold text-acc-purple">$175M</div>
+            </div>
+          </div>
+          
+          <div className="mt-8 grid grid-cols-1 md:grid-cols-3 gap-6">
+            <div className="bg-acc-gray-900/50 border border-acc-gray-700 rounded-lg p-6 text-center">
+              <div className="text-3xl font-bold text-acc-purple mb-2">100M+</div>
+              <div className="text-sm text-acc-gray-400">Annual customer interactions automated or enhanced</div>
+            </div>
+            <div className="bg-acc-gray-900/50 border border-acc-gray-700 rounded-lg p-6 text-center">
+              <div className="text-3xl font-bold text-green-400 mb-2">3-Year</div>
+              <div className="text-sm text-acc-gray-400">Cumulative savings exceed <strong>$525M</strong></div>
+            </div>
+            <div className="bg-acc-gray-900/50 border border-acc-gray-700 rounded-lg p-6 text-center">
+              <div className="text-3xl font-bold text-blue-400 mb-2">15-20%</div>
+              <div className="text-sm text-acc-gray-400">Improvement in key CX metrics (CSAT, containment)</div>
             </div>
           </div>
         </div>
