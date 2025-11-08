@@ -67,7 +67,7 @@ export default function ImpactPage() {
               <div className="text-sm text-acc-gray-400 mb-2">Projected Annual Savings</div>
               <div className="text-5xl font-bold text-acc-purple">{formatMoney(totalSavings)}</div>
               <div className="text-sm text-acc-gray-500 mt-2">
-                Based on ${COST_PER_MILLION}M savings per 1M calls
+                Through operational efficiency gains and automation
               </div>
             </div>
           </div>
@@ -110,10 +110,10 @@ export default function ImpactPage() {
           
           <div className="mb-8 text-center">
             <p className="text-lg text-acc-gray-300 mb-2">
-              Based on <span className="font-bold text-white">{callVolume} million</span> annual calls
+              Projected savings for <span className="font-bold text-white">{callVolume} million</span> annual customer interactions
             </p>
             <p className="text-sm text-acc-gray-400">
-              <span className="text-acc-purple font-semibold">${COST_PER_MILLION}M savings per 1M calls</span> through automation and AI-powered agents
+              Comprehensive analysis across containment, efficiency, quality, and operational dimensions
             </p>
           </div>
           
@@ -121,8 +121,11 @@ export default function ImpactPage() {
             <div className="flex justify-between items-center bg-acc-gray-800 border border-acc-gray-700 rounded-lg p-6 hover:border-green-400/50 transition-colors">
               <div className="flex-1">
                 <div className="font-semibold text-lg mb-1">Reduced Agent Escalations</div>
-                <div className="text-sm text-acc-gray-400">15-20% higher containment rate reduces live agent volume</div>
-                <div className="text-xs text-acc-gray-500 mt-1">Savings from avoided agent FTEs and infrastructure (~53%)</div>
+                <div className="text-sm text-acc-gray-400 mb-2">15-20% improvement in automated containment rate significantly reduces live agent workload</div>
+                <div className="text-xs text-acc-gray-500">
+                  Intelligent goal-driven conversations with agentic orchestration resolve more inquiries autonomously. 
+                  Savings realized through reduced agent FTE requirements, lower infrastructure costs, and decreased training overhead.
+                </div>
               </div>
               <div className="text-3xl font-bold text-green-400 ml-4">{formatMoney(agentEscalationSavings)}</div>
             </div>
@@ -130,8 +133,11 @@ export default function ImpactPage() {
             <div className="flex justify-between items-center bg-acc-gray-800 border border-acc-gray-700 rounded-lg p-6 hover:border-green-400/50 transition-colors">
               <div className="flex-1">
                 <div className="font-semibold text-lg mb-1">Faster Resolution Times</div>
-                <div className="text-sm text-acc-gray-400">60-90s AHT reduction across all interactions</div>
-                <div className="text-xs text-acc-gray-500 mt-1">Reduced handle time increases agent productivity (~27%)</div>
+                <div className="text-sm text-acc-gray-400 mb-2">60-90 second reduction in average handle time through intelligent routing and proactive assistance</div>
+                <div className="text-xs text-acc-gray-500">
+                  Domain-specialized agents with direct tool access eliminate transfers and reduce information gathering time.
+                  Agents spend less time navigating systems, resulting in increased productivity and throughput gains.
+                </div>
               </div>
               <div className="text-3xl font-bold text-green-400 ml-4">{formatMoney(ahtReductionSavings)}</div>
             </div>
@@ -139,8 +145,11 @@ export default function ImpactPage() {
             <div className="flex justify-between items-center bg-acc-gray-800 border border-acc-gray-700 rounded-lg p-6 hover:border-green-400/50 transition-colors">
               <div className="flex-1">
                 <div className="font-semibold text-lg mb-1">Reduced Call Abandonment & Rework</div>
-                <div className="text-sm text-acc-gray-400">Better first-contact resolution reduces repeat calls</div>
-                <div className="text-xs text-acc-gray-500 mt-1">Fewer callbacks and escalations save operational costs (~10%)</div>
+                <div className="text-sm text-acc-gray-400 mb-2">Superior first-contact resolution minimizes repeat interactions and callbacks</div>
+                <div className="text-xs text-acc-gray-500">
+                  Context-aware conversations retain session history and prevent customers from repeating information.
+                  Reduced rework volume lowers overall contact center capacity requirements and associated costs.
+                </div>
               </div>
               <div className="text-3xl font-bold text-green-400 ml-4">{formatMoney(reworkReductionSavings)}</div>
             </div>
@@ -148,8 +157,11 @@ export default function ImpactPage() {
             <div className="flex justify-between items-center bg-acc-gray-800 border border-acc-gray-700 rounded-lg p-6 hover:border-green-400/50 transition-colors">
               <div className="flex-1">
                 <div className="font-semibold text-lg mb-1">Maintenance & Operations Efficiency</div>
-                <div className="text-sm text-acc-gray-400">50% reduction in manual intent tuning and system maintenance</div>
-                <div className="text-xs text-acc-gray-500 mt-1">LLM-powered agents reduce ongoing operational overhead (~10%)</div>
+                <div className="text-sm text-acc-gray-400 mb-2">Dramatic reduction in manual intent tuning, flow maintenance, and system administration</div>
+                <div className="text-xs text-acc-gray-500">
+                  LLM-powered semantic understanding eliminates 50%+ of traditional intent management overhead.
+                  Self-optimizing agents and automated policy updates reduce ongoing operational burden and IT resource requirements.
+                </div>
               </div>
               <div className="text-3xl font-bold text-green-400 ml-4">{formatMoney(maintenanceSavings)}</div>
             </div>
@@ -157,7 +169,7 @@ export default function ImpactPage() {
             <div className="border-t-2 border-acc-purple pt-6 flex justify-between items-center bg-acc-gray-900 rounded-lg p-6">
               <div>
                 <div className="font-bold text-2xl mb-2">Total Annual Savings</div>
-                <div className="text-sm text-acc-gray-400">${COST_PER_MILLION}M per 1M calls × {callVolume}M calls</div>
+                <div className="text-sm text-acc-gray-400">Aggregate operational cost reduction across all improvement dimensions</div>
               </div>
               <div className="text-5xl font-bold text-acc-purple">{formatMoney(totalSavings)}</div>
             </div>
