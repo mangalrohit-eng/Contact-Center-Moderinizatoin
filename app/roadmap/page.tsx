@@ -2,8 +2,9 @@
 
 import { useState } from 'react';
 import roadmapData from '@/data/roadmap.json';
-import { Calendar, CheckCircle2, Zap } from 'lucide-react';
+import { Calendar, CheckCircle2, Zap, ArrowRight } from 'lucide-react';
 import NextPageButton from '@/components/NextPageButton';
+import Link from 'next/link';
 
 export default function RoadmapPage() {
   const [selectedPhase, setSelectedPhase] = useState<string | null>(null);
@@ -132,6 +133,12 @@ export default function RoadmapPage() {
                     </div>
                     <h3 className="text-2xl font-bold mb-2">{phase.name}</h3>
                     <p className="text-acc-gray-300">{phase.description}</p>
+                    {idx === 0 && (
+                      <Link href="/pilot/" className="text-sm text-acc-purple hover:text-acc-purple/80 transition-colors inline-flex items-center gap-1 mt-2">
+                        <span>View detailed 3-month pilot plan</span>
+                        <ArrowRight className="w-4 h-4" />
+                      </Link>
+                    )}
                   </div>
                   <div className="text-right">
                     <div className={`text-3xl font-bold ${getPhaseAccent(idx)} mb-1`}>

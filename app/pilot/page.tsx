@@ -2,6 +2,7 @@
 
 import { Calendar, Users, Zap, CheckCircle2, ArrowRight, Shield, Target, Wrench, Brain, Rocket } from 'lucide-react';
 import NextPageButton from '@/components/NextPageButton';
+import Link from 'next/link';
 import { useState } from 'react';
 
 const phases = [
@@ -133,23 +134,31 @@ export default function PilotPage() {
     <div className="py-20">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Header */}
-        <div className="text-center mb-16">
+        <div className="text-center mb-12">
+          <div className="inline-flex items-center gap-2 bg-acc-purple/10 border border-acc-purple/30 rounded-full px-4 py-2 mb-4">
+            <span className="text-sm text-acc-purple font-semibold">Phase 1: Months 1-3</span>
+          </div>
           <h1 className="text-4xl md:text-5xl font-bold mb-6">
-            <span className="text-acc-purple">Pilot-First Approach</span>
+            <span className="text-acc-purple">3-Month Pilot</span>
+            <span className="text-acc-gray-400 text-3xl block mt-2">Foundation & High-Volume Agents</span>
           </h1>
           <p className="text-xl text-acc-gray-400 max-w-3xl mx-auto mb-6">
-            De-risk the transformation with a focused 3-month pilot (Phase 1 of the roadmap) that delivers real business value by deploying high-volume billing and plan agents covering 40 intents and achieving 20% intent coverage.
+            This detailed view of Roadmap Phase 1 shows how we'll deploy 3 orchestrators and 2 high-volume domain agents, achieving 20% intent coverage and demonstrating real business value in just 3 months.
           </p>
-          <div className="flex flex-wrap justify-center gap-3">
+          <div className="flex flex-wrap justify-center gap-3 mb-4">
             <div className="inline-flex items-center gap-2 bg-acc-purple/20 border border-acc-purple rounded-full px-6 py-3">
-              <Calendar className="w-5 h-5 text-acc-purple" />
-              <span className="text-acc-purple font-semibold">3-Month Pilot = Phase 1 of Roadmap</span>
+              <Users className="w-5 h-5 text-acc-purple" />
+              <span className="text-acc-purple font-semibold">5 Agents: 3 Orchestrators + 2 Domain</span>
             </div>
             <div className="inline-flex items-center gap-2 bg-green-400/20 border border-green-400 rounded-full px-6 py-3">
               <Target className="w-5 h-5 text-green-400" />
               <span className="text-green-400 font-semibold">40 Intents | 20% Coverage</span>
             </div>
           </div>
+          <Link href="/roadmap/" className="text-sm text-acc-purple hover:text-acc-purple/80 transition-colors inline-flex items-center gap-1">
+            <ArrowRight className="w-4 h-4 rotate-180" />
+            <span>Back to Full 12-Month Roadmap</span>
+          </Link>
         </div>
 
 
