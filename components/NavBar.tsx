@@ -13,6 +13,7 @@ export default function NavBar() {
   const navLinks = [
     { href: '/', label: 'Home' },
     { href: '/approach/', label: 'Approach' },
+    { href: '/impact/', label: 'Business Impact' },
     { href: '/architecture/', label: 'Architecture' },
     { href: '/agents/', label: 'Agent Catalog' },
     { href: '/agentic/', label: 'How it Will Work' },

@@ -72,7 +72,7 @@ export default function ApproachPage() {
           })}
         </div>
 
-        <NextPageButton href="/architecture/" label="Architecture" />
+        <NextPageButton href="/impact/" label="Business Impact" />
       </div>
     </div>
   );
