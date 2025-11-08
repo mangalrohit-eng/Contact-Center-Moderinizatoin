@@ -11,6 +11,8 @@ type MapRow = { intentId:number; intent:string; agent:string; tools:string[] };
 
 export default function UseCaseMatrix(){
   const [filterDomain, setFilterDomain] = useState<string>('All');
+  const [filterAgent, setFilterAgent] = useState<string>('All');
+  const [filterTool, setFilterTool] = useState<string>('All');
   const [searchTerm, setSearchTerm] = useState<string>('');
   const [currentPage, setCurrentPage] = useState(1);
   const itemsPerPage = 50;
@@ -25,15 +27,28 @@ export default function UseCaseMatrix(){
 
   const domains = useMemo(()=>['All', ...Array.from(new Set((intents.intents as Intent[]).map(i=>i.category)))],[]);
   
+  // Get unique agents and tools for filter dropdowns
+  const agents = useMemo(() => {
+    const uniqueAgents = Array.from(new Set(mappings.map(m => m.agent)));
+    return ['All', ...uniqueAgents.sort()];
+  }, [mappings]);
+
+  const tools = useMemo(() => {
+    const uniqueTools = Array.from(new Set(mappings.flatMap(m => m.tools)));
+    return ['All', ...uniqueTools.sort()];
+  }, [mappings]);
+  
   const filteredRows = mappings
     .map(r => ({...r, intentObj:intentById[r.intentId]}))
     .filter(r => {
       if (!r.intentObj) return false;
       const matchesDomain = filterDomain === 'All' || r.intentObj.category === filterDomain;
+      const matchesAgent = filterAgent === 'All' || r.agent === filterAgent;
+      const matchesTool = filterTool === 'All' || r.tools.includes(filterTool);
       const matchesSearch = searchTerm === '' || 
         r.intent.toLowerCase().includes(searchTerm.toLowerCase()) ||
         r.intentObj.category.toLowerCase().includes(searchTerm.toLowerCase());
-      return matchesDomain && matchesSearch;
+      return matchesDomain && matchesAgent && matchesTool && matchesSearch;
     });
 
   const totalPages = Math.ceil(filteredRows.length / itemsPerPage);
@@ -53,21 +68,100 @@ export default function UseCaseMatrix(){
         </p>
       </div>
       
-      <div className="flex flex-col md:flex-row gap-4 mb-6">
-        <input
-          type="text"
-          placeholder="Search intents..."
-          value={searchTerm}
-          onChange={e=>{setSearchTerm(e.target.value); setCurrentPage(1);}}
-          className="flex-1 bg-acc-gray-900 border border-acc-gray-700 rounded-lg px-4 py-2 text-white placeholder-acc-gray-400 focus:outline-none focus:ring-2 focus:ring-acc-purple"
-        />
-        <select 
-          value={filterDomain} 
-          onChange={e=>{setFilterDomain(e.target.value); setCurrentPage(1);}}
-          className="bg-acc-gray-900 border border-acc-gray-700 rounded-lg px-4 py-2 text-white focus:outline-none focus:ring-2 focus:ring-acc-purple"
-        >
-          {domains.map(d=><option key={d} value={d}>{d}</option>)}
-        </select>
+      {/* Search and Filters */}
+      <div className="space-y-4 mb-6">
+        {/* Search Bar */}
+        <div>
+          <input
+            type="text"
+            placeholder="Search intents..."
+            value={searchTerm}
+            onChange={e=>{setSearchTerm(e.target.value); setCurrentPage(1);}}
+            className="w-full bg-acc-gray-900 border border-acc-gray-700 rounded-lg px-4 py-2 text-white placeholder-acc-gray-400 focus:outline-none focus:ring-2 focus:ring-acc-purple"
+          />
+        </div>
+
+        {/* Filter Dropdowns */}
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
+          <div>
+            <label className="block text-xs font-semibold text-acc-gray-400 mb-1.5">Filter by Domain</label>
+            <select 
+              value={filterDomain} 
+              onChange={e=>{setFilterDomain(e.target.value); setCurrentPage(1);}}
+              className="w-full bg-acc-gray-900 border border-acc-gray-700 rounded-lg px-4 py-2 text-white focus:outline-none focus:ring-2 focus:ring-acc-purple"
+            >
+              {domains.map(d=><option key={d} value={d}>{d === 'All' ? 'All Domains' : d}</option>)}
+            </select>
+          </div>
+
+          <div>
+            <label className="block text-xs font-semibold text-acc-gray-400 mb-1.5">Filter by Agent</label>
+            <select 
+              value={filterAgent} 
+              onChange={e=>{setFilterAgent(e.target.value); setCurrentPage(1);}}
+              className="w-full bg-acc-gray-900 border border-acc-gray-700 rounded-lg px-4 py-2 text-white focus:outline-none focus:ring-2 focus:ring-acc-purple"
+            >
+              {agents.map(a=><option key={a} value={a}>{a === 'All' ? 'All Agents' : (agentById[a]?.name || a)}</option>)}
+            </select>
+          </div>
+
+          <div>
+            <label className="block text-xs font-semibold text-acc-gray-400 mb-1.5">Filter by Tool</label>
+            <select 
+              value={filterTool} 
+              onChange={e=>{setFilterTool(e.target.value); setCurrentPage(1);}}
+              className="w-full bg-acc-gray-900 border border-acc-gray-700 rounded-lg px-4 py-2 text-white focus:outline-none focus:ring-2 focus:ring-acc-purple"
+            >
+              {tools.map(t=><option key={t} value={t}>{t === 'All' ? 'All Tools' : (toolById[t]?.name || t)}</option>)}
+            </select>
+          </div>
+        </div>
+
+        {/* Active Filters Display */}
+        {(filterDomain !== 'All' || filterAgent !== 'All' || filterTool !== 'All') && (
+          <div className="flex flex-wrap items-center gap-2">
+            <span className="text-xs text-acc-gray-400">Active filters:</span>
+            {filterDomain !== 'All' && (
+              <button
+                onClick={() => {setFilterDomain('All'); setCurrentPage(1);}}
+                className="text-xs px-3 py-1 bg-acc-purple/20 text-acc-purple border border-acc-purple/40 rounded-full hover:bg-acc-purple/30 transition-colors flex items-center gap-1.5"
+              >
+                Domain: {filterDomain}
+                <span className="text-lg leading-none">×</span>
+              </button>
+            )}
+            {filterAgent !== 'All' && (
+              <button
+                onClick={() => {setFilterAgent('All'); setCurrentPage(1);}}
+                className="text-xs px-3 py-1 bg-green-400/20 text-green-400 border border-green-400/40 rounded-full hover:bg-green-400/30 transition-colors flex items-center gap-1.5"
+              >
+                Agent: {agentById[filterAgent]?.name || filterAgent}
+                <span className="text-lg leading-none">×</span>
+              </button>
+            )}
+            {filterTool !== 'All' && (
+              <button
+                onClick={() => {setFilterTool('All'); setCurrentPage(1);}}
+                className="text-xs px-3 py-1 bg-sky-400/20 text-sky-400 border border-sky-400/40 rounded-full hover:bg-sky-400/30 transition-colors flex items-center gap-1.5"
+              >
+                Tool: {toolById[filterTool]?.name || filterTool}
+                <span className="text-lg leading-none">×</span>
+              </button>
+            )}
+            <button
+              onClick={() => {
+                setFilterDomain('All');
+                setFilterAgent('All');
+                setFilterTool('All');
+                setSearchTerm('');
+                setCurrentPage(1);
+              }}
+              className="text-xs px-3 py-1 bg-acc-gray-700 text-acc-gray-300 border border-acc-gray-600 rounded-full hover:bg-acc-gray-600 transition-colors"
+            >
+              Clear all
+            </button>
+          </div>
+        )}
       </div>
       
       <div className="mb-4 text-sm text-acc-gray-400">
