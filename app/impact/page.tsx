@@ -14,16 +14,25 @@ export default function ImpactPage() {
   const totalSavings = callVolume * COST_PER_MILLION;
   
   // Breakdown percentages (totaling to $3M per 1M calls)
-  const agentEscalationSavings = callVolume * 1.6; // 53%
-  const ahtReductionSavings = callVolume * 0.8; // 27%
-  const reworkReductionSavings = callVolume * 0.3; // 10%
-  const maintenanceSavings = callVolume * 0.3; // 10%
+  const callAvoidanceSavings = callVolume * 1.5; // ~50% of total
+  const ahtImprovementSavings = callVolume * 0.9; // ~30% of total
+  const repeatCallReductionSavings = callVolume * 0.35; // ~12% of total
+  const operationalEfficiencySavings = callVolume * 0.25; // ~8% of total
   
   const formatMoney = (amount: number) => {
     if (amount >= 1) {
       return `$${amount.toFixed(0)}M`;
     }
     return `$${(amount * 1000).toFixed(0)}K`;
+  };
+  
+  const formatRange = (amount: number) => {
+    const lower = amount * 0.9;
+    const upper = amount * 1.1;
+    if (amount >= 1) {
+      return `~$${lower.toFixed(0)}-${upper.toFixed(0)}M`;
+    }
+    return `~$${(lower * 1000).toFixed(0)}-${(upper * 1000).toFixed(0)}K`;
   };
 
   return (
@@ -74,34 +83,34 @@ export default function ImpactPage() {
         </div>
 
         {/* Key Metrics */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mb-16">
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-12">
           <div className="bg-gradient-to-br from-acc-purple/20 to-transparent border-2 border-acc-purple rounded-lg p-6 text-center hover:scale-105 transition-transform">
             <TrendingUp className="w-12 h-12 text-acc-purple mx-auto mb-3" />
-            <div className="text-4xl font-bold text-acc-purple mb-2">+15-20%</div>
-            <h3 className="font-semibold mb-2">Containment Rate</h3>
+            <div className="text-4xl font-bold text-acc-purple mb-2">~15-20%</div>
+            <h3 className="font-semibold mb-2">Containment Rate Improvement</h3>
             <p className="text-sm text-acc-gray-400">More issues resolved without human escalation</p>
           </div>
 
           <div className="bg-gradient-to-br from-green-400/20 to-transparent border-2 border-green-400 rounded-lg p-6 text-center hover:scale-105 transition-transform">
             <Clock className="w-12 h-12 text-green-400 mx-auto mb-3" />
-            <div className="text-4xl font-bold text-green-400 mb-2">-60-90s</div>
-            <h3 className="font-semibold mb-2">Average Handle Time</h3>
-            <p className="text-sm text-acc-gray-400">Faster resolution through intelligent routing</p>
-          </div>
-
-          <div className="bg-gradient-to-br from-blue-400/20 to-transparent border-2 border-blue-400 rounded-lg p-6 text-center hover:scale-105 transition-transform">
-            <Award className="w-12 h-12 text-blue-400 mx-auto mb-3" />
-            <div className="text-4xl font-bold text-blue-400 mb-2">+0.3-0.5</div>
-            <h3 className="font-semibold mb-2">CSAT Score</h3>
-            <p className="text-sm text-acc-gray-400">Improved customer satisfaction</p>
+            <div className="text-4xl font-bold text-green-400 mb-2">~60-90s</div>
+            <h3 className="font-semibold mb-2">AHT Reduction</h3>
+            <p className="text-sm text-acc-gray-400">Faster resolution through AI-provided context</p>
           </div>
 
           <div className="bg-gradient-to-br from-yellow-400/20 to-transparent border-2 border-yellow-400 rounded-lg p-6 text-center hover:scale-105 transition-transform">
             <DollarSign className="w-12 h-12 text-yellow-400 mx-auto mb-3" />
-            <div className="text-4xl font-bold text-yellow-400 mb-2">{formatMoney(totalSavings)}</div>
+            <div className="text-4xl font-bold text-yellow-400 mb-2">~{formatMoney(totalSavings)}</div>
             <h3 className="font-semibold mb-2">Annual Cost Savings</h3>
             <p className="text-sm text-acc-gray-400">At {callVolume}M calls per year</p>
           </div>
+        </div>
+
+        {/* Additional Benefits Note */}
+        <div className="mb-16 bg-blue-400/10 border border-blue-400/30 rounded-lg p-6 text-center max-w-3xl mx-auto">
+          <p className="text-acc-gray-300">
+            <span className="font-semibold text-blue-400">Additional Benefit:</span> Customer satisfaction scores are expected to improve by <span className="font-semibold text-white">~0.3-0.5 points</span> due to faster resolutions, better context retention, and more accurate first-time answers.
+          </p>
         </div>
 
         {/* Cost Savings Breakdown */}
@@ -120,50 +129,50 @@ export default function ImpactPage() {
           <div className="max-w-4xl mx-auto space-y-4">
             <div className="flex justify-between items-center bg-acc-gray-800 border border-acc-gray-700 rounded-lg p-6 hover:border-green-400/50 transition-colors">
               <div className="flex-1">
-                <div className="font-semibold text-lg mb-1">Reduced Agent Escalations</div>
-                <div className="text-sm text-acc-gray-400 mb-2">15-20% improvement in automated containment rate significantly reduces live agent workload</div>
+                <div className="font-semibold text-lg mb-1">Call Avoidance</div>
+                <div className="text-sm text-acc-gray-400 mb-2">~15-20% improvement in automated containment rate significantly reduces live agent workload</div>
                 <div className="text-xs text-acc-gray-500">
-                  Intelligent goal-driven conversations with agentic orchestration resolve more inquiries autonomously. 
-                  Savings realized through reduced agent FTE requirements, lower infrastructure costs, and decreased training overhead.
+                  Intelligent goal-driven conversations with agentic orchestration autonomously resolve more customer inquiries without human escalation. 
+                  Savings realized through reduced agent FTE requirements, lower infrastructure costs, and decreased training overhead across the contact center operation.
                 </div>
               </div>
-              <div className="text-3xl font-bold text-green-400 ml-4">{formatMoney(agentEscalationSavings)}</div>
+              <div className="text-3xl font-bold text-green-400 ml-4 whitespace-nowrap">{formatRange(callAvoidanceSavings)}</div>
             </div>
             
             <div className="flex justify-between items-center bg-acc-gray-800 border border-acc-gray-700 rounded-lg p-6 hover:border-green-400/50 transition-colors">
               <div className="flex-1">
-                <div className="font-semibold text-lg mb-1">Faster Resolution Times</div>
-                <div className="text-sm text-acc-gray-400 mb-2">60-90 second reduction in average handle time through intelligent routing and proactive assistance</div>
+                <div className="font-semibold text-lg mb-1">AHT Improvement</div>
+                <div className="text-sm text-acc-gray-400 mb-2">~60-90 second reduction in average handle time when calls do reach human agents</div>
                 <div className="text-xs text-acc-gray-500">
-                  Domain-specialized agents with direct tool access eliminate transfers and reduce information gathering time.
-                  Agents spend less time navigating systems, resulting in increased productivity and throughput gains.
+                  AI provides comprehensive context, conversation history, and recommended actions to human agents before transfer, eliminating redundant information gathering.
+                  Agents receive pre-authenticated customer data, prior interactions, and suggested resolutions, dramatically improving efficiency and customer experience.
                 </div>
               </div>
-              <div className="text-3xl font-bold text-green-400 ml-4">{formatMoney(ahtReductionSavings)}</div>
+              <div className="text-3xl font-bold text-green-400 ml-4 whitespace-nowrap">{formatRange(ahtImprovementSavings)}</div>
             </div>
             
             <div className="flex justify-between items-center bg-acc-gray-800 border border-acc-gray-700 rounded-lg p-6 hover:border-green-400/50 transition-colors">
               <div className="flex-1">
-                <div className="font-semibold text-lg mb-1">Reduced Call Abandonment & Rework</div>
-                <div className="text-sm text-acc-gray-400 mb-2">Superior first-contact resolution minimizes repeat interactions and callbacks</div>
+                <div className="font-semibold text-lg mb-1">Repeat Call Reduction</div>
+                <div className="text-sm text-acc-gray-400 mb-2">Superior first-call resolution by AI minimizes repeat interactions and callbacks</div>
                 <div className="text-xs text-acc-gray-500">
-                  Context-aware conversations retain session history and prevent customers from repeating information.
-                  Reduced rework volume lowers overall contact center capacity requirements and associated costs.
+                  Better-quality resolutions from AI-powered interactions reduce customer need to call back with unresolved issues.
+                  Context-aware conversations retain session history and provide accurate, complete answers the first time, lowering overall contact volume and capacity requirements.
                 </div>
               </div>
-              <div className="text-3xl font-bold text-green-400 ml-4">{formatMoney(reworkReductionSavings)}</div>
+              <div className="text-3xl font-bold text-green-400 ml-4 whitespace-nowrap">{formatRange(repeatCallReductionSavings)}</div>
             </div>
             
             <div className="flex justify-between items-center bg-acc-gray-800 border border-acc-gray-700 rounded-lg p-6 hover:border-green-400/50 transition-colors">
               <div className="flex-1">
-                <div className="font-semibold text-lg mb-1">Maintenance & Operations Efficiency</div>
-                <div className="text-sm text-acc-gray-400 mb-2">Dramatic reduction in manual intent tuning, flow maintenance, and system administration</div>
+                <div className="font-semibold text-lg mb-1">Operational Efficiencies</div>
+                <div className="text-sm text-acc-gray-400 mb-2">Self-maintaining AI system eliminates constant retuning and manual maintenance</div>
                 <div className="text-xs text-acc-gray-500">
-                  LLM-powered semantic understanding eliminates 50%+ of traditional intent management overhead.
-                  Self-optimizing agents and automated policy updates reduce ongoing operational burden and IT resource requirements.
+                  LLM-powered semantic understanding adapts to new utterances without manual intent creation or training data labeling.
+                  Self-optimizing agents and automated policy updates reduce 50%+ of traditional operational burden, eliminating dedicated teams for intent management and flow maintenance.
                 </div>
               </div>
-              <div className="text-3xl font-bold text-green-400 ml-4">{formatMoney(maintenanceSavings)}</div>
+              <div className="text-3xl font-bold text-green-400 ml-4 whitespace-nowrap">{formatRange(operationalEfficiencySavings)}</div>
             </div>
             
             <div className="border-t-2 border-acc-purple pt-6 flex justify-between items-center bg-acc-gray-900 rounded-lg p-6">
@@ -171,7 +180,7 @@ export default function ImpactPage() {
                 <div className="font-bold text-2xl mb-2">Total Annual Savings</div>
                 <div className="text-sm text-acc-gray-400">Aggregate operational cost reduction across all improvement dimensions</div>
               </div>
-              <div className="text-5xl font-bold text-acc-purple">{formatMoney(totalSavings)}</div>
+              <div className="text-5xl font-bold text-acc-purple">~{formatMoney(totalSavings)}</div>
             </div>
           </div>
           
@@ -181,12 +190,12 @@ export default function ImpactPage() {
               <div className="text-sm text-acc-gray-400">Annual customer interactions automated or enhanced</div>
             </div>
             <div className="bg-acc-gray-900/50 border border-acc-gray-700 rounded-lg p-6 text-center">
-              <div className="text-3xl font-bold text-green-400 mb-2">3-Year</div>
-              <div className="text-sm text-acc-gray-400">Cumulative savings: <strong>{formatMoney(totalSavings * 3)}</strong></div>
+              <div className="text-3xl font-bold text-green-400 mb-2">3-Year Outlook</div>
+              <div className="text-sm text-acc-gray-400">Cumulative savings: <strong>~{formatMoney(totalSavings * 3)}</strong></div>
             </div>
             <div className="bg-acc-gray-900/50 border border-acc-gray-700 rounded-lg p-6 text-center">
-              <div className="text-3xl font-bold text-blue-400 mb-2">15-20%</div>
-              <div className="text-sm text-acc-gray-400">Improvement in key CX metrics (CSAT, containment)</div>
+              <div className="text-3xl font-bold text-blue-400 mb-2">~15-20%</div>
+              <div className="text-sm text-acc-gray-400">Containment rate improvement across all intents</div>
             </div>
           </div>
         </div>
