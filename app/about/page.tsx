@@ -166,12 +166,98 @@ export default function AboutPage() {
           </div>
         </div>
 
-        {/* Glossary */}
-        <div className="mb-16">
-          <Glossary />
-        </div>
+            {/* FAQ Section */}
+            <div className="mb-16">
+              <h2 className="text-3xl font-bold mb-6 text-center">Frequently Asked Questions</h2>
+              <div className="max-w-3xl mx-auto space-y-4">
+                <details className="bg-acc-gray-800 border border-acc-gray-700 rounded-lg p-6 group">
+                  <summary className="cursor-pointer font-semibold text-lg flex items-center justify-between hover:text-acc-purple transition-colors">
+                    <span>How long does the full rollout take?</span>
+                    <span className="text-acc-purple text-2xl group-open:rotate-45 transition-transform">+</span>
+                  </summary>
+                  <p className="mt-4 text-acc-gray-400 text-sm">
+                    The complete deployment takes <strong>12 months</strong> across 5 phases, starting with a 3-month pilot (Phase 1) that delivers 20% intent coverage. Each subsequent phase builds on the foundation, with full 200-intent coverage achieved by month 12.
+                  </p>
+                </details>
 
-        <NextPageButton href="/" label="Back to Home" />
+                <details className="bg-acc-gray-800 border border-acc-gray-700 rounded-lg p-6 group">
+                  <summary className="cursor-pointer font-semibold text-lg flex items-center justify-between hover:text-acc-purple transition-colors">
+                    <span>What happens to our existing Dialogflow implementation?</span>
+                    <span className="text-acc-purple text-2xl group-open:rotate-45 transition-transform">+</span>
+                  </summary>
+                  <p className="mt-4 text-acc-gray-400 text-sm">
+                    CES Next Gen runs in parallel during the pilot phase with A/B testing. Once validated, we conduct a phased migration with <strong>zero downtime</strong>. Your existing intent library and conversation logs inform the new goal-based flows, ensuring continuity while enabling new capabilities.
+                  </p>
+                </details>
+
+                <details className="bg-acc-gray-800 border border-acc-gray-700 rounded-lg p-6 group">
+                  <summary className="cursor-pointer font-semibold text-lg flex items-center justify-between hover:text-acc-purple transition-colors">
+                    <span>Can we pause between phases?</span>
+                    <span className="text-acc-purple text-2xl group-open:rotate-45 transition-transform">+</span>
+                  </summary>
+                  <p className="mt-4 text-acc-gray-400 text-sm">
+                    Yes. Each phase has <strong>KPI-driven gates</strong> that must be met before proceeding. You can pause to optimize, gather additional business cases, or adjust scope. The modular architecture ensures deployed agents continue operating independently.
+                  </p>
+                </details>
+
+                <details className="bg-acc-gray-800 border border-acc-gray-700 rounded-lg p-6 group">
+                  <summary className="cursor-pointer font-semibold text-lg flex items-center justify-between hover:text-acc-purple transition-colors">
+                    <span>What if we have custom or unique intents?</span>
+                    <span className="text-acc-purple text-2xl group-open:rotate-45 transition-transform">+</span>
+                  </summary>
+                  <p className="mt-4 text-acc-gray-400 text-sm">
+                    The Discovery phase includes <strong>comprehensive intent analysis</strong> specific to your operations. We cluster and rationalize your existing intents with the 200-intent baseline, creating a custom roadmap. LLM-powered semantic understanding handles variations without manual intent creation.
+                  </p>
+                </details>
+
+                <details className="bg-acc-gray-800 border border-acc-gray-700 rounded-lg p-6 group">
+                  <summary className="cursor-pointer font-semibold text-lg flex items-center justify-between hover:text-acc-purple transition-colors">
+                    <span>How do we measure success during the pilot?</span>
+                    <span className="text-acc-purple text-2xl group-open:rotate-45 transition-transform">+</span>
+                  </summary>
+                  <p className="mt-4 text-acc-gray-400 text-sm">
+                    Success criteria for the 3-month pilot include: <strong>40 intents deployed, 20% coverage, +10% containment improvement, ~45-60s AHT reduction</strong>. We establish KPI dashboards from week 1 with daily monitoring during hypercare and weekly business reviews.
+                  </p>
+                </details>
+
+                <details className="bg-acc-gray-800 border border-acc-gray-700 rounded-lg p-6 group">
+                  <summary className="cursor-pointer font-semibold text-lg flex items-center justify-between hover:text-acc-purple transition-colors">
+                    <span>What team size is required?</span>
+                    <span className="text-acc-purple text-2xl group-open:rotate-45 transition-transform">+</span>
+                  </summary>
+                  <p className="mt-4 text-acc-gray-400 text-sm">
+                    Three cross-functional pods work in parallel: <strong>Discovery Pod</strong> (4-6 people: BAs, conversation designers, domain experts), <strong>Design Pod</strong> (4-6 people: architects, UX, policy experts), and <strong>Build Pod</strong> (6-8 people: AI/ML engineers, developers, DevOps, QA). Total: ~15-20 FTEs during pilot, scaling to 25-30 for full deployment.
+                  </p>
+                </details>
+
+                <details className="bg-acc-gray-800 border border-acc-gray-700 rounded-lg p-6 group">
+                  <summary className="cursor-pointer font-semibold text-lg flex items-center justify-between hover:text-acc-purple transition-colors">
+                    <span>What happens after the 6-week hypercare period?</span>
+                    <span className="text-acc-purple text-2xl group-open:rotate-45 transition-transform">+</span>
+                  </summary>
+                  <p className="mt-4 text-acc-gray-400 text-sm">
+                    After hypercare, we transition to <strong>Business As Usual (BAU)</strong> with knowledge transfer to your operations team, documented runbooks, ongoing support model definition, and a continuous improvement framework. The self-optimizing agents require 50% less maintenance than traditional systems.
+                  </p>
+                </details>
+
+                <details className="bg-acc-gray-800 border border-acc-gray-700 rounded-lg p-6 group">
+                  <summary className="cursor-pointer font-semibold text-lg flex items-center justify-between hover:text-acc-purple transition-colors">
+                    <span>How do you ensure data privacy and compliance?</span>
+                    <span className="text-acc-purple text-2xl group-open:rotate-45 transition-transform">+</span>
+                  </summary>
+                  <p className="mt-4 text-acc-gray-400 text-sm">
+                    The <strong>Safety & Compliance Orchestrator</strong> enforces policies at every turn. All PII is handled according to GDPR/CCPA requirements. Conversation logs are encrypted at rest and in transit. Guardrails prevent unauthorized data access, and audit trails track all agent actions for compliance review.
+                  </p>
+                </details>
+              </div>
+            </div>
+
+            {/* Glossary */}
+            <div className="mb-16">
+              <Glossary />
+            </div>
+
+            <NextPageButton href="/" label="Back to Home" />
       </div>
     </div>
   );

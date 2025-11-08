@@ -49,16 +49,19 @@ export default function ImpactPage() {
         </div>
 
         {/* Interactive Calculator */}
-        <div className="mb-12 bg-gradient-to-br from-acc-purple/20 to-transparent border-2 border-acc-purple rounded-lg p-8 max-w-3xl mx-auto">
+        <div className="mb-12 bg-gradient-to-br from-acc-purple/20 to-transparent border-2 border-acc-purple rounded-lg p-8 max-w-4xl mx-auto">
           <div className="flex items-center justify-center gap-3 mb-6">
             <Calculator className="w-8 h-8 text-acc-purple" />
             <h2 className="text-2xl font-bold">Savings Calculator</h2>
           </div>
           
           <div className="bg-acc-gray-900 rounded-lg p-6">
-            <label htmlFor="callVolume" className="block text-sm font-semibold text-acc-gray-300 mb-3">
+            <label htmlFor="callVolume" className="block text-sm font-semibold text-acc-gray-300 mb-2">
               Enter your annual call volume (in millions):
             </label>
+            <p className="text-xs text-acc-gray-500 mb-3">
+              <strong>Context:</strong> Enterprise telecoms typically handle 50-150M calls annually. Default shown: 60M calls (mid-size carrier).
+            </p>
             <div className="flex items-center gap-4">
               <input
                 type="number"
@@ -79,6 +82,24 @@ export default function ImpactPage() {
                 Through operational efficiency gains and automation
               </div>
             </div>
+
+            {/* Methodology Note */}
+            <details className="mt-4 text-xs text-acc-gray-500">
+              <summary className="cursor-pointer hover:text-acc-gray-300 transition-colors">
+                <span className="underline">Methodology & Assumptions</span>
+              </summary>
+              <div className="mt-3 bg-acc-gray-800 rounded p-3 space-y-2">
+                <p><strong>Baseline:</strong> Current avg cost ~$10 per call (industry benchmark: $8-12)</p>
+                <p><strong>Target improvement:</strong> ~30% operational cost reduction through:</p>
+                <ul className="list-disc list-inside ml-2 space-y-1">
+                  <li>15-20% higher containment (fewer agent escalations)</li>
+                  <li>60-90s AHT reduction (faster resolutions)</li>
+                  <li>Lower repeat call volume (better first-contact resolution)</li>
+                  <li>50% reduction in system maintenance overhead</li>
+                </ul>
+                <p><strong>Result:</strong> ~$3M savings per 1M calls annually</p>
+              </div>
+            </details>
           </div>
         </div>
 

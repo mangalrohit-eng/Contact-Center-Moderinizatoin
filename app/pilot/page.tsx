@@ -270,7 +270,7 @@ export default function PilotPage() {
               );
             })}
           </div>
-
+        </div>
 
         {/* Visual Project Plan */}
         <div className="mb-16">
