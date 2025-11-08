@@ -387,14 +387,14 @@ export default function PilotPage() {
             <div className="mb-4">
               <h3 className="font-bold text-xl mb-4 text-green-400">20 Billing & Payments Intents</h3>
               <p className="text-xs text-acc-gray-400 mb-4">
-                All 20 billing intents shown flowing through the pipeline based on <strong>5 pods of each type</strong> (Discovery, Design, Build) working continuously. 
+                All 20 billing intents shown flowing through the pipeline based on <strong>6 pods of each type</strong> (Discovery, Design, Build) working continuously. 
                 Each intent: Discovery (2-4w) → Design (2-4w) → Build (2-8w) — all varying by complexity → Live. 
                 As soon as a pod becomes available, it starts on the next intent in queue.
                 <br />
                 <span className="text-acc-purple">Hover over any bar</span> to see specific activities, tools, and API integrations for that phase.
               </p>
               
-              <div className="space-y-1 max-h-96 overflow-y-auto">{/* Intent data with activities - calculated based on 5 pods of each type */}
+              <div className="space-y-1 max-h-96 overflow-y-auto">{/* Intent data with activities - calculated based on 6 pods of each type */}
                 {(() => {
                   const intents = [
                     { name: 'Bill balance inquiry', complexity: 'low', discoveryWeeks: 2, designWeeks: 2, buildWeeks: 2, discovery: ['Customer journey analysis', 'BSS data mapping', 'Authentication flow review'], design: ['Balance display flow', 'Error handling patterns', 'Multi-account support'], tools: ['BSS Billing API', 'Authentication Service', 'Balance Cache'] },
@@ -419,10 +419,10 @@ export default function PilotPage() {
                     { name: 'Payment extension', complexity: 'high', discoveryWeeks: 4, designWeeks: 4, buildWeeks: 6, discovery: ['Extension eligibility rules', 'Policy variations', 'Approval workflows', 'Impact on services'], design: ['Extension request flow', 'Eligibility check', 'Terms presentation', 'Confirmation'], tools: ['Payment Extension API', 'Eligibility Service', 'BSS Billing API', 'Notification Service', 'Service Impact Calculator'] }
                   ];
                   
-                  // Calculate start times based on 5 pods of each type working continuously
-                  const discoveryPods = [0, 0, 0, 0, 0]; // When each discovery pod becomes available
-                  const designPods = [0, 0, 0, 0, 0]; // When each design pod becomes available
-                  const buildPods = [0, 0, 0, 0, 0]; // When each build pod becomes available
+                  // Calculate start times based on 6 pods of each type working continuously
+                  const discoveryPods = [0, 0, 0, 0, 0, 0]; // When each discovery pod becomes available
+                  const designPods = [0, 0, 0, 0, 0, 0]; // When each design pod becomes available
+                  const buildPods = [0, 0, 0, 0, 0, 0]; // When each build pod becomes available
                   
                   const intentsWithTimeline = intents.map((intent, idx) => {
                     // Find earliest available discovery pod
