@@ -64,6 +64,11 @@ export default function NavBar() {
     return 'items' in item;
   };
 
+  // Find the active group to show its sub-navigation
+  const activeGroup = navStructure.find(
+    (item): item is NavGroup => isNavGroup(item) && isGroupActive(item.items)
+  );
+
   return (
     <nav className="sticky top-0 z-50 bg-acc-gray-800/95 backdrop-blur-sm border-b border-acc-gray-700">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -151,6 +156,31 @@ export default function NavBar() {
             </button>
           </div>
         </div>
+
+        {/* Secondary Navigation - Sub-items for active group (Desktop only) */}
+        {activeGroup && (
+          <div className="hidden lg:block border-t border-acc-gray-700">
+            <div className="flex items-center gap-1 py-2">
+              <span className="text-xs text-acc-gray-500 mr-2">{activeGroup.label}:</span>
+              {activeGroup.items.map((subItem) => {
+                const active = isActive(subItem.href);
+                return (
+                  <Link
+                    key={subItem.href}
+                    href={subItem.href}
+                    className={`text-xs px-3 py-1.5 rounded-md transition-colors ${
+                      active
+                        ? 'text-acc-purple font-semibold bg-acc-purple/10 border border-acc-purple/30'
+                        : 'text-acc-gray-400 hover:text-white hover:bg-acc-gray-700'
+                    }`}
+                  >
+                    {subItem.label}
+                  </Link>
+                );
+              })}
+            </div>
+          </div>
+        )}
       </div>
 
       {/* Mobile Navigation */}
