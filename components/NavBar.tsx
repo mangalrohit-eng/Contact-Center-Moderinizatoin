@@ -10,16 +10,17 @@ export default function NavBar() {
   const [isOpen, setIsOpen] = useState(false);
   const pathname = usePathname();
 
-  const navLinks = [
-    { href: '/', label: 'Home' },
-    { href: '/approach/', label: 'Approach' },
-    { href: '/impact/', label: 'Business Impact' },
-    { href: '/architecture/', label: 'Architecture' },
-    { href: '/agents/', label: 'Agent Catalog' },
-    { href: '/agentic/', label: 'How it Will Work' },
-    { href: '/roadmap/', label: 'Roadmap' },
-    { href: '/about/', label: 'About' },
-  ];
+      const navLinks = [
+        { href: '/', label: 'Home' },
+        { href: '/approach/', label: 'Approach' },
+        { href: '/impact/', label: 'Business Impact' },
+        { href: '/architecture/', label: 'Architecture' },
+        { href: '/agents/', label: 'Agent Catalog' },
+        { href: '/agentic/', label: 'How it Will Work' },
+        { href: '/pilot/', label: 'Pilot' },
+        { href: '/roadmap/', label: 'Roadmap' },
+        { href: '/about/', label: 'About' },
+      ];
 
   const isActive = (href: string) => {
     if (href === '/') {

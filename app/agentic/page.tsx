@@ -116,7 +116,7 @@ export default function AgenticPage() {
         {/* Use Case Coverage Matrix (keep) */}
         <UseCaseMatrix />
 
-        <NextPageButton href="/roadmap/" label="Roadmap" />
+            <NextPageButton href="/pilot/" label="Pilot" />
       </div>
     </div>
   );

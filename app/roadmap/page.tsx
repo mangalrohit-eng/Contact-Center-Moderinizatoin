@@ -142,7 +142,7 @@ export default function RoadmapPage() {
                 </div>
 
                 {/* Quick stats */}
-                <div className="grid grid-cols-2 md:grid-cols-4 gap-4 mt-4">
+                <div className="grid grid-cols-3 gap-4 mt-4">
                   <div className="bg-acc-gray-900/50 rounded p-3">
                     <div className="text-xs text-acc-gray-400 mb-1">Agents</div>
                     <div className="text-lg font-bold">{phase.agents.length}</div>
@@ -154,10 +154,6 @@ export default function RoadmapPage() {
                   <div className="bg-acc-gray-900/50 rounded p-3">
                     <div className="text-xs text-acc-gray-400 mb-1">Containment</div>
                     <div className={`text-lg font-bold ${getPhaseAccent(idx)}`}>{phase.kpis.containment}</div>
-                  </div>
-                  <div className="bg-acc-gray-900/50 rounded p-3">
-                    <div className="text-xs text-acc-gray-400 mb-1">CSAT</div>
-                    <div className={`text-lg font-bold ${getPhaseAccent(idx)}`}>{phase.kpis.csat}</div>
                   </div>
                 </div>
               </div>
@@ -214,7 +210,7 @@ export default function RoadmapPage() {
                   {/* KPIs */}
                   <div className="mt-6 pt-6 border-t border-acc-gray-700">
                     <h4 className="font-bold text-lg mb-4">Expected KPIs at Phase End</h4>
-                    <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
+                    <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                       <div className="bg-acc-gray-800 border border-acc-gray-700 rounded p-4">
                         <div className="text-sm text-acc-gray-400 mb-1">Containment Rate</div>
                         <div className={`text-2xl font-bold ${getPhaseAccent(idx)}`}>{phase.kpis.containment}</div>
@@ -222,10 +218,6 @@ export default function RoadmapPage() {
                       <div className="bg-acc-gray-800 border border-acc-gray-700 rounded p-4">
                         <div className="text-sm text-acc-gray-400 mb-1">Average Handle Time</div>
                         <div className={`text-2xl font-bold ${getPhaseAccent(idx)}`}>{phase.kpis.aht}</div>
-                      </div>
-                      <div className="bg-acc-gray-800 border border-acc-gray-700 rounded p-4">
-                        <div className="text-sm text-acc-gray-400 mb-1">CSAT Score</div>
-                        <div className={`text-2xl font-bold ${getPhaseAccent(idx)}`}>{phase.kpis.csat}</div>
                       </div>
                     </div>
                   </div>
@@ -253,7 +245,7 @@ export default function RoadmapPage() {
               <div>
                 <h4 className="font-semibold mb-1">KPI-Driven Gating</h4>
                 <p className="text-sm text-acc-gray-400">
-                  Each phase must meet containment and CSAT thresholds before advancing to the next.
+                  Each phase must meet containment and AHT improvement thresholds before advancing to the next.
                 </p>
               </div>
             </div>
